@@ -1,0 +1,41 @@
+.login-form {
+  background-color: white;
+  padding: 40px;
+  margin-top: -64px;
+  margin: 8px;
+  padding-top: 1pc;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.text-center{
+  margin-left: -0px;
+}
+
+.inline{
+  margin-top: -20px;
+}
+
+.fct{
+  margin-left: 55%;
+  margin-top: -67px;
+}
+
+.std{
+  margin-left: 100px;
+}
+
+.text-left{
+  margin-top: 20px;
+}
+
+.text-right{
+  margin-top: -20px;
+}
+
+.btn-block+.btn-block {
+  margin-top: -0.5rem;
+  margin-bottom: -40px;
+}
