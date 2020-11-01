@@ -15,8 +15,9 @@ const Main = () => {
             <div className="container1">
             <Row>
                 <Col md={2}>
-                    <div className="logodiv"></div>
+                    <div className="logodiv">
                     <Logo/>
+                    </div>
                 </Col>  
                 <Col md={8}>
                     <center>
@@ -38,14 +39,16 @@ const Main = () => {
                 </Col>
             </Row>
             </div>
-              
+            <div className="slider"> 
             <Slider/>  
-
+            </div> 
             <Row>
                 <Col md={12}>
                     <div className='acc' align="center">
                         Accreditation and approvals                                           
-                    <GalleryLogo/>
+                        <div className="galleryPics">
+                            <GalleryLogo/>
+                        </div>
                     </div>
                 </Col>  
             </Row>                                                         
