@@ -1,1 +1,27 @@
+.container1 {
+    font-family: 'Times New Roman', Times, serif;
+}
 
+.head1 {
+    font-size: 40px;
+    font-weight: bolder;
+}
+.head2 {
+    font-size: x-large;
+    font-weight: 500;
+}
+.head3 {
+    font-size: xx-large;
+    font-weight: bold;
+}
+.acc {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+/* @media screen and (max-width: 500px) {
+    .loginModal {
+       display: none;
+    }
+} */

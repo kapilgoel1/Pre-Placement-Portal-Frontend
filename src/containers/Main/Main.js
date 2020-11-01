@@ -1,5 +1,7 @@
 import React from 'react';
 import './Main.css';
+
+import {Row, Col} from 'reactstrap'; 
 import Slider from '../../components/Slider/Slider';
 import LoginModal from '../../components/LoginModal/LoginModal';
 import Logo from '../../components/Logo/Logo';
@@ -10,42 +12,45 @@ const Main = () => {
             
     return (
         <div className="Main">
-            <Logo/>
-            <b>
-            <div align= 'center'>                                          {/*Title of Website*/}
-            <h1 style= {{
-                        fontFamily: "Poppins", 
-                        fontSize: "300%", 
-                        fontWeight: "bold",
-                        color: "midnightblue", 
-                        }}> Jagan Institute of Management Studies </h1>
-            
-            <h3 style={{fontSize: "120%"}}> 3, Institutional Area, Sector-5, Rohini (Near Rithala Metro Station), Delhi-110085 </h3>
+            <div className="container1">
+            <Row>
+                <Col md={2}>
+                    <div className="logodiv"></div>
+                    <Logo/>
+                </Col>  
+                <Col md={8}>
+                    <center>
+                    <div className="head1">
+                    Jagan Institute of Management Studies
+                    </div>
+                    <div className="head2">
+                    3, Institutional Area, Sector-5, Rohini (Near Rithala Metro Station), Delhi-110085
+                    </div>
+                    <div className="head3"> 
+                    Pre-Placement Portal
+                    </div>
+                    </center>
+                </Col>
+                <Col md={2}>
+                    <div className="loginModal">
+                    <LoginModal/>
+                    </div>
+                </Col>
+            </Row>
             </div>
+              
+            <Slider/>  
 
-            <div style={{marginLeft: '42%'}}>                              {/* Heading margin */}
-            <h2 style= {{fontFamily: "initial",
-                        fontWeight: "bold",
-                        }}> Pre-Placement Portal </h2> 
-            </div>
-            </b>
-
-            <div className="button" align="right" > 
-                <LoginModal/>                                              {/*About Login Button */}
-             </div>
-            
-            <Slider/>                                                      {/* For access the slider */}    
-
-            <div className='acc' align='center'>
-                <h2 style ={{fontFamily: "initial",
-                            fontWeight: 'bold'}}
-                > 
-                    ACCREDITATION AND APPROVALS 
-                </h2>                                                      {/* College info */}
-                <GalleryLogo/>
-            </div>  
-               
-            <Footer/>                                                      {/* For access the footer file*/}
+            <Row>
+                <Col md={12}>
+                    <div className='acc' align="center">
+                        Accreditation and approvals                                           
+                    <GalleryLogo/>
+                    </div>
+                </Col>  
+            </Row>                                                         
+              
+            <Footer/>                                      
         </div> 
     );
 }

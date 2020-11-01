@@ -1,73 +1,5 @@
-
-
-/* .schedule {
-    top: 180px;
-    width:250px; 
-    right:10px; 
-    bottom: 500px;
-    border-style: solid;
-    position:absolute;
-}
-
-.notices{
-    top: 280px;
-    width: 250px; 
-    right: 10px; 
-    bottom: 0px;
-    border-style: solid;
-    position: absolute;
-}
-
-.functions {
-    top: 200px;
-    width: 800px; 
-    right: 300px; 
-    bottom: 0px;
-    position:absolute;
-}
-
-.functionButtons {
-        background-color: rgb(8, 62, 124);
-        font-size: 20px;
-        border: none;
-        color: white;
-        padding: 20px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 4px 2px;
-        cursor: pointer;
-     
-}
-
-
-.functionButtons:hover {
-    opacity: 7
-} */
-
-/*.body {
-    height: 100%;
-    margin: 0;
-    
-  }
-  
-  .bg {
-    /* The image used 
-    background-image: url("../../assets/bg_img.jpg");
-  
-    /* Full height 
-    height: 100%; 
-  
-    /* Center and scale the image nicely 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
- */ 
-
  .functionButtons {
-    background-image: url( 
-        '../../assets/button_image.jpeg');
+    background-image: url('../../assets/button_image.jpeg');
     font-size: 20px;
     border: none;
     color: white;
@@ -81,10 +13,4 @@
 
 .functionButtons:hover {
     opacity: 0.6
-}
-
- @media screen and (max-width: 1000px) {
-    .calendar_n_note {
-        display: none
-    }
 }

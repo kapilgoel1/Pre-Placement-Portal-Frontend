@@ -7,7 +7,6 @@ import Image3 from '../../assets/Image3.jpg'
 import Image4 from '../../assets/Image4.jpg'
 import Image5 from '../../assets/Image5.jpg'
 
-
 // This is the slider that is visible on the main page
 
 const items = [
