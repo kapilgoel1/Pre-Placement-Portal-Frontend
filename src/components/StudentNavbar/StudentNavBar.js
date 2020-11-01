@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import './StudentNavBar.css';
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
+  Collapse, 
+  Navbar, 
+  NavbarBrand,
+  NavbarToggler, 
+  NavbarText,
+  Nav, 
+  NavItem, 
+  NavLink, 
+  UncontrolledDropdown, 
+  DropdownToggle, 
   DropdownMenu,
   DropdownItem,
-  Button} from 'reactstrap';
+  Button
+} from 'reactstrap';
 import {withRouter} from 'react-router-dom';
 import Logo from '../Logo/Logo';
 
@@ -20,89 +23,84 @@ import Logo from '../Logo/Logo';
 const StudentNavBar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => setIsOpen(!isOpen);
+    const toggle = () => setIsOpen(!isOpen);
 
-  const onClickHandler = () => {
-    props.history.push('/studenteditprofile');
-  }
+    const onClickHandler = () => {
+        props.history.push('/studenteditprofile');
+    }
 
-  const onLogoutHandler = () => {
-    fetch('http://localhost:4000/user/logout', {
-          method: 'GET',
-          credentials: 'include',
+    const onLogoutHandler = () => {
+      fetch('http://localhost:4000/user/logout', {
+        method: 'GET',
+        credentials: 'include',
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          props.history.push('/');
+          console.log(result);
         })
-          .then((response) => response.json())
-          .then((result) => {
-            props.history.push('/');
-            console.log(result);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-    // props.history.push('/');
-  }
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+               
+    return (
+      <div>
 
-  return (
-    <div className="btn-black">
-      <Navbar light expand="md">
-        <a href="/"><Logo/></a>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      <NavbarToggler onClick={toggle} />
-      <Collapse isOpen={isOpen} navbar>
-      
-      <b>    
-      <Nav className="mr-auto" navbar>
-        <NavItem>
-          <NavLink href="/about"> About </NavLink>
-        </NavItem>
-          &nbsp; &nbsp; &nbsp;
-        <NavItem>
-          <NavLink href="/contact"> Contact </NavLink>
-        </NavItem>
-          &nbsp; &nbsp; &nbsp;
-        <NavItem>
-          <NavLink href="/about"> View test score </NavLink>
-        </NavItem>
-          &nbsp; &nbsp; 
-        
+       <Navbar light expand="md">
+            <NavbarBrand href="/"><Logo/></NavbarBrand> 
+          <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <NavItem>
+              <NavLink href="/about">About</NavLink>
+            </NavItem>
+           
+            <NavItem>
+              <NavLink href="/contact">Contact</NavLink>
+            </NavItem>
+            
+            <NavItem>
+              <NavLink href="/about">View test score</NavLink>
+            </NavItem>
+            
         <UncontrolledDropdown nav inNavbar>
-          <DropdownToggle nav caret>
+          <DropdownToggle nav caret >
             View Resources
           </DropdownToggle>
-        <DropdownMenu right>
+          <DropdownMenu right>
             <DropdownItem>
-                View test papers
+              View test papers
             </DropdownItem>
             <DropdownItem>
-                View assignments
+              View assignments
             </DropdownItem>
-            <DropdownItem NavLink to="/ppt-section">
-                View PPTs
-            </DropdownItem>
-            <DropdownItem>
-                View announcements
+          <DropdownItem>
+              View PPTs
             </DropdownItem>
             <DropdownItem>
-                View videos
+              View announcements
             </DropdownItem>
             <DropdownItem>
-                View weblinks/external resources
+              View videos
+            </DropdownItem>
+            <DropdownItem>
+              View weblinks/external resources
             </DropdownItem>
             <DropdownItem>
               View notes
             </DropdownItem>
-        </DropdownMenu>
+          </DropdownMenu>
         </UncontrolledDropdown>
-      </Nav>
-      </b> 
+        </Nav>
 
-      <div className="btn-edit" style={{marginLeft: '600px'}}>
+      <NavbarText className="btn-edit">      
       <Button color="success" onClick={onClickHandler}> Edit Profile </Button> &nbsp;
-      </div>
-      <div className="btn-clse">
+      </NavbarText>
+      <NavbarText className="btn-logout">
       <Button color="danger" onClick={onLogoutHandler}> Logout </Button>
-      </div>
-      
-      </Collapse>
+      </NavbarText>
+        </Collapse>
       </Navbar>
     </div>
   );

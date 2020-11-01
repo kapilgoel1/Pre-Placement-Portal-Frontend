@@ -8,17 +8,9 @@
   left: 0;
   width: 100%;
 }
-/* 
-
-.footer {
-  background-color: black;
-  color: white;
-  left: 0;
-  bottom: 0;
-} */
 
 .social-container {
-    padding: 25px 50px;
+    padding: 25px 20px;
 }
 a.social {
     margin: 0 1rem;

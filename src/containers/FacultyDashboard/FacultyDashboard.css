@@ -66,7 +66,8 @@
  */ 
 
  .functionButtons {
-    background-color: rgb(37, 37, 114);
+    background-image: url( 
+        '../../assets/button_image.jpeg');
     font-size: 20px;
     border: none;
     color: white;
@@ -76,6 +77,10 @@
     display: inline-block;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+.functionButtons:hover {
+    opacity: 0.6
 }
 
  @media screen and (max-width: 1000px) {

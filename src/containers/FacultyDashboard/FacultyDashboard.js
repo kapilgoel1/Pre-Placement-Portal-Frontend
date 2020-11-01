@@ -7,8 +7,6 @@ import ModalExample from '../../components/AddNewResModal/ModelExample';
 import AddNewTestModal from '../../components/AddNewTestModal/AddNewTestModal';
 import AddNewJobModal from '../../components/AddNewJobModal/AddNewJobModal';
 import Footer from '../../components/Footer/Footer';
-import AddNote from '../../components/AddNote/AddNote';
-import Calendar from '../../components/Calender/Calendar';
 const FacultyDashboard = (props) => {
 
     const onViewJob = () => {
@@ -24,17 +22,15 @@ const FacultyDashboard = (props) => {
         <FacultyNavBar/>
             <div className="container">
             <Row>
-                <Col md={4}>
-                    <div className="calendar_n_note">
-                        <Calendar/>
-                        <AddNote/>
+                <Col md={2}>
+                    <div>
                     </div>
                 </Col>
-                <Col md={4}>
+                <Col md={8}>
                     <div> 
-                        <ModalExample buttonLabel="ADD NEW RESOURCES"/>
+                        <ModalExample buttonLabel="ADD NEW RESOURCES"></ModalExample>
                         <hr/>
-                        <AddNewJobModal buttonLabel="ADD NEW JOB POSTINGS"/>
+                        <AddNewJobModal buttonLabel="ADD NEW JOB POSTINGS"><i class="fas fa-box-open"></i></AddNewJobModal>
                         <hr/>
                         <button className="functionButtons" onClick={onViewJob}>VIEW NEW JOB POSTINGS</button>
                         <hr/>
@@ -44,7 +40,7 @@ const FacultyDashboard = (props) => {
                         <hr/>
                     </div>
                 </Col>
-                <Col md={4}>
+                <Col md={2}>
                     <div className="schedule" align="center">
                         SCHEDULES <br/>
                     </div>

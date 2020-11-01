@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import "./Login.css";
 import {withRouter} from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';

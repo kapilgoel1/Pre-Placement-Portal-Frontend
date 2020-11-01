@@ -1,18 +1,23 @@
 import React from 'react';
 import './StudentDashboard.css';
+import {Row, Col} from 'reactstrap'; 
 
 import StudentNavBar from '../../components/StudentNavbar/StudentNavBar';
 import Footer from '../../components/Footer/Footer';
-import AddNote from '../../components/AddNote/AddNote';
-import Calendar from '../../components/Calender/Calendar';
 
 const StudentDashboard = (props) => {
 
     return (
         <div>
          <StudentNavBar/> 
-            <br/>
-            <div className="functions" style={{marginTop: '-3%', marginRight: '30px'}}> 
+         <div className="container">
+            <Row>
+                <Col md={2}>
+                    <div>
+                    </div>
+                </Col>
+                <Col md={8}>
+                    <div> 
                 <button className="functionButtons">RESUME BUILDER</button>
                 <hr/>
                 <button className="functionButtons">VIEW PROGRESS REPORT</button>
@@ -24,23 +29,19 @@ const StudentDashboard = (props) => {
                 <button className="functionButtons">VIEW FEEDBACK</button> 
                 <hr/>
             </div>
-            <div className="schedule" align="center">
-                SCHEDULES <br/>
+            </Col>
+                <Col md={2}>
+                    <div className="schedule" align="center">
+                        SCHEDULES <br/>
+                    </div>
+                    <div className="notices" align="center">
+                        NOTICE 1 <br/>
+                        NOTICE 2 <br/>
+                        NOTICE 3 <br/>
+                    </div>
+                </Col>
+            </Row>
             </div>
-            <div className="notices" align="center">
-                    NOTICE 1 <br/>
-                    NOTICE 2 <br/>
-                    NOTICE 3 <br/>
-                    NOTICE 4 <br/>
-                    NOTICE 5 <br/>
-                    NOTICE 6 <br/>
-                    NOTICE 7 <br/>
-                    NOTICE 8 <br/>    
-            </div>
-            <br/>
-            <Calendar/>
-            <AddNote/>
-            <br/><br/> <br/> <br/> <br/>  <br/> <br/> <br/> <br/>
             <Footer/>
         </div>
     );
