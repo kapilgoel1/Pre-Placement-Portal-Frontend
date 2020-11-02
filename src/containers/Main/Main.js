@@ -2,8 +2,8 @@ import React from 'react';
 import './Main.css';
 
 import {Row, Col} from 'reactstrap'; 
-import Slider from '../../components/Slider/Slider';
-import LoginModal from '../../components/LoginModal/LoginModal';
+import LoginPic from '../../assets/LoginImg.jpg';
+import Login from '../Login/Login';
 import Logo from '../../components/Logo/Logo';
 import Footer from '../../components/Footer/Footer';
 import GalleryLogo from '../../components/GalleryLogo/GalleryLogo';
@@ -32,16 +32,27 @@ const Main = () => {
                     </div>
                     </center>
                 </Col>
-                <Col md={2}>
-                    <div className="loginModal">
-                    <LoginModal/>
+            </Row>
+            <Row>
+                <Col md={12}>
+                    <div className="LoginContainer">
+                        <div className="box">
+                        <img 
+                            src={LoginPic} 
+                            alt={LoginPic}
+                            height="80%"
+                            width="100%"/>
+                        </div>    
+                        <div className="stack-top">
+                            <Login/>
+                        </div>
                     </div>
                 </Col>
             </Row>
-            </div>
+            {/* </div>
             <div className="slider"> 
             <Slider/>  
-            </div> 
+            </div>  */}
             <Row>
                 <Col md={12}>
                     <div className='acc' align="center">
@@ -53,7 +64,8 @@ const Main = () => {
                 </Col>  
             </Row>                                                         
               
-            <Footer/>                                      
+            <Footer/>  
+            </div>                                    
         </div> 
     );
 }
