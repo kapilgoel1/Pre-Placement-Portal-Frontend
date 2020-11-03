@@ -1,24 +1,24 @@
 .container1 {
-    font-family: 'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 .head1 {
-    font-size: 40px;
-    font-weight: bolder;
+  font-size: 40px;
+  font-weight: bolder;
 }
 .head2 {
-    font-size: x-large;
-    font-weight: 500;
+  font-size: x-large;
+  font-weight: 500;
 }
 .head3 {
-    font-size: xx-large;
-    font-weight: bold;
+  font-size: xx-large;
+  font-weight: bold;
 }
 
-.LoginContainer{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    margin: 0px;
+.LoginContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0px;
 }
 /* .box{
     width: 100%;
@@ -43,53 +43,85 @@
 } */
 
 .box {
-    background-image: url('../../assets//LoginImg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    width: 100%;
-    height: 500px;
-    flex-wrap: wrap;
+  background-image: url('../../assets//LoginImg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  width: 100%;
+  height: 500px;
+  flex-wrap: wrap;
 }
 
-.stack-top{
-    width: 30%;
-    position: relative;
+.stack-top {
+  width: 30%;
+  position: relative;
 }
 
 .box .stack-top {
-    margin: 18px;
-    padding: 25px;
+  margin: 18px;
+  padding: 25px;
 }
 
 .acc {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: xx-large;
-    font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: xx-large;
+  font-weight: bold;
 }
 
 .galleryPics {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 @media screen and (max-width: 767px) {
-    .head1 {
-        font-size: 26px;
-        font-weight: bold;
-    }
-    .head2 {
-        font-size: 16;
-        font-weight: 100;
-    }
-    .head3 {
-        font-size: 20;
-        font-weight: 200;
-    }
-    .slider {
-       display: none;
-    }
+  .head1 {
+    font-size: 26px;
+    font-weight: bold;
+  }
+  .head2 {
+    font-size: 16;
+    font-weight: 100;
+  }
+  .head3 {
+    font-size: 20;
+    font-weight: 200;
+  }
+  .slider {
+    display: none;
+  }
 }
 
+.loginhero {
+  background-color: aquamarine;
+}
 
+.login-container {
+  margin: 0 auto;
+  max-width: 1250px;
+}
+
+.login-container__form {
+  height: 400px;
+}
+
+@media only screen and (min-width: 500px) {
+  .login-container {
+    display: flex;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-container__form {
+    width: 375px;
+  }
+}
+
+@media only screen and (min-width: 1050px) {
+  .login-container {
+    justify-content: flex-end;
+  }
+  .login-container__form {
+    margin-right: 50px;
+  }
+}

@@ -34,19 +34,11 @@ const Main = () => {
             </Row>
             {/* <Row>
                 <Col md={12}> */}
-                    <div className="LoginContainer">
-                        <div className="box">
-                        {/* <img 
-                            src={LoginPic} 
-                            alt={LoginPic}
-                            height="80%"
-                            width="100%"/> */}
-                            <div className="stack-top">
-                            <Login/>
-                        </div>
-                        </div>    
-                        
-                    </div>
+                <div className="loginhero">
+                   <div className="login-container">
+                        <Login />
+                   </div>
+                </div>
                 {/* </Col>
             </Row> */}
             {/* </div>

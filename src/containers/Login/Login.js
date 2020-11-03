@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "./Login.css";
 import {withRouter} from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Card,  CardBody } from 'reactstrap';
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -56,8 +56,10 @@ const Login = (props) => {
   }
 
     return(
-      <div>
-        <Form className="login-form" autoComplete="off">
+      
+      <Card className="login-container__form">
+      <CardBody className="form-body">
+        <Form className="" autoComplete="off">
           <h2 className="text-center"> <b> Login </b></h2>
           <FormGroup >
             <Label for="Email">Email </Label>
@@ -67,18 +69,20 @@ const Login = (props) => {
             <Label for="Password">Password </Label>
             <Input type="password" name="password" id="Password" value={password} placeholder="Enter Password" onChange={e => setPassword(e.target.value)} />
           </FormGroup>   
-          <center><Button 
+          <Button 
             color="secondary"  
             onClick={onClickHandler}
           > 
           Submit 
           </Button>
-          </center> &nbsp;
+           
           {/*<div className= "text-right">
             <a href="/sign-up"> Forgot the password? </a>
           </div>*/}
         </Form>
-      </div>
+        </CardBody>
+        </Card>
+      
     );
 }
 
