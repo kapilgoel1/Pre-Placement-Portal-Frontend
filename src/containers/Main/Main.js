@@ -33,8 +33,8 @@ const Main = () => {
                     </center>
                 </Col>
             </Row>
-            <Row>
-                <Col md={12}>
+            {/* <Row>
+                <Col md={12}> */}
                     <div className="LoginContainer">
                         <div className="box">
                         <img 
@@ -47,8 +47,8 @@ const Main = () => {
                             <Login/>
                         </div>
                     </div>
-                </Col>
-            </Row>
+                {/* </Col>
+            </Row> */}
             {/* </div>
             <div className="slider"> 
             <Slider/>  
