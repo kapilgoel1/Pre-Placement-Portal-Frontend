@@ -2,7 +2,6 @@ import React from 'react';
 import './Main.css';
 
 import {Row, Col} from 'reactstrap'; 
-import LoginPic from '../../assets/LoginImg.jpg';
 import Login from '../Login/Login';
 import Logo from '../../components/Logo/Logo';
 import Footer from '../../components/Footer/Footer';
@@ -37,15 +36,16 @@ const Main = () => {
                 <Col md={12}> */}
                     <div className="LoginContainer">
                         <div className="box">
-                        <img 
+                        {/* <img 
                             src={LoginPic} 
                             alt={LoginPic}
                             height="80%"
-                            width="100%"/>
-                        </div>    
-                        <div className="stack-top">
+                            width="100%"/> */}
+                            <div className="stack-top">
                             <Login/>
                         </div>
+                        </div>    
+                        
                     </div>
                 {/* </Col>
             </Row> */}
