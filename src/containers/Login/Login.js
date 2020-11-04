@@ -69,12 +69,14 @@ const Login = (props) => {
             <Label for="Password">Password </Label>
             <Input type="password" name="password" id="Password" value={password} placeholder="Enter Password" onChange={e => setPassword(e.target.value)} />
           </FormGroup>   
+          <center>
           <Button 
             color="secondary"  
             onClick={onClickHandler}
           > 
-          Submit 
+            Submit 
           </Button>
+          </center>
            
           {/*<div className= "text-right">
             <a href="/sign-up"> Forgot the password? </a>

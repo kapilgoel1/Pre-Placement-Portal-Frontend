@@ -93,7 +93,9 @@
 }
 
 .loginhero {
-  background-color: aquamarine;
+  background-image: url('../../assets//LoginImg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .login-container {
