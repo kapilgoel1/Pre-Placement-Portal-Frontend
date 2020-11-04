@@ -20,47 +20,6 @@
   position: relative;
   margin: 0px;
 }
-/* .box{
-    width: 100%;
-    height: 800px;            
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.9;  
-}
-.stack-top{
-    width: 50%;
-    padding: 120px;
-    z-index: 7;
-    margin: 30px; 
-    position: relative;
-}
-
-@media screen and (min-width: 1000px) {
-    .stack-top {
-        float: right;
-    }
-} */
-
-.box {
-  background-image: url('../../assets//LoginImg.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  width: 100%;
-  height: 500px;
-  flex-wrap: wrap;
-}
-
-.stack-top {
-  width: 30%;
-  position: relative;
-}
-
-.box .stack-top {
-  margin: 18px;
-  padding: 25px;
-}
 
 .acc {
   font-family: 'Times New Roman', Times, serif;
@@ -86,9 +45,6 @@
   .head3 {
     font-size: 20;
     font-weight: 200;
-  }
-  .slider {
-    display: none;
   }
 }
 

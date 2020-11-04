@@ -1,0 +1,9 @@
+.slider {
+  box-sizing: content-box;
+  border-radius: 50px;
+  padding-top: 5px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  box-shadow: 10px 10px 5px 0px rgba(red, green, blue, alpha);
+  border-style: hidden;
+}
