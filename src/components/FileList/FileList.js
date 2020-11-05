@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ReactPaginate from 'react-paginate'
 import FileStripp from '../FileStrip/FileStripp'
+
 import {Input} from 'reactstrap'
 import './FileList.css'
 
@@ -13,6 +14,7 @@ export default function FileList(props) {
     const [subjectList, setsubjectList] = useState([]);
     const [pageCount, setpageCount] = useState(5)
     const [offset, setoffset] = useState(0)
+
 
     useEffect(() => {
         fetch('http://localhost:4000/subject/retrieve', {
@@ -32,6 +34,7 @@ export default function FileList(props) {
      
 
       useEffect(() => {
+
         console.log('limit', props.limit);
         let url = new URL('http://localhost:4000/file/retrievelist');
         url.searchParams.append('limit', props.limit); 
@@ -49,11 +52,13 @@ export default function FileList(props) {
           .then((result) => {
             console.log(result);
             setfileList(result.filelist);
+
             setpageCount(Math.ceil(result.numOfFiles/props.limit))
           })
           .catch((err) => {
             console.log(err);
           });
+
       }, [offset, subject, searchField, props.limit])
 
      
@@ -64,6 +69,7 @@ export default function FileList(props) {
 
     return (
         <div>
+
         <Input type="search" placeholder="Search File" onChange={(e) =>{ setsearchField(e.target.value); setoffset(0)}} />
         
         <Input type="select" value={subject} onChange={(e) =>{ setsubject(e.target.value);  setoffset(0)} }>
@@ -71,6 +77,7 @@ export default function FileList(props) {
               {
                 subjectList.map((sub) => <option value={sub._id} key={sub._id}>{sub.title}</option>)
               }
+
         </Input>
         <div className="filestrip-header">
         <div className="filestrip-header__filename"><h5>Filename</h5></div>
@@ -87,6 +94,7 @@ export default function FileList(props) {
         
 
         <ReactPaginate
+
         previousLabel={<span aria-hidden="true">&laquo;</span>}
         nextLabel={<span aria-hidden="true">&raquo;</span>}
         breakLabel={'...'}

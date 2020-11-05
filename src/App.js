@@ -26,9 +26,11 @@ const app = () => {
       <Route path="/studenteditprofile" component={StudentEditProfile} />
       <Route path="/facultyeditprofile" component={FacultyEditProfile} />
       <Route path="/fileuploadtest" component={FileUploadTest} />
+
       <Route path="/filelist">
         <FileList limit={10}/>
       </Route>
+
       <Redirect to="/"/>
     </Switch>
   );
