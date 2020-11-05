@@ -56,30 +56,7 @@ export default function FileList(props) {
           });
       }, [offset, subject, searchField, props.limit])
 
-      // const clickhandler = () => {
-      //   let url = new URL('http://localhost:4000/file/retrievelist');
-      //   url.searchParams.append('limit', 2); 
-      //   url.searchParams.append('skip', offset)
-      //   if(subject !== '')
-      //   url.searchParams.append('subject', subject)
-      //   if(searchField !== '')
-      //   url.searchParams.append('filename', searchField);
-
-      //   fetch(url, {
-      //     method: 'GET',
-      //     credentials: 'include',
-      //   })
-      //     .then((response) => response.json())
-      //     .then((result) => {
-      //       console.log(result);
-      //       setfileList(result.filelist);
-      //       setpageCount(Math.ceil(result.numOfFiles/2))
-      //     })
-      //     .catch((err) => {
-      //       console.log(err);
-      //     });
-      // }
-
+     
       const handlePageClick = (data) => {
         let selected = data.selected;
         setoffset(Math.ceil(selected * props.limit));     
@@ -87,7 +64,7 @@ export default function FileList(props) {
 
     return (
         <div>
-        <Input type="search" onChange={(e) =>{ setsearchField(e.target.value); setoffset(0)}} />
+        <Input type="search" placeholder="Search File" onChange={(e) =>{ setsearchField(e.target.value); setoffset(0)}} />
         
         <Input type="select" value={subject} onChange={(e) =>{ setsubject(e.target.value);  setoffset(0)} }>
               <option value="">All</option>
