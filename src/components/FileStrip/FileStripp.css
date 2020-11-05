@@ -1,51 +1,55 @@
-.active {
-  color: red;
-}
-
-.filestrip-header {
+.filestrip {
   max-width: 1000px;
   padding: 10px;
   display: flex;
   align-items: center;
 }
 
-.filestrip-header__filename {
+.filestrip__filename {
   flex: 1 1 150px;
 }
 
-.filestrip-header__subject {
+.filestrip__subject {
   display: none;
   text-align: center;
 }
 
-.filestrip-header__dateuploaded {
+.filestrip__dateuploaded {
   display: none;
   text-align: center;
 }
 
-.filestrip-header__uploadedby {
+.filestrip__uploadedby {
   display: none;
   text-align: center;
 }
 
-.filestrip-header__action {
+.filestrip__action {
   flex: 1 1 50px;
   text-align: center;
 }
 
 @media only screen and (min-width: 800px) {
-  .filestrip-header__subject {
+  .filestrip__subject {
     display: block;
     flex: 1 1 50px;
   }
 
-  .filestrip-header__dateuploaded {
+  .filestrip__dateuploaded {
     display: block;
     flex: 1 1 50px;
   }
 
-  .filestrip-header__uploadedby {
+  .filestrip__uploadedby {
     display: block;
     flex: 1 1 50px;
   }
+}
+
+.filestrip:nth-child(even) {
+  background-color: #f8eaea;
+}
+
+.filestrip:nth-child(odd) {
+  background-color: #ecb3b3;
 }
