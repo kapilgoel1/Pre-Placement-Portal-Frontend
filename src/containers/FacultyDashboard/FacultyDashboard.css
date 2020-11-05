@@ -1,9 +1,10 @@
+
  .functionButtons {
     background-image: url('../../assets/button_image.jpeg');
     font-size: 20px;
     border: none;
     color: white;
-    padding: 30px 32px;
+    padding: 15px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -13,4 +14,15 @@
 
 .functionButtons:hover {
     opacity: 0.6
+}
+
+.parentdiv {
+    height: 400px;
+    background-color: rgb(151, 173, 151);
+}
+
+.parentdiv .childdiv {
+    margin: 10px;
+    padding-top: 250px;
+    text-align: center;
 }
