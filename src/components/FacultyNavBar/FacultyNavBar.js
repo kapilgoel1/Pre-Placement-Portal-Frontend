@@ -47,7 +47,7 @@ const FacultyNavBar = (props) => {
     return (
       <div>
 
-       <Navbar light expand="md">
+       <Navbar className="navbar" light expand="md">
             <NavbarBrand href="/"><Logo/></NavbarBrand> 
           <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

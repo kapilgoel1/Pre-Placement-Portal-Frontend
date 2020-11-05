@@ -1,0 +1,51 @@
+.active {
+  color: red;
+}
+
+.filestrip-header {
+  max-width: 1000px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.filestrip-header__filename {
+  flex: 1 1 150px;
+}
+
+.filestrip-header__subject {
+  display: none;
+  text-align: center;
+}
+
+.filestrip-header__dateuploaded {
+  display: none;
+  text-align: center;
+}
+
+.filestrip-header__uploadedby {
+  display: none;
+  text-align: center;
+}
+
+.filestrip-header__action {
+  flex: 1 1 50px;
+  text-align: center;
+}
+
+@media only screen and (min-width: 800px) {
+  .filestrip-header__subject {
+    display: block;
+    flex: 1 1 50px;
+  }
+
+  .filestrip-header__dateuploaded {
+    display: block;
+    flex: 1 1 50px;
+  }
+
+  .filestrip-header__uploadedby {
+    display: block;
+    flex: 1 1 50px;
+  }
+}

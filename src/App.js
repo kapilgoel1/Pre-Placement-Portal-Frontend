@@ -10,6 +10,7 @@ import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Main from './containers/Main/Main';
 import FileUploadTest from './containers/FileUploadTest/FileUploadTest';
+import FileList from './components/FileList/FileList'
 import { Route, Switch, withRouter, Redirect} from 'react-router-dom';
 
 const app = () => {
@@ -25,6 +26,9 @@ const app = () => {
       <Route path="/studenteditprofile" component={StudentEditProfile} />
       <Route path="/facultyeditprofile" component={FacultyEditProfile} />
       <Route path="/fileuploadtest" component={FileUploadTest} />
+      <Route path="/filelist">
+        <FileList limit={10}/>
+      </Route>
       <Redirect to="/"/>
     </Switch>
   );

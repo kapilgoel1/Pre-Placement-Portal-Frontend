@@ -98,3 +98,9 @@
     top: 0;
     background-color: rgba(0, 0, 0, 0.5);
 } */
+
+.navbar {
+    background-color: azure;
+    height: 150px;
+    margin-bottom: 50px;
+}
