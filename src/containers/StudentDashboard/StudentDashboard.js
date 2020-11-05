@@ -12,24 +12,37 @@ const StudentDashboard = (props) => {
          <StudentNavBar/> 
          <div className="container">
             <Row>
-                <Col md={2}>
-                    <div>
+                <Col md={5}>
+                    <div className="parentdiv">
+                        <div className="childdiv">
+                            <button className="functionButtons">RESUME BUILDER</button>
+                        </div>    
+                    </div>
+                    <div className="parentdiv">
+                        <div className="childdiv">
+                            <button className="functionButtons">VIEW PROGRESS REPORT</button>
+                        </div>
+                    </div>
+                    <div className="parentdiv">
+                        <div className="childdiv"> 
+                            <button className="functionButtons">VIEW TEST SCHEDULE</button>
+                        </div> 
                     </div>
                 </Col>
-                <Col md={8}>
-                    <div> 
-                <button className="functionButtons">RESUME BUILDER</button>
-                <hr/>
-                <button className="functionButtons">VIEW PROGRESS REPORT</button>
-                <hr/>
-                <button className="functionButtons">VIEW TEST SCHEDULE</button>
-                <hr/>
-                <button className="functionButtons">VIEW NEW JOB/POSTINGS</button> 
-                <hr/>
-                <button className="functionButtons">VIEW FEEDBACK</button> 
-                <hr/>
-            </div>
-            </Col>
+
+                <Col md={5}>    
+                    <div className="parentdiv">
+                        <div className="childdiv"> 
+                            <button className="functionButtons">VIEW NEW JOB/POSTINGS</button>
+                        </div>
+                    </div>
+                    <div className="parentdiv">
+                        <div className="childdiv"> 
+                            <button className="functionButtons">VIEW FEEDBACK</button> 
+                        </div>
+                    </div>
+                </Col>
+
                 <Col md={2}>
                     <div className="schedule" align="center">
                         SCHEDULES <br/>
@@ -41,8 +54,8 @@ const StudentDashboard = (props) => {
                     </div>
                 </Col>
             </Row>
-            </div>
-            <Footer/>
+        </div>
+        <Footer/>
         </div>
     );
 }
