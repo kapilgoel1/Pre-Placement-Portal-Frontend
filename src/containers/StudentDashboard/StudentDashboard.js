@@ -13,31 +13,31 @@ const StudentDashboard = (props) => {
          <div className="container">
             <Row>
                 <Col md={3}>
-                    <div className="parentdiv1">
+                    <div className="parentdiv7">
                         <div className="childdiv">
                             <button className="functionButtons">RESUME BUILDER</button>
                         </div>    
                     </div>
-                    <div className="parentdiv2">
+                    <div className="parentdiv8">
                         <div className="childdiv">
                             <button className="functionButtons">VIEW PROGRESS REPORT</button>
                         </div>
                     </div>
                 </Col>
                 <Col md={3}>    
-                    <div className="parentdiv3">
+                    <div className="parentdiv9">
                         <div className="childdiv"> 
                             <button className="functionButtons">VIEW TEST SCHEDULE</button>
                         </div> 
                     </div>
-                    <div className="parentdiv4">
+                    <div className="parentdiv10">
                         <div className="childdiv"> 
                             <button className="functionButtons">VIEW NEW JOB/POSTINGS</button>
                         </div>
                     </div>
                 </Col>   
                 <Col md={3}> 
-                    <div className="parentdiv5">
+                    <div className="parentdiv11">
                         <div className="childdiv"> 
                             <button className="functionButtons">VIEW FEEDBACK</button> 
                         </div>

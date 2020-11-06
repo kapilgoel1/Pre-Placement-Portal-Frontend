@@ -10,8 +10,7 @@ import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Main from './containers/Main/Main';
 import FileUploadTest from './containers/FileUploadTest/FileUploadTest';
-import FileList from './components/FileList/FileList'
-import ViewResources from './containers/ViewResources/ViewResources'
+import ViewResources from './containers/ViewResources/ViewResources';
 import { Route, Switch, withRouter, Redirect} from 'react-router-dom';
 
 const app = () => {

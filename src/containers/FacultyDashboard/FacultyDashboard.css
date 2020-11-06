@@ -18,7 +18,9 @@
 
 .parentdiv1 {
     height: 350px;
-    background-color: rgb(151, 173, 151);
+    background-image: url('../../assets/addResources.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     border-style: solid ;
     margin: 10px;
 }
@@ -30,7 +32,9 @@
 
 .parentdiv2 {
     height: 350px;
-    background-color: rgb(102, 124, 151);
+    background-image: url('../../assets/viewProfile.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     border-style: solid ;
     margin: 10px;
 }
@@ -44,9 +48,8 @@
     height: 350px;
     /* background-color: rgb(223, 220, 53); */
     background-image: url('../../assets/jobImage.jpg');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    /* border: black; */
     border-style: solid ;
     margin: 10px;
 }
@@ -74,8 +77,8 @@
 .parentdiv5 {
     height: 350px;
     /* background-color: rgb(49, 167, 221); */
-    background-image: url('../../assets/viewJobImage.png');
-    background-size: contain;
+    background-image: url('../../assets/viewJobImage.jpg');
+    background-size: cover;
     background-repeat: no-repeat;
     border-style: solid ;
     margin: 10px;
@@ -88,7 +91,9 @@
 
 .parentdiv6 {
     height: 350px;
-    background-color: rgb(197, 54, 18);
+    background-image: url('../../assets/viewResources.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     border-style: solid ;
     margin: 10px;
 }

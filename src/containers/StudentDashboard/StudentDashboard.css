@@ -1,0 +1,69 @@
+.parentdiv7 {
+    height: 350px;
+    background-image: url('../../assets/resumeBuilder.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-style: solid ;
+    margin: 10px;
+}
+.parentdiv7 .childdiv {
+    margin: 10px;
+    padding-top: 250px;
+    text-align: center;
+}
+
+.parentdiv8 {
+    height: 350px;
+    background-image: url('../../assets/progressReport.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-style: solid ;
+    margin: 10px;
+}
+.parentdiv8 .childdiv {
+    margin: 10px;
+    padding-top: 250px;
+    text-align: center;
+}
+
+.parentdiv9 {
+    height: 350px;
+    background-image: url('../../assets/testImage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-style: solid ;
+    margin: 10px;
+}
+.parentdiv9 .childdiv {
+    margin: 10px;
+    padding-top: 250px;
+    text-align: center;
+}
+
+.parentdiv10 {
+    height: 350px;
+    background-image: url('../../assets/viewJobImage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-style: solid ;
+    margin: 10px;
+}
+.parentdiv10 .childdiv {
+    margin: 10px;
+    padding-top: 250px;
+    text-align: center;
+}
+
+.parentdiv11 {
+    height: 350px;
+    background-image: url('../../assets/viewFeedback.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-style: solid ;
+    margin: 10px;
+}
+.parentdiv11 .childdiv {
+    margin: 10px;
+    padding-top: 250px;
+    text-align: center;
+}
