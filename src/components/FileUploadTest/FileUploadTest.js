@@ -82,6 +82,8 @@ const FileUploadTest = () => {
               <option value="assignment">Assignment</option>
               <option value="testpaper">Test Paper</option>
               <option value="notes">Notes</option>
+              <option value="ppt">PPT</option>
+              <option value="video">Video</option>
            </select>
            <select value={subject} onChange={(e) => setSubject(e.target.value)} >
               <option value="">--Please choose an options--</option>

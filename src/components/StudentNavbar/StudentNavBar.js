@@ -67,26 +67,26 @@ const StudentNavBar = (props) => {
               View Resources
             </DropdownToggle>
             <DropdownMenu right>
-              <DropdownItem>
+              <DropdownItem href="/testpaper">
                 View test papers
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem href="/assignment">
                 View assignments
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem href="/ppt">
                 View PPTs
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem href="/announcement">
                 View announcements
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem href="/video">
                 View videos
+              </DropdownItem>
+              <DropdownItem href="/notes">
+              View notes
               </DropdownItem>
               <DropdownItem>
                 View weblinks/external resources
-              </DropdownItem>
-              <DropdownItem>
-                View notes
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
