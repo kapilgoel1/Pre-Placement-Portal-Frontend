@@ -1,10 +1,10 @@
 
  .functionButtons {
     background-image: url('../../assets/button_image.jpeg');
-    font-size: 20px;
+    font-size: 16px;
     border: none;
     color: white;
-    padding: 15px 20px;
+    padding: 7px 13px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -16,12 +16,83 @@
     opacity: 0.6
 }
 
-.parentdiv {
-    height: 400px;
+.parentdiv1 {
+    height: 350px;
     background-color: rgb(151, 173, 151);
+    border-style: solid ;
+    margin: 10px;
+}
+.parentdiv1 .childdiv {
+    margin: 10px;
+    padding-top: 250px;
+    text-align: center;
 }
 
-.parentdiv .childdiv {
+.parentdiv2 {
+    height: 350px;
+    background-color: rgb(102, 124, 151);
+    border-style: solid ;
+    margin: 10px;
+}
+.parentdiv2 .childdiv {
+    margin: 10px;
+    padding-top: 250px;
+    text-align: center;
+}
+
+.parentdiv3 {
+    height: 350px;
+    /* background-color: rgb(223, 220, 53); */
+    background-image: url('../../assets/jobImage.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* border: black; */
+    border-style: solid ;
+    margin: 10px;
+}
+.parentdiv3 .childdiv {
+    margin: 10px;
+    padding-top: 250px;
+    text-align: center;
+}
+
+.parentdiv4 {
+    height: 350px;
+    /* background-color: rgb(47, 58, 204); */
+    background-image: url('../../assets/testImage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-style: solid ;
+    margin: 10px;
+}
+.parentdiv4 .childdiv {
+    margin: 10px;
+    padding-top: 250px;
+    text-align: center;
+}
+
+.parentdiv5 {
+    height: 350px;
+    /* background-color: rgb(49, 167, 221); */
+    background-image: url('../../assets/viewJobImage.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-style: solid ;
+    margin: 10px;
+}
+.parentdiv5 .childdiv {
+    margin: 10px;
+    padding-top: 250px;
+    text-align: center;
+}
+
+.parentdiv6 {
+    height: 350px;
+    background-color: rgb(197, 54, 18);
+    border-style: solid ;
+    margin: 10px;
+}
+.parentdiv6 .childdiv {
     margin: 10px;
     padding-top: 250px;
     text-align: center;

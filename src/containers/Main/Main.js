@@ -32,19 +32,11 @@ const Main = () => {
                     </center>
                 </Col>
             </Row>
-            {/* <Row>
-                <Col md={12}> */}
                 <div className="loginhero">
                    <div className="login-container">
                         <Login />
                    </div>
                 </div>
-                {/* </Col>
-            </Row> */}
-            {/* </div>
-            <div className="slider"> 
-            <Slider/>  
-            </div>  */}
             <Row>
                 <Col md={12}>
                     <div className='acc' align="center">

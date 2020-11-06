@@ -12,38 +12,39 @@ const StudentDashboard = (props) => {
          <StudentNavBar/> 
          <div className="container">
             <Row>
-                <Col md={5}>
-                    <div className="parentdiv">
+                <Col md={3}>
+                    <div className="parentdiv1">
                         <div className="childdiv">
                             <button className="functionButtons">RESUME BUILDER</button>
                         </div>    
                     </div>
-                    <div className="parentdiv">
+                    <div className="parentdiv2">
                         <div className="childdiv">
                             <button className="functionButtons">VIEW PROGRESS REPORT</button>
                         </div>
                     </div>
-                    <div className="parentdiv">
+                </Col>
+                <Col md={3}>    
+                    <div className="parentdiv3">
                         <div className="childdiv"> 
                             <button className="functionButtons">VIEW TEST SCHEDULE</button>
                         </div> 
                     </div>
-                </Col>
-
-                <Col md={5}>    
-                    <div className="parentdiv">
+                    <div className="parentdiv4">
                         <div className="childdiv"> 
                             <button className="functionButtons">VIEW NEW JOB/POSTINGS</button>
                         </div>
                     </div>
-                    <div className="parentdiv">
+                </Col>   
+                <Col md={3}> 
+                    <div className="parentdiv5">
                         <div className="childdiv"> 
                             <button className="functionButtons">VIEW FEEDBACK</button> 
                         </div>
                     </div>
                 </Col>
 
-                <Col md={2}>
+                <Col md={3}>
                     <div className="schedule" align="center">
                         SCHEDULES <br/>
                     </div>

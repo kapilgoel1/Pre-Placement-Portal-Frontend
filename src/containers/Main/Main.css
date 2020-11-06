@@ -49,18 +49,22 @@
 }
 
 .loginhero {
-  background-image: url('../../assets//LoginImg.jpg');
+  background-image: url('../../assets/MainImage.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  opacity: 0.9;
 }
 
 .login-container {
   margin: 0 auto;
   max-width: 1250px;
+  color: white;
+
 }
 
 .login-container__form {
-  height: 400px;
+  height: 350px;
+  
 }
 
 @media only screen and (min-width: 500px) {
@@ -80,6 +84,6 @@
     justify-content: flex-end;
   }
   .login-container__form {
-    margin-right: 50px;
+    margin-right: 40px;
   }
 }
