@@ -14,38 +14,46 @@ import { Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import AddNewResource from './containers/AddNewResource/AddNewResource';
 import AddNewJob from './containers/AddNewJob/AddNewJob';
 import AddNewTest from './containers/AddNewTest/AddNewTest';
+import Auth from './components/Auth/Auth';
 
 const app = () => {
+
+  const PrivateRoute = ({component: Component, ...rest}) => 
+  (<Route {...rest} render={props => Auth.getAuth()
+    ? (<Component {...props} /> ) 
+    : (<Redirect to={{ pathname: "/" }} /> )
+   } />
+  );
 
   let routes = (
     <Switch>
       <Route exact path="/" component={Main} />
       {/* <Route path="/studentlogin" component={StudentLogin} />  */}
-      <Route path="/studentdashboard" component={StudentDashboard} />
-      <Route path="/facultydashboard" component={FacultyDashboard} />
+      <PrivateRoute path="/studentdashboard" component={StudentDashboard} />
+      <PrivateRoute path="/facultydashboard" component={FacultyDashboard} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
-      <Route path="/studenteditprofile" component={StudentEditProfile} />
-      <Route path="/facultyeditprofile" component={FacultyEditProfile} />
-      <Route path="/addnewresource" component={AddNewResource}/>
-      <Route path="/addnewjob" component={AddNewJob}/>
-      <Route path="/addnewtest" component={AddNewTest}/>
+      <PrivateRoute path="/studenteditprofile" component={StudentEditProfile} />
+      <PrivateRoute path="/facultyeditprofile" component={FacultyEditProfile} />
+      <PrivateRoute path="/addnewresource" component={AddNewResource}/>
+      <PrivateRoute path="/addnewjob" component={AddNewJob}/>
+      <PrivateRoute path="/addnewtest" component={AddNewTest}/>
 
-      <Route path="/testpaper">
+      <PrivateRoute path="/testpaper">
         <ViewResources category="testpaper" />
-      </Route>
-      <Route path="/notes">
+      </PrivateRoute>
+      <PrivateRoute path="/notes">
         <ViewResources category="notes" />
-      </Route>
-      <Route path="/assignment">
+      </PrivateRoute>
+      <PrivateRoute path="/assignment">
         <ViewResources category="assignment" />
-      </Route>
-      <Route path="/ppt">
+      </PrivateRoute>
+      <PrivateRoute path="/ppt">
         <ViewResources category="ppt" />
-      </Route>
-      <Route path="/video">
+      </PrivateRoute>
+      <PrivateRoute path="/video">
         <ViewResources category="video" />
-      </Route>
+      </PrivateRoute>
 
       <Redirect to="/"/>
     </Switch>

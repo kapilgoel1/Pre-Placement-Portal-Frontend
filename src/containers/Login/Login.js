@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "./Login.css";
 import {withRouter} from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input, Card,  CardBody } from 'reactstrap';
+import Auth from '../../components/Auth/Auth';
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -26,6 +27,7 @@ const Login = (props) => {
 
   const onClickHandler = () => {
 
+    Auth.authenticate();
     const AuthData = {
       email: email, 
       password: password
