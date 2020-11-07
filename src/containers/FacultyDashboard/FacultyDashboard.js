@@ -31,7 +31,7 @@ const FacultyDashboard = (props) => {
     } 
 
     const onViewAllResources = () => {
-        console.log("view all resources button clicked");
+        props.history.push('/viewallresources');
     } 
 
     return (

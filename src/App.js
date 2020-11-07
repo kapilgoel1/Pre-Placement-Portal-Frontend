@@ -14,6 +14,7 @@ import { Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import AddNewResource from './containers/AddNewResource/AddNewResource';
 import AddNewJob from './containers/AddNewJob/AddNewJob';
 import AddNewTest from './containers/AddNewTest/AddNewTest';
+import ViewAllResources from './containers/ViewAllResources/ViewAllResources';
 import Auth from './components/Auth/Auth';
 
 const app = () => {
@@ -38,6 +39,7 @@ const app = () => {
       <PrivateRoute path="/addnewresource" component={AddNewResource}/>
       <PrivateRoute path="/addnewjob" component={AddNewJob}/>
       <PrivateRoute path="/addnewtest" component={AddNewTest}/>
+      <PrivateRoute path="/viewallresources" component={ViewAllResources}/>
 
       <PrivateRoute path="/testpaper">
         <ViewResources category="testpaper" />

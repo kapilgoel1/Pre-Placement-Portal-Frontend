@@ -37,7 +37,9 @@ export default function FileList(props) {
 
         console.log('limit', props.limit);
         let url = new URL('http://localhost:4000/file/retrievelist');
-        url.searchParams.append('category', props.category);
+        if(props.category !== undefined) {
+          url.searchParams.append('category', props.category);
+        }
         url.searchParams.append('limit', props.limit); 
         url.searchParams.append('skip', offset)
         if(subject !== '')
@@ -90,10 +92,7 @@ export default function FileList(props) {
         {
             fileList.map((file) => <FileStripp key={file._id} file = {file} /> )
         }
-
-
         
-
         <ReactPaginate
 
         previousLabel={<span aria-hidden="true">&laquo;</span>}

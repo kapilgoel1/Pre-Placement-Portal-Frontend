@@ -16,6 +16,7 @@ import {
   Button
 } from 'reactstrap';
 import {withRouter} from 'react-router-dom';
+import Auth from '../Auth/Auth';
 import Logo from '../Logo/Logo';
 
 //This is the navigation bar that will be visible on dashboard
@@ -29,6 +30,7 @@ const StudentNavBar = (props) => {
   }
 
   const onLogoutHandler = () => {
+    Auth.signout();
     fetch('http://localhost:4000/user/logout', {
       method: 'GET',
       credentials: 'include',
