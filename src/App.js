@@ -9,9 +9,11 @@ import FacultyEditProfile from './containers/FacultyEditProfile/FacultyEditProfi
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Main from './containers/Main/Main';
-import FileUploadTest from './containers/FileUploadTest/FileUploadTest';
 import ViewResources from './containers/ViewResources/ViewResources';
 import { Route, Switch, withRouter, Redirect} from 'react-router-dom';
+import AddNewResource from './containers/AddNewResource/AddNewResource';
+import AddNewJob from './containers/AddNewJob/AddNewJob';
+import AddNewTest from './containers/AddNewTest/AddNewTest';
 
 const app = () => {
 
@@ -25,7 +27,9 @@ const app = () => {
       <Route path="/contact" component={Contact} />
       <Route path="/studenteditprofile" component={StudentEditProfile} />
       <Route path="/facultyeditprofile" component={FacultyEditProfile} />
-      <Route path="/fileuploadtest" component={FileUploadTest} />
+      <Route path="/addnewresource" component={AddNewResource}/>
+      <Route path="/addnewjob" component={AddNewJob}/>
+      <Route path="/addnewtest" component={AddNewTest}/>
 
       <Route path="/testpaper">
         <ViewResources category="testpaper" />

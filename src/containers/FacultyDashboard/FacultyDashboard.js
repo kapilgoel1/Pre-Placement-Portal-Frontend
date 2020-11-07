@@ -6,12 +6,21 @@ import {
 } from 'reactstrap'; 
 
 import FacultyNavBar from '../../components/FacultyNavBar/FacultyNavBar';
-import ModalExample from '../../components/AddNewResModal/ModelExample';
-import AddNewTestModal from '../../components/AddNewTestModal/AddNewTestModal';
-import AddNewJobModal from '../../components/AddNewJobModal/AddNewJobModal';
 import Footer from '../../components/Footer/Footer';
 
 const FacultyDashboard = (props) => {
+
+    const onAddNewRes = () => {
+        props.history.push('/addnewresource');
+    }
+
+    const onAddNewJob = () => {
+        props.history.push('/addnewjob');
+    }
+
+    const onAddNewTest = () => {
+        props.history.push('/addnewtest');
+    }
 
     const onViewJob = () => {
         console.log("view job button clicked");
@@ -33,7 +42,7 @@ const FacultyDashboard = (props) => {
                     <Col md={3}>
                         <div className="parentdiv1">
                             <div className="childdiv">
-                                <ModalExample buttonLabel="ADD NEW RESOURCES"></ModalExample>
+                            <button className="functionButtons" onClick={onAddNewRes}>ADD NEW RESOURCE</button>
                             </div>    
                         </div>
                         <div className="parentdiv2">
@@ -45,14 +54,14 @@ const FacultyDashboard = (props) => {
                     <Col md={3}>
                         <div className="parentdiv3">
                             <div className="childdiv"> 
-                                <AddNewJobModal buttonLabel="ADD NEW JOB/POSTINGS"><i class="fas fa-box-open"></i></AddNewJobModal>
+                            <button className="functionButtons" onClick={onAddNewJob}>ADD NEW JOB/POSTINGS</button>
                             </div> 
                         </div>
                     
                         
                         <div className="parentdiv4">
                             <div className="childdiv"> 
-                                <AddNewTestModal buttonLabel="ADD NEW TEST"/>
+                            <button className="functionButtons" onClick={onAddNewTest}>ADD NEW TEST</button>
                             </div>
                         </div>
                     </Col>    
