@@ -3,7 +3,10 @@ let isAuthenticated;
 const Auth = {
 
     isAuthenticated: false,
-    authenticate() {
+    authenticateStudent() {
+      isAuthenticated = true;
+    },
+    authenticateFaculty() {
       isAuthenticated = true;
     },
     signout() {

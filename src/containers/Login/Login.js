@@ -27,7 +27,7 @@ const Login = (props) => {
 
   const onClickHandler = () => {
 
-    Auth.authenticate();
+    // Auth.authenticate();
     const AuthData = {
       email: email, 
       password: password
@@ -44,10 +44,12 @@ const Login = (props) => {
       .then(response => response.json())
       .then((result) => {
         if(result.role === 'faculty') {
+          Auth.authenticateFaculty();
           props.history.push('/facultydashboard');
           console.log(result);
         }
-        else {
+        else if(result.role === 'student') {
+          Auth.authenticateStudent();
           props.history.push('/studentdashboard');
           console.log(result);
         }

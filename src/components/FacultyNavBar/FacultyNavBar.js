@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FacultyNavBar.css';
 import {
   Collapse, 
@@ -29,6 +29,13 @@ const FacultyNavBar = (props) => {
     const onClickHandler = () => {
         props.history.push('/facultyeditprofile');
     }
+
+    // useEffect(() => {
+    //   console.log("mounted");
+    //   return () => {
+    //     console.log("unmounted");
+    //   }
+    // }, [])
 
     const onLogoutHandler = () => {
       Auth.signout();
