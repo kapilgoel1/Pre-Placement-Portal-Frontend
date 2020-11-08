@@ -84,12 +84,12 @@ const StudentEditProfile = (props) => {
   return (
     <div className="jcontainer">
       <Row>
-        <Col md={6}>
+        <Col lg={6}>
           <div className="picdiv">
             <img src={IMAGE} alt={IMAGE} className="pic"/>
           </div>
         </Col>
-        <Col md={6}>
+        <Col lg={6}>
           <h1>Edit Profile</h1>
           <Label for="firstName">First Name </Label>
           <Input
