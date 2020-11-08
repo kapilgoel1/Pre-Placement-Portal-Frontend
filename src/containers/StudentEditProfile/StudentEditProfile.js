@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './StudentEditProfile.css';
-import { Form, Label, Button, Row, Col, Input } from 'reactstrap';
+import { Label, Button, Row, Col, Input } from 'reactstrap';
+import IMAGE from '../../assets/Image6.jpg';
 
 const StudentEditProfile = (props) => {
   const [firstName, setFirstName] = useState('');
@@ -39,13 +40,8 @@ const StudentEditProfile = (props) => {
       });
   }, [])
 
-
-
-
-  const onClickHandler = () => {
+  const onUpdateHandler = () => {
     
-
-
     const alteredData = {
       firstname: firstName,
       lastname: lastName,
@@ -58,7 +54,10 @@ const StudentEditProfile = (props) => {
       fathersname: fatherName,
     };
 
-    if(password !== '') alteredData.password = password;
+    if (password !== '') 
+    {
+      alteredData.password = password;
+    }
 
     fetch('http://localhost:4000/user/updateprofile/', {
       method: 'POST',
@@ -76,175 +75,120 @@ const StudentEditProfile = (props) => {
       .catch((err) => {
         console.log(err);
       });
-    //props.history.push('/studentdashboard');
   };
 
+  const onCancelHandler = () => {
+    props.history.push('/studentdashboard');
+  }
+
   return (
-    <div className="scontainer">
-      <div className="containerj">
-        <div className="pic"></div>
-        <Row className="form-container align-items-center">
-          <Col>
-            <Form className="student-edit-profile" autoComplete="off">
-              <h1>Edit Profile</h1>
-              <Row className="align-items-center formline">
-                <Col sm="2">
-                  <Label for="firstName">First Name </Label>
-                </Col>
-                <Col sm="4">
-                  <Input
-                    type="text"
-                    name="firstName"
-                    id="firstName"
-                    value={firstName}
-                    placeholder=""
-                    onChange={(e) => setFirstName(e.target.value)}
-                  />
-                </Col>
-                <Col sm="2">
-                  <Label for="lastName">Last Name </Label>
-                </Col>
-                <Col sm="4">
-                  <Input
-                    type="text"
-                    name="lastName"
-                    id="lastName"
-                    value={lastName}
-                    placeholder=""
-                    onChange={(e) => setLastName(e.target.value)}
-                  />
-                </Col>
-              </Row>
-              <Row className="align-items-center formline">
-                <Col sm="2">
-                  <Label for="course">Course </Label>
-                </Col>
-                <Col sm="4">
-                  <Input
-                    type="text"
-                    name="course"
-                    id="course"
-                    value={course}
-                    placeholder=""
-                    onChange={(e) => setCourse(e.target.value)}
-                  />
-                </Col>
-                <Col sm="2">
-                  <Label for="semester">Semester </Label>
-                </Col>
-                <Col sm="4">
-                  <Input
-                    type="text"
-                    name="semester"
-                    id="semester"
-                    value={semester}
-                    placeholder=""
-                    onChange={(e) => setSemester(e.target.value)}
-                  />
-                </Col>
-              </Row>
-              <Row className="align-items-center formline">
-                <Col sm="2">
-                  <Label for="phone">Mobile No. </Label>
-                </Col>
-                <Col sm="4">
-                  <Input
-                    type="text"
-                    name="phone"
-                    id="phone"
-                    value={phone}
-                    placeholder=""
-                    onChange={(e) => setPhone(e.target.value)}
-                  />
-                </Col>
-                <Col sm="2">
-                  <Label for="dob">DOB </Label>
-                </Col>
-                <Col sm="4">
-                  <Input
-                    type="date"
-                    name="dob"
-                    id="dob"
-                    value={dob}
-                    placeholder=""
-                    onChange={(e) => setdob(e.target.value)}
-                  />
-                </Col>
-              </Row>
-              <Row className="align-items-center formline">
-                <Col sm="2">
-                  <Label for="address">Address </Label>
-                </Col>
-                <Col sm="10">
-                  <Input
-                    type="textarea"
-                    name="address"
-                    id="address"
-                    value={address}
-                    placeholder=""
-                    onChange={(e) => setAddress(e.target.value)}
-                  />
-                </Col>
-              </Row>
-              <Row className="align-items-center formline">
-                <Col sm="2">
-                  <Label for="mothername">Mother's Name </Label>
-                </Col>
-                <Col sm="4">
-                  <Input
-                    type="text"
-                    name="mothername"
-                    id="mothername"
-                    value={motherName}
-                    placeholder=""
-                    onChange={(e) => setMotherName(e.target.value)}
-                  />
-                </Col>
-                <Col sm="2">
-                  <Label for="fathername">Father's Name </Label>
-                </Col>
-                <Col sm="4">
-                  <Input
-                    type="text"
-                    name="fathername"
-                    id="fathername"
-                    value={fatherName}
-                    placeholder=""
-                    onChange={(e) => setFatherName(e.target.value)}
-                  />
-                </Col>
-              </Row>
-              <Row className="align-items-center formline">
-                <Col sm="2">
-                  <Label for="fathername">New Password</Label>
-                </Col>
-                <Col sm="4">
-                  <Input
-                    type="password"
-                    name="fathername"
-                    id="fathername"
-                    value={password}
-                    placeholder=""
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Button size="lg" color="info" block onClick={onClickHandler}>
-                    Update Profile
-                  </Button>
-                </Col>
-                <Col>
-                  <Button size="lg" block onClick={onClickHandler}>
-                    Cancel
-                  </Button>
-                </Col>
-              </Row>
-            </Form>
-          </Col>
-        </Row>
-      </div>
+    <div className="jcontainer">
+      <Row>
+        <Col md={6}>
+          <div className="picdiv">
+            <img src={IMAGE} alt={IMAGE} className="pic"/>
+          </div>
+        </Col>
+        <Col md={6}>
+          <h1>Edit Profile</h1>
+          <Label for="firstName">First Name </Label>
+          <Input
+            type="text"
+            name="firstName"
+            id="firstName"
+            value={firstName}
+            placeholder=""
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <Label for="lastName">Last Name </Label>
+          <Input
+            type="text"
+            name="lastName"
+            id="lastName"
+            value={lastName}
+            placeholder=""
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <Label for="course">Course </Label>
+          <Input
+            type="text"
+            name="course"
+            id="course"
+            value={course}
+            placeholder=""
+            onChange={(e) => setCourse(e.target.value)}
+          />
+          <Label for="semester">Semester </Label>
+          <Input
+            type="text"
+            name="semester"
+            id="semester"
+            value={semester}
+            placeholder=""
+            onChange={(e) => setSemester(e.target.value)}
+          />
+          <Label for="phone">Mobile No. </Label>
+          <Input
+            type="text"
+            name="phone"
+            id="phone"
+            value={phone}
+            placeholder=""
+            onChange={(e) => setPhone(e.target.value)}
+          />
+          <Label for="dob">DOB </Label>
+          <Input
+            type="date"
+            name="dob"
+            id="dob"
+            value={dob}
+            placeholder=""
+            onChange={(e) => setdob(e.target.value)}
+          />
+          <Label for="address">Address </Label>
+          <Input
+            type="textarea"
+            name="address"
+            id="address"
+            value={address}
+            placeholder=""
+            onChange={(e) => setAddress(e.target.value)}
+          />
+          <Label for="mothername">Mother's Name </Label>
+          <Input
+            type="text"
+            name="mothername"
+            id="mothername"
+            value={motherName}
+            placeholder=""
+            onChange={(e) => setMotherName(e.target.value)}
+          />
+          <Label for="fathername">Father's Name </Label>
+          <Input
+            type="text"
+            name="fathername"
+            id="fathername"
+            value={fatherName}
+            placeholder=""
+            onChange={(e) => setFatherName(e.target.value)}
+          />
+          <Label for="newpassword">New Password</Label>
+          <Input
+            type="password"
+            name="newpassword"
+            id="newpassword"
+            value={password}
+            placeholder=""
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button color="success" onClick={onUpdateHandler}>
+            Update Profile
+          </Button>
+          <Button color="danger" onClick={onCancelHandler}>
+            Cancel
+          </Button>
+        </Col>
+      </Row>
     </div>
   );
 };
