@@ -89,13 +89,12 @@ const StudentEditProfile = (props) => {
             <img src={IMAGE} alt={IMAGE} className="pic"/>
           </div>
         </Col>
-        <Col lg={6}>
+        <Col lg={5}>
           <h1>Edit Profile</h1>
           <Label for="firstName">First Name </Label>
           <Input
             type="text"
             name="firstName"
-            id="firstName"
             value={firstName}
             placeholder=""
             onChange={(e) => setFirstName(e.target.value)}
@@ -104,7 +103,6 @@ const StudentEditProfile = (props) => {
           <Input
             type="text"
             name="lastName"
-            id="lastName"
             value={lastName}
             placeholder=""
             onChange={(e) => setLastName(e.target.value)}
@@ -113,7 +111,6 @@ const StudentEditProfile = (props) => {
           <Input
             type="text"
             name="course"
-            id="course"
             value={course}
             placeholder=""
             onChange={(e) => setCourse(e.target.value)}
@@ -122,7 +119,6 @@ const StudentEditProfile = (props) => {
           <Input
             type="text"
             name="semester"
-            id="semester"
             value={semester}
             placeholder=""
             onChange={(e) => setSemester(e.target.value)}
@@ -131,7 +127,6 @@ const StudentEditProfile = (props) => {
           <Input
             type="text"
             name="phone"
-            id="phone"
             value={phone}
             placeholder=""
             onChange={(e) => setPhone(e.target.value)}
@@ -140,7 +135,6 @@ const StudentEditProfile = (props) => {
           <Input
             type="date"
             name="dob"
-            id="dob"
             value={dob}
             placeholder=""
             onChange={(e) => setdob(e.target.value)}
@@ -149,7 +143,6 @@ const StudentEditProfile = (props) => {
           <Input
             type="textarea"
             name="address"
-            id="address"
             value={address}
             placeholder=""
             onChange={(e) => setAddress(e.target.value)}
@@ -158,7 +151,6 @@ const StudentEditProfile = (props) => {
           <Input
             type="text"
             name="mothername"
-            id="mothername"
             value={motherName}
             placeholder=""
             onChange={(e) => setMotherName(e.target.value)}
@@ -167,7 +159,6 @@ const StudentEditProfile = (props) => {
           <Input
             type="text"
             name="fathername"
-            id="fathername"
             value={fatherName}
             placeholder=""
             onChange={(e) => setFatherName(e.target.value)}
@@ -176,18 +167,26 @@ const StudentEditProfile = (props) => {
           <Input
             type="password"
             name="newpassword"
-            id="newpassword"
             value={password}
             placeholder=""
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button color="success" onClick={onUpdateHandler}>
-            Update Profile
-          </Button>
-          <Button color="danger" onClick={onCancelHandler}>
-            Cancel
-          </Button>
+          <div className="button1">
+          <Row>
+            <Col sm={4}>
+              <Button color="success" onClick={onUpdateHandler}>
+                Update Profile
+              </Button>
+            </Col>
+            <Col sm={4}>
+              <Button color="danger" onClick={onCancelHandler}>
+                Cancel
+              </Button>
+            </Col>
+          </Row>  
+          </div>
         </Col>
+        <Col lg={1}></Col>
       </Row>
     </div>
   );

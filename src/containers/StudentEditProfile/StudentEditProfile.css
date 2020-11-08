@@ -7,5 +7,12 @@
   .picdiv {
     display: none;
   }
+  .jcontainer {
+    margin: 15px;
+  }
 }
 
+.button1 {
+  margin: 5px;
+  padding: 5px;
+}
