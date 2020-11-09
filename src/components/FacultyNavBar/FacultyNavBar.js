@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './FacultyNavBar.css';
 import {
   Collapse, 
@@ -23,6 +23,20 @@ import Logo from '../Logo/Logo';
 
 const FacultyNavBar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [number, setnumber] = useState(0)
+    
+    useEffect(() => {
+      setnumber(number + 1)
+      console.log('mount');
+      return () => {
+        console.log('unmount')
+      }
+    }, [])
+
+    useEffect(() => {
+      console.log(number);
+    }, [number])
+
 
     const toggle = () => setIsOpen(!isOpen);
 

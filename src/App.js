@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 // import StudentLogin from './containers/StudentLogin/StudentLogin';
@@ -10,15 +10,48 @@ import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Main from './containers/Main/Main';
 import ViewResources from './containers/ViewResources/ViewResources';
-import { Route, Switch, withRouter, Redirect} from 'react-router-dom';
+import { Route, Switch, withRouter, Redirect, useLocation} from 'react-router-dom';
 import AddNewResource from './containers/AddNewResource/AddNewResource';
 import AddNewJob from './containers/AddNewJob/AddNewJob';
 import AddNewTest from './containers/AddNewTest/AddNewTest';
 import ViewAllResources from './containers/ViewAllResources/ViewAllResources';
 import Auth from './components/Auth/Auth';
+import SecuredRoute from './SecuredRoute'
 
-const app = () => {
 
+
+
+const App = () => {
+
+
+  const location = useLocation()
+  const [loggedin, setloggedin] = useState(false)
+  const [loading, setloading] = useState(true)
+
+  useEffect(() => {  
+      setloading(true);
+      fetch('http://localhost:4000/user/details', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          if(result.password) 
+            setloggedin(true)          
+         else
+         setloggedin(false)
+         setloading(false)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }, [location, loggedin])
+
+ 
+  
   const PrivateRoute = ({component: Component, ...rest}) => 
   (<Route {...rest} render={props => Auth.getAuth()
     ? (<Component {...props} /> ) 
@@ -28,10 +61,14 @@ const app = () => {
 
   let routes = (
     <Switch>
-      <Route exact path="/" component={Main} />
+      <Route exact path="/">
+       <Main loggedin={loggedin}/>
+      </Route>
       {/* <Route path="/studentlogin" component={StudentLogin} />  */}
       <PrivateRoute path="/studentdashboard" component={StudentDashboard} />
-      <PrivateRoute path="/facultydashboard" component={FacultyDashboard} />
+      <SecuredRoute path="/facultydashboard" loggedin={loggedin}>
+        <FacultyDashboard  />
+      </SecuredRoute>
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <PrivateRoute path="/studenteditprofile" component={StudentEditProfile} />
@@ -60,7 +97,10 @@ const app = () => {
       <Redirect to="/"/>
     </Switch>
   );
-
+  
+  if(loading)
+  return null
+  else
   return (
     <div className="App">
         {routes}
@@ -68,4 +108,4 @@ const app = () => {
   );
 }
 
-export default withRouter(app);
+export default App;

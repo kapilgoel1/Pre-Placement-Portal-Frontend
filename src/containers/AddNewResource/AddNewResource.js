@@ -6,7 +6,6 @@ import FileUploadTest from '../../components/FileUploadTest/FileUploadTest';
 const AddNewResource = () => {
     return (
         <div>
-            <FacultyNavBar/>
             <FileUploadTest/>
         </div>
     );

@@ -6,10 +6,14 @@ import Login from '../Login/Login';
 import Logo from '../../components/Logo/Logo';
 import Footer from '../../components/Footer/Footer';
 import GalleryLogo from '../../components/GalleryLogo/GalleryLogo';
+import { Redirect } from 'react-router';
 
-const Main = () => {
+const Main = (props) => {
+    
             
     return (
+        <>
+        {props.loggedin ? <Redirect to="/facultydashboard" /> :
         <div className="Main">
             <div className="container1">
             <Row>
@@ -51,6 +55,9 @@ const Main = () => {
             <Footer/>  
             </div>                                    
         </div> 
+        
+    }
+    </>
     );
 }
 

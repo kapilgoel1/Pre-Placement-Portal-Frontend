@@ -18,6 +18,7 @@ const FileUploadTest = () => {
     })
       .then((response) => response.json())
       .then((result) => {
+        if(result!=='not authenticated')
         setSubjectList(result);
       })
       .catch((err) => {
