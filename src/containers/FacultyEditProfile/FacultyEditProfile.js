@@ -66,11 +66,12 @@ const FacultyEditProfile = (props) => {
       <div className="scontainer">
         <Row>
           <Col lg={6}>
-          <div className="divpic">
-            <img src={IMAGE} alt={IMAGE} className="pic2"/>
+            <div className="divpic">
+              <img src={IMAGE} alt={IMAGE} className="pic2"/>
           </div>
           </Col>
           <Col lg={5}>
+            <div className="divv">
             <h1>Edit Profile</h1>
             <Label for="firstName">First Name </Label> 
             <Input 
@@ -125,6 +126,7 @@ const FacultyEditProfile = (props) => {
                   </Button>
                 </Col>
               </Row>  
+            </div>
             </div>
           </Col>
           <Col lg={1}></Col>

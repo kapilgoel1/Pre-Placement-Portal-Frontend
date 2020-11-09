@@ -1,18 +1,19 @@
 .pic2 {
-    width: 100%;
-    height: 750px;
-  } 
-  
-  @media screen and (max-width: 1000px) {
-    .divpic {
-      display: none;
-    }
-    .scontainer {
-      margin: 15px;
-    }
+  width: 100%;
+  height: 750px;
+} 
+
+@media screen and (max-width: 1000px) {
+  .divpic {
+    display: none;
   }
-  
-  .button2 {
-    margin: 5px;
-    padding: 5px;
+
+  .scontainer {
+    margin: 15px;
   }
+}
+  
+.button2 {
+  margin: 5px;
+  padding: 5px;
+}
