@@ -13,11 +13,11 @@ const Main = () => {
         <div className="Main">
             <div className="container1">
             <Container fluid>
-            <Row>
-                <Col md={{size: 2, offset: 0}} xs={{ size: 4, offset: 4 }}>
-                    <div className="logodiv">
+            <Row className="justify-content-center justify-content-md-start">
+                <Col md={{size: 2, offset: 0}} xs={{ size: 5 }}>
+                    
                     <Logo/>
-                    </div>
+                    
                 </Col>  
                 <Col md={8}>
                     <center>

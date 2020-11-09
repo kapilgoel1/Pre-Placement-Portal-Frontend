@@ -59,12 +59,10 @@
   margin: 0 auto;
   max-width: 1250px;
   color: white;
-
 }
 
 .login-container__form {
   height: 350px;
-  
 }
 
 @media only screen and (min-width: 500px) {
@@ -86,4 +84,8 @@
   .login-container__form {
     margin-right: 40px;
   }
+}
+
+.logoo {
+  background-image: url('../../assets/JIMSLogo.png');
 }
