@@ -1,4 +1,3 @@
 .logo {
-    margin: 10px;
-    position: relative;
+  object-fit: cover;
 }
