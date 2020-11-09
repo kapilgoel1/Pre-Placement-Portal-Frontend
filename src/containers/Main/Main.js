@@ -1,7 +1,7 @@
 import React from 'react';
 import './Main.css';
 
-import {Row, Col} from 'reactstrap'; 
+import {Row, Col, Container} from 'reactstrap'; 
 import Login from '../Login/Login';
 import Logo from '../../components/Logo/Logo';
 import Footer from '../../components/Footer/Footer';
@@ -12,8 +12,9 @@ const Main = () => {
     return (
         <div className="Main">
             <div className="container1">
+            <Container fluid>
             <Row>
-                <Col md={2}>
+                <Col md={{size: 2, offset: 0}} xs={{ size: 4, offset: 4 }}>
                     <div className="logodiv">
                     <Logo/>
                     </div>
@@ -32,11 +33,13 @@ const Main = () => {
                     </center>
                 </Col>
             </Row>
+            </Container>
                 <div className="loginhero">
                    <div className="login-container">
                         <Login />
                    </div>
                 </div>
+            <Container fluid>    
             <Row>
                 <Col md={12}>
                     <div className='acc' align="center">
@@ -46,7 +49,8 @@ const Main = () => {
                         </div>
                     </div>
                 </Col>  
-            </Row>                                                         
+            </Row>  
+            </Container>                                                       
               
             <Footer/>  
             </div>                                    

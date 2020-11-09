@@ -1,7 +1,7 @@
 import React from "react";
 import './Footer.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {Row, Col} from 'reactstrap';
+import {Row, Col, Container} from 'reactstrap';
 import {
   faYoutube,
   faFacebook,
@@ -12,7 +12,7 @@ import {
 const FooterPage = () => {
   return (
     <div className="footer">
-      <div className="container">
+      <Container className="container" fluid>
         <Row>
           <Col md={6}>
           Jagan Institute of Management Studies <br/> 
@@ -40,7 +40,7 @@ const FooterPage = () => {
           </Col>
           Copyright &copy; {new Date().getFullYear()} All Rights Reserved with JIMS
         </Row>
-      </div>
+      </Container>
     </div>
   );
 }
