@@ -5,6 +5,7 @@ import './App.css';
 import StudentDashboard from './containers/StudentDashboard/StudentDashboard';
 import FacultyDashboard from './containers/FacultyDashboard/FacultyDashboard';
 import FacultyEditProfile from './containers/FacultyEditProfile/FacultyEditProfile';
+import StudentEditProfile from './containers/StudentEditProfile/StudentEditProfile'
 import About from './components/About/About';
 import Main from './containers/Main/Main';
 import { Route, Switch, Redirect} from 'react-router-dom';
@@ -78,6 +79,9 @@ const App = () => {
         </SecuredFacultyRoute>
         <SecuredStudentRoute path="/studentdashboard">
           <StudentDashboard  />
+        </SecuredStudentRoute>
+        <SecuredStudentRoute path="/studenteditprofile">
+          <StudentEditProfile  />
         </SecuredStudentRoute>
       </AuthContext.Provider>  
   </Switch>
