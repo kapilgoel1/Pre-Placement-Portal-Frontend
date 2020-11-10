@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import './FileList.css';
+import React, { useState, useEffect } from 'react'
+import {useParams} from 'react-router-dom'
+import ReactPaginate from 'react-paginate'
+import FileStripp from '../FileStrip/FileStripp'
 import {Input, CardBody, FormGroup, Card, Form} from 'reactstrap';
+import './FileList.css'
 
-import ReactPaginate from 'react-paginate';
-import FileStripp from '../FileStrip/FileStripp';
 
 export default function FileList(props) {
 
@@ -13,6 +14,7 @@ export default function FileList(props) {
     const [subjectList, setsubjectList] = useState([]);
     const [pageCount, setpageCount] = useState(5)
     const [offset, setoffset] = useState(0)
+    let { category } = useParams();
 
 
     useEffect(() => {
@@ -36,8 +38,8 @@ export default function FileList(props) {
 
         console.log('limit', props.limit);
         let url = new URL('http://localhost:4000/file/retrievelist');
-        if(props.category !== undefined) {
-          url.searchParams.append('category', props.category);
+        if(category !== undefined) {
+          url.searchParams.append('category', category);
         }
         url.searchParams.append('limit', props.limit); 
         url.searchParams.append('skip', offset)
@@ -61,7 +63,7 @@ export default function FileList(props) {
             console.log(err);
           });
 
-      }, [offset, subject, searchField, props.limit, props.category])
+      }, [offset, subject, searchField, props.limit, category])
 
      
       const handlePageClick = (data) => {
@@ -71,64 +73,64 @@ export default function FileList(props) {
 
     return (
       <div className="container-s">
-        <Card className="filelist-form">
-          <CardBody className="file-form">
-            <Form onSubmit="" autoComplete="off">
-              <FormGroup>
-                <Input 
-                  type="search" 
-                  placeholder="Search File" 
-                  onChange={(e) =>{ setsearchField(e.target.value); setoffset(0)}} 
-                />
-              </FormGroup>
-              <FormGroup>
-                <Input 
-                  type="select" 
-                  value={subject} 
-                  onChange={(e) =>{ setsubject(e.target.value);  setoffset(0)} }
-                >
-                  <option value="">All</option>
-                  {
-                    subjectList.map((sub) => <option value={sub._id} key={sub._id}>{sub.title}</option>)
-                  }
-                </Input>
-                <div className="filestrip-header">
-                <div className="filestrip-header__filename"><h5>Filename</h5></div>
-                <div className="filestrip-header__subject"><h5>Subject</h5></div>
-                <div className="filestrip-header__dateuploaded"><h5>Date Uploaded</h5></div>
-                <div className="filestrip-header__uploadedby"><h5>Uploaded By</h5></div>
-                <div className="filestrip-header__action" ><h5>Action</h5></div>
-                </div>
-                {
-                  fileList.map((file) => <FileStripp key={file._id} file = {file} /> )
-                }
-              </FormGroup>  
-              <FormGroup>
-              <ReactPaginate
-                previousLabel={<span aria-hidden="true">&laquo;</span>}
-                nextLabel={<span aria-hidden="true">&raquo;</span>}
-                breakLabel={'...'}
-                breakClassName={'page-item'}
-                breakLinkClassName={'page-link'}
-                pageCount={pageCount}       
-                forcePage={offset/props.limit}
-                marginPagesDisplayed={0}
-                pageRangeDisplayed={4}
-                onPageChange={handlePageClick}
-                containerClassName={'pagination'}
-                subContainerClassName={''}
-                activeClassName={'active'}
-                pageClassName={'page-item'}
-                pageLinkClassName={'page-link'}
-                previousClassName={'page-item'}
-                previousLinkClassName={'page-link'}
-                nextClassName={'page-item'}
-                nextLinkClassName={'page-link'}
+      <Card className="filelist-form">
+        <CardBody className="file-form">
+          <Form onSubmit="" autoComplete="off">
+            <FormGroup>
+              <Input 
+                type="search" 
+                placeholder="Search File" 
+                onChange={(e) =>{ setsearchField(e.target.value); setoffset(0)}} 
               />
-              </FormGroup>
-            </Form> 
-          </CardBody>
-        </Card>     
-      </div>
-    );
+            </FormGroup>
+            <FormGroup>
+              <Input 
+                type="select" 
+                value={subject} 
+                onChange={(e) =>{ setsubject(e.target.value);  setoffset(0)} }
+              >
+                <option value="">All</option>
+                {
+                  subjectList.map((sub) => <option value={sub._id} key={sub._id}>{sub.title}</option>)
+                }
+              </Input>
+              <div className="filestrip-header">
+              <div className="filestrip-header__filename"><h5>Filename</h5></div>
+              <div className="filestrip-header__subject"><h5>Subject</h5></div>
+              <div className="filestrip-header__dateuploaded"><h5>Date Uploaded</h5></div>
+              <div className="filestrip-header__uploadedby"><h5>Uploaded By</h5></div>
+              <div className="filestrip-header__action" ><h5>Action</h5></div>
+              </div>
+              {
+                fileList.map((file) => <FileStripp key={file._id} file = {file} /> )
+              }
+            </FormGroup>  
+            <FormGroup>
+            <ReactPaginate
+              previousLabel={<span aria-hidden="true">&laquo;</span>}
+              nextLabel={<span aria-hidden="true">&raquo;</span>}
+              breakLabel={'...'}
+              breakClassName={'page-item'}
+              breakLinkClassName={'page-link'}
+              pageCount={pageCount}       
+              forcePage={offset/props.limit}
+              marginPagesDisplayed={0}
+              pageRangeDisplayed={4}
+              onPageChange={handlePageClick}
+              containerClassName={'pagination'}
+              subContainerClassName={''}
+              activeClassName={'active'}
+              pageClassName={'page-item'}
+              pageLinkClassName={'page-link'}
+              previousClassName={'page-item'}
+              previousLinkClassName={'page-link'}
+              nextClassName={'page-item'}
+              nextLinkClassName={'page-link'}
+            />
+            </FormGroup>
+          </Form> 
+        </CardBody>
+      </Card>     
+    </div>
+    )
 }

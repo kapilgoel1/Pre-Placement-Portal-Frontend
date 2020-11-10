@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import AuthContext from '../../AuthContext'
 import "./Login.css";
 import {withRouter} from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstrap';
-import Auth from '../../components/Auth/Auth';
+import { Button, Form, FormGroup, Label, Input, Card,  CardBody } from 'reactstrap';
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {setloggedin} = useContext(AuthContext);
+
 
   // useEffect(() => {
   //   const listener = event => {
@@ -25,9 +27,8 @@ const Login = (props) => {
   //   return email.length > 0 && password.length > 0;
   // }
 
-  const onClickHandler = () => {
-
-    // Auth.authenticate();
+  const onClickHandler = (e) => {
+    e.preventDefault();
     const AuthData = {
       email: email, 
       password: password
@@ -43,13 +44,11 @@ const Login = (props) => {
     })
       .then(response => response.json())
       .then((result) => {
-        if(result.role === 'faculty') {
-          Auth.authenticateFaculty();
-          props.history.push('/facultydashboard');
+        if(result.role) {
+          setloggedin(true)
           console.log(result);
         }
-        else if(result.role === 'student') {
-          Auth.authenticateStudent();
+        else {
           props.history.push('/studentdashboard');
           console.log(result);
         }
@@ -63,7 +62,7 @@ const Login = (props) => {
       
       <Card className="login-container__form">
       <CardBody className="form-body">
-        <Form className="" autoComplete="off">
+        <Form className="" autoComplete="off" onSubmit={onClickHandler}>
           <h2 className="text-center"> <b> Login </b></h2>
           <FormGroup >
             <Label for="Email">Email </Label>
@@ -76,7 +75,7 @@ const Login = (props) => {
           <center>
           <Button 
             color="secondary"  
-            onClick={onClickHandler}
+            type="submit"
           > 
             Submit 
           </Button>
