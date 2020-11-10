@@ -2,17 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px;
+    padding: 50px;
 }
 
-.select {
-    position: relative;
-    display: flex;
-    width: 18em;
-    height: 2em;
-    line-height: 3;
-    background: #3c607c;
-    color: lightcyan;
-    overflow: hidden;
-    border-radius: .25em;
-  }
+.file-upload-form {
+    height: 380px;
+    width: 450px;
+}
+
+.upload-form {
+    background-color: rgb(219, 236, 236);
+}
