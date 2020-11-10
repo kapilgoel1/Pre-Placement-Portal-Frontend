@@ -1,0 +1,15 @@
+.containerj {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.file-upload-form {
+    height: 420px;
+    width: 450px;
+}
+
+.upload-form {
+    background-color: rgb(219, 236, 236);
+}

@@ -2,6 +2,21 @@
   color: red;
 }
 
+.container-s {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.filelist-form {
+  height: 100%;
+  width: 1050px;
+}
+
+.file-form {
+  background-color: rgb(219, 236, 236);
+}
 
 .filestrip-header {
   max-width: 1000px;

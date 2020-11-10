@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Label, Input, Button } from 'reactstrap';
+import './AddNewTestModal.css';
+import { Label, Input, Button, FormGroup, Form, CardBody, Card } from 'reactstrap';
 
 const AddNewTest = (props) => {
    
@@ -8,23 +9,52 @@ const AddNewTest = (props) => {
     const [testLink, setTestLink] = useState("");
 
     return (
-        <div>
-            
-                <div className="content">
-                    <div align="center">ADD TEST DETAILS HERE</div>
-                    <hr/>
-                    <Label for="title">TITLE</Label>
-                    <Input type="text" name="title" id="title" value={title} placeholder="Enter Title" onChange={e => setTitle(e.target.value)}/>
-                    <br/>
-                    <Label for="test">TEST DETAILS</Label>
-                    <br/>
-                    <Input type="text" name="testDetail" id="testDetail" value={testDetail} placeholder="Enter Test Detail" onChange={e => setTestDetail(e.target.value)}/>
-                    <center><Label for="or" align="center">OR</Label></center>
-                    <Input type="url" name="testLink" id="testLink" value={testLink} placeholder="Paste Test link" onChange={e => setTestLink(e.target.value)}/>
-                    <br/>
-                    <center><Button>UPLOAD</Button> </center>
-                </div>
-  
+        <div className="containerj">
+            <Card className="test-upload-form">
+                <CardBody className="upload-form">
+                    <Form onSubmit="" autoComplete="off">
+                        <FormGroup align="center">
+                            <Label>ADD TEST DETAILS</Label>
+                        </FormGroup>
+                        <hr/>
+                        <FormGroup>
+                            <Label for="title">TITLE</Label>
+                            <Input 
+                                type="text" 
+                                name="title" 
+                                id="title" 
+                                value={title} 
+                                placeholder="Enter Title" 
+                                onChange={e => setTitle(e.target.value)}/>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="test">TEST DETAILS</Label>
+                            <Input 
+                                type="text" 
+                                name="testDetail" 
+                                id="testDetail" 
+                                value={testDetail} 
+                                placeholder="Enter Test Detail" 
+                                onChange={e => setTestDetail(e.target.value)}/>
+                        </FormGroup>
+                        <FormGroup align="center">
+                            <Label for="or" align="center">OR</Label>
+                        </FormGroup>
+                        <FormGroup>
+                            <Input 
+                                type="url" 
+                                name="testLink" 
+                                id="testLink" 
+                                value={testLink} 
+                                placeholder="Paste Test link" 
+                                onChange={e => setTestLink(e.target.value)}/>
+                        </FormGroup>
+                        <FormGroup align="center">
+                            <Button>UPLOAD</Button>
+                        </FormGroup>
+                    </Form>
+                </CardBody>
+            </Card>            
         </div>
     );
 }
