@@ -1,71 +1,92 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 // import StudentLogin from './containers/StudentLogin/StudentLogin';
 import StudentDashboard from './containers/StudentDashboard/StudentDashboard';
 import FacultyDashboard from './containers/FacultyDashboard/FacultyDashboard';
-import StudentEditProfile from './containers/StudentEditProfile/StudentEditProfile';
 import FacultyEditProfile from './containers/FacultyEditProfile/FacultyEditProfile';
+import StudentEditProfile from './containers/StudentEditProfile/StudentEditProfile'
 import About from './components/About/About';
-import Contact from './components/Contact/Contact';
 import Main from './containers/Main/Main';
-import ViewResources from './containers/ViewResources/ViewResources';
-import { Route, Switch, withRouter, Redirect} from 'react-router-dom';
-import AddNewResource from './containers/AddNewResource/AddNewResource';
-import AddNewJob from './containers/AddNewJob/AddNewJob';
-import AddNewTest from './containers/AddNewTest/AddNewTest';
-import ViewAllResources from './containers/ViewAllResources/ViewAllResources';
-import Auth from './components/Auth/Auth';
+import { Route, Switch, Redirect} from 'react-router-dom';
 
-const app = () => {
+import SecuredFacultyRoute from './SecuredFacultyRoute'
+import SecuredStudentRoute from './SecuredStudentRoute'
+import AuthContext from './AuthContext'
 
-  const PrivateRoute = ({component: Component, ...rest}) => 
-  (<Route {...rest} render={props => Auth.getAuth()
-    ? (<Component {...props} /> ) 
-    : (<Redirect to={{ pathname: "/" }} /> )
-   } />
-  );
 
-  let routes = (
-    <Switch>
-      <Route exact path="/" component={Main} />
-      {/* <Route path="/studentlogin" component={StudentLogin} />  */}
-      <PrivateRoute path="/studentdashboard" component={StudentDashboard} />
-      <PrivateRoute path="/facultydashboard" component={FacultyDashboard} />
-      <Route path="/about" component={About} />
-      <Route path="/contact" component={Contact} />
-      <PrivateRoute path="/studenteditprofile" component={StudentEditProfile} />
-      <PrivateRoute path="/facultyeditprofile" component={FacultyEditProfile} />
-      <PrivateRoute path="/addnewresource" component={AddNewResource}/>
-      <PrivateRoute path="/addnewjob" component={AddNewJob}/>
-      <PrivateRoute path="/addnewtest" component={AddNewTest}/>
-      <PrivateRoute path="/viewallresources" component={ViewAllResources}/>
 
-      <PrivateRoute path="/testpaper">
-        <ViewResources category="testpaper" />
-      </PrivateRoute>
-      <PrivateRoute path="/notes">
-        <ViewResources category="notes" />
-      </PrivateRoute>
-      <PrivateRoute path="/assignment">
-        <ViewResources category="assignment" />
-      </PrivateRoute>
-      <PrivateRoute path="/ppt">
-        <ViewResources category="ppt" />
-      </PrivateRoute>
-      <PrivateRoute path="/video">
-        <ViewResources category="video" />
-      </PrivateRoute>
+const App = () => {
 
-      <Redirect to="/"/>
-    </Switch>
-  );
 
+  const [loggedin, setloggedin] = useState(true)
+  const [loading, setloading] = useState(false)
+  const [userRole, setuserRole] = useState(null)
+
+  useEffect(() => {  
+      setloading(true);
+      fetch('http://localhost:4000/user/details', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          if(result.role === 'faculty') { 
+            setloggedin(true)        
+            setuserRole(result.role)
+          }  else if(result.role === 'student') { 
+            setloggedin(true)        
+            setuserRole(result.role)
+          } else {
+            setloggedin(false)
+          }         
+         setloading(false)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }, [loggedin])
+
+ 
+  
+
+ 
+  
+  if(loading)
+  return null
+  else
   return (
     <div className="App">
-        {routes}
+    <Switch>      
+      <AuthContext.Provider value={{loggedin: loggedin, userRole: userRole, setloggedin: setloggedin}}>
+        <Route exact path="/">      
+          <Main userRole={userRole} />    
+        </Route>
+        <Route path="/about">
+          <About/>
+        </Route>
+        <Route path="/contact">
+          <About/>
+        </Route>
+        <SecuredFacultyRoute path="/facultydashboard">
+          <FacultyDashboard  />
+        </SecuredFacultyRoute>
+        <SecuredFacultyRoute path="/facultyeditprofile">
+          <FacultyEditProfile  />
+        </SecuredFacultyRoute>
+        <SecuredStudentRoute path="/studentdashboard">
+          <StudentDashboard  />
+        </SecuredStudentRoute>
+        <SecuredStudentRoute path="/studenteditprofile">
+          <StudentEditProfile  />
+        </SecuredStudentRoute>
+      </AuthContext.Provider>  
+  </Switch>
     </div>
   );
 }
 
-export default withRouter(app);
+export default App;
