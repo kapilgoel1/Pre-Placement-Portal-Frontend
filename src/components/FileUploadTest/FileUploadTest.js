@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Progress } from 'reactstrap';
+import './FileUploadTest.css';
+import { Progress, Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstrap';
 
 const FileUploadTest = () => {
 
   const [totalData, setTotalData] = useState(0);
-  const [loadedData, setLoadedData] = useState(0)
-  const [loading, setLoading] = useState(false)
-  const [loaded, setLoaded] = useState(false)
-  const [category, setCategory] = useState("")
+  const [loadedData, setLoadedData] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [category, setCategory] = useState("");
   const [subject, setSubject] = useState("");
   const [subjectList, setSubjectList] = useState([]);
 
@@ -73,29 +74,47 @@ const FileUploadTest = () => {
     xhrObj.send(formData);
   }
 
-    return (
-      <div>
-        <form onSubmit={uploadFile}>
-          <input id="file-field" type="file" />
-            <select value={category} onChange={(e) => setCategory(e.target.value)} required>
-              <option value="">--Please choose an option--</option>
-              <option value="assignment">Assignment</option>
-              <option value="testpaper">Test Paper</option>
-              <option value="notes">Notes</option>
-           </select>
-           <select value={subject} onChange={(e) => setSubject(e.target.value)} >
-              <option value="">--Please choose an options--</option>
-              {
-                subjectList.map((sub) => <option value={sub._id} key={sub._id}>{sub.title}</option>)
-              }
-           </select>
 
-            <input type="submit" />
-        </form>
-        {loading &&  <Progress animated max={totalData} value={loadedData} />}
-        {loaded && <h1>File Successfully uploaded! </h1>}
+  return (
+
+    <div className="containerj">
+      <Card className="file-upload-form">
+        <CardBody className="upload-form">
+          <Form onSubmit={uploadFile} autoComplete="off">
+            <FormGroup align="center">
+              <Label for="upload">UPLOAD A FILE</Label>
+              <hr/>
+              <Input name="file" id="file-field" type="file" />
+            </FormGroup>
+            <FormGroup>
+              <Label for="category">CATEGORY</Label>
+              <Input type="select" value={category} className="select" onChange={(e) => setCategory(e.target.value)} required>
+                <option value="">--Please choose an option--</option>
+                <option value="assignment">Assignment</option>
+                <option value="testpaper">Test Paper</option>
+                <option value="notes">Notes</option>
+              </Input>
+            </FormGroup>
+            <FormGroup>
+              <Label>SUBJECT</Label>
+              <Input type="select" value={subject} className="select" onChange={(e) => setSubject(e.target.value)} >
+                <option value="">--Please choose an option--</option>
+                {
+                  subjectList.map((sub) => <option value={sub._id} key={sub._id}>{sub.title}</option>)
+                }
+              </Input>
+            </FormGroup>
+            <FormGroup align="center">
+              <Button type="submit">SUBMIT</Button>
+            </FormGroup>
+          </Form>
+          {loading &&  <Progress animated max={totalData} value={loadedData} />}
+          {loaded && <h1>File Successfully uploaded! </h1>}
+        </CardBody>
+      </Card>
     </div>
-    )
+  );
 }
 
 export default FileUploadTest;
+

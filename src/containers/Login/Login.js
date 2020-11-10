@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import AuthContext from '../../AuthContext'
 import "./Login.css";
 import {withRouter} from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input, Card,  CardBody } from 'reactstrap';
@@ -6,6 +7,8 @@ import { Button, Form, FormGroup, Label, Input, Card,  CardBody } from 'reactstr
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {setloggedin} = useContext(AuthContext);
+
 
   // useEffect(() => {
   //   const listener = event => {
@@ -41,8 +44,8 @@ const Login = (props) => {
     })
       .then(response => response.json())
       .then((result) => {
-        if(result.role === 'faculty') {
-          props.history.push('/facultydashboard');
+        if(result.role) {
+          setloggedin(true)
           console.log(result);
         }
         else {

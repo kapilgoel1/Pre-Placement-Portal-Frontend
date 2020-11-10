@@ -1,60 +1,28 @@
 import React from 'react';
 import './StudentDashboard.css';
-import {Row, Col} from 'reactstrap'; 
+import {Switch, Route, useRouteMatch} from 'react-router-dom'
+
 
 import StudentNavBar from '../../components/StudentNavbar/StudentNavBar';
+import StudentMenu from '../../components/StudentMenu/StudentMenu'
 import Footer from '../../components/Footer/Footer';
+import FileList from '../../components/FileList/FileList'
 
 const StudentDashboard = (props) => {
+    let { path } = useRouteMatch();
 
     return (
         <div>
          <StudentNavBar/> 
-         <div className="container">
-            <Row>
-                <Col md={5}>
-                    <div className="parentdiv">
-                        <div className="childdiv">
-                            <button className="functionButtons">RESUME BUILDER</button>
-                        </div>    
-                    </div>
-                    <div className="parentdiv">
-                        <div className="childdiv">
-                            <button className="functionButtons">VIEW PROGRESS REPORT</button>
-                        </div>
-                    </div>
-                    <div className="parentdiv">
-                        <div className="childdiv"> 
-                            <button className="functionButtons">VIEW TEST SCHEDULE</button>
-                        </div> 
-                    </div>
-                </Col>
-
-                <Col md={5}>    
-                    <div className="parentdiv">
-                        <div className="childdiv"> 
-                            <button className="functionButtons">VIEW NEW JOB/POSTINGS</button>
-                        </div>
-                    </div>
-                    <div className="parentdiv">
-                        <div className="childdiv"> 
-                            <button className="functionButtons">VIEW FEEDBACK</button> 
-                        </div>
-                    </div>
-                </Col>
-
-                <Col md={2}>
-                    <div className="schedule" align="center">
-                        SCHEDULES <br/>
-                    </div>
-                    <div className="notices" align="center">
-                        NOTICE 1 <br/>
-                        NOTICE 2 <br/>
-                        NOTICE 3 <br/>
-                    </div>
-                </Col>
-            </Row>
-        </div>
+         <Switch>
+         <Route exact path={path}>
+           <StudentMenu />
+         </Route>
+         <Route path={`${path}/files/:category`}>
+           <FileList limit={10}/>
+         </Route>
+       </Switch>
+         
         <Footer/>
         </div>
     );

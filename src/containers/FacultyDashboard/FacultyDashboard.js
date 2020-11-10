@@ -1,75 +1,49 @@
 import React from 'react';
-import './FacultyDashboard.css';
 import {
-    Row, 
-    Col
-} from 'reactstrap'; 
+    Switch,
+    Route,
+    useRouteMatch
+  } from "react-router-dom";
+  import FacultyMenu from '../../components/FacultyMenu/FacultyMenu'
+    import AddNewResource from '../AddNewResource/AddNewResource';
+    import AddNewTest from '../AddNewTest/AddNewTest';
+    import AddNewJob from '../AddNewJob/AddNewJob';
+    import FileList from '../../components/FileList/FileList'
+
+
 
 import FacultyNavBar from '../../components/FacultyNavBar/FacultyNavBar';
-import ModalExample from '../../components/AddNewResModal/ModelExample';
-import AddNewTestModal from '../../components/AddNewTestModal/AddNewTestModal';
-import AddNewJobModal from '../../components/AddNewJobModal/AddNewJobModal';
 import Footer from '../../components/Footer/Footer';
+
 const FacultyDashboard = (props) => {
 
-    const onViewJob = () => {
-        console.log("view job button clicked");
-    } 
+    let { path } = useRouteMatch();
 
-    const onViewProfile = () => {
-        console.log("view profile button clicked");
-    } 
-
+    
     return (
         <div>
             <FacultyNavBar/>
-            <div className="container">
-                <Row>
-                    <Col md={5}>
-                        <div className="parentdiv">
-                            <div className="childdiv">
-                                <ModalExample buttonLabel="ADD NEW RESOURCES"></ModalExample>
-                            </div>    
-                        </div>
-                        <div className="parentdiv">
-                            <div className="childdiv">
-                                <button className="functionButtons" onClick={onViewProfile}>VIEW STUDENT PROFILE</button>
-                            </div>
-                        </div>
-                        <div className="parentdiv">
-                            <div className="childdiv"> 
-                                <AddNewJobModal buttonLabel="ADD NEW JOB POSTINGS"><i class="fas fa-box-open"></i></AddNewJobModal>
-                            </div> 
-                        </div>
-                    </Col>
-                    <Col md={5}>    
-                        <div className="parentdiv">
-                            <div className="childdiv"> 
-                                <AddNewTestModal buttonLabel="ADD NEW TEST"/>
-                            </div>
-                        </div>
-                        <div className="parentdiv">
-                            <div className="childdiv"> 
-                                <button className="functionButtons" onClick={onViewJob}>VIEW NEW JOB/POSTINGS</button>
-                            </div>
-                        </div>
-                    </Col>
-                
-                    <Col md={2}>
-                        <div className="schedule" align="center">
-                            SCHEDULES <br/>
-                        </div>
-                        <div className="notices" align="center">
-                            NOTICE 1 <br/>
-                            NOTICE 2 <br/>
-                            NOTICE 3 <br/>
-                            NOTICE 1 <br/>
-                            NOTICE 2 <br/>
-                            NOTICE 3 <br/>
-                        </div>
-                    </Col>
-                </Row>
-            </div>
+            <Switch>
+            <Route exact path={path}>
+              <FacultyMenu />
+            </Route>
+            <Route path={`${path}/addnewresource`}>
+              <AddNewResource />
+            </Route>
+            <Route path={`${path}/addnewtest`}>
+              <AddNewTest />
+            </Route>
+            <Route path={`${path}/addnewjob`}>
+              <AddNewJob />
+            </Route>
+            <Route path={`${path}/files/:category`}>
+              <FileList limit={10}/>
+            </Route>
+            <Route path={`${path}/viewallresources`}>
+              <FileList limit={10}/>
+            </Route>
+          </Switch>
+               
             <Footer/>
         </div>
     );

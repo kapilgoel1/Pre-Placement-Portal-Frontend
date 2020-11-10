@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useHistory, useRouteMatch } from "react-router-dom";
+
 import './StudentNavBar.css';
 import {
   Collapse, 
@@ -15,6 +17,7 @@ import {
   DropdownItem,
   Button
 } from 'reactstrap';
+import AuthContext from '../../AuthContext'
 import {withRouter} from 'react-router-dom';
 import Logo from '../Logo/Logo';
 
@@ -22,10 +25,16 @@ import Logo from '../Logo/Logo';
 
 const StudentNavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { setloggedin } = useContext(AuthContext);
+  let { url } = useRouteMatch();
+  let history = useHistory();
+
+
+
   const toggle = () => setIsOpen(!isOpen);
   
   const onClickHandler = () => {
-    props.history.push('/studenteditprofile');
+    history.push('/studenteditprofile');
   }
 
   const onLogoutHandler = () => {
@@ -33,14 +42,18 @@ const StudentNavBar = (props) => {
       method: 'GET',
       credentials: 'include',
     })
-    .then((response) => response.json())
-    .then((result) => {
-      props.history.push('/');
-      console.log(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .then((response) => response.json())
+      .then((result) => {
+        setloggedin(false);
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  const onViewResource = (category) => {
+    history.push(`${url}/files/${category}`)
   }
                
   return (
@@ -67,28 +80,28 @@ const StudentNavBar = (props) => {
               View Resources
             </DropdownToggle>
             <DropdownMenu right>
-              <DropdownItem>
-                View test papers
-              </DropdownItem>
-              <DropdownItem>
-                View assignments
-              </DropdownItem>
-              <DropdownItem>
-                View PPTs
-              </DropdownItem>
-              <DropdownItem>
-                View announcements
-              </DropdownItem>
-              <DropdownItem>
-                View videos
-              </DropdownItem>
-              <DropdownItem>
-                View weblinks/external resources
-              </DropdownItem>
-              <DropdownItem>
-                View notes
-              </DropdownItem>
-            </DropdownMenu>
+            <DropdownItem onClick={() => onViewResource('testpaper')}>
+              View test papers
+            </DropdownItem>
+            <DropdownItem onClick={() => onViewResource('assignment')}>
+              View assignments
+            </DropdownItem>
+          <DropdownItem onClick={() => onViewResource('ppt')}>
+              View PPTs
+            </DropdownItem>
+            <DropdownItem onClick={() => onViewResource('announcement')}>
+              View announcements
+            </DropdownItem>
+            <DropdownItem onClick={() => onViewResource('video')}>
+              View videos
+            </DropdownItem>
+            <DropdownItem onClick={() => onViewResource('notes')}>
+            View notes
+            </DropdownItem>
+            <DropdownItem>
+              View weblinks/external resources
+            </DropdownItem>
+          </DropdownMenu>
           </UncontrolledDropdown>
         </Nav>
         <NavbarText className="btn-edit">      

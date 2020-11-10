@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import AuthContext from '../../AuthContext'
+import { useHistory, useRouteMatch } from "react-router-dom";
 import './FacultyNavBar.css';
 import {
   Collapse, 
@@ -22,6 +24,10 @@ import Logo from '../Logo/Logo';
 
 const FacultyNavBar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
+    const { setloggedin } = useContext(AuthContext);
+    let history = useHistory();
+    let { url } = useRouteMatch();
+
 
     const toggle = () => setIsOpen(!isOpen);
 
@@ -36,12 +42,16 @@ const FacultyNavBar = (props) => {
       })
         .then((response) => response.json())
         .then((result) => {
-          props.history.push('/');
+          setloggedin(false);
           console.log(result);
         })
         .catch((err) => {
           console.log(err);
         });
+    }
+
+    const onViewResource = (category) => {
+      history.push(`${url}/files/${category}`)
     }
                
     return (
@@ -69,26 +79,26 @@ const FacultyNavBar = (props) => {
             View Resources
           </DropdownToggle>
           <DropdownMenu right>
-            <DropdownItem>
+            <DropdownItem onClick={() => onViewResource('testpaper')}>
               View test papers
             </DropdownItem>
-            <DropdownItem>
+            <DropdownItem onClick={() => onViewResource('assignment')}>
               View assignments
             </DropdownItem>
-          <DropdownItem>
+          <DropdownItem onClick={() => onViewResource('ppt')}>
               View PPTs
             </DropdownItem>
-            <DropdownItem>
+            <DropdownItem onClick={() => onViewResource('announcement')}>
               View announcements
             </DropdownItem>
-            <DropdownItem>
+            <DropdownItem onClick={() => onViewResource('video')}>
               View videos
+            </DropdownItem>
+            <DropdownItem onClick={() => onViewResource('notes')}>
+            View notes
             </DropdownItem>
             <DropdownItem>
               View weblinks/external resources
-            </DropdownItem>
-            <DropdownItem>
-              View notes
             </DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>
