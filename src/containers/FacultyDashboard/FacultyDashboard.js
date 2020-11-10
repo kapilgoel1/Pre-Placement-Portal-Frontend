@@ -1,25 +1,23 @@
 import React from 'react';
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
-    Link,
-    useParams,
     useRouteMatch
   } from "react-router-dom";
   import FacultyMenu from '../../components/FacultyMenu/FacultyMenu'
-    import {
-        Row, 
-        Col
-    } from 'reactstrap'; 
     import AddNewResource from '../AddNewResource/AddNewResource';
+    import AddNewTest from '../AddNewTest/AddNewTest';
+    import AddNewJob from '../AddNewJob/AddNewJob';
+    import FileList from '../../components/FileList/FileList'
+
+
 
 import FacultyNavBar from '../../components/FacultyNavBar/FacultyNavBar';
 import Footer from '../../components/Footer/Footer';
 
 const FacultyDashboard = (props) => {
 
-    let { path, url } = useRouteMatch();
+    let { path } = useRouteMatch();
 
     
     return (
@@ -30,8 +28,20 @@ const FacultyDashboard = (props) => {
               <FacultyMenu />
             </Route>
             <Route path={`${path}/addnewresource`}>
-            <AddNewResource />
-          </Route>
+              <AddNewResource />
+            </Route>
+            <Route path={`${path}/addnewtest`}>
+              <AddNewTest />
+            </Route>
+            <Route path={`${path}/addnewjob`}>
+              <AddNewJob />
+            </Route>
+            <Route path={`${path}/files/:category`}>
+              <FileList limit={10}/>
+            </Route>
+            <Route path={`${path}/viewallresources`}>
+              <FileList limit={10}/>
+            </Route>
           </Switch>
                
             <Footer/>

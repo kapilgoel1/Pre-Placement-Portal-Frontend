@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import {useParams} from 'react-router-dom'
 import ReactPaginate from 'react-paginate'
 import FileStripp from '../FileStrip/FileStripp'
 
@@ -14,6 +15,7 @@ export default function FileList(props) {
     const [subjectList, setsubjectList] = useState([]);
     const [pageCount, setpageCount] = useState(5)
     const [offset, setoffset] = useState(0)
+    let { category } = useParams();
 
 
     useEffect(() => {
@@ -37,8 +39,8 @@ export default function FileList(props) {
 
         console.log('limit', props.limit);
         let url = new URL('http://localhost:4000/file/retrievelist');
-        if(props.category !== undefined) {
-          url.searchParams.append('category', props.category);
+        if(category !== undefined) {
+          url.searchParams.append('category', category);
         }
         url.searchParams.append('limit', props.limit); 
         url.searchParams.append('skip', offset)
@@ -62,7 +64,7 @@ export default function FileList(props) {
             console.log(err);
           });
 
-      }, [offset, subject, searchField, props.limit, props.category])
+      }, [offset, subject, searchField, props.limit, category])
 
      
       const handlePageClick = (data) => {

@@ -9,18 +9,18 @@ import './FacultyMenu.css';
 
 function FacultyMenu() {
     let history = useHistory();
-    let { path, url } = useRouteMatch();
+    let { url } = useRouteMatch();
 
     const onAddNewRes = () => {
         history.push(`${url}/addnewresource`);
     }
 
     const onAddNewJob = () => {
-        history.push('/addnewjob');
+        history.push(`${url}/addnewjob`);
     }
 
     const onAddNewTest = () => {
-        history.push('/addnewtest');
+        history.push(`${url}/addnewtest`);
     }
 
     const onViewJob = () => {
@@ -32,7 +32,7 @@ function FacultyMenu() {
     } 
 
     const onViewAllResources = () => {
-        history.push('/viewallresources');
+        history.push(`${url}/viewallresources`);
     } 
 
     return (
