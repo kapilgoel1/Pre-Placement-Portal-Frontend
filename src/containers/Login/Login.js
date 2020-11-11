@@ -27,7 +27,8 @@ const Login = (props) => {
   //   return email.length > 0 && password.length > 0;
   // }
 
-  const onClickHandler = () => {
+  const onClickHandler = (e) => {
+    e.preventDefault();
 
     const AuthData = {
       email: email, 
@@ -49,7 +50,7 @@ const Login = (props) => {
           console.log(result);
         }
         else {
-          props.history.push('/studentdashboard');
+          alert('Invalid Login credentials');
           console.log(result);
         }
       })
@@ -62,20 +63,20 @@ const Login = (props) => {
       
       <Card className="login-container__form">
       <CardBody className="form-body">
-        <Form className="" autoComplete="off">
+        <Form className="" autoComplete="off" onSubmit={onClickHandler}>
           <h2 className="text-center"> <b> Login </b></h2>
           <FormGroup >
             <Label for="Email">Email </Label>
-            <Input type="email" name="email" id="Email" value={email} placeholder="Enter Email" onChange={e => setEmail(e.target.value)}/>
+            <Input type="email" name="email" id="Email" value={email} placeholder="Enter Email" onChange={e => setEmail(e.target.value)} required/>
           </FormGroup>
           <FormGroup>
             <Label for="Password">Password </Label>
-            <Input type="password" name="password" id="Password" value={password} placeholder="Enter Password" onChange={e => setPassword(e.target.value)} />
+            <Input type="password" name="password" id="Password" value={password} placeholder="Enter Password" onChange={e => setPassword(e.target.value)} required/>
           </FormGroup>   
           <center>
           <Button 
             color="secondary"  
-            onClick={onClickHandler}
+            type="submit"
           > 
             Submit 
           </Button>

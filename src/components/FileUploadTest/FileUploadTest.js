@@ -84,7 +84,7 @@ const FileUploadTest = () => {
             <FormGroup align="center">
               <Label for="upload">UPLOAD A FILE</Label>
               <hr/>
-              <Input name="file" id="file-field" type="file" />
+              <Input name="file" id="file-field" type="file" required/>
             </FormGroup>
             <FormGroup>
               <Label for="category">CATEGORY</Label>
