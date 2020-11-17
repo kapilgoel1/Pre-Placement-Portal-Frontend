@@ -9,20 +9,6 @@ const Login = (props) => {
   const [password, setPassword] = useState("");
   const {setloggedin} = useContext(AuthContext);
 
-
-  // useEffect(() => {
-  //   const listener = event => {
-  //     if (event.code === "Enter" || event.code === "NumpadEnter") {
-  //       console.log("Enter key was pressed. Run your function.");
-  //       function();
-  //     }
-  //   };
-  //   document.addEventListener("keydown", listener);
-  //   return () => {
-  //     document.removeEventListener("keydown", listener);
-  //   };
-  // }, []);
-
   // const validateForm = () => {
   //   return email.length > 0 && password.length > 0;
   // }

@@ -25,8 +25,8 @@ const AddNewTest = (props) => {
         })
         .then(response => response.json())
         .then((result) => {
-          props.history.push('/facultydashboard');
           console.log(result);
+          alert("Test details added");
         })
         .catch((err) => {
           console.log(err);
