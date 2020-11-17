@@ -40,7 +40,7 @@ const FacultyDashboard = (props) => {
               <FileList limit={10}/>
             </Route>
             <Route path={`${path}/viewallresources`}>
-              <FileList limit={3}/>
+              <FileList limit={10}/>
             </Route>
           </Switch>
                
