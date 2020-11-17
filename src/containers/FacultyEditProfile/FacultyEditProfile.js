@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {useHistory} from 'react-router-dom'
 import './FacultyEditProfile.css';
 import { Input, Label, Button, Row, Col } from 'reactstrap';
 import IMAGE from '../../assets/Image6.jpg';
@@ -9,6 +10,8 @@ const FacultyEditProfile = (props) => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState(""); 
   const [dob, setdob] = useState(""); 
+  
+  const history = useHistory()
 
   useEffect(() => {
     fetch('http://localhost:4000/user/details', {
@@ -50,7 +53,7 @@ const FacultyEditProfile = (props) => {
   })
     .then(response => response.json())
     .then((result) => {
-      props.history.push('/facultydashboard');
+      history.push('/facultydashboard');
       console.log(result);
     })
     .catch((err) => {
@@ -59,7 +62,7 @@ const FacultyEditProfile = (props) => {
   };
 
   const onCancelHandler = () => {
-    props.history.push('/facultydashboard');
+    history.push('/facultydashboard');
   }
 
     return (
