@@ -8,6 +8,31 @@ const AddNewTest = (props) => {
     const [testDetail, setTestDetail] = useState("");
     const [testLink, setTestLink] = useState("");
 
+    const onClickHandler = () => {
+        const alteredData = {
+            title: title,
+            link: testLink,
+            detail: testDetail
+        };
+          
+        fetch('http://localhost:4000/test/add', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify( alteredData ),
+        })
+        .then(response => response.json())
+        .then((result) => {
+          props.history.push('/facultydashboard');
+          console.log(result);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+
     return (
         <div className="containerj">
             <Card className="test-upload-form">
@@ -50,7 +75,7 @@ const AddNewTest = (props) => {
                                 onChange={e => setTestLink(e.target.value)}/>
                         </FormGroup>
                         <FormGroup align="center">
-                            <Button>UPLOAD</Button>
+                            <Button onClick={onClickHandler}>UPLOAD</Button>
                         </FormGroup>
                     </Form>
                 </CardBody>

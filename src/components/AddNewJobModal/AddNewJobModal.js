@@ -8,6 +8,31 @@ const AddNewJob = (props) => {
     const [jobprofile, setJobProfile] = useState("");
     const [packages, setPackages] = useState("");
 
+    const onClickHandler = () => {
+        const alteredData = {
+            company: company,
+            jobprofile: jobprofile,
+            package: packages
+        };
+          
+        fetch('http://localhost:4000/jobposting/add', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify( alteredData ),
+        })
+        .then(response => response.json())
+        .then((result) => {
+          props.history.push('/facultydashboard');
+          console.log(result);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+
     return (
         <div className="containerj">
             <Card className="job-upload-form">
@@ -48,7 +73,7 @@ const AddNewJob = (props) => {
                                 onChange={e => setPackages(e.target.value)}/>
                         </FormGroup>
                         <FormGroup align="center">
-                            <Button>UPLOAD</Button>
+                            <Button onClick={onClickHandler}>UPLOAD</Button>
                         </FormGroup>
                     </Form>
                 </CardBody>    
