@@ -56,6 +56,7 @@ const AddNewJob = (props) => {
                             <Label for="jobprofile">Job Profile</Label>
                             <Input 
                                 type="textarea" 
+                                className="jobprofile"
                                 name="jobprofile" 
                                 id="jobprofile" 
                                 value={jobprofile} 
