@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom'
 import './StudentEditProfile.css';
 import { Label, Button, Row, Col, Input } from 'reactstrap';
 import IMAGE from '../../assets/Image6.jpg';
@@ -14,6 +15,8 @@ const StudentEditProfile = (props) => {
   const [motherName, setMotherName] = useState('');
   const [fatherName, setFatherName] = useState('');
   const [password, setPassword] = useState('');
+
+  const history = useHistory();
 
   useEffect(() => {
     fetch('http://localhost:4000/user/details', {
@@ -69,7 +72,7 @@ const StudentEditProfile = (props) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        props.history.push('/studentdashboard');
+        history.push('/studentdashboard');
         console.log(result);
       })
       .catch((err) => {
@@ -78,7 +81,7 @@ const StudentEditProfile = (props) => {
   };
 
   const onCancelHandler = () => {
-    props.history.push('/studentdashboard');
+    history.push('/studentdashboard');
   }
 
   return (
