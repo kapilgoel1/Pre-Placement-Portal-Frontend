@@ -23,6 +23,10 @@ function FacultyMenu() {
         history.push(`${url}/addnewtest`);
     }
 
+    const onAddExternalRes = () => {
+        history.push(`${url}/addexternalres`);
+    }
+
     const onViewJob = () => {
         console.log("view job button clicked");
     } 
@@ -41,7 +45,7 @@ function FacultyMenu() {
             <Col md={3}>
                 <div className="parentdiv1">
                     <div className="childdiv">
-                    <button className="functionButtons" onClick={onAddNewRes}>ADD NEW RESOURCE</button>
+                        <button className="functionButtons" onClick={onAddNewRes}>ADD NEW RESOURCE</button>
                     </div>    
                 </div>
                 <div className="parentdiv2">
@@ -53,24 +57,30 @@ function FacultyMenu() {
             <Col md={3}>
                 <div className="parentdiv3">
                     <div className="childdiv"> 
-                    <button className="functionButtons" onClick={onAddNewJob}>ADD NEW JOB/POSTINGS</button>
+                        <button className="functionButtons" onClick={onAddNewJob}>ADD NEW JOB/POSTINGS</button>
                     </div> 
                 </div>
             
-                
                 <div className="parentdiv4">
                     <div className="childdiv"> 
-                    <button className="functionButtons" onClick={onAddNewTest}>ADD NEW TEST</button>
+                        <button className="functionButtons" onClick={onAddNewTest}>ADD NEW TEST</button>
                     </div>
                 </div>
+
+                <div className="parentdiv5">
+                    <div className="childdiv"> 
+                        <button className="functionButtons" onClick={onAddExternalRes}>ADD EXTERNAL RESOURCES/WEBLINKS</button>
+                    </div>
+                </div>
+
             </Col>    
             <Col md={3}>
-                <div className="parentdiv5">
+                <div className="parentdiv6">
                     <div className="childdiv"> 
                         <button className="functionButtons" onClick={onViewJob}>VIEW NEW JOB/POSTINGS</button>
                     </div>
                 </div>
-                <div className="parentdiv6">
+                <div className="parentdiv7">
                     <div className="childdiv"> 
                         <button className="functionButtons" onClick={onViewAllResources}>VIEW ALL RESOURCES</button>
                     </div>

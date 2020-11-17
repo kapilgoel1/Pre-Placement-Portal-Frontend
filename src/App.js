@@ -8,7 +8,7 @@ import FacultyEditProfile from './containers/FacultyEditProfile/FacultyEditProfi
 import StudentEditProfile from './containers/StudentEditProfile/StudentEditProfile'
 import About from './components/About/About';
 import Main from './containers/Main/Main';
-import { Route, Switch, Redirect} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import SecuredFacultyRoute from './SecuredFacultyRoute'
 import SecuredStudentRoute from './SecuredStudentRoute'

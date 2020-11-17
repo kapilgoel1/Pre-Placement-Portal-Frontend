@@ -1,17 +1,16 @@
 import React from 'react';
 import {
-    Switch,
-    Route,
-    useRouteMatch
-  } from "react-router-dom";
-  import FacultyMenu from '../../components/FacultyMenu/FacultyMenu'
-    import AddNewResource from '../AddNewResource/AddNewResource';
-    import AddNewTest from '../AddNewTest/AddNewTest';
-    import AddNewJob from '../AddNewJob/AddNewJob';
-    import FileList from '../../components/FileList/FileList'
+  Switch,
+  Route,
+  useRouteMatch
+} from "react-router-dom";
 
-
-
+import FacultyMenu from '../../components/FacultyMenu/FacultyMenu'
+import AddNewResource from '../AddNewResource/AddNewResource';
+import AddNewTest from '../AddNewTest/AddNewTest';
+import AddNewJob from '../AddNewJob/AddNewJob';
+import AddExternalRes from '../AddExternalRes/AddExternalRes';
+import FileList from '../../components/FileList/FileList';
 import FacultyNavBar from '../../components/FacultyNavBar/FacultyNavBar';
 import Footer from '../../components/Footer/Footer';
 
@@ -35,6 +34,9 @@ const FacultyDashboard = (props) => {
             </Route>
             <Route path={`${path}/addnewjob`}>
               <AddNewJob />
+            </Route>
+            <Route path={`${path}/addexternalres`}>
+              <AddExternalRes />
             </Route>
             <Route path={`${path}/files/:category`}>
               <FileList limit={10}/>

@@ -55,7 +55,7 @@ const AddNewJob = (props) => {
                         <FormGroup>
                             <Label for="jobprofile">Job Profile</Label>
                             <Input 
-                                type="text" 
+                                type="textarea" 
                                 name="jobprofile" 
                                 id="jobprofile" 
                                 value={jobprofile} 

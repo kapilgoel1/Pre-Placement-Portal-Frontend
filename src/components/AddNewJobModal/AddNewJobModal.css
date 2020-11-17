@@ -2,3 +2,7 @@
     height: 420px;
     width: 500px;
 }
+
+input[type=textarea] {
+    resize: none;  
+}
