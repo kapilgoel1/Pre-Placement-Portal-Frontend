@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./ViewAnnouncements.css";
-import { Card, CardImg, CardImgOverlay, CardTitle, Button, CardText } from 'reactstrap';
+import { Card, CardTitle, Button } from 'reactstrap';
 import FacultyNavBar from "../FacultyNavBar/FacultyNavBar"
 import Footer from "../Footer/Footer";
 import { Link } from 'react-router-dom';
