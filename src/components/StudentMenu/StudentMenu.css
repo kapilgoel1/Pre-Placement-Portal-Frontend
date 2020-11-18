@@ -1,5 +1,5 @@
 .parentdiv12:hover,
-.parentdiv8:hover,
+.parentdiv13:hover,
 .parentdiv9:hover,
 .parentdiv10:hover,
 .parentdiv11:hover {
@@ -30,7 +30,7 @@
   text-align: center;
 }
 
-.parentdiv8 {
+.parentdiv13 {
   height: 350px;
   background-image: url('../../assets/progressReport.jpg');
   background-size: cover;
@@ -44,7 +44,7 @@
   cursor: pointer;
   transition: 0.4s;
 }
-.parentdiv8 .childdiv {
+.parentdiv13 .childdiv {
   margin: 10px;
   padding-top: 250px;
   text-align: center;

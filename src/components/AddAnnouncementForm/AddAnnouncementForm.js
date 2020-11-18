@@ -1,15 +1,36 @@
 import React, { useState } from 'react';
-import "./AddAnnouncement.css";
+import "./AddAnnouncementForm.css";
 import { Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstrap';
+
+import swal from 'sweetalert';
 
 const AddAnnouncement = (props) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    const [publisher, setPublisher] = useState("");
 
     const onClickHandler = () => {
-        // alert(`title is ${title} and content is ${content}`);
-    }
+        const alteredData = {
+            title: title,
+            content: content
+        };
+          
+        fetch('http://localhost:4000/announcement/add', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify( alteredData ),
+        })
+        .then(response => response.json())
+        .then((result) => {
+          console.log(result);
+          swal("ANNOUNCEMENT UPLOADED");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
 
     return (
         <div className="containerj">

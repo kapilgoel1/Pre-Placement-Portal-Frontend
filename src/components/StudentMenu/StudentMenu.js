@@ -13,7 +13,7 @@ function StudentMenu() {
                                     <button className="functionButtons">RESUME BUILDER</button>
                                 </div>    
                             </div>
-                            <div className="parentdiv8">
+                            <div className="parentdiv13">
                                 <div className="childdiv">
                                     <button className="functionButtons">VIEW PROGRESS REPORT</button>
                                 </div>

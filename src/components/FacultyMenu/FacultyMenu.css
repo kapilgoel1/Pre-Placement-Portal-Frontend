@@ -68,7 +68,7 @@
 
 .parentdiv3 {
   height: 350px;
-  background-image: url('../../assets/jobImage.jpg');
+  background-image: url('../../assets/AddAnnouncement.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -88,8 +88,7 @@
 
 .parentdiv4 {
   height: 350px;
-  /* background-color: rgb(47, 58, 204); */
-  background-image: url('../../assets/testImage.jpg');
+  background-image: url('../../assets/jobImage.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -109,7 +108,8 @@
 
 .parentdiv5 {
   height: 350px;
-  background-image: url('../../assets/external-resources.png');
+  /* background-color: rgb(47, 58, 204); */
+  background-image: url('../../assets/testImage.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -129,7 +129,7 @@
 
 .parentdiv6 {
   height: 350px;
-  background-image: url('../../assets/viewJobImage.jpg');
+  background-image: url('../../assets/external-resources.png');
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -149,7 +149,7 @@
 
 .parentdiv7 {
   height: 350px;
-  background-image: url('../../assets/viewResources.jpg');
+  background-image: url('../../assets/viewJobImage.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -162,6 +162,26 @@
   transition: 0.4s;
 }
 .parentdiv7 .childdiv {
+  margin: 10px;
+  padding-top: 250px;
+  text-align: center;
+}
+
+.parentdiv8 {
+  height: 350px;
+  background-image: url('../../assets/viewResources.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 30px auto;
+  width: 250px;
+  height: 350px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+.parentdiv8 .childdiv {
   margin: 10px;
   padding-top: 250px;
   text-align: center;
