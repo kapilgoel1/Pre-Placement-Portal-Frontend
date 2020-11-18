@@ -49,6 +49,11 @@
   text-align: center;
 }
 
+.filestrip-header__delete {
+  display: none;
+  text-align: center;
+}
+
 @media only screen and (min-width: 800px) {
   .filestrip-header__subject {
     display: block;
@@ -63,5 +68,15 @@
   .filestrip-header__uploadedby {
     display: block;
     flex: 1 1 50px;
+  }
+
+  .filestrip-header__action {
+    margin: 0 10px;
+  }
+
+  .filestrip-header__delete {
+    display: block;
+    flex: 1 1 50px;
+    margin: 0 10px;
   }
 }
