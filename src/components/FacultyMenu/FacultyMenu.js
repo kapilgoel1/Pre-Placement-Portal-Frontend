@@ -50,10 +50,10 @@ function FacultyMenu() {
         <div className="container">
         <Row>
             <Col md={3}>
-                <div className="parentdiv1" onClick={onAddNewRes} onMouseOver={MouseOver} onMouseOut={MouseOut}>
-                    {/* <div className="childdiv">
+                <div className="parentdiv1" onClick={onAddNewRes} >
+                     <div className="childdiv">
                         <button className="functionButtons" onClick={onAddNewRes}>ADD NEW RESOURCE</button>
-                    </div> */}
+                    </div> 
                 </div>
                 <div className="parentdiv2" onClick={onViewProfile} onMouseOver={MouseOver} onMouseOut={MouseOut}>
                     {/* <div className="childdiv">
