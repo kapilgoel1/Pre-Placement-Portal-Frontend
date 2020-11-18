@@ -1,12 +1,12 @@
-.parentdiv7 {
+.parentdiv12 {
   height: 350px;
   background-image: url('../../assets/resumeBuilder.png');
   background-size: cover;
   background-repeat: no-repeat;
-  border-style: solid;
+  /* border-style: solid; */
   margin: 10px;
 }
-.parentdiv7 .childdiv {
+.parentdiv12 .childdiv {
   margin: 10px;
   padding-top: 250px;
   text-align: center;

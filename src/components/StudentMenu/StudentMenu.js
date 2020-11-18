@@ -8,7 +8,7 @@ function StudentMenu() {
         <div className="container">
                     <Row>
                         <Col md={3}>
-                            <div className="parentdiv7">
+                            <div className="parentdiv12">
                                 <div className="childdiv">
                                     <button className="functionButtons">RESUME BUILDER</button>
                                 </div>    

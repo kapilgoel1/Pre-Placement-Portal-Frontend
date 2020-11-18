@@ -20,8 +20,14 @@
   background-image: url('../../assets/addResources.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  border-style: solid;
-  margin: 10px;
+  margin: 30px auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+
 }
 .parentdiv1 .childdiv {
   margin: 10px;
@@ -34,8 +40,13 @@
   background-image: url('../../assets/viewProfile.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  border-style: solid;
-  margin: 10px;
+  margin: 30px auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
 }
 .parentdiv2 .childdiv {
   margin: 10px;
@@ -48,8 +59,13 @@
   background-image: url('../../assets/jobImage.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  border-style: solid;
-  margin: 10px;
+  margin: 30px auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
 }
 .parentdiv3 .childdiv {
   margin: 10px;
@@ -63,8 +79,13 @@
   background-image: url('../../assets/testImage.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  border-style: solid;
-  margin: 10px;
+  margin: 30px auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
 }
 .parentdiv4 .childdiv {
   margin: 10px;
@@ -77,8 +98,13 @@
   background-image: url('../../assets/external-resources.png');
   background-size: cover;
   background-repeat: no-repeat;
-  border-style: solid;
-  margin: 10px;
+  margin: 30px auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
 }
 .parentdiv5 .childdiv {
   margin: 10px;
@@ -91,8 +117,13 @@
   background-image: url('../../assets/viewJobImage.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  border-style: solid;
-  margin: 10px;
+  margin: 30px auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
 }
 .parentdiv6 .childdiv {
   margin: 10px;
@@ -105,8 +136,13 @@
   background-image: url('../../assets/viewResources.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  border-style: solid;
-  margin: 10px;
+  margin: 30px auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
 }
 .parentdiv7 .childdiv {
   margin: 10px;
