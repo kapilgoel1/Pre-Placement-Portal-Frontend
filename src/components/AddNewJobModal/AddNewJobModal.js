@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './AddNewJobModal.css';
 import { Label, Input, Button, FormGroup, Card, CardBody, Form } from 'reactstrap';
 
+import swal from 'sweetalert';
+
 const AddNewJob = (props) => {
 
     const [company, setCompany] = useState(""); 
@@ -26,7 +28,7 @@ const AddNewJob = (props) => {
         .then(response => response.json())
         .then((result) => {
           console.log(result);
-          alert("Job details added");
+          swal("JOB DETAILS UPLOADED");
         })
         .catch((err) => {
           console.log(err);

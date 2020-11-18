@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './AddExternalResForm.css';
 import { Label, Input, Button, FormGroup, Form, CardBody, Card } from 'reactstrap';
+import swal from 'sweetalert';
 
 const AddNewTest = (props) => {
    
@@ -24,7 +25,7 @@ const AddNewTest = (props) => {
         .then(response => response.json())
         .then((result) => {
           console.log(result);
-          alert("External Resource added");
+          swal("EXTERNAL RESOURCE UPLOADED");
         })
         .catch((err) => {
           console.log(err);
