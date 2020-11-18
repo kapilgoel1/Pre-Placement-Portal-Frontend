@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import "./AddAnnouncement.css";
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import FacultyNavBar from "../FacultyNavBar/FacultyNavBar"
-import Footer from "../Footer/Footer"
+import { Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstrap';
 
 const AddAnnouncement = (props) => {
     const [title, setTitle] = useState("");
