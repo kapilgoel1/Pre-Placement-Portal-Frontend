@@ -144,7 +144,8 @@ const StudentEditProfile = (props) => {
           />
           <Label for="address">Address </Label>
           <Input
-            type="textarea"
+            type="textarea" 
+            className="address"
             name="address"
             value={address}
             placeholder=""

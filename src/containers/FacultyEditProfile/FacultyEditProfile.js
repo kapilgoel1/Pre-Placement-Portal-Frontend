@@ -103,6 +103,7 @@ const FacultyEditProfile = (props) => {
             <Label for="address">Address </Label>
             <Input 
               type="textarea" 
+              className="address"
               name="address" 
               value={address} 
               placeholder="" 

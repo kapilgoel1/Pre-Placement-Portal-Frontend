@@ -3,6 +3,10 @@
   height: 850px;
 } 
 
+.address {
+  resize: none;
+}
+
 @media screen and (max-width: 1000px) {
   .picdiv {
     display: none;
