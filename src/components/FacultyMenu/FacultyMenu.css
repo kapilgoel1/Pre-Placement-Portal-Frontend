@@ -12,6 +12,7 @@
 }
 
 .functionButtons:hover {
+  opacity: 0.9;
 }
 
 .parentdiv1 {
@@ -29,7 +30,13 @@
   transition: 0.4s;
 }
 
-.parentdiv1:hover {
+.parentdiv1:hover,
+.parentdiv2:hover,
+.parentdiv3:hover,
+.parentdiv4:hover,
+.parentdiv5:hover,
+.parentdiv6:hover,
+.parentdiv7:hover {
   transform: scale(1.14);
 }
 
