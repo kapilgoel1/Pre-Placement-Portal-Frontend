@@ -51,7 +51,8 @@ const AddNewTest = (props) => {
                                 id="title" 
                                 value={title} 
                                 placeholder="Enter Title" 
-                                onChange={e => setTitle(e.target.value)}/>
+                                onChange={e => setTitle(e.target.value)}
+                                required />
                         </FormGroup>
                         <FormGroup>
                             <Label for="link">LINK</Label>
@@ -61,7 +62,8 @@ const AddNewTest = (props) => {
                                 id="link" 
                                 value={link} 
                                 placeholder="Paste link" 
-                                onChange={e => setLink(e.target.value)}/>
+                                onChange={e => setLink(e.target.value)}
+                                required />
                         </FormGroup>
                         <FormGroup align="center">
                             <Button type="submit">UPLOAD</Button>

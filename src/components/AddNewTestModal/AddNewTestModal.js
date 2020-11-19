@@ -54,7 +54,8 @@ const AddNewTest = (props) => {
                                 id="title" 
                                 value={title} 
                                 placeholder="Enter Title" 
-                                onChange={e => setTitle(e.target.value)}/>
+                                onChange={e => setTitle(e.target.value)}
+                                required />
                         </FormGroup>
                         <FormGroup>
                             <Label for="test">TEST DETAILS</Label>
@@ -64,7 +65,8 @@ const AddNewTest = (props) => {
                                 id="testDetail" 
                                 value={testDetail} 
                                 placeholder="Enter Test Detail" 
-                                onChange={e => setTestDetail(e.target.value)}/>
+                                onChange={e => setTestDetail(e.target.value)}
+                                required />
                         </FormGroup>
                         <FormGroup align="center">
                             <Label for="or" align="center">OR</Label>
@@ -76,7 +78,8 @@ const AddNewTest = (props) => {
                                 id="testLink" 
                                 value={testLink} 
                                 placeholder="Paste Test link" 
-                                onChange={e => setTestLink(e.target.value)}/>
+                                onChange={e => setTestLink(e.target.value)}
+                                required />
                         </FormGroup>
                         <FormGroup align="center">
                             <Button type="submit">UPLOAD</Button>

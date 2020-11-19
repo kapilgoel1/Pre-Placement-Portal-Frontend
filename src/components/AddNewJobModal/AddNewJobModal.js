@@ -54,7 +54,8 @@ const AddNewJob = (props) => {
                                 id="company" 
                                 value={company} 
                                 placeholder="Enter Company" 
-                                onChange={e => setCompany(e.target.value)}/>
+                                onChange={e => setCompany(e.target.value)}
+                                required />
                         </FormGroup>    
                         <FormGroup>
                             <Label for="jobprofile">Job Profile</Label>
@@ -65,7 +66,8 @@ const AddNewJob = (props) => {
                                 id="jobprofile" 
                                 value={jobprofile} 
                                 placeholder="Enter Job Profile" 
-                                onChange={e => setJobProfile(e.target.value)}/>
+                                onChange={e => setJobProfile(e.target.value)}
+                                required />
                         </FormGroup>
                         <FormGroup>
                             <Label for="package">Package</Label>
@@ -75,7 +77,8 @@ const AddNewJob = (props) => {
                                 id="packages" 
                                 value={packages} 
                                 placeholder="Enter Package of company" 
-                                onChange={e => setPackages(e.target.value)}/>
+                                onChange={e => setPackages(e.target.value)}
+                                required />
                         </FormGroup>
                         <FormGroup align="center">
                             <Button type="submit">UPLOAD</Button>

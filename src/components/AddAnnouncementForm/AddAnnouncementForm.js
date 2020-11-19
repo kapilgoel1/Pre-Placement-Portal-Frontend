@@ -50,7 +50,8 @@ const AddAnnouncement = (props) => {
                                 id="title" 
                                 placeholder="Add Title Here" 
                                 value={title} 
-                                onChange={e => setTitle(e.target.value)} />
+                                onChange={e => setTitle(e.target.value)}
+                                required />
                         </FormGroup>
                         <FormGroup>
                             <Label for="content">Content</Label>
@@ -60,7 +61,8 @@ const AddAnnouncement = (props) => {
                                 id="content" 
                                 className="content"
                                 value={content} 
-                                onChange={e => setContent(e.target.value)} />
+                                onChange={e => setContent(e.target.value)}
+                                required />
                         </FormGroup>
                         <FormGroup>
                             <Button color="primary" type="submit">Submit</Button>
