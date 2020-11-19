@@ -108,6 +108,7 @@ const FacultyEditProfile = (props) => {
                       <Input 
                         type="textarea" 
                         name="address" 
+                        className="faculty-address"
                         value={address} 
                         placeholder="" 
                         onChange={e => setAddress(e.target.value)}

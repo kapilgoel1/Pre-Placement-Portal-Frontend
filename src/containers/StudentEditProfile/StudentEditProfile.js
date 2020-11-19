@@ -157,6 +157,7 @@ const StudentEditProfile = (props) => {
                       <Input
                         type="textarea"
                         name="address"
+                        className="student-address"
                         value={address}
                         placeholder=""
                         onChange={(e) => setAddress(e.target.value)}
