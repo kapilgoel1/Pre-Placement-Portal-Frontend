@@ -56,6 +56,7 @@ const AddAnnouncement = (props) => {
                                 type="textarea" 
                                 name="content" 
                                 id="content" 
+                                className="content"
                                 value={content} 
                                 onChange={e => setContent(e.target.value)} />
                         </FormGroup>
