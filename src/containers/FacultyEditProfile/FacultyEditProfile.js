@@ -116,6 +116,7 @@ const FacultyEditProfile = (props) => {
                         placeholder="" 
                         onChange={e => setAddress(e.target.value)}
                         required
+
                       />
                     </FormGroup>
                     <FormGroup>
@@ -127,6 +128,7 @@ const FacultyEditProfile = (props) => {
                         placeholder="" 
                         onChange={e => setdob(e.target.value)}
                         required
+
                       />
                     </FormGroup>
                     <FormGroup align="center">
