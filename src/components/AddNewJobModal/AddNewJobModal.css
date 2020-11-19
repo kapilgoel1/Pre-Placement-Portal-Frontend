@@ -1,4 +1,8 @@
 .job-upload-form {
-    height: 420px;
-    width: 500px;
+  height: 420px;
+  width: 500px;
+}
+
+.jobprofile {
+  resize: none;
 }

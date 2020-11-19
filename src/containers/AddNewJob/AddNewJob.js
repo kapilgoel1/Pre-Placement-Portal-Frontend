@@ -1,13 +1,13 @@
 import React from 'react';
 
-import AddNewJob from '../../components/AddNewJobModal/AddNewJobModal';
+import AddNewJobForm from '../../components/AddNewJobModal/AddNewJobModal';
 
-const AddNewResource = () => {
+const AddNewJob = () => {
     return (
         <div>
-            <AddNewJob/>
+            <AddNewJobForm/>
         </div>
     );
 }
 
-export default AddNewResource;
+export default AddNewJob;

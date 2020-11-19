@@ -58,7 +58,7 @@ const FacultyNavBar = (props) => {
       <div>
 
        <Navbar className="navbar" light expand="md">
-            <NavbarBrand href="/"><Logo/></NavbarBrand> 
+            <NavbarBrand onClick={() => { history.push('/') }} className="navbar-logo"><Logo/></NavbarBrand> 
           <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>

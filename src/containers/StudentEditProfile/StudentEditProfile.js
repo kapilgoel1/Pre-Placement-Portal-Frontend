@@ -100,6 +100,7 @@ const StudentEditProfile = (props) => {
                         value={firstName}
                         placeholder=""
                         onChange={(e) => setFirstName(e.target.value)}
+                        required
                       />
                     </FormGroup>
                     <FormGroup>
@@ -110,6 +111,7 @@ const StudentEditProfile = (props) => {
                         value={lastName}
                         placeholder=""
                         onChange={(e) => setLastName(e.target.value)}
+                        required
                       />
                     </FormGroup>
                     <FormGroup>
@@ -120,6 +122,7 @@ const StudentEditProfile = (props) => {
                         value={course}
                         placeholder=""
                         onChange={(e) => setCourse(e.target.value)}
+                        required
                       />
                     </FormGroup>
                     <FormGroup>
@@ -130,6 +133,7 @@ const StudentEditProfile = (props) => {
                         value={semester}
                         placeholder=""
                         onChange={(e) => setSemester(e.target.value)}
+                        required
                       />
                     </FormGroup> 
                     <FormGroup>
@@ -140,6 +144,7 @@ const StudentEditProfile = (props) => {
                         value={phone}
                         placeholder=""
                         onChange={(e) => setPhone(e.target.value)}
+                        required
                       />
                     </FormGroup>
                     <FormGroup>
@@ -150,6 +155,7 @@ const StudentEditProfile = (props) => {
                         value={dob}
                         placeholder=""
                         onChange={(e) => setdob(e.target.value)}
+                        required
                       />
                     </FormGroup>
                     <FormGroup>
@@ -157,6 +163,11 @@ const StudentEditProfile = (props) => {
                       <Input
                         type="textarea"
                         name="address"
+                        className="student-address"
+                        value={address}
+                        placeholder=""
+                        onChange={(e) => setAddress(e.target.value)}
+                        required
                         value={address}
                         placeholder=""
                         onChange={(e) => setAddress(e.target.value)}
@@ -170,6 +181,7 @@ const StudentEditProfile = (props) => {
                         value={motherName}
                         placeholder=""
                         onChange={(e) => setMotherName(e.target.value)}
+                        required
                       />
                     </FormGroup>
                     <FormGroup>
@@ -180,6 +192,7 @@ const StudentEditProfile = (props) => {
                         value={fatherName}
                         placeholder=""
                         onChange={(e) => setFatherName(e.target.value)}
+                        required
                       />
                     </FormGroup>
                     <FormGroup>
@@ -190,6 +203,7 @@ const StudentEditProfile = (props) => {
                         value={password}
                         placeholder=""
                         onChange={(e) => setPassword(e.target.value)}
+                        required
                       />
                     </FormGroup>
                     <FormGroup align='center'>

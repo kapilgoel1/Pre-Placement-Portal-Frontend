@@ -29,9 +29,14 @@ const FileUploadTest = () => {
 
   const uploadFile = (e) => {
     e.preventDefault();
-    const file = document.querySelector('#file-field').files[0];
     const formData = new FormData();
-    formData.append('multerkey', file);
+    var ins = document.querySelector('#file-field').files.length;
+    for (var x = 0; x < ins; x++) {
+        formData.append("multerkey", document.querySelector('#file-field').files[x], document.querySelector('#file-field').files[x].name );
+    }
+
+    // const files = document.querySelector('').files;
+    // formData.append('multerkey', files);
 
     var xhrObj = new XMLHttpRequest();  
 
@@ -84,7 +89,7 @@ const FileUploadTest = () => {
             <FormGroup align="center">
               <Label for="upload">UPLOAD A FILE</Label>
               <hr/>
-              <Input name="file" id="file-field" type="file" />
+              <Input name="file" id="file-field" type="file" required multiple/>
             </FormGroup>
             <FormGroup>
               <Label for="category">CATEGORY</Label>
@@ -109,7 +114,7 @@ const FileUploadTest = () => {
             </FormGroup>
           </Form>
           {loading &&  <Progress animated max={totalData} value={loadedData} />}
-          {loaded && <h1>File Successfully uploaded! </h1>}
+          {loaded && <h1>Files Successfully uploaded! </h1>}
         </CardBody>
       </Card>
     </div>

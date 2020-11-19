@@ -32,10 +32,52 @@ export default function FileList(props) {
       }
       , [])
 
+
      
 
       useEffect(() => {
 
+        console.log('useeffect')
+        let url = new URL('http://localhost:4000/file/retrievelist');
+        if(category !== undefined) {
+          url.searchParams.append('category', category);
+        }
+        url.searchParams.append('limit', props.limit); 
+        url.searchParams.append('skip', offset)
+        if(subject !== '')
+        url.searchParams.append('subject', subject)
+        if(searchField !== '')
+        url.searchParams.append('filename', searchField);
+
+        fetch(url, {
+          method: 'GET',
+          credentials: 'include',
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            if(Array.isArray(result.filelist) && result.filelist.length) {
+            setfileList(result.filelist);
+            console.log('if c')
+            }
+            else {
+            let offsetcal = result.numOfFiles - props.limit
+            if (offsetcal < 0) offsetcal = 0
+            setoffset(offsetcal)
+            setfileList(result.filelist);
+              console.log('if e')
+            }
+
+            setpageCount(Math.ceil(result.numOfFiles/props.limit))
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+
+      }, [offset, subject, searchField, props.limit, category])
+
+      const afterDelete = () => {
+        console.log('after date')
         console.log('limit', props.limit);
         let url = new URL('http://localhost:4000/file/retrievelist');
         if(category !== undefined) {
@@ -55,15 +97,25 @@ export default function FileList(props) {
           .then((response) => response.json())
           .then((result) => {
             console.log(result);
+            if(Array.isArray(result.filelist) && result.filelist.length) {
             setfileList(result.filelist);
+            console.log('if c afterdel')  
+            }
+            else {
+              let offsetcal = result.numOfFiles - props.limit
+              if (offsetcal < 0) offsetcal = 0
+              setoffset(offsetcal)
+              setfileList(result.filelist);
+                console.log('if e after d')
+          }  
 
+            
             setpageCount(Math.ceil(result.numOfFiles/props.limit))
           })
           .catch((err) => {
             console.log(err);
           });
-
-      }, [offset, subject, searchField, props.limit, category])
+      }
 
      
       const handlePageClick = (data) => {
@@ -75,7 +127,7 @@ export default function FileList(props) {
       <div className="container-s">
       <Card className="filelist-form">
         <CardBody className="file-form">
-          <Form onSubmit="" autoComplete="off">
+          <Form autoComplete="off">
             <FormGroup>
               <Input 
                 type="search" 
@@ -100,9 +152,10 @@ export default function FileList(props) {
               <div className="filestrip-header__dateuploaded"><h5>Date Uploaded</h5></div>
               <div className="filestrip-header__uploadedby"><h5>Uploaded By</h5></div>
               <div className="filestrip-header__action" ><h5>Action</h5></div>
+              <div className="filestrip-header__delete" ><h5>Action</h5></div>
               </div>
               {
-                fileList.map((file) => <FileStripp key={file._id} file = {file} /> )
+                fileList.map((file) => <FileStripp key={file._id} file = {file} afterDelete = {afterDelete} /> )
               }
             </FormGroup>  
             <FormGroup>

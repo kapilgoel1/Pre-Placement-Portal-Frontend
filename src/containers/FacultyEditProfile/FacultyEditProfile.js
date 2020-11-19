@@ -81,6 +81,7 @@ const FacultyEditProfile = (props) => {
                         value={firstName} 
                         placeholder="" 
                         onChange={e => setFirstName(e.target.value)}
+                        required
                       /> 
                     </FormGroup>
                     <FormGroup>
@@ -91,6 +92,7 @@ const FacultyEditProfile = (props) => {
                         value={lastName}
                         placeholder=""
                         onChange={e => setLastName(e.target.value)}
+                        required
                       />
                     </FormGroup>
                     <FormGroup>
@@ -101,6 +103,7 @@ const FacultyEditProfile = (props) => {
                         value={phone} 
                         placeholder="" 
                         onChange={e => setPhone(e.target.value)}
+                        required
                       />
                     </FormGroup>
                     <FormGroup>
@@ -108,9 +111,12 @@ const FacultyEditProfile = (props) => {
                       <Input 
                         type="textarea" 
                         name="address" 
+                        className="faculty-address"
                         value={address} 
                         placeholder="" 
                         onChange={e => setAddress(e.target.value)}
+                        required
+
                       />
                     </FormGroup>
                     <FormGroup>
@@ -121,6 +127,8 @@ const FacultyEditProfile = (props) => {
                         value={dob} 
                         placeholder="" 
                         onChange={e => setdob(e.target.value)}
+                        required
+
                       />
                     </FormGroup>
                     <FormGroup align="center">

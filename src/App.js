@@ -8,16 +8,13 @@ import FacultyEditProfile from './containers/FacultyEditProfile/FacultyEditProfi
 import StudentEditProfile from './containers/StudentEditProfile/StudentEditProfile'
 import About from './components/About/About';
 import Main from './containers/Main/Main';
-import { Route, Switch, Redirect} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import SecuredFacultyRoute from './SecuredFacultyRoute'
 import SecuredStudentRoute from './SecuredStudentRoute'
 import AuthContext from './AuthContext'
 
-
-
 const App = () => {
-
 
   const [loggedin, setloggedin] = useState(true)
   const [loading, setloading] = useState(false)
@@ -50,11 +47,7 @@ const App = () => {
         });
   }, [loggedin])
 
- 
-  
 
- 
-  
   if(loading)
   return null
   else

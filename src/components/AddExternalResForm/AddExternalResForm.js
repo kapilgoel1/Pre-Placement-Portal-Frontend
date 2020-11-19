@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
-import './AddNewTestModal.css';
+import './AddExternalResForm.css';
 import { Label, Input, Button, FormGroup, Form, CardBody, Card } from 'reactstrap';
-
 import swal from 'sweetalert';
 
 const AddNewTest = (props) => {
    
     const [title, setTitle] = useState(""); 
-    const [testDetail, setTestDetail] = useState("");
-    const [testLink, setTestLink] = useState("");
+    const [link, setLink] = useState("");
 
     const onClickHandler = (e) => {
         e.preventDefault();
 
         const alteredData = {
             title: title,
-            link: testLink,
-            detail: testDetail
+            link: link
         };
           
-        fetch('http://localhost:4000/test/add', {
+        fetch('http://localhost:4000/externalresource/add', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
@@ -30,7 +27,7 @@ const AddNewTest = (props) => {
         .then(response => response.json())
         .then((result) => {
           console.log(result);
-          swal("TEST UPLOADED");
+          swal("EXTERNAL RESOURCE UPLOADED");
         })
         .catch((err) => {
           console.log(err);
@@ -39,11 +36,11 @@ const AddNewTest = (props) => {
 
     return (
         <div className="containerj">
-            <Card className="test-upload-form">
+            <Card className="add-ext-res-form">
                 <CardBody className="upload-form">
                     <Form onSubmit={onClickHandler} autoComplete="off">
                         <FormGroup align="center">
-                            <Label>ADD TEST DETAILS</Label>
+                            <Label>ADD EXTERNAL RESOURCE/WEBLINKS</Label>
                         </FormGroup>
                         <hr/>
                         <FormGroup>
@@ -58,27 +55,14 @@ const AddNewTest = (props) => {
                                 required />
                         </FormGroup>
                         <FormGroup>
-                            <Label for="test">TEST DETAILS</Label>
-                            <Input 
-                                type="text" 
-                                name="testDetail" 
-                                id="testDetail" 
-                                value={testDetail} 
-                                placeholder="Enter Test Detail" 
-                                onChange={e => setTestDetail(e.target.value)}
-                                required />
-                        </FormGroup>
-                        <FormGroup align="center">
-                            <Label for="or" align="center">OR</Label>
-                        </FormGroup>
-                        <FormGroup>
+                            <Label for="link">LINK</Label>
                             <Input 
                                 type="url" 
-                                name="testLink" 
-                                id="testLink" 
-                                value={testLink} 
-                                placeholder="Paste Test link" 
-                                onChange={e => setTestLink(e.target.value)}
+                                name="link" 
+                                id="link" 
+                                value={link} 
+                                placeholder="Paste link" 
+                                onChange={e => setLink(e.target.value)}
                                 required />
                         </FormGroup>
                         <FormGroup align="center">

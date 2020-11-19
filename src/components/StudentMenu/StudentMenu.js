@@ -8,19 +8,19 @@ function StudentMenu() {
         <div className="container">
                     <Row>
                         <Col md={3}>
-                            <div className="parentdiv7">
+                            <div className="parentdiv12">
                                 <div className="childdiv">
                                     <button className="functionButtons">RESUME BUILDER</button>
                                 </div>    
                             </div>
-                            <div className="parentdiv8">
+                            <div className="parentdiv13">
                                 <div className="childdiv">
                                     <button className="functionButtons">VIEW PROGRESS REPORT</button>
                                 </div>
                             </div>
                         </Col>
                         <Col md={3}>    
-                            <div className="parentdiv9">
+                            <div className="parentdiv14">
                                 <div className="childdiv"> 
                                     <button className="functionButtons">VIEW TEST SCHEDULE</button>
                                 </div> 

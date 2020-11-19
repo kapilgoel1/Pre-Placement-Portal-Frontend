@@ -4,30 +4,17 @@ import "./Login.css";
 import {withRouter} from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input, Card,  CardBody } from 'reactstrap';
 
-const Login = (props) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {setloggedin} = useContext(AuthContext);
-
-
-  // useEffect(() => {
-  //   const listener = event => {
-  //     if (event.code === "Enter" || event.code === "NumpadEnter") {
-  //       console.log("Enter key was pressed. Run your function.");
-  //       function();
-  //     }
-  //   };
-  //   document.addEventListener("keydown", listener);
-  //   return () => {
-  //     document.removeEventListener("keydown", listener);
-  //   };
-  // }, []);
 
   // const validateForm = () => {
   //   return email.length > 0 && password.length > 0;
   // }
 
-  const onClickHandler = () => {
+  const onClickHandler = (e) => {
+    e.preventDefault();
 
     const AuthData = {
       email: email, 
@@ -45,12 +32,10 @@ const Login = (props) => {
       .then(response => response.json())
       .then((result) => {
         if(result.role) {
-          setloggedin(true)
-          console.log(result);
+          setloggedin(true);
         }
         else {
-          props.history.push('/studentdashboard');
-          console.log(result);
+          alert('Invalid Login credentials');
         }
       })
       .catch((err) => {
@@ -62,20 +47,20 @@ const Login = (props) => {
       
       <Card className="login-container__form">
       <CardBody className="form-body">
-        <Form className="" autoComplete="off">
+        <Form className="" autoComplete="off" onSubmit={onClickHandler}>
           <h2 className="text-center"> <b> Login </b></h2>
           <FormGroup >
             <Label for="Email">Email </Label>
-            <Input type="email" name="email" id="Email" value={email} placeholder="Enter Email" onChange={e => setEmail(e.target.value)}/>
+            <Input type="email" name="email" id="Email" value={email} placeholder="Enter Email" onChange={e => setEmail(e.target.value)} required/>
           </FormGroup>
           <FormGroup>
             <Label for="Password">Password </Label>
-            <Input type="password" name="password" id="Password" value={password} placeholder="Enter Password" onChange={e => setPassword(e.target.value)} />
+            <Input type="password" name="password" id="Password" value={password} placeholder="Enter Password" onChange={e => setPassword(e.target.value)} required/>
           </FormGroup>   
           <center>
           <Button 
             color="secondary"  
-            onClick={onClickHandler}
+            type="submit"
           > 
             Submit 
           </Button>
