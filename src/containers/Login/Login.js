@@ -4,7 +4,7 @@ import "./Login.css";
 import {withRouter} from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input, Card,  CardBody } from 'reactstrap';
 
-const Login = (props) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {setloggedin} = useContext(AuthContext);
@@ -32,12 +32,10 @@ const Login = (props) => {
       .then(response => response.json())
       .then((result) => {
         if(result.role) {
-          setloggedin(true)
-          console.log(result);
+          setloggedin(true);
         }
         else {
           alert('Invalid Login credentials');
-          console.log(result);
         }
       })
       .catch((err) => {

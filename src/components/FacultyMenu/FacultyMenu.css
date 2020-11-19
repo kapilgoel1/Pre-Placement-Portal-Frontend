@@ -68,7 +68,7 @@
 
 .parentdiv3 {
   height: 350px;
-  background-image: url('../../assets/AddAnnouncement.jpg');
+  background-image: url('../../assets/AddAnnouncements.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -182,6 +182,26 @@
   transition: 0.4s;
 }
 .parentdiv8 .childdiv {
+  margin: 10px;
+  padding-top: 250px;
+  text-align: center;
+}
+
+.parentdiv9 {
+  height: 350px;
+  background-image: url('../../assets/ViewAnnouncements.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 30px auto;
+  width: 250px;
+  height: 350px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+.parentdiv9 .childdiv {
   margin: 10px;
   padding-top: 250px;
   text-align: center;

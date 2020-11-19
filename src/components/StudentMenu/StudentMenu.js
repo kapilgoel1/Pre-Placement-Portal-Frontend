@@ -20,7 +20,7 @@ function StudentMenu() {
                             </div>
                         </Col>
                         <Col md={3}>    
-                            <div className="parentdiv9">
+                            <div className="parentdiv14">
                                 <div className="childdiv"> 
                                     <button className="functionButtons">VIEW TEST SCHEDULE</button>
                                 </div> 

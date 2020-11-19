@@ -8,7 +8,9 @@ const AddAnnouncement = (props) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
-    const onClickHandler = () => {
+    const onClickHandler = (e) => {
+        e.preventDefault();
+
         const alteredData = {
             title: title,
             content: content
@@ -36,7 +38,7 @@ const AddAnnouncement = (props) => {
         <div className="containerj">
             <Card className="add-announcement-form">
                 <CardBody className="upload-form">
-                    <Form onSubmit="" autoComplete="off">
+                    <Form onSubmit={onClickHandler} autoComplete="off">
                         <FormGroup align="center">
                             <Label>ADD ANNOUNCEMENT</Label>
                         </FormGroup>
@@ -61,7 +63,7 @@ const AddAnnouncement = (props) => {
                                 onChange={e => setContent(e.target.value)} />
                         </FormGroup>
                         <FormGroup>
-                            <Button color="primary" onClick={onClickHandler}>Submit</Button>
+                            <Button color="primary" type="submit">Submit</Button>
                         </FormGroup>
                     </Form>
                 </CardBody>

@@ -10,7 +10,9 @@ const AddNewTest = (props) => {
     const [testDetail, setTestDetail] = useState("");
     const [testLink, setTestLink] = useState("");
 
-    const onClickHandler = () => {
+    const onClickHandler = (e) => {
+        e.preventDefault();
+
         const alteredData = {
             title: title,
             link: testLink,
@@ -39,7 +41,7 @@ const AddNewTest = (props) => {
         <div className="containerj">
             <Card className="test-upload-form">
                 <CardBody className="upload-form">
-                    <Form onSubmit="" autoComplete="off">
+                    <Form onSubmit={onClickHandler} autoComplete="off">
                         <FormGroup align="center">
                             <Label>ADD TEST DETAILS</Label>
                         </FormGroup>
@@ -77,7 +79,7 @@ const AddNewTest = (props) => {
                                 onChange={e => setTestLink(e.target.value)}/>
                         </FormGroup>
                         <FormGroup align="center">
-                            <Button onClick={onClickHandler}>UPLOAD</Button>
+                            <Button type="submit">UPLOAD</Button>
                         </FormGroup>
                     </Form>
                 </CardBody>

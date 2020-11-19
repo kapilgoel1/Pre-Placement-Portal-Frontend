@@ -14,10 +14,7 @@ import SecuredFacultyRoute from './SecuredFacultyRoute'
 import SecuredStudentRoute from './SecuredStudentRoute'
 import AuthContext from './AuthContext'
 
-
-
 const App = () => {
-
 
   const [loggedin, setloggedin] = useState(true)
   const [loading, setloading] = useState(false)
@@ -50,11 +47,7 @@ const App = () => {
         });
   }, [loggedin])
 
- 
-  
 
- 
-  
   if(loading)
   return null
   else

@@ -1,6 +1,6 @@
 .parentdiv12:hover,
 .parentdiv13:hover,
-.parentdiv9:hover,
+.parentdiv14:hover,
 .parentdiv10:hover,
 .parentdiv11:hover {
   transform: scale(1.14);
@@ -50,7 +50,7 @@
   text-align: center;
 }
 
-.parentdiv9 {
+.parentdiv14 {
   height: 350px;
   background-image: url('../../assets/testImage.jpg');
   background-size: cover;
@@ -64,7 +64,7 @@
   cursor: pointer;
   transition: 0.4s;
 }
-.parentdiv9 .childdiv {
+.parentdiv14 .childdiv {
   margin: 10px;
   padding-top: 250px;
   text-align: center;

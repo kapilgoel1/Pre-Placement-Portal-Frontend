@@ -1,111 +1,52 @@
-import React from 'react';
+import React, {useState, useEffect,} from 'react';
 import "./ViewAnnouncements.css";
-import { Card, CardTitle, Button } from 'reactstrap';
-import FacultyNavBar from "../FacultyNavBar/FacultyNavBar"
-import Footer from "../Footer/Footer";
-import { Link } from 'react-router-dom';
+import { Card, CardTitle, Button, CardBody, Form, FormGroup, Label  } from 'reactstrap';
+import { Link, useRouteMatch } from 'react-router-dom';
 
-const ViewAnnouncements = (props) => {
-    const tempAnnouncements = [
-        {
-            id: 1,
-            title: "title1",
-            content: "content1",
-            createdAt: "23 Aug 2020"
-        },
-        {
-            id: 2,
-            title: "title2",
-            content: "content2",
-            createdAt: "23 Aug 2020"
-        },
-        {
-            id: 3,
-            title: "title3",
-            content: "content3",
-            createdAt: "23 Aug 2020"
-        },
-        {
-            title: "title4",
-            id: 4,
-            content: "content4",
-            createdAt: "23 Aug 2020"
-        },
-        {
-            title: "title5",
-            id: 5,
-            content: "content5",
-            createdAt: "23 Aug 2020"
-        },
-        {
-            id: 6,
-            title: "title6",
-            content: "content6",
-            createdAt: "23 Aug 2020"
-        },
-        {
-            id: 7,
-            title: "title7",
-            content: "content7",
-            createdAt: "23 Aug 2020"
-        },
-        {
-            id: 8,
-            title: "title8",
-            content: "content8",
-            createdAt: "23 Aug 2020"
-        },
-        {
-            id: 9,
-            title: "title9",
-            content: "content9",
-            createdAt: "23 Aug 2020"
-        },
-        {
-            id: 10,
-            title: "title10",
-            content: "content10",
-            createdAt: "23 Aug 2020"
-        },
-    ];
+const ViewAnnouncements = () => {
 
-    const RenderAnnouncements = ({ announce }) => {
-        if (announce) {
-            return (
-                <Card className="maincard">
-                    <Link to={`/ViewAnnouncements/${announce.id}`}>
-                        <Card body>
-                            <CardTitle tag="h4" style={{ color: 'black', fontWeight: "normal" }}> {announce.title}</CardTitle>
-                            <Button color="primary">Description</Button>
-                        </Card>
-                    </Link>
-                </Card>
-            );
-        }
-        else {
-            return (
-                <div>No announcements</div>
-            );
-        }
-    }
+    let { path } = useRouteMatch();
+    
+    const [announcements, setAnnouncements] = useState([]);
 
-    const announ = tempAnnouncements.map((announce) => {
-        return (
-            <div key={announce.id}>
-                <RenderAnnouncements announce={announce} />
-            </div>
-        );
-    })
-
-
+    useEffect(() => {
+        fetch('http://localhost:4000/announcement/retrieve', {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+        })
+        .then(response => response.json())
+        .then((result) => {
+            setAnnouncements(result.announcementList);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+        
+    }, [])
+    
     return (
-        <div>
-            <FacultyNavBar />
-            <div className="container main">
-                <center><h2 className="branding">Announcements</h2></center>
-                {announ}
-            </div>
-            <Footer />
+
+        <div className="container">
+            <Form autoComplete="off">
+                <FormGroup align="center">
+                    <Label>ADD ANNOUNCEMENT</Label>
+                </FormGroup>
+                {
+                    announcements.map((announcement) =>
+                        <Card className="maincard" key={announcement._id}>
+                            <Link to={`${path}/${announcement._id}`}>
+                                <CardBody>
+                                    <CardTitle> {announcement.title}</CardTitle>
+                                    <Button color="primary">Description</Button>
+                                </CardBody>
+                            </Link>
+                        </Card>
+                    )
+                }
+            </Form>
         </div>
     );
 }

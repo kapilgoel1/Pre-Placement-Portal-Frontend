@@ -10,7 +10,9 @@ const AddNewJob = (props) => {
     const [jobprofile, setJobProfile] = useState("");
     const [packages, setPackages] = useState("");
 
-    const onClickHandler = () => {
+    const onClickHandler = (e) => {
+        e.preventDefault();
+
         const alteredData = {
             company: company,
             jobprofile: jobprofile,
@@ -39,7 +41,7 @@ const AddNewJob = (props) => {
         <div className="containerj">
             <Card className="job-upload-form">
                 <CardBody className="upload-form">
-                    <Form onSubmit="" autoComplete="off">
+                    <Form onSubmit={onClickHandler} autoComplete="off">
                         <FormGroup align="center">
                             <Label>ADD INFORMATION ABOUT NEW JOB/POSTINGS</Label>
                         </FormGroup>
@@ -76,7 +78,7 @@ const AddNewJob = (props) => {
                                 onChange={e => setPackages(e.target.value)}/>
                         </FormGroup>
                         <FormGroup align="center">
-                            <Button onClick={onClickHandler}>UPLOAD</Button>
+                            <Button type="submit">UPLOAD</Button>
                         </FormGroup>
                     </Form>
                 </CardBody>    

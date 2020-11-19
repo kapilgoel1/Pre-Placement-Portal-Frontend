@@ -8,7 +8,9 @@ const AddNewTest = (props) => {
     const [title, setTitle] = useState(""); 
     const [link, setLink] = useState("");
 
-    const onClickHandler = () => {
+    const onClickHandler = (e) => {
+        e.preventDefault();
+
         const alteredData = {
             title: title,
             link: link
@@ -36,7 +38,7 @@ const AddNewTest = (props) => {
         <div className="containerj">
             <Card className="add-ext-res-form">
                 <CardBody className="upload-form">
-                    <Form onSubmit="" autoComplete="off">
+                    <Form onSubmit={onClickHandler} autoComplete="off">
                         <FormGroup align="center">
                             <Label>ADD EXTERNAL RESOURCE/WEBLINKS</Label>
                         </FormGroup>
@@ -62,7 +64,7 @@ const AddNewTest = (props) => {
                                 onChange={e => setLink(e.target.value)}/>
                         </FormGroup>
                         <FormGroup align="center">
-                            <Button onClick={onClickHandler}>UPLOAD</Button>
+                            <Button type="submit">UPLOAD</Button>
                         </FormGroup>
                     </Form>
                 </CardBody>
