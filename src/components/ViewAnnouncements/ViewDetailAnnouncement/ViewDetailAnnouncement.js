@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./ViewDetailAnnouncement.css";
-import { Jumbotron, Container } from 'reactstrap';
+import { Form, Card, CardBody, Label, FormGroup } from 'reactstrap';
 import { useParams } from 'react-router-dom';
 
 const ViewDetailAnnouncement = () => {
@@ -27,16 +27,23 @@ const ViewDetailAnnouncement = () => {
     }, [id])
 
     return (
-        <div className="container main">
-            <center><h2>Announcement</h2></center>
-            <Jumbotron fluid>
-                <Container fluid>
-                    <h1 className="display-3">{announcementDetail.title}</h1>
-                    <p className="lead">{announcementDetail.content}</p>
-                    <br />
-                    <p className="lead"> -- {announcementDetail.createdAt}</p>
-                </Container>
-            </Jumbotron>
+        <div className="containerj">
+            <Card className="view-detail-announcement-form">
+                <CardBody className="upload-form">
+                    <Form autoComplete="off">
+                        <FormGroup align="center">
+                            <Label>{announcementDetail.title}</Label>
+                        </FormGroup>
+                        <hr/>
+                        <FormGroup>
+                            <Label> {announcementDetail.content} </Label>
+                        </FormGroup>
+                        <FormGroup>
+                            DATE AND TIME: {announcementDetail.createdAt}
+                        </FormGroup>
+                    </Form>
+                </CardBody>
+            </Card>        
         </div>
     );
 }
