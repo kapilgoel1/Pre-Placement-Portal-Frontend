@@ -127,7 +127,7 @@ export default function FileList(props) {
       <div className="container-s">
       <Card className="filelist-form">
         <CardBody className="file-form">
-          <Form onSubmit="" autoComplete="off">
+          <Form autoComplete="off">
             <FormGroup>
               <Input 
                 type="search" 
