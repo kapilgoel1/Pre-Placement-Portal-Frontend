@@ -36,7 +36,9 @@
 .parentdiv4:hover,
 .parentdiv5:hover,
 .parentdiv6:hover,
-.parentdiv7:hover {
+.parentdiv7:hover,
+.parentdiv8:hover,
+.parentdiv9:hover {
   transform: scale(1.14);
 }
 
