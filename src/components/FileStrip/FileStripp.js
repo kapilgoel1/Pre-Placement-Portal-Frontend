@@ -1,6 +1,7 @@
-import React from 'react'
-import { Button } from 'reactstrap'
-import './FileStripp.css'
+import React from 'react';
+import { Button } from 'reactstrap';
+import './FileStripp.css';
+import swal from 'sweetalert';
 
 function formatDate(date) {
     var d = new Date(date),
@@ -29,11 +30,11 @@ export default function FileStrip(props) {
       .then((response) => response.json())
       .then((result) => {
         if(result === 'Deletion successful') {
-            alert('deleted')
-            props.afterDelete()
+          swal('deleted');
+          props.afterDelete()
         }
-            else 
-            alert('Not deleted')
+        else 
+        swal('Not deleted');
         console.log(result);
       })
       .catch((err) => {

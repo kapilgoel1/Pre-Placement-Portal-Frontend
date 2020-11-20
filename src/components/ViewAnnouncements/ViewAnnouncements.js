@@ -1,15 +1,18 @@
 import React, {useState, useEffect,} from 'react';
 import "./ViewAnnouncements.css";
-import { Card, CardTitle, Button, CardBody, Form, FormGroup, Label  } from 'reactstrap';
-import { Link, useRouteMatch } from 'react-router-dom';
+import swal from 'sweetalert';
+import { Card, CardTitle, CardBody, Button, Form, FormGroup, Label  } from 'reactstrap';
+import { useRouteMatch, useHistory } from 'react-router-dom';
 
 const ViewAnnouncements = () => {
+
+    const history = useHistory();
 
     let { path } = useRouteMatch();
     
     const [announcements, setAnnouncements] = useState([]);
 
-    useEffect(() => {
+    const fetchCall = () => {
         fetch('http://localhost:4000/announcement/retrieve', {
             method: 'GET',
             headers: {
@@ -24,25 +27,54 @@ const ViewAnnouncements = () => {
         .catch((err) => {
           console.log(err);
         });
-        
+    }
+
+    useEffect(() => {
+        fetchCall();
     }, [])
+
+    const onDelete = (d_id) => {
+        fetch(`http://localhost:4000/announcement/remove/${d_id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            if(result === 'Deletion successful') {
+                swal('deleted');
+                fetchCall();
+            }
+                else 
+                swal('Not deleted')
+            console.log(result);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        }
+
     
     return (
 
         <div className="container">
             <Form autoComplete="off">
                 <FormGroup align="center">
-                    <Label>ADD ANNOUNCEMENT</Label>
+                    <Label>ALL ANNOUNCEMENTS</Label>
                 </FormGroup>
                 {
                     announcements.map((announcement) =>
                         <Card className="maincard" key={announcement._id}>
-                            <Link to={`${path}/${announcement._id}`}>
-                                <CardBody>
-                                    <CardTitle> {announcement.title}</CardTitle>
-                                    <Button color="primary">Description</Button>
-                                </CardBody>
-                            </Link>
+                            <CardBody >
+                                <CardTitle onClick={() => history.push(`${path}/${announcement._id}`)}> {announcement.title} </CardTitle>
+                                    <Button onClick={() => {
+                                        onDelete(announcement._id)
+                                    }}>
+                                        Delete
+                                    </Button>
+                                </CardBody> 
                         </Card>
                     )
                 }
