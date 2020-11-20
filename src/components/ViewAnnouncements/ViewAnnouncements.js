@@ -12,6 +12,7 @@ const ViewAnnouncements = () => {
     
     const [announcements, setAnnouncements] = useState([]);
 
+
     const fetchCall = () => {
         fetch('http://localhost:4000/announcement/retrieve', {
             method: 'GET',
@@ -44,7 +45,6 @@ const ViewAnnouncements = () => {
           .then((response) => response.json())
           .then((result) => {
             if(result === 'Deletion successful') {
-                swal('deleted');
                 fetchCall();
             }
                 else 
@@ -66,10 +66,11 @@ const ViewAnnouncements = () => {
                 </FormGroup>
                 {
                     announcements.map((announcement) =>
-                        <Card className="maincard" key={announcement._id}>
-                            <CardBody >
-                                <CardTitle onClick={() => history.push(`${path}/${announcement._id}`)}> {announcement.title} </CardTitle>
-                                    <Button onClick={() => {
+                        <Card key={announcement._id}>
+                            <CardBody onClick={() => history.push(`${path}/${announcement._id}`)}>
+                                <CardTitle > {announcement.title} </CardTitle>
+                                    <Button onClick={(e) => {
+                                        e.stopPropagation();
                                         onDelete(announcement._id)
                                     }}>
                                         Delete
