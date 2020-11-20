@@ -168,9 +168,6 @@ const StudentEditProfile = (props) => {
                         placeholder=""
                         onChange={(e) => setAddress(e.target.value)}
                         required
-                        value={address}
-                        placeholder=""
-                        onChange={(e) => setAddress(e.target.value)}
                       />
                     </FormGroup>
                     <FormGroup>
