@@ -1,16 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import { Card, CardBody, Form, FormGroup, Label  } from 'reactstrap';
+import React, {useState, useEffect, useContext} from 'react';
+import { Card, CardBody, Form, FormGroup, Label, Button } from 'reactstrap';
+import swal from 'sweetalert';
 import { useRouteMatch, useHistory } from 'react-router-dom';
+import AuthContext from '../../AuthContext';
 
 const ViewJobPostings = () => {
 
     const history = useHistory();
-
+    const {userRole} = useContext(AuthContext);
     let { path } = useRouteMatch();
-    
     const [jobs, setJobs] = useState([]);
 
-    useEffect(() => {
+    const fetchCall = () => {
         fetch('http://localhost:4000/jobposting/retrieve', {
             method: 'GET',
             headers: {
@@ -23,12 +24,37 @@ const ViewJobPostings = () => {
             setJobs(result.postings);
         })
         .catch((err) => {
-          console.log(err);
+            console.log(err);
         });
+    }
+
+    useEffect(() => {
+        fetchCall();
     }, [])
+
+    const onDelete = (d_id) => {
+        fetch(`http://localhost:4000/jobposting/remove/${d_id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result === 'Deletion successful') {
+                fetchCall();
+            }
+            else {
+                swal('Not deleted');
+            }    
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    }
     
     return (
-
         <div className="container">
             <Form autoComplete="off">
                 <FormGroup align="center">
@@ -47,6 +73,15 @@ const ViewJobPostings = () => {
                                 <FormGroup>
                                     PACKAGE: {job.package}
                                 </FormGroup>
+                                {
+                                    userRole==='faculty' &&
+                                        <Button onClick={(e) => {
+                                            e.stopPropagation();
+                                            onDelete(job._id)
+                                        }}>
+                                            Delete
+                                        </Button>
+                                }
                             </CardBody> 
                         </Card>
                     )

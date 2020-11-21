@@ -8,12 +8,9 @@ import AuthContext from '../../AuthContext';
 const ViewAnnouncements = () => {
 
     const history = useHistory();
-
     let { path } = useRouteMatch();
-
     const {userRole} = useContext(AuthContext);
     const [announcements, setAnnouncements] = useState([]);
-
 
     const fetchCall = () => {
         fetch('http://localhost:4000/announcement/retrieve', {
@@ -34,7 +31,6 @@ const ViewAnnouncements = () => {
 
     useEffect(() => {
         fetchCall();
-        //console.log(userRole);
     }, [])
 
     const onDelete = (d_id) => {
@@ -80,7 +76,6 @@ const ViewAnnouncements = () => {
                                                 Delete
                                             </Button>
                                 }
-                                    
                                 </CardBody> 
                         </Card>
                     )

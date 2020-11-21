@@ -1,17 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import "./ViewExternalRes.css";
-import { Card, CardBody, Form, FormGroup, Label  } from 'reactstrap';
+import swal from 'sweetalert';
+import { Card, CardBody, Form, FormGroup, Label, Button } from 'reactstrap';
 import { useRouteMatch, useHistory } from 'react-router-dom';
+import AuthContext from '../../AuthContext';
 
 const ViewExternalRes = () => {
 
     const history = useHistory();
-
+    const {userRole} = useContext(AuthContext);
     let { path } = useRouteMatch();
-    
     const [resources, setResources] = useState([]);
 
-    useEffect(() => {
+    const fetchCall = () => {
         fetch('http://localhost:4000/externalresource/retrieve', {
             method: 'GET',
             headers: {
@@ -24,12 +25,36 @@ const ViewExternalRes = () => {
             setResources(result.resourceList);
         })
         .catch((err) => {
-          console.log(err);
+            console.log(err);
         });
+    }
+
+    useEffect(() => {
+        fetchCall();
     }, [])
+
+    const onDelete = (d_id) => {
+        fetch(`http://localhost:4000/externalresource/remove/${d_id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result === 'Deletion successful') {
+                fetchCall();
+            }
+            else 
+                swal('Not deleted');
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+        }
     
     return (
-
         <div className="container">
             <Form autoComplete="off">
                 <FormGroup align="center">
@@ -45,6 +70,14 @@ const ViewExternalRes = () => {
                                 <FormGroup>
                                     LINK: {resource.link}
                                 </FormGroup>
+                                {userRole==='faculty' &&
+                                            <Button onClick={(e) => {
+                                                e.stopPropagation();
+                                                onDelete(resource._id)
+                                            }}>
+                                                Delete
+                                            </Button>
+                                }
                             </CardBody> 
                         </Card>
                     )

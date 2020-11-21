@@ -96,7 +96,7 @@ const StudentNavBar = (props) => {
               View videos
             </DropdownItem>
             <DropdownItem onClick={() => onViewResource('notes')}>
-            View notes
+              View notes
             </DropdownItem>
             <DropdownItem onClick={() => history.push(`${url}/viewexternalres`)}>
               View weblinks/external resources
