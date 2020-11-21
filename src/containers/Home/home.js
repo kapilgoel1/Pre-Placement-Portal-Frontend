@@ -19,22 +19,22 @@ function Home() {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem >
-              <NavLink className="custom-navlink" href="/components/" >About Us</NavLink>
+              <NavLink className="custom-navlink"  >About Us</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="custom-navlink" href="https://github.com/reactstrap/reactstrap">Contact Us</NavLink>
+              <NavLink className="custom-navlink" >Contact Us</NavLink>
             </NavItem>
             <NavItem>
-            <NavLink className="custom-navlink" href="https://github.com/reactstrap/reactstrap">Developer Team</NavLink>
+            <NavLink className="custom-navlink" >Developer Team</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="custom-navlink" href="https://github.com/reactstrap/reactstrap">Forgot Password</NavLink>
+            <NavLink className="custom-navlink" >Forgot Password</NavLink>
           </NavItem>
          
           </Nav>
           <Nav className="ml-auto" navbar>
           <NavItem>
-          <NavLink className="custom-navlink" href="https://github.com/reactstrap/reactstrap">Sign Up</NavLink>
+          <NavLink className="custom-navlink">Sign Up</NavLink>
         </NavItem>
           </Nav>
           
