@@ -1,15 +1,17 @@
-import React, {useState, useEffect,} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import "./ViewAnnouncements.css";
 import swal from 'sweetalert';
 import { Card, CardTitle, CardBody, Button, Form, FormGroup, Label  } from 'reactstrap';
 import { useRouteMatch, useHistory } from 'react-router-dom';
+import AuthContext from '../../AuthContext';
 
 const ViewAnnouncements = () => {
 
     const history = useHistory();
 
     let { path } = useRouteMatch();
-    
+
+    const {userRole} = useContext(AuthContext);
     const [announcements, setAnnouncements] = useState([]);
 
 
@@ -32,6 +34,7 @@ const ViewAnnouncements = () => {
 
     useEffect(() => {
         fetchCall();
+        //console.log(userRole);
     }, [])
 
     const onDelete = (d_id) => {
@@ -69,12 +72,15 @@ const ViewAnnouncements = () => {
                         <Card key={announcement._id}>
                             <CardBody onClick={() => history.push(`${path}/${announcement._id}`)}>
                                 <CardTitle > {announcement.title} </CardTitle>
-                                    <Button onClick={(e) => {
-                                        e.stopPropagation();
-                                        onDelete(announcement._id)
-                                    }}>
-                                        Delete
-                                    </Button>
+                                {userRole==='faculty' &&
+                                            <Button onClick={(e) => {
+                                                e.stopPropagation();
+                                                onDelete(announcement._id)
+                                            }}>
+                                                Delete
+                                            </Button>
+                                }
+                                    
                                 </CardBody> 
                         </Card>
                     )

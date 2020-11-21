@@ -12,6 +12,9 @@ import ViewAnnouncement from '../../components/ViewAnnouncements/ViewAnnouncemen
 import ViewAnnouncementDetail from '../../components/ViewAnnouncements/ViewDetailAnnouncement/ViewDetailAnnouncement';
 import ViewStudentList from '../ViewStudentList/ViewStudentList';
 import ViewStudentProfile from '../ViewStudentList/ViewStudentProfile/ViewStudentProfile';
+import ViewExternalRes from '../../components/ViewExternalRes/ViewExternalRes';
+import ViewAllTests from '../../components/ViewAllTests/ViewAllTests';
+import ViewAllJobs from '../../components/ViewJobPostings/ViewJobPostings';
 import AddNewTest from '../AddNewTest/AddNewTest';
 import AddNewJob from '../AddNewJob/AddNewJob';
 import AddExternalRes from '../AddExternalRes/AddExternalRes';
@@ -50,6 +53,15 @@ const FacultyDashboard = (props) => {
             </Route>
             <Route path={`${path}/viewannouncement`}>
               <ViewAnnouncement />
+            </Route>
+            <Route path={`${path}/viewexternalres`}>
+              <ViewExternalRes />
+            </Route>
+            <Route path={`${path}/viewalltests`}>
+              <ViewAllTests />
+            </Route>
+            <Route path={`${path}/viewalljobs`}>
+              <ViewAllJobs />
             </Route>
             <Route path={`${path}/viewstudentlist/:id`}>
               <ViewStudentProfile />

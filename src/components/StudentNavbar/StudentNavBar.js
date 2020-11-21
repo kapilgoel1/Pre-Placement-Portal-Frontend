@@ -89,7 +89,7 @@ const StudentNavBar = (props) => {
           <DropdownItem onClick={() => onViewResource('ppt')}>
               View PPTs
             </DropdownItem>
-            <DropdownItem onClick={() => onViewResource('announcement')}>
+            <DropdownItem onClick={() => history.push(`${url}/viewannouncement`)}>
               View announcements
             </DropdownItem>
             <DropdownItem onClick={() => onViewResource('video')}>
@@ -98,8 +98,11 @@ const StudentNavBar = (props) => {
             <DropdownItem onClick={() => onViewResource('notes')}>
             View notes
             </DropdownItem>
-            <DropdownItem>
+            <DropdownItem onClick={() => history.push(`${url}/viewexternalres`)}>
               View weblinks/external resources
+            </DropdownItem>
+            <DropdownItem onClick={() => history.push(`${url}/viewalltests`)}>
+              View All tests
             </DropdownItem>
           </DropdownMenu>
           </UncontrolledDropdown>

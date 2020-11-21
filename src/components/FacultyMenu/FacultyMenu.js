@@ -40,7 +40,7 @@ function FacultyMenu() {
     }
 
     const onViewJob = () => {
-        console.log("view job button clicked");
+        history.push(`${url}/viewalljobs`);
     } 
 
     const onViewAllResources = () => {
