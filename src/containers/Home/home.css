@@ -1,0 +1,76 @@
+.full-container {
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+}
+
+.left-container {
+  display: none;
+  background-image: linear-gradient(
+      90deg,
+      rgba(0, 48, 143, 0.9) 100%,
+      rgba(2, 0, 36, 0.9) 100%
+    ),
+    url('../../assets/scott-graham-5fNmWej4tAA-unsplash.jpg');
+
+  background-size: cover;
+  color: white;
+}
+
+.about-portal {
+  width: 400px;
+  text-align: center;
+}
+
+.right-container {
+  padding: 0 0;
+  background-color: #fdfdfd;
+}
+
+@media only screen and (min-width: 500px) {
+  .full-container {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 60px auto;
+    margin: 0;
+  }
+  .right-container {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-form {
+    width: 400px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .full-container {
+    grid-template-columns: 50% 50%;
+  }
+
+  .left-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nn {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media only screen and (min-width: 1120px) {
+  .full-container {
+    height: 100vh;
+    padding: 8vh;
+  }
+}
+
+.nn {
+  background-color: rgba(0, 48, 143, 0.9);
+}
+
+.custom-navlink {
+  color: white !important;
+}

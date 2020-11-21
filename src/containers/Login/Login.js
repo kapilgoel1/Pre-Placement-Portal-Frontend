@@ -44,34 +44,34 @@ const Login = () => {
   }
 
     return(
+      <div className="login-form">
       
-      <Card className="login-container__form">
-      <CardBody className="form-body">
-        <Form className="" autoComplete="off" onSubmit={onClickHandler}>
-          <h2 className="text-center"> <b> Login </b></h2>
-          <FormGroup >
-            <Label for="Email">Email </Label>
-            <Input type="email" name="email" id="Email" value={email} placeholder="Enter Email" onChange={e => setEmail(e.target.value)} required/>
+        <Form className="form-body" autoComplete="off" onSubmit={onClickHandler}>
+          <h1 className="text-center pb-2 mb-2" >  Sign In </h1>
+          <FormGroup className="pt-2 my-2" >
+            <Label size="lg" for="Email">Email </Label>
+            <Input size="lg" type="email" name="email" id="Email" value={email} placeholder="Enter Email" onChange={e => setEmail(e.target.value)} required/>
           </FormGroup>
-          <FormGroup>
-            <Label for="Password">Password </Label>
-            <Input type="password" name="password" id="Password" value={password} placeholder="Enter Password" onChange={e => setPassword(e.target.value)} required/>
+          <FormGroup className="pb-2 my-2">
+            <Label size="lg" for="Password">Password </Label>
+            <Input size="lg" type="password" name="password" id="Password" value={password} placeholder="Enter Password" onChange={e => setPassword(e.target.value)} required/>
           </FormGroup>   
-          <center>
-          <Button 
+          
+          <Button block
             color="secondary"  
             type="submit"
+            size="lg"
+            className="pt-2 mt-4"
           > 
-            Submit 
+            Sign In 
           </Button>
-          </center>
+          
            
           {/*<div className= "text-right">
             <a href="/sign-up"> Forgot the password? </a>
           </div>*/}
         </Form>
-        </CardBody>
-        </Card>
+        </div>
       
     );
 }

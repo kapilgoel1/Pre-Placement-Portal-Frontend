@@ -8,6 +8,7 @@ import FacultyEditProfile from './containers/FacultyEditProfile/FacultyEditProfi
 import StudentEditProfile from './containers/StudentEditProfile/StudentEditProfile'
 import About from './components/About/About';
 import Main from './containers/Main/Main';
+import New from './containers/Home/home'
 import { Route, Switch } from 'react-router-dom';
 
 import SecuredFacultyRoute from './SecuredFacultyRoute'
@@ -63,6 +64,9 @@ const App = () => {
         </Route>
         <Route path="/contact">
           <About/>
+        </Route>
+        <Route path="/new">
+          <New />
         </Route>
         <SecuredFacultyRoute path="/facultydashboard">
           <FacultyDashboard  />
