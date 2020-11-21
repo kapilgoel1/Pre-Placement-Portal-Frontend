@@ -1,19 +1,19 @@
 import React, {useState, useEffect, useContext} from 'react';
-import "./ViewAnnouncements.css";
+import "./ViewExternalRes.css";
 import swal from 'sweetalert';
-import { Card, CardTitle, CardBody, Button, Form, FormGroup, Label  } from 'reactstrap';
+import { Card, CardBody, Form, FormGroup, Label, Button } from 'reactstrap';
 import { useRouteMatch, useHistory } from 'react-router-dom';
 import AuthContext from '../../AuthContext';
 
-const ViewAnnouncements = () => {
+const ViewExternalRes = () => {
 
     const history = useHistory();
-    let { path } = useRouteMatch();
     const {userRole} = useContext(AuthContext);
-    const [announcements, setAnnouncements] = useState([]);
+    let { path } = useRouteMatch();
+    const [resources, setResources] = useState([]);
 
     const fetchCall = () => {
-        fetch('http://localhost:4000/announcement/retrieve', {
+        fetch('http://localhost:4000/externalresource/retrieve', {
             method: 'GET',
             headers: {
             'Content-Type': 'application/json',
@@ -22,10 +22,10 @@ const ViewAnnouncements = () => {
         })
         .then(response => response.json())
         .then((result) => {
-            setAnnouncements(result.announcementList);
+            setResources(result.resourceList);
         })
         .catch((err) => {
-          console.log(err);
+            console.log(err);
         });
     }
 
@@ -34,49 +34,51 @@ const ViewAnnouncements = () => {
     }, [])
 
     const onDelete = (d_id) => {
-        fetch(`http://localhost:4000/announcement/remove/${d_id}`, {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
+        fetch(`http://localhost:4000/externalresource/remove/${d_id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
         })
-          .then((response) => response.json())
-          .then((result) => {
+        .then((response) => response.json())
+        .then((result) => {
             if(result === 'Deletion successful') {
                 fetchCall();
             }
-                else 
-                swal('Not deleted')
-            console.log(result);
-          })
-          .catch((err) => {
+            else 
+                swal('Not deleted');
+        })
+        .catch((err) => {
             console.log(err);
-          });
+        });
         }
-
     
     return (
-
         <div className="container">
             <Form autoComplete="off">
                 <FormGroup align="center">
-                    <Label>ALL ANNOUNCEMENTS</Label>
+                    <Label>EXTERNAL RESOURCES</Label>
                 </FormGroup>
                 {
-                    announcements.map((announcement) =>
-                        <Card key={announcement._id}>
-                            <CardBody onClick={() => history.push(`${path}/${announcement._id}`)}>
-                                <CardTitle > {announcement.title} </CardTitle>
+                    resources.map((resource) =>
+                        <Card key={resource._id}>
+                            <CardBody onClick={() => history.push(`${path}/${resource._id}`)}>
+                                <FormGroup>
+                                    TITLE: {resource.title}
+                                </FormGroup>
+                                <FormGroup>
+                                    LINK: {resource.link}
+                                </FormGroup>
                                 {userRole==='faculty' &&
                                             <Button onClick={(e) => {
                                                 e.stopPropagation();
-                                                onDelete(announcement._id)
+                                                onDelete(resource._id)
                                             }}>
                                                 Delete
                                             </Button>
                                 }
-                                </CardBody> 
+                            </CardBody> 
                         </Card>
                     )
                 }
@@ -85,4 +87,4 @@ const ViewAnnouncements = () => {
     );
 }
 
-export default ViewAnnouncements;
+export default ViewExternalRes;

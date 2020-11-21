@@ -85,10 +85,10 @@ const FacultyNavBar = (props) => {
             <DropdownItem onClick={() => onViewResource('assignment')}>
               View assignments
             </DropdownItem>
-          <DropdownItem onClick={() => onViewResource('ppt')}>
+            <DropdownItem onClick={() => onViewResource('ppt')}>
               View PPTs
             </DropdownItem>
-            <DropdownItem onClick={() => onViewResource('announcement')}>
+            <DropdownItem onClick={() => history.push(`${url}/viewannouncement`)}>
               View announcements
             </DropdownItem>
             <DropdownItem onClick={() => onViewResource('video')}>
@@ -97,8 +97,14 @@ const FacultyNavBar = (props) => {
             <DropdownItem onClick={() => onViewResource('notes')}>
             View notes
             </DropdownItem>
-            <DropdownItem>
+            <DropdownItem onClick={() => history.push(`${url}/viewexternalres`)}>
               View weblinks/external resources
+            </DropdownItem>
+            <DropdownItem onClick={() => history.push(`${url}/viewalltests`)}>
+              View All tests
+            </DropdownItem>
+            <DropdownItem onClick={() => history.push(`${url}/viewalljobs`)}>
+              View All jobs
             </DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>

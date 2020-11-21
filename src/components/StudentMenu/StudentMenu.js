@@ -1,8 +1,17 @@
 import React from 'react'
 import {Row, Col} from 'reactstrap'; 
+import { useHistory, useRouteMatch } from "react-router-dom";
 import './StudentMenu.css'
 
 function StudentMenu() {
+
+    let history = useHistory();
+    let { url } = useRouteMatch();
+
+    const onViewJob = () => {
+        history.push(`${url}/viewalljobs`);
+    } 
+    
     return (
             
         <div className="container">
@@ -25,7 +34,7 @@ function StudentMenu() {
                                     <button className="functionButtons">VIEW TEST SCHEDULE</button>
                                 </div> 
                             </div>
-                            <div className="parentdiv10">
+                            <div className="parentdiv10" onClick={onViewJob}>
                                 <div className="childdiv"> 
                                     <button className="functionButtons">VIEW NEW JOB/POSTINGS</button>
                                 </div>

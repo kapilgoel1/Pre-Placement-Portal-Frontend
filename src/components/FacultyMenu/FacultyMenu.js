@@ -35,12 +35,12 @@ function FacultyMenu() {
         history.push(`${url}/viewannouncement`);
     }
 
-    const onViewJob = () => {
-        console.log("view job button clicked");
-    } 
+    const onViewStudentsList = () => {
+        history.push(`${url}/viewstudentlist`);
+    }
 
-    const onViewProfile = () => {
-        console.log("view profile button clicked");
+    const onViewJob = () => {
+        history.push(`${url}/viewalljobs`);
     } 
 
     const onViewAllResources = () => {
@@ -57,9 +57,9 @@ function FacultyMenu() {
                         <button className="functionButtons" >ADD NEW RESOURCE</button>
                     </div> 
                 </div>
-                <div className="parentdiv2" onClick={onViewProfile} >
+                <div className="parentdiv2" onClick={onViewStudentsList} >
                      <div className="childdiv">
-                        <button className="functionButtons" >VIEW STUDENT PROFILE</button>
+                        <button className="functionButtons" >VIEW STUDENTS LIST</button>
                     </div> 
                 </div>
                 <div className="parentdiv3" onClick={onAddAnnouncement} >
