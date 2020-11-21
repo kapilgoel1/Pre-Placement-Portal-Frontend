@@ -3,7 +3,7 @@ import AuthContext from '../../AuthContext'
 import "./Login.css";
 import swal from 'sweetalert';
 import {withRouter} from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input, Card,  CardBody } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const Login = () => {
   const [email, setEmail] = useState("");

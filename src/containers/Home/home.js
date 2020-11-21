@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Login from '../Login/Login';
-import {Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, NavbarText, Button} from 'reactstrap'
+import {Navbar, NavbarToggler, Collapse, Nav, NavItem, NavLink, Button} from 'reactstrap'
 import './home.css'
 
 function Home() {
