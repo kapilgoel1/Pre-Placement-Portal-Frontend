@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react';
 import AuthContext from '../../AuthContext'
 import "./Login.css";
+import swal from 'sweetalert';
 import {withRouter} from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input, Card,  CardBody } from 'reactstrap';
 
@@ -35,7 +36,7 @@ const Login = () => {
           setloggedin(true);
         }
         else {
-          alert('Invalid Login credentials');
+          swal('Invalid Login credentials');
         }
       })
       .catch((err) => {
