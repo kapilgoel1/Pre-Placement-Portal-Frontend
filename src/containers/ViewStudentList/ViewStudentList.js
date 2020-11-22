@@ -6,9 +6,7 @@ import { useRouteMatch, useHistory } from 'react-router-dom';
 const ViewStudentList = () => {
 
     const history = useHistory();
-
     let { path } = useRouteMatch();
-    
     const [students, setStudents] = useState([]);
 
     useEffect(() => {
@@ -26,10 +24,9 @@ const ViewStudentList = () => {
         .catch((err) => {
           console.log(err);
         });
-    }, [])
+    },[])
     
     return (
-
         <div className="container">
             <Form autoComplete="off">
                 <FormGroup align="center">

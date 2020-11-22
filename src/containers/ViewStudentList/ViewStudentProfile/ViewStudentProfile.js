@@ -4,8 +4,8 @@ import { Form, Card, CardBody, Label, FormGroup } from 'reactstrap';
 import { useParams } from 'react-router-dom';
 
 const ViewStudentProfile = () => {
-    let { id } = useParams();
 
+    let { id } = useParams();
     const [studentProfile, setStudentProfile] = useState({});
 
     useEffect(() => {
@@ -36,34 +36,34 @@ const ViewStudentProfile = () => {
                         </FormGroup>
                         <hr/>
                         <FormGroup>
-                        FIRST NAME: <Label> {studentProfile.firstname} </Label>
+                            FIRST NAME: <Label> {studentProfile.firstname} </Label>
                         </FormGroup>
                         <FormGroup>
-                        LAST NAME: <Label> {studentProfile.lastname} </Label>
+                            LAST NAME: <Label> {studentProfile.lastname} </Label>
                         </FormGroup>
                         <FormGroup>
-                        PHONE NUMBER: <Label> {studentProfile.phone} </Label>
+                            PHONE NUMBER: <Label> {studentProfile.phone} </Label>
                         </FormGroup>
                         <FormGroup>
-                        CORUSE: <Label> {studentProfile.course} </Label>
+                            COURSE: <Label> {studentProfile.course} </Label>
                         </FormGroup>
                         <FormGroup>
-                        SEMESTER: <Label> {studentProfile.semester} </Label>
+                            SEMESTER: <Label> {studentProfile.semester} </Label>
                         </FormGroup>
                         <FormGroup>
-                        ADDRESS: <Label> {studentProfile.address} </Label>
+                            ADDRESS: <Label> {studentProfile.address} </Label>
                         </FormGroup>
                         <FormGroup>
-                        FATHER'S NAME: <Label> {studentProfile.fathersname} </Label>
+                            FATHER'S NAME: <Label> {studentProfile.fathersname} </Label>
                         </FormGroup>
                         <FormGroup>
-                        MOTHER'S NAME: <Label> {studentProfile.mothersname} </Label>
+                            MOTHER'S NAME: <Label> {studentProfile.mothersname} </Label>
                         </FormGroup>
                         <FormGroup>
-                        DATE OF BIRTH: <Label> {studentProfile.dob} </Label>
+                            DATE OF BIRTH: <Label> {studentProfile.dob} </Label>
                         </FormGroup>
                         <FormGroup>
-                        EMAIL: <Label> {studentProfile.email} </Label>
+                            EMAIL: <Label> {studentProfile.email} </Label>
                         </FormGroup>
                     </Form>
                 </CardBody>

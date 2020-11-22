@@ -1,5 +1,4 @@
 import React from 'react';
-
 import FacultyNavBar from '../../components/FacultyNavBar/FacultyNavBar';
 import FileList from '../../components/FileList/FileList';
 

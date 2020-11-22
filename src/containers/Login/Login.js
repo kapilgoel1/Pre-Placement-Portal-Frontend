@@ -66,14 +66,12 @@ const Login = () => {
           > 
             Sign In 
           </Button>
-          
            
           {/*<div className= "text-right">
             <a href="/sign-up"> Forgot the password? </a>
           </div>*/}
         </Form>
         </div>
-      
     );
 }
 
