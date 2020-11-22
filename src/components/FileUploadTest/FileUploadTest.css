@@ -1,15 +1,15 @@
 .containerj {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
 }
 
 .file-upload-form {
-    height: 500px;
-    width: 450px;
+  height: 500px;
+  width: 450px;
 }
 
 .upload-form {
-    background-color: rgb(219, 236, 236);
+  background-color: rgb(219, 236, 236);
 }

@@ -1,5 +1,5 @@
 .functionButtons {
-  background-image: url('../../assets/button_image.jpeg');
+  background-image: url("../../assets/button_image.jpeg");
   font-size: 16px;
   border: none;
   color: white;
@@ -17,7 +17,7 @@
 
 .parentdiv1 {
   height: 350px;
-  background-image: url('../../assets/addResources.jpg');
+  background-image: url("../../assets/addResources.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -50,7 +50,7 @@
 
 .parentdiv2 {
   height: 350px;
-  background-image: url('../../assets/viewProfile.jpg');
+  background-image: url("../../assets/viewProfile.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -70,7 +70,7 @@
 
 .parentdiv3 {
   height: 350px;
-  background-image: url('../../assets/AddAnnouncements.jpg');
+  background-image: url("../../assets/AddAnnouncements.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -90,7 +90,7 @@
 
 .parentdiv4 {
   height: 350px;
-  background-image: url('../../assets/jobImage.jpg');
+  background-image: url("../../assets/jobImage.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -111,7 +111,7 @@
 .parentdiv5 {
   height: 350px;
   /* background-color: rgb(47, 58, 204); */
-  background-image: url('../../assets/testImage.jpg');
+  background-image: url("../../assets/testImage.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -131,7 +131,7 @@
 
 .parentdiv6 {
   height: 350px;
-  background-image: url('../../assets/external-resources.png');
+  background-image: url("../../assets/external-resources.png");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -151,7 +151,7 @@
 
 .parentdiv7 {
   height: 350px;
-  background-image: url('../../assets/viewJobImage.jpg');
+  background-image: url("../../assets/viewJobImage.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -171,7 +171,7 @@
 
 .parentdiv8 {
   height: 350px;
-  background-image: url('../../assets/viewResources.jpg');
+  background-image: url("../../assets/viewResources.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -191,7 +191,7 @@
 
 .parentdiv9 {
   height: 350px;
-  background-image: url('../../assets/ViewAnnouncements.jpg');
+  background-image: url("../../assets/ViewAnnouncements.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;

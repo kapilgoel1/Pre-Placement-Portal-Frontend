@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import AddNewJobForm from '../../components/AddNewJobModal/AddNewJobModal';
+import AddNewJobForm from "../../components/AddNewJobModal/AddNewJobModal";
 
 const AddNewJob = () => {
-    return (
-        <div>
-            <AddNewJobForm/>
-        </div>
-    );
-}
+  return (
+    <div>
+      <AddNewJobForm />
+    </div>
+  );
+};
 
 export default AddNewJob;

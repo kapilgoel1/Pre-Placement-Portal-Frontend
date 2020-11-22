@@ -12,7 +12,7 @@
 
 .parentdiv12 {
   height: 350px;
-  background-image: url('../../assets/resumeBuilder.png');
+  background-image: url("../../assets/resumeBuilder.png");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -32,7 +32,7 @@
 
 .parentdiv13 {
   height: 350px;
-  background-image: url('../../assets/progressReport.jpg');
+  background-image: url("../../assets/progressReport.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -52,7 +52,7 @@
 
 .parentdiv14 {
   height: 350px;
-  background-image: url('../../assets/testImage.jpg');
+  background-image: url("../../assets/testImage.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -72,7 +72,7 @@
 
 .parentdiv10 {
   height: 350px;
-  background-image: url('../../assets/viewJobImage.jpg');
+  background-image: url("../../assets/viewJobImage.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;
@@ -92,7 +92,7 @@
 
 .parentdiv11 {
   height: 350px;
-  background-image: url('../../assets/viewFeedback.png');
+  background-image: url("../../assets/viewFeedback.png");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 30px auto;

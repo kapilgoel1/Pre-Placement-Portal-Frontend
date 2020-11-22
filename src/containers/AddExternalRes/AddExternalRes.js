@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import AddExternalResForm from '../../components/AddExternalResForm/AddExternalResForm';
+import AddExternalResForm from "../../components/AddExternalResForm/AddExternalResForm";
 
 const AddExternalRes = () => {
-    return (
-        <div>
-            <AddExternalResForm/>
-        </div>
-    );
-}
+  return (
+    <div>
+      <AddExternalResForm />
+    </div>
+  );
+};
 
 export default AddExternalRes;

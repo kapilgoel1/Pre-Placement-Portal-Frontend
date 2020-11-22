@@ -1,90 +1,92 @@
-import React, {useState, useEffect} from 'react';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
 
 // import StudentLogin from './containers/StudentLogin/StudentLogin';
-import StudentDashboard from './containers/StudentDashboard/StudentDashboard';
-import FacultyDashboard from './containers/FacultyDashboard/FacultyDashboard';
-import FacultyEditProfile from './containers/FacultyEditProfile/FacultyEditProfile';
-import StudentEditProfile from './containers/StudentEditProfile/StudentEditProfile'
-import About from './components/About/About';
-import Main from './containers/Main/Main';
-import New from './containers/Home/home'
-import { Route, Switch } from 'react-router-dom';
+import StudentDashboard from "./containers/StudentDashboard/StudentDashboard";
+import FacultyDashboard from "./containers/FacultyDashboard/FacultyDashboard";
+import FacultyEditProfile from "./containers/FacultyEditProfile/FacultyEditProfile";
+import StudentEditProfile from "./containers/StudentEditProfile/StudentEditProfile";
+import About from "./components/About/About";
+import Main from "./containers/Main/Main";
+import New from "./containers/Home/home";
+import { Route, Switch } from "react-router-dom";
 
-import SecuredFacultyRoute from './SecuredFacultyRoute'
-import SecuredStudentRoute from './SecuredStudentRoute'
-import AuthContext from './AuthContext'
+import SecuredFacultyRoute from "./SecuredFacultyRoute";
+import SecuredStudentRoute from "./SecuredStudentRoute";
+import AuthContext from "./AuthContext";
 
 const App = () => {
+  const [loggedin, setloggedin] = useState(true);
+  const [loading, setloading] = useState(false);
+  const [userRole, setuserRole] = useState(null);
 
-  const [loggedin, setloggedin] = useState(true)
-  const [loading, setloading] = useState(false)
-  const [userRole, setuserRole] = useState(null)
-
-  useEffect(() => {  
+  useEffect(() => {
     setloading(true);
-    fetch('http://localhost:4000/user/details', {
-      method: 'GET',
+    fetch("http://localhost:4000/user/details", {
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      credentials: 'include',
+      credentials: "include",
     })
-    .then((response) => response.json())
-    .then((result) => {
-      if(result.role === 'faculty') { 
-        setloggedin(true);       
-        setuserRole(result.role);
-      } 
-      else if(result.role === 'student') { 
-        setloggedin(true);        
-        setuserRole(result.role);
-      } 
-      else {
-        setloggedin(false);
-      }         
-      setloading(false);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  }, [loggedin])
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.role === "faculty") {
+          setloggedin(true);
+          setuserRole(result.role);
+        } else if (result.role === "student") {
+          setloggedin(true);
+          setuserRole(result.role);
+        } else {
+          setloggedin(false);
+        }
+        setloading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [loggedin]);
 
-  if(loading)
-    return null;
+  if (loading) return null;
   else
     return (
       <div className="App">
-        <Switch>      
-          <AuthContext.Provider value={{loggedin: loggedin, userRole: userRole, setloggedin: setloggedin}}>
-            <Route exact path="/">      
-              <Main userRole={userRole}/>    
+        <Switch>
+          <AuthContext.Provider
+            value={{
+              loggedin: loggedin,
+              userRole: userRole,
+              setloggedin: setloggedin,
+            }}
+          >
+            <Route exact path="/">
+              <Main userRole={userRole} />
             </Route>
             <Route path="/about">
-              <About/>
+              <About />
             </Route>
             <Route path="/contact">
-              <About/>
+              <About />
             </Route>
             <Route path="/new">
-              <New/>
+              <New />
             </Route>
             <SecuredFacultyRoute path="/facultydashboard">
-              <FacultyDashboard/>
+              <FacultyDashboard />
             </SecuredFacultyRoute>
             <SecuredFacultyRoute path="/facultyeditprofile">
-              <FacultyEditProfile/>
+              <FacultyEditProfile />
             </SecuredFacultyRoute>
             <SecuredStudentRoute path="/studentdashboard">
-              <StudentDashboard/>
+              <StudentDashboard />
             </SecuredStudentRoute>
             <SecuredStudentRoute path="/studenteditprofile">
-              <StudentEditProfile/>
+              <StudentEditProfile />
             </SecuredStudentRoute>
-          </AuthContext.Provider>  
+          </AuthContext.Provider>
         </Switch>
       </div>
     );
-}
+};
 
 export default App;

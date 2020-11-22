@@ -1,5 +1,5 @@
 .container1 {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 .head1 {
   font-size: 40px;
@@ -22,7 +22,7 @@
 }
 
 .acc {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: xx-large;
   font-weight: bold;
 }
@@ -49,7 +49,7 @@
 }
 
 .loginhero {
-  background-image: url('../../assets/MainImage.jpg');
+  background-image: url("../../assets/MainImage.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.9;
@@ -59,12 +59,10 @@
   margin: 0 auto;
   max-width: 1250px;
   color: white;
-
 }
 
 .login-container__form {
   height: 350px;
-  
 }
 
 @media only screen and (min-width: 500px) {

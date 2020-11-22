@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import AddNewTest from '../../components/AddNewTestModal/AddNewTestModal';
+import AddNewTest from "../../components/AddNewTestModal/AddNewTestModal";
 
 const AddNewResource = () => {
-    return (
-        <div>
-            <AddNewTest/>
-        </div>
-    );
-}
+  return (
+    <div>
+      <AddNewTest />
+    </div>
+  );
+};
 
 export default AddNewResource;

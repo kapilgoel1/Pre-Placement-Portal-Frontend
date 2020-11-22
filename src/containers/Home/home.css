@@ -9,7 +9,7 @@
       rgba(0, 48, 143, 0.9) 100%,
       rgba(2, 0, 36, 0.9) 100%
     ),
-    url('../../assets/scott-graham-5fNmWej4tAA-unsplash.jpg');
+    url("../../assets/scott-graham-5fNmWej4tAA-unsplash.jpg");
 
   background-size: cover;
   color: white;

@@ -1,88 +1,93 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, { useState, useEffect, useContext } from "react";
 import "./ViewAnnouncements.css";
-import swal from 'sweetalert';
-import { Card, CardTitle, CardBody, Button, Form, FormGroup, Label  } from 'reactstrap';
-import { useRouteMatch, useHistory } from 'react-router-dom';
-import AuthContext from '../../AuthContext';
+import swal from "sweetalert";
+import {
+  Card,
+  CardTitle,
+  CardBody,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+} from "reactstrap";
+import { useRouteMatch, useHistory } from "react-router-dom";
+import AuthContext from "../../AuthContext";
 
 const ViewAnnouncements = () => {
+  const history = useHistory();
+  let { path } = useRouteMatch();
+  const { userRole } = useContext(AuthContext);
+  const [announcements, setAnnouncements] = useState([]);
 
-    const history = useHistory();
-    let { path } = useRouteMatch();
-    const {userRole} = useContext(AuthContext);
-    const [announcements, setAnnouncements] = useState([]);
+  const fetchCall = () => {
+    fetch("http://localhost:4000/announcement/retrieve", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        setAnnouncements(result.announcementList);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    const fetchCall = () => {
-        fetch('http://localhost:4000/announcement/retrieve', {
-            method: 'GET',
-            headers: {
-            'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-        })
-        .then(response => response.json())
-        .then((result) => {
-            setAnnouncements(result.announcementList);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+  useEffect(() => {
+    fetchCall();
+  }, []);
 
-    useEffect(() => {
-        fetchCall();
-    }, [])
+  const onDelete = (d_id) => {
+    fetch(`http://localhost:4000/announcement/remove/${d_id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result === "Deletion successful") {
+          fetchCall();
+        } else swal("Not deleted");
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    const onDelete = (d_id) => {
-        fetch(`http://localhost:4000/announcement/remove/${d_id}`, {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-        })
-          .then((response) => response.json())
-          .then((result) => {
-            if(result === 'Deletion successful') {
-                fetchCall();
-            }
-                else 
-                swal('Not deleted')
-            console.log(result);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        }
-
-    
-    return (
-
-        <div className="container">
-            <Form autoComplete="off">
-                <FormGroup align="center">
-                    <Label>ALL ANNOUNCEMENTS</Label>
-                </FormGroup>
-                {
-                    announcements.map((announcement) =>
-                        <Card key={announcement._id}>
-                            <CardBody onClick={() => history.push(`${path}/${announcement._id}`)}>
-                                <CardTitle > {announcement.title} </CardTitle>
-                                {userRole==='faculty' &&
-                                            <Button onClick={(e) => {
-                                                e.stopPropagation();
-                                                onDelete(announcement._id)
-                                            }}>
-                                                Delete
-                                            </Button>
-                                }
-                                </CardBody> 
-                        </Card>
-                    )
-                }
-            </Form>
-        </div>
-    );
-}
+  return (
+    <div className="container">
+      <Form autoComplete="off">
+        <FormGroup align="center">
+          <Label>ALL ANNOUNCEMENTS</Label>
+        </FormGroup>
+        {announcements.map((announcement) => (
+          <Card key={announcement._id}>
+            <CardBody
+              onClick={() => history.push(`${path}/${announcement._id}`)}
+            >
+              <CardTitle> {announcement.title} </CardTitle>
+              {userRole === "faculty" && (
+                <Button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onDelete(announcement._id);
+                  }}
+                >
+                  Delete
+                </Button>
+              )}
+            </CardBody>
+          </Card>
+        ))}
+      </Form>
+    </div>
+  );
+};
 
 export default ViewAnnouncements;

@@ -1,18 +1,18 @@
 .about {
-    text-align: left;
-    margin: 60px;
+  text-align: left;
+  margin: 60px;
 }
 
 .img {
-    width: 100%;
-    opacity: 0.8;
+  width: 100%;
+  opacity: 0.8;
 }
 
 .back .heading {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: white;
-    position: absolute;
-    top: 40%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-  }
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: white;
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}

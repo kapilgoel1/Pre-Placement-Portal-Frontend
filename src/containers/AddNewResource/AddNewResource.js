@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import FileUploadTest from '../../components/FileUploadTest/FileUploadTest';
+import FileUploadTest from "../../components/FileUploadTest/FileUploadTest";
 
 const AddNewResource = () => {
-    return (
-        <div>
-            <FileUploadTest/>
-        </div>
-    );
-}
+  return (
+    <div>
+      <FileUploadTest />
+    </div>
+  );
+};
 
 export default AddNewResource;
