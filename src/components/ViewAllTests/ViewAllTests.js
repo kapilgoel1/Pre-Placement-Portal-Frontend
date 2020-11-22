@@ -67,7 +67,7 @@ const ViewAllTests = () => {
                                     TITLE: {test.title}
                                 </FormGroup>
                                 <FormGroup>
-                                    LINK: {test.link}
+                                LINK:<a href={test.link} target="_blank" rel="noopener noreferrer"> {test.link} </a>
                                 </FormGroup>
                                 <FormGroup>
                                     DETAIL: {test.detail}

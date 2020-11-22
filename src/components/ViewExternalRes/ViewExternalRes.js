@@ -68,7 +68,7 @@ const ViewExternalRes = () => {
                                     TITLE: {resource.title}
                                 </FormGroup>
                                 <FormGroup>
-                                    LINK: {resource.link}
+                                    LINK:<a href={resource.link} target="_blank" rel="noopener noreferrer"> {resource.link} </a>
                                 </FormGroup>
                                 {userRole==='faculty' &&
                                             <Button onClick={(e) => {
