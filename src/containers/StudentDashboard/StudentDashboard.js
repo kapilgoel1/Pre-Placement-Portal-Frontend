@@ -5,6 +5,7 @@ import StudentNavBar from "../../components/StudentNavbar/StudentNavBar";
 import StudentMenu from "../../components/StudentMenu/StudentMenu";
 import Footer from "../../components/Footer/Footer";
 import FileList from "../../components/FileList/FileList";
+import ViewAnnouncementDetail from "../../components/ViewAnnouncements/ViewDetailAnnouncement/ViewDetailAnnouncement";
 import ViewAnnouncement from "../../components/ViewAnnouncements/ViewAnnouncements";
 import ViewExternalRes from "../../components/ViewExternalRes/ViewExternalRes";
 import ViewAllTests from "../../components/ViewAllTests/ViewAllTests";
@@ -22,6 +23,9 @@ const StudentDashboard = () => {
         </Route>
         <Route path={`${path}/files/:category`}>
           <FileList limit={10} />
+        </Route>
+        <Route path={`${path}/viewannouncement/:id`}>
+          <ViewAnnouncementDetail />
         </Route>
         <Route path={`${path}/viewannouncement`}>
           <ViewAnnouncement />
