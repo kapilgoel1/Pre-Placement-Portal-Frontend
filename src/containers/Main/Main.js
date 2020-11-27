@@ -13,6 +13,7 @@ const Main = () => {
     return <Redirect to="/studentdashboard" />;
   } else if (user.loggedin === false) return <Home />;
   else {
+    console.log("ss");
     return null;
   }
 };
