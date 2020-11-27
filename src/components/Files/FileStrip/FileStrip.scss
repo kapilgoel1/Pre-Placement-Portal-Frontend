@@ -1,0 +1,69 @@
+.filestrip {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.filestrip__filename {
+  flex: 1 1 150px;
+}
+
+.filestrip__subject {
+  display: none;
+  text-align: center;
+}
+
+.filestrip__dateuploaded {
+  display: none;
+  text-align: center;
+}
+
+.filestrip__uploadedby {
+  display: none;
+  text-align: center;
+}
+
+.filestrip__action {
+  flex: 1 1 50px;
+  text-align: center;
+}
+
+.filestrip__delete {
+  display: none;
+  text-align: center;
+}
+
+@media only screen and (min-width: 800px) {
+  .filestrip__subject {
+    display: block;
+    flex: 1 1 50px;
+  }
+
+  .filestrip__dateuploaded {
+    display: block;
+    flex: 1 1 50px;
+  }
+
+  .filestrip__uploadedby {
+    display: block;
+    flex: 1 1 50px;
+  }
+
+  .filestrip__action {
+    margin: 0 10px;
+  }
+
+  .filestrip__delete {
+    display: block;
+    flex: 1 1 50px;
+    margin: 0 10px;
+  }
+}
+
+.filestrip:nth-child(even) {
+  background-color: #f8eaea;
+}
+
+.filestrip:nth-child(odd) {
+  background-color: #ecb3b3;
+}

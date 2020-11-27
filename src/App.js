@@ -4,8 +4,6 @@ import "./App.scss";
 // import StudentLogin from './containers/StudentLogin/StudentLogin';
 import StudentDashboard from "./containers/StudentDashboard/StudentDashboard";
 import FacultyDashboard from "./containers/FacultyDashboard/FacultyDashboard";
-import FacultyEditProfile from "./containers/FacultyEditProfile/FacultyEditProfile";
-import StudentEditProfile from "./containers/StudentEditProfile/StudentEditProfile";
 import About from "./components/About/About";
 import Main from "./containers/Main/Main";
 import New from "./containers/Home/home";
@@ -71,14 +69,8 @@ const App = () => {
             <SecuredFacultyRoute path="/facultydashboard">
               <FacultyDashboard />
             </SecuredFacultyRoute>
-            <SecuredFacultyRoute path="/facultyeditprofile">
-              <FacultyEditProfile />
-            </SecuredFacultyRoute>
             <SecuredStudentRoute path="/studentdashboard">
               <StudentDashboard />
-            </SecuredStudentRoute>
-            <SecuredStudentRoute path="/studenteditprofile">
-              <StudentEditProfile />
             </SecuredStudentRoute>
           </AuthContext.Provider>
         </Switch>

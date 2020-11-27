@@ -8,19 +8,19 @@ function FacultyMenu() {
   let { url } = useRouteMatch();
 
   const onAddNewRes = () => {
-    history.push(`${url}/addnewresource`);
+    history.push(`${url}/addfile`);
   };
 
   const onAddNewJob = () => {
-    history.push(`${url}/addnewjob`);
+    history.push(`${url}/addjob`);
   };
 
   const onAddNewTest = () => {
-    history.push(`${url}/addnewtest`);
+    history.push(`${url}/addtest`);
   };
 
   const onAddExternalRes = () => {
-    history.push(`${url}/addexternalres`);
+    history.push(`${url}/addexternallink`);
   };
 
   const onAddAnnouncement = () => {
@@ -32,15 +32,15 @@ function FacultyMenu() {
   };
 
   const onViewStudentsList = () => {
-    history.push(`${url}/viewstudentlist`);
+    history.push(`${url}/viewstudent`);
   };
 
   const onViewJob = () => {
-    history.push(`${url}/viewalljobs`);
+    history.push(`${url}/viewjobs`);
   };
 
   const onViewAllResources = () => {
-    history.push(`${url}/viewallresources`);
+    history.push(`${url}/files`);
   };
 
   return (

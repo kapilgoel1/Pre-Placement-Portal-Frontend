@@ -31,7 +31,7 @@ const FacultyNavBar = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   const onClickHandler = () => {
-    props.history.push("/facultyeditprofile");
+    history.push(`${url}/editprofile`);
   };
 
   const onLogoutHandler = () => {
@@ -57,7 +57,7 @@ const FacultyNavBar = (props) => {
       <Navbar className="navbar" light expand="md">
         <NavbarBrand
           onClick={() => {
-            history.push("/");
+            history.push("/facultydashboard");
           }}
           className="navbar-logo"
         >
@@ -104,18 +104,14 @@ const FacultyNavBar = (props) => {
                   View notes
                 </DropdownItem>
                 <DropdownItem
-                  onClick={() => history.push(`${url}/viewexternalres`)}
+                  onClick={() => history.push(`${url}/viewexternallinks`)}
                 >
                   View weblinks/external resources
                 </DropdownItem>
-                <DropdownItem
-                  onClick={() => history.push(`${url}/viewalltests`)}
-                >
+                <DropdownItem onClick={() => history.push(`${url}/viewtests`)}>
                   View All tests
                 </DropdownItem>
-                <DropdownItem
-                  onClick={() => history.push(`${url}/viewalljobs`)}
-                >
+                <DropdownItem onClick={() => history.push(`${url}/viewjobs`)}>
                   View All jobs
                 </DropdownItem>
               </DropdownMenu>
