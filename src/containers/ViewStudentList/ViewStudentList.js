@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ViewStudentList.css";
+import "./ViewStudentList.scss";
 import { Card, CardTitle, CardBody, Form, FormGroup, Label } from "reactstrap";
 import { useRouteMatch, useHistory } from "react-router-dom";
 

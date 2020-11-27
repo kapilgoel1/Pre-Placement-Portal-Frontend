@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ViewDetailAnnouncement.css";
+import "./ViewDetailAnnouncement.scss";
 import { Form, Card, CardBody, Label, FormGroup } from "reactstrap";
 import { useParams } from "react-router-dom";
 

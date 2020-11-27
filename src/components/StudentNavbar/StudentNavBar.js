@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
-import "./StudentNavBar.css";
+import "./StudentNavBar.scss";
 import {
   Collapse,
   Navbar,

@@ -1,5 +1,5 @@
 import React from "react";
-import "./StudentDashboard.css";
+import "./StudentDashboard.scss";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import StudentNavBar from "../../components/StudentNavbar/StudentNavBar";
 import StudentMenu from "../../components/StudentMenu/StudentMenu";

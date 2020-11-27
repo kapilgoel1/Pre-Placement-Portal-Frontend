@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./StudentEditProfile.css";
+import "./StudentEditProfile.scss";
 import {
   Input,
   Label,

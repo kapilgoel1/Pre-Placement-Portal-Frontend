@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AddNewJobModal.css";
+import "./AddNewJobModal.scss";
 import {
   Label,
   Input,

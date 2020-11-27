@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/JIMSLogo.png";
-import "./Logo.css";
+import "./Logo.scss";
 
 //This is the main logo of JIMS
 

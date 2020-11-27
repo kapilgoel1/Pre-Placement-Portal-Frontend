@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./StudentLogin.css";
+import "./StudentLogin.scss";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 
 const StudentLogin = (props) => {

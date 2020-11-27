@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Home from "../Home/home";
-import "./Main.css";
+import "./Main.scss";
 import { Redirect } from "react-router";
 import AuthContext from "../../AuthContext";
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AddNewTestModal.css";
+import "./AddNewTestModal.scss";
 import {
   Label,
   Input,

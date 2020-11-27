@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import "./ViewExternalRes.css";
+import "./ViewExternalRes.scss";
 import swal from "sweetalert";
 import { Card, CardBody, Form, FormGroup, Label, Button } from "reactstrap";
 import { useRouteMatch, useHistory } from "react-router-dom";

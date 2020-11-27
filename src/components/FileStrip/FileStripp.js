@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "reactstrap";
-import "./FileStripp.css";
+import "./FileStripp.scss";
 import swal from "sweetalert";
 
 function formatDate(date) {

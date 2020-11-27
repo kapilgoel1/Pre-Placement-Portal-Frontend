@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import AuthContext from "../../AuthContext";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import "./FacultyNavBar.css";
+import "./FacultyNavBar.scss";
 import {
   Collapse,
   Navbar,

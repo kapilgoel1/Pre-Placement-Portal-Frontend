@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import AuthContext from "../../AuthContext";
-import "./Login.css";
+import "./Login.scss";
 import swal from "sweetalert";
 import { withRouter } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";

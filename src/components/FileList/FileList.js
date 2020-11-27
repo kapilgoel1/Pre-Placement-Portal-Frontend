@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import FileStripp from "../FileStrip/FileStripp";
 import { Input, CardBody, FormGroup, Card, Form } from "reactstrap";
-import "./FileList.css";
+import "./FileList.scss";
 
 export default function FileList(props) {
   const [searchField, setsearchField] = useState("");

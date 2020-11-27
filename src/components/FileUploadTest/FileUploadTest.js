@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./FileUploadTest.css";
+import "./FileUploadTest.scss";
 import {
   Progress,
   Button,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import "./ViewAnnouncements.css";
+import "./ViewAnnouncements.scss";
 import swal from "sweetalert";
 import {
   Card,

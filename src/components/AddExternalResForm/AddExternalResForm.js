@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AddExternalResForm.css";
+import "./AddExternalResForm.scss";
 import {
   Label,
   Input,

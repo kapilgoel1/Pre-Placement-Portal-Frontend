@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AddAnnouncementForm.css";
+import "./AddAnnouncementForm.scss";
 import {
   Button,
   Form,

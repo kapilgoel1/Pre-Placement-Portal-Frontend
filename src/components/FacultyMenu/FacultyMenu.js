@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import "./FacultyMenu.css";
+import "./FacultyMenu.scss";
 
 function FacultyMenu() {
   let history = useHistory();
