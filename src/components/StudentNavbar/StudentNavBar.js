@@ -25,7 +25,7 @@ import Logo from "../Logo/Logo";
 
 const StudentNavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { setloggedin } = useContext(AuthContext);
+  const { setuser } = useContext(AuthContext);
   let { url } = useRouteMatch();
   let history = useHistory();
 
@@ -42,8 +42,7 @@ const StudentNavBar = (props) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        setloggedin(false);
-        console.log(result);
+        setuser({ loggedin: false, role: "" });
       })
       .catch((err) => {
         console.log(err);

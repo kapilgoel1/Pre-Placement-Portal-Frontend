@@ -8,7 +8,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setloggedin } = useContext(AuthContext);
+  const { setuser } = useContext(AuthContext);
 
   // const validateForm = () => {
   //   return email.length > 0 && password.length > 0;
@@ -33,7 +33,7 @@ const Login = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.role) {
-          setloggedin(true);
+          setuser({ role: result.role, loggedin: true });
         } else {
           swal("Invalid Login credentials");
         }

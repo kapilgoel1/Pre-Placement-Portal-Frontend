@@ -5,18 +5,16 @@ import { Redirect } from "react-router";
 import AuthContext from "../../AuthContext";
 
 const Main = () => {
-  const { loggedin, userRole } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  if (userRole === "faculty" && loggedin) {
+  if (user.role === "faculty" && user.loggedin) {
     return <Redirect to="/facultydashboard" />;
-  }
-
-  if (userRole === "student" && loggedin) {
-    console.log("true");
+  } else if (user.role === "student" && user.loggedin) {
     return <Redirect to="/studentdashboard" />;
+  } else if (user.loggedin === false) return <Home />;
+  else {
+    return null;
   }
-
-  return <Home />;
 };
 
 export default Main;

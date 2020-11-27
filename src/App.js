@@ -16,12 +16,12 @@ import SecuredStudentRoute from "./SecuredStudentRoute";
 import AuthContext from "./AuthContext";
 
 const App = () => {
-  const [loggedin, setloggedin] = useState(true);
-  const [loading, setloading] = useState(false);
-  const [userRole, setuserRole] = useState(null);
+  const [loading, setloading] = useState(true);
+  const [user, setuser] = useState({ role: "", loggedin: false });
 
   useEffect(() => {
-    setloading(true);
+    console.log("runned");
+
     fetch("http://localhost:4000/user/details", {
       method: "GET",
       headers: {
@@ -32,35 +32,32 @@ const App = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.role === "faculty") {
-          setloggedin(true);
-          setuserRole(result.role);
+          setuser({ role: result.role, loggedin: true });
         } else if (result.role === "student") {
-          setloggedin(true);
-          setuserRole(result.role);
+          setuser({ role: result.role, loggedin: true });
         } else {
-          setloggedin(false);
+          setuser({ role: "", loggedin: false });
         }
         setloading(false);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [loggedin]);
+  }, [user.role, user.loggedin]);
 
-  if (loading) return null;
+  if (loading) return <h1>Loading</h1>;
   else
     return (
       <div className="App">
         <Switch>
           <AuthContext.Provider
             value={{
-              loggedin: loggedin,
-              userRole: userRole,
-              setloggedin: setloggedin,
+              user: user,
+              setuser: setuser,
             }}
           >
             <Route exact path="/">
-              <Main userRole={userRole} />
+              <Main />
             </Route>
             <Route path="/about">
               <About />

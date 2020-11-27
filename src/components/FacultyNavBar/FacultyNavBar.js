@@ -24,7 +24,7 @@ import Logo from "../Logo/Logo";
 
 const FacultyNavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { setloggedin } = useContext(AuthContext);
+  const { setuser } = useContext(AuthContext);
   let history = useHistory();
   let { url } = useRouteMatch();
 
@@ -41,8 +41,7 @@ const FacultyNavBar = (props) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        setloggedin(false);
-        console.log(result);
+        setuser({ loggedin: false, role: "" });
       })
       .catch((err) => {
         console.log(err);
