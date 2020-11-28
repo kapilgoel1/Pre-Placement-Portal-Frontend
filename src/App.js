@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
 
-// import StudentLogin from './containers/StudentLogin/StudentLogin';
 import StudentDashboard from "./containers/StudentDashboard/StudentDashboard";
 import FacultyDashboard from "./containers/FacultyDashboard/FacultyDashboard";
 import About from "./components/About/About";
