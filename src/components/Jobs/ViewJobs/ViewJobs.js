@@ -6,7 +6,7 @@ import AuthContext from "../../../AuthContext";
 
 const ViewJobs = () => {
   const history = useHistory();
-  const { userRole } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   let { path } = useRouteMatch();
   const [jobs, setJobs] = useState([]);
 
@@ -64,7 +64,7 @@ const ViewJobs = () => {
               <FormGroup>COMPANY: {job.company}</FormGroup>
               <FormGroup>JOB PROFILE: {job.jobprofile}</FormGroup>
               <FormGroup>PACKAGE: {job.package}</FormGroup>
-              {userRole === "faculty" && (
+              {user.role === "faculty" && (
                 <Button
                   onClick={(e) => {
                     e.stopPropagation();

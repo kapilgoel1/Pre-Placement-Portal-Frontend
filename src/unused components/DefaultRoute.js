@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Route } from "react-router";
-import AuthContext from "../../AuthContext";
-import Main from "../../containers/Main/Main";
+import AuthContext from "../AuthContext";
+import Main from "../containers/Main/Main";
 
 const DefaultRoute = (props) => {
   const { user } = useContext(AuthContext);

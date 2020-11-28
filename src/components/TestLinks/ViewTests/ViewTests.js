@@ -6,7 +6,7 @@ import AuthContext from "../../../AuthContext";
 
 const ViewTests = () => {
   const history = useHistory();
-  const { userRole } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   let { path } = useRouteMatch();
   const [tests, setTests] = useState([]);
 
@@ -68,7 +68,7 @@ const ViewTests = () => {
                 </a>
               </FormGroup>
               <FormGroup>DETAIL: {test.detail}</FormGroup>
-              {userRole === "faculty" && (
+              {user.role === "faculty" && (
                 <Button
                   onClick={(e) => {
                     e.stopPropagation();

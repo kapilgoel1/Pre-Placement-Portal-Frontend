@@ -16,7 +16,7 @@ import AuthContext from "../../../AuthContext";
 const ViewAnnouncements = () => {
   const history = useHistory();
   let { path } = useRouteMatch();
-  const { userRole } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [announcements, setAnnouncements] = useState([]);
 
   const fetchCall = () => {
@@ -72,7 +72,7 @@ const ViewAnnouncements = () => {
               onClick={() => history.push(`${path}/${announcement._id}`)}
             >
               <CardTitle> {announcement.title} </CardTitle>
-              {userRole === "faculty" && (
+              {user.role === "faculty" && (
                 <Button
                   onClick={(e) => {
                     e.stopPropagation();

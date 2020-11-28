@@ -46,7 +46,7 @@ function FacultyMenu() {
   return (
     <div className="container">
       <Row>
-        <Col md={3}>
+        <Col md={4}>
           <div className="parentdiv1" onClick={onAddNewRes}>
             <div className="childdiv">
               <button className="functionButtons">ADD NEW RESOURCE</button>
@@ -63,7 +63,7 @@ function FacultyMenu() {
             </div>
           </div>
         </Col>
-        <Col md={3}>
+        <Col md={4}>
           <div className="parentdiv4" onClick={onAddNewJob}>
             <div className="childdiv">
               <button className="functionButtons">ADD NEW JOB/POSTINGS</button>
@@ -84,7 +84,7 @@ function FacultyMenu() {
             </div>
           </div>
         </Col>
-        <Col md={3}>
+        <Col md={4}>
           <div className="parentdiv7" onClick={onViewJob}>
             <div className="childdiv">
               <button className="functionButtons">VIEW NEW JOB/POSTINGS</button>
@@ -104,20 +104,21 @@ function FacultyMenu() {
             </div>
           </div>
         </Col>
-
-        <Col md={3}>
-          <div className="schedule" align="center">
-            SCHEDULES <br />
-          </div>
-          <div className="notices" align="center">
-            NOTICE 1 <br />
-            NOTICE 2 <br />
-            NOTICE 3 <br />
-            NOTICE 1 <br />
-            NOTICE 2 <br />
-            NOTICE 3 <br />
-          </div>
-        </Col>
+        {
+          // <Col md={3} className="schedule">
+          //   <div align="center">
+          //     SCHEDULES <br />
+          //   </div>
+          //   <div className="notices" align="center">
+          //     NOTICE 1 <br />
+          //     NOTICE 2 <br />
+          //     NOTICE 3 <br />
+          //     NOTICE 1 <br />
+          //     NOTICE 2 <br />
+          //     NOTICE 3 <br />
+          //   </div>
+          // </Col>
+        }
       </Row>
     </div>
   );

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "reactstrap";
 import "./FileStrip.scss";
 import swal from "sweetalert";
+import AuthContext from "../../../AuthContext";
 
 function formatDate(date) {
   var d = new Date(date),
@@ -16,6 +17,8 @@ function formatDate(date) {
 }
 
 function FileStrip(props) {
+  const { user } = useContext(AuthContext);
+
   const onDelete = () => {
     fetch(`http://localhost:4000/file/remove/${props.file.uuid}`, {
       method: "DELETE",
@@ -53,11 +56,13 @@ function FileStrip(props) {
           Download
         </a>
       </div>
-      <div className="filestrip__delete">
-        <Button className="btn btn-info w-100" onClick={onDelete}>
-          Delete
-        </Button>
-      </div>
+      {user.role === "faculty" && (
+        <div className="filestrip__delete">
+          <Button className="btn btn-info w-100" onClick={onDelete}>
+            Delete
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

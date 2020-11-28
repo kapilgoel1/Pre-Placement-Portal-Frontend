@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import FileStrip from "../FileStrip/FileStrip";
 import { Input, FormGroup, Form } from "reactstrap";
 import DCard from "../../DCard/DCard";
 import "./ViewFiles.scss";
+import AuthContext from "../../../AuthContext";
 
 function ViewFiles(props) {
   const [searchField, setsearchField] = useState("");
@@ -14,6 +15,7 @@ function ViewFiles(props) {
   const [pageCount, setpageCount] = useState(5);
   const [offset, setoffset] = useState(0);
   let { category } = useParams();
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     fetch("http://localhost:4000/subject/retrieve", {
@@ -152,9 +154,11 @@ function ViewFiles(props) {
             <div className="filestrip-header__action">
               <h5>Action</h5>
             </div>
-            <div className="filestrip-header__delete">
-              <h5>Action</h5>
-            </div>
+            {user.role === "faculty" && (
+              <div className="filestrip-header__delete">
+                <h5>Action</h5>
+              </div>
+            )}
           </div>
           {fileList.map((file) => (
             <FileStrip key={file._id} file={file} afterDelete={afterDelete} />

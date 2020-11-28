@@ -6,7 +6,7 @@ import AuthContext from "../../../AuthContext";
 
 const ViewExternalRes = () => {
   const history = useHistory();
-  const { userRole } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   let { path } = useRouteMatch();
   const [resources, setResources] = useState([]);
 
@@ -71,7 +71,7 @@ const ViewExternalRes = () => {
                   {resource.link}{" "}
                 </a>
               </FormGroup>
-              {userRole === "faculty" && (
+              {user.role === "faculty" && (
                 <Button
                   onClick={(e) => {
                     e.stopPropagation();

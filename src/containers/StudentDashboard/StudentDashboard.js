@@ -34,13 +34,13 @@ const StudentDashboard = () => {
         <Route path={`${path}/viewannouncement`}>
           <ViewAnnouncement />
         </Route>
-        <Route path={`${path}/viewexternalres`}>
+        <Route path={`${path}/viewexternallinks`}>
           <ViewExternalLinks />
         </Route>
-        <Route path={`${path}/viewalltests`}>
+        <Route path={`${path}/viewtests`}>
           <ViewTests />
         </Route>
-        <Route path={`${path}/viewalljobs`}>
+        <Route path={`${path}/viewjobs`}>
           <ViewJobs />
         </Route>
       </Switch>
