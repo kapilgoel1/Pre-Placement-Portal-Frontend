@@ -115,7 +115,7 @@ function ViewFiles(props) {
         <FormGroup>
           <Input
             type="search"
-            placeholder="Search File"
+            placeholder="Search File By Name"
             onChange={(e) => {
               setsearchField(e.target.value);
               setoffset(0);
@@ -131,7 +131,7 @@ function ViewFiles(props) {
               setoffset(0);
             }}
           >
-            <option value="">All</option>
+            <option value="">All Subjects</option>
             {subjectList.map((sub) => (
               <option value={sub._id} key={sub._id}>
                 {sub.title}

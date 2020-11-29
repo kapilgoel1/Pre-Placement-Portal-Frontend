@@ -35,7 +35,10 @@ const AnnouncementDetail = () => {
             </FormGroup>
             <hr />
             <FormGroup>
-              <Label> {announcementDetail.content} </Label>
+              <Label style={{ whiteSpace: "pre-line" }}>
+                {" "}
+                {announcementDetail.content}{" "}
+              </Label>
             </FormGroup>
             <FormGroup>DATE AND TIME: {announcementDetail.createdAt}</FormGroup>
           </Form>

@@ -3,6 +3,7 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 import { Button, Card, CardBody, Form, FormGroup, Label } from "reactstrap";
 import swal from "sweetalert";
 import AuthContext from "../../../AuthContext";
+import "./ViewExternalLinks.scss";
 
 const ViewExternalRes = () => {
   const history = useHistory();
@@ -51,24 +52,25 @@ const ViewExternalRes = () => {
   };
 
   return (
-    <div className="container">
-      <Form autoComplete="off">
+    <div className="link-container">
+      <div className="link-card mx-1">
         <FormGroup align="center">
           <Label>EXTERNAL RESOURCES</Label>
         </FormGroup>
         {resources.map((resource) => (
-          <Card key={resource._id}>
+          <Card key={resource._id} className="mb-3">
             <CardBody onClick={() => history.push(`${path}/${resource._id}`)}>
-              <FormGroup>TITLE: {resource.title}</FormGroup>
               <FormGroup>
-                LINK:
+                <h4>{resource.title}</h4>
+              </FormGroup>
+              <FormGroup>
+                <h6>LINK</h6>
                 <a
                   href={resource.link}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {" "}
-                  {resource.link}{" "}
+                  {resource.link}
                 </a>
               </FormGroup>
               {user.role === "faculty" && (
@@ -77,6 +79,8 @@ const ViewExternalRes = () => {
                     e.stopPropagation();
                     onDelete(resource._id);
                   }}
+                  className="mt-2"
+                  color="danger"
                 >
                   Delete
                 </Button>
@@ -84,7 +88,7 @@ const ViewExternalRes = () => {
             </CardBody>
           </Card>
         ))}
-      </Form>
+      </div>
     </div>
   );
 };

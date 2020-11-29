@@ -104,6 +104,8 @@ const FileUploadTest = () => {
             <option value="assignment">Assignment</option>
             <option value="testpaper">Test Paper</option>
             <option value="notes">Notes</option>
+            <option value="video">Video</option>
+            <option value="ppt">PPT</option>
           </Input>
         </FormGroup>
         <FormGroup>

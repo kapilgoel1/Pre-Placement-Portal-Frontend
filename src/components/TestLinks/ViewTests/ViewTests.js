@@ -3,6 +3,7 @@ import { Card, CardBody, Form, FormGroup, Label, Button } from "reactstrap";
 import swal from "sweetalert";
 import { useRouteMatch, useHistory } from "react-router-dom";
 import AuthContext from "../../../AuthContext";
+import "./ViewTests.scss";
 
 const ViewTests = () => {
   const history = useHistory();
@@ -51,29 +52,35 @@ const ViewTests = () => {
   };
 
   return (
-    <div className="container">
-      <Form autoComplete="off">
+    <div className="test-container">
+      <div className="test-card mx-1">
         <FormGroup align="center">
-          <Label>TESTS UPLOADED</Label>
+          <h3 className="text-white">TESTS</h3>
         </FormGroup>
         {tests.map((test) => (
-          <Card key={test._id}>
+          <Card key={test._id} className="mb-3">
             <CardBody onClick={() => history.push(`${path}/${test._id}`)}>
-              <FormGroup>TITLE: {test.title}</FormGroup>
               <FormGroup>
-                LINK:
+                <h4>{test.title}</h4>
+              </FormGroup>
+              <FormGroup>
+                <h6>TEST LINK</h6>
                 <a href={test.link} target="_blank" rel="noopener noreferrer">
-                  {" "}
-                  {test.link}{" "}
+                  {test.link}
                 </a>
               </FormGroup>
-              <FormGroup>DETAIL: {test.detail}</FormGroup>
+              <FormGroup>
+                <h6>TEST DETAILS</h6>
+                <p className="text-muted">{test.detail}</p>
+              </FormGroup>
               {user.role === "faculty" && (
                 <Button
                   onClick={(e) => {
                     e.stopPropagation();
                     onDelete(test._id);
                   }}
+                  className="mt-2"
+                  color="danger"
                 >
                   Delete
                 </Button>
@@ -81,7 +88,7 @@ const ViewTests = () => {
             </CardBody>
           </Card>
         ))}
-      </Form>
+      </div>
     </div>
   );
 };

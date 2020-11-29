@@ -67,7 +67,7 @@ const ViewAnnouncements = () => {
           <Label>ALL ANNOUNCEMENTS</Label>
         </FormGroup>
         {announcements.map((announcement) => (
-          <Card key={announcement._id}>
+          <Card key={announcement._id} className="announcement-card">
             <CardBody
               onClick={() => history.push(`${path}/${announcement._id}`)}
             >

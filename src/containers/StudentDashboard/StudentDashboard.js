@@ -44,7 +44,6 @@ const StudentDashboard = () => {
           <ViewJobs />
         </Route>
       </Switch>
-      <Footer />
     </div>
   );
 };

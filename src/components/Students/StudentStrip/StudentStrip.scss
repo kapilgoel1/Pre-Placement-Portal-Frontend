@@ -1,0 +1,23 @@
+.studentstrip {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    background-color: #ecb3b3;
+  }
+}
+
+.studentstrip__id {
+  flex: 1 1 150px;
+  text-align: center;
+}
+
+.studentstrip__name {
+  flex: 1 1 150px;
+  text-align: center;
+}
+
+.studentstrip {
+  background-color: #f8eaea;
+}

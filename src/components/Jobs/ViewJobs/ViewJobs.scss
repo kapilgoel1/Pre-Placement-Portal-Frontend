@@ -1,0 +1,13 @@
+.job-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.job-card {
+  max-width: 700px;
+  flex: 1;
+  .jobprofile {
+    white-space: pre-line;
+  }
+}

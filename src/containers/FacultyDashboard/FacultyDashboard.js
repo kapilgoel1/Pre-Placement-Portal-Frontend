@@ -76,8 +76,6 @@ const FacultyDashboard = (props) => {
           <ViewFiles limit={30} />
         </Route>
       </Switch>
-
-      <Footer />
     </div>
   );
 };
