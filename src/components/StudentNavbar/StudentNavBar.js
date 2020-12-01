@@ -54,7 +54,7 @@ const StudentNavBar = (props) => {
 
   return (
     <>
-      <Navbar className="mb-5" dark color="color3" expand="md">
+      <Navbar className="mb-5" dark color="color4" expand="md">
         <NavbarBrand
           onClick={() => {
             history.push("/studentdashboard");
@@ -124,14 +124,14 @@ const StudentNavBar = (props) => {
           </Nav>
 
           <NavbarText className="btn-edit">
-            <Button color="primary" onClick={onClickHandler}>
+            <Button color="color5" onClick={onClickHandler}>
               {" "}
               Edit Profile{" "}
             </Button>{" "}
             &nbsp;
           </NavbarText>
           <NavbarText className="btn-logout">
-            <Button color="danger" onClick={onLogoutHandler}>
+            <Button color="color5" onClick={onLogoutHandler}>
               {" "}
               Logout{" "}
             </Button>

@@ -7,13 +7,13 @@ function StudentMenu() {
   let history = useHistory();
   let { url } = useRouteMatch();
 
-  const onViewJob = () => {
-    history.push(`${url}/viewalljobs`);
-  };
+  // const onViewJob = () => {
+  //   history.push(`${url}/viewjobs`);
+  // };
 
-  const onViewResource = (category) => {
-    history.push(`${url}/files/${category}`);
-  };
+  // const onViewResource = (category) => {
+  //   history.push(`${url}/files/${category}`);
+  // };
 
   return (
     <div className="container">
@@ -24,21 +24,11 @@ function StudentMenu() {
               <button className="functionButtons">RESUME BUILDER</button>
             </div>
           </div>
-          <div className="parentdiv13">
-            <div className="childdiv">
-              <button className="functionButtons">VIEW PROGRESS REPORT</button>
-            </div>
-          </div>
         </Col>
         <Col md={3}>
           <div className="parentdiv14">
             <div className="childdiv">
               <button className="functionButtons">VIEW TEST SCHEDULE</button>
-            </div>
-          </div>
-          <div className="parentdiv10" onClick={onViewJob}>
-            <div className="childdiv">
-              <button className="functionButtons">VIEW NEW JOB/POSTINGS</button>
             </div>
           </div>
         </Col>
@@ -50,14 +40,24 @@ function StudentMenu() {
           </div>
         </Col>
         <Col md={3}>
-          <div className="schedule" align="center">
+          <div className="parentdiv13">
+            <div className="childdiv">
+              <button className="functionButtons">VIEW PROGRESS REPORT</button>
+            </div>
+          </div>
+          {/* <div className="parentdiv10" onClick={onViewJob}>
+            <div className="childdiv">
+              <button className="functionButtons">VIEW NEW JOB/POSTINGS</button>
+            </div>
+          </div> */}
+          {/* <div className="schedule" align="center">
             SCHEDULES <br />
           </div>
           <div className="notices" align="center">
             NOTICE 1 <br />
             NOTICE 2 <br />
             NOTICE 3 <br />
-          </div>
+          </div> */}
         </Col>
       </Row>
       {

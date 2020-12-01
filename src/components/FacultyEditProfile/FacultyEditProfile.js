@@ -122,7 +122,7 @@ const FacultyEditProfile = (props) => {
           />
         </FormGroup>
         <FormGroup align="center">
-          <Button color="success" onClick={onUpdateHandler}>
+          <Button color="color2" onClick={onUpdateHandler}>
             Update Profile
           </Button>
         </FormGroup>
