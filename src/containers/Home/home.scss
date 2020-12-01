@@ -4,7 +4,11 @@
 
 .left-container {
   display: none;
-  background-image: linear-gradient(90deg, #08427c 100%, #5d89b3 100%),
+  background-image: linear-gradient(
+      90deg,
+      rgba(8, 66, 124, 0.9) 100%,
+      rgba(93, 137, 179, 0.9) 100%
+    ),
     url("../../assets/scott-graham-5fNmWej4tAA-unsplash.jpg");
 
   font-family: inherit;
@@ -19,7 +23,7 @@
 
 .right-container {
   padding: 0 0;
-  background-color: #bbbdd8;
+  background-color: #c2e9fb;
 }
 
 @media only screen and (min-width: 500px) {

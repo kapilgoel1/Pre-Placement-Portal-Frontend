@@ -44,10 +44,10 @@ function Home() {
       <div className="left-container">
         <div className="about-portal">
           <h1 className="px-2 my-3">JIMS MCA PRE-PLACEMENT PORTAL</h1>
-          <p className="px-2 my-2 lead">
+          <h2 className="px-2 my-3 lead">
             The Placement Cell works to ensure that the recruitment process is a
             successful one for the students of JIMS.
-          </p>
+          </h2>
           <Button className="py-2 my-4" color="color4" size="lg">
             Sign Up
           </Button>
