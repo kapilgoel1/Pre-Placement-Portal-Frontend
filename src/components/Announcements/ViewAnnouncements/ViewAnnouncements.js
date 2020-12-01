@@ -74,6 +74,7 @@ const ViewAnnouncements = () => {
               <CardTitle> {announcement.title} </CardTitle>
               {user.role === "faculty" && (
                 <Button
+                  color="color2"
                   onClick={(e) => {
                     e.stopPropagation();
                     onDelete(announcement._id);

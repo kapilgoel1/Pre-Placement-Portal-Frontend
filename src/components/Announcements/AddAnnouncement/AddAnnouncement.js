@@ -67,7 +67,9 @@ const AddAnnouncement = (props) => {
           />
         </FormGroup>
         <FormGroup align="center">
-          <Button type="submit">Submit</Button>
+          <Button type="submit" color="color2">
+            Submit
+          </Button>
         </FormGroup>
       </Form>
     </DCard>

@@ -125,7 +125,9 @@ const FileUploadTest = () => {
           </Input>
         </FormGroup>
         <FormGroup align="center">
-          <Button type="submit">SUBMIT</Button>
+          <Button type="submit" color="color2">
+            SUBMIT
+          </Button>
         </FormGroup>
       </Form>
       {loading && <Progress animated max={totalData} value={loadedData} />}

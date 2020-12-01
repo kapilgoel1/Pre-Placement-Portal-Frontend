@@ -85,7 +85,9 @@ const AddTest = (props) => {
           />
         </FormGroup>
         <FormGroup align="center">
-          <Button type="submit">UPLOAD</Button>
+          <Button type="submit" color="color2">
+            UPLOAD
+          </Button>
         </FormGroup>
       </Form>
     </DCard>

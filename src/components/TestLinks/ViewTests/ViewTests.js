@@ -80,7 +80,7 @@ const ViewTests = () => {
                     onDelete(test._id);
                   }}
                   className="mt-2"
-                  color="danger"
+                  color="color2"
                 >
                   Delete
                 </Button>

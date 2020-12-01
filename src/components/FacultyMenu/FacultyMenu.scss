@@ -1,13 +1,14 @@
 .functionButtons {
-  background-image: url("../../assets/button_image.jpeg");
+  background-color: #022140;
   font-size: 16px;
   border: none;
   color: white;
-  padding: 7px 13px;
+  padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 4px 2px;
+  margin: 6px 2px;
+  border-radius: 10px;
   cursor: pointer;
 }
 

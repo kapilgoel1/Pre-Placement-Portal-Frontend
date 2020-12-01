@@ -49,7 +49,7 @@ function FileStrip(props) {
       <div className="filestrip__uploadedby text-capitalize">{`${props.file.owner.firstname} ${props.file.owner.lastname}`}</div>
       <div className="filestrip__action">
         <a
-          className="btn btn-info w-100"
+          className="btn btn-color5 w-100"
           href={`http://localhost:4000/file/download/${props.file._id}`}
           download
         >
@@ -58,7 +58,7 @@ function FileStrip(props) {
       </div>
       {user.role === "faculty" && (
         <div className="filestrip__delete">
-          <Button className="btn btn-info w-100" onClick={onDelete}>
+          <Button className="btn btn-color5 w-100" onClick={onDelete}>
             Delete
           </Button>
         </div>
