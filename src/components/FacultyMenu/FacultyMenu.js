@@ -46,7 +46,7 @@ function FacultyMenu() {
   return (
     <div className="container">
       <Row>
-        <Col md={4}>
+        <Col md={3}>
           <div className="parentdiv1" onClick={onAddNewRes}>
             <div className="childdiv">
               <button className="functionButtons">ADD NEW RESOURCE</button>
@@ -57,18 +57,20 @@ function FacultyMenu() {
               <button className="functionButtons">VIEW STUDENTS LIST</button>
             </div>
           </div>
+        </Col>
+        <Col md={3}>
           <div className="parentdiv3" onClick={onAddAnnouncement}>
             <div className="childdiv">
               <button className="functionButtons">ADD ANNOUNCEMENT</button>
             </div>
           </div>
-        </Col>
-        <Col md={4}>
           <div className="parentdiv4" onClick={onAddNewJob}>
             <div className="childdiv">
               <button className="functionButtons">ADD NEW JOB/POSTINGS</button>
             </div>
           </div>
+        </Col>
+        <Col md={3}>
           <div className="parentdiv5" onClick={onAddNewTest}>
             <div className="childdiv">
               <button className="functionButtons">ADD NEW TEST</button>
@@ -81,8 +83,18 @@ function FacultyMenu() {
               </button>
             </div>
           </div>
+
+          {
+            // <div className="parentdiv9" onClick={onViewAnnouncement}>
+            //   <div className="childdiv">
+            //     <button className="functionButtons">
+            //       VIEW ALL ANNOUNCEMENTS
+            //     </button>
+            //   </div>
+            // </div>
+          }
         </Col>
-        <Col md={4}>
+        <Col md={3}>
           <div className="parentdiv7" onClick={onViewJob}>
             <div className="childdiv">
               <button className="functionButtons">VIEW NEW JOB/POSTINGS</button>
@@ -91,13 +103,6 @@ function FacultyMenu() {
           <div className="parentdiv8" onClick={onViewAllResources}>
             <div className="childdiv">
               <button className="functionButtons">VIEW ALL RESOURCES</button>
-            </div>
-          </div>
-          <div className="parentdiv9" onClick={onViewAnnouncement}>
-            <div className="childdiv">
-              <button className="functionButtons">
-                VIEW ALL ANNOUNCEMENTS
-              </button>
             </div>
           </div>
         </Col>
@@ -117,81 +122,82 @@ function FacultyMenu() {
           // </Col>
         }
       </Row>
+
       {
-        // <div className="cards-list">
-        //   <div className="mycard 1" onClick={onAddNewRes}>
-        //     <div className="card_image">
-        //       {" "}
-        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //   <div className="cards-list">
+        //     <div className="mycard 1" onClick={onAddNewRes}>
+        //       <div className="card_image">
+        //         {" "}
+        //         <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //       </div>
+        //       <div className="card_title title-white">
+        //         <p>ADD RESOURCE</p>
+        //       </div>
         //     </div>
-        //     <div className="card_title title-white">
-        //       <p>ADD RESOURCE</p>
+        //     <div className="mycard 1" onClick={onViewStudentsList}>
+        //       <div className="card_image">
+        //         {" "}
+        //         <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //       </div>
+        //       <div className="card_title title-white">
+        //         <p>STUDENTS LIST</p>
+        //       </div>
+        //     </div>
+        //     <div className="mycard 1">
+        //       <div className="card_image" onClick={onAddAnnouncement}>
+        //         {" "}
+        //         <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //       </div>
+        //       <div className="card_title title-white">
+        //         <p>ADD ANNOUNCEMENT</p>
+        //       </div>
+        //     </div>
+        //     <div className="mycard 1" onClick={onAddNewJob}>
+        //       <div className="card_image">
+        //         {" "}
+        //         <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //       </div>
+        //       <div className="card_title title-white">
+        //         <p>ADD JOB</p>
+        //       </div>
+        //     </div>
+        //     <div className="mycard 1" onClick={onAddNewTest}>
+        //       <div className="card_image">
+        //         {" "}
+        //         <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //       </div>
+        //       <div className="card_title title-white">
+        //         <p>ADD TEST</p>
+        //       </div>
+        //     </div>
+        //     <div className="mycard 1" onClick={onAddExternalRes}>
+        //       <div className="card_image">
+        //         {" "}
+        //         <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //       </div>
+        //       <div className="card_title title-white">
+        //         <p>ADD EXTERNAL LINK</p>
+        //       </div>
+        //     </div>
+        //     <div className="mycard 1" onClick={onViewJob}>
+        //       <div className="card_image">
+        //         {" "}
+        //         <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //       </div>
+        //       <div className="card_title title-white">
+        //         <p>JOB POSTINGS</p>
+        //       </div>
+        //     </div>
+        //     <div className="mycard 1" onClick={onViewAllResources}>
+        //       <div className="card_image">
+        //         {" "}
+        //         <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //       </div>
+        //       <div className="card_title title-white">
+        //         <p>VIEW ALL RESOURCES</p>
+        //       </div>
         //     </div>
         //   </div>
-        //   <div className="mycard 1" onClick={onViewStudentsList}>
-        //     <div className="card_image">
-        //       {" "}
-        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
-        //     </div>
-        //     <div className="card_title title-white">
-        //       <p>STUDENTS LIST</p>
-        //     </div>
-        //   </div>
-        //   <div className="mycard 1">
-        //     <div className="card_image" onClick={onAddAnnouncement}>
-        //       {" "}
-        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
-        //     </div>
-        //     <div className="card_title title-white">
-        //       <p>ADD ANNOUNCEMENT</p>
-        //     </div>
-        //   </div>
-        //   <div className="mycard 1" onClick={onAddNewJob}>
-        //     <div className="card_image">
-        //       {" "}
-        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
-        //     </div>
-        //     <div className="card_title title-white">
-        //       <p>ADD JOB</p>
-        //     </div>
-        //   </div>
-        //   <div className="mycard 1" onClick={onAddNewTest}>
-        //     <div className="card_image">
-        //       {" "}
-        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
-        //     </div>
-        //     <div className="card_title title-white">
-        //       <p>ADD TEST</p>
-        //     </div>
-        //   </div>
-        //   <div className="mycard 1" onClick={onAddExternalRes}>
-        //     <div className="card_image">
-        //       {" "}
-        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
-        //     </div>
-        //     <div className="card_title title-white">
-        //       <p>ADD EXTERNAL LINK</p>
-        //     </div>
-        //   </div>
-        //   <div className="mycard 1" onClick={onViewJob}>
-        //     <div className="card_image">
-        //       {" "}
-        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
-        //     </div>
-        //     <div className="card_title title-white">
-        //       <p>JOB POSTINGS</p>
-        //     </div>
-        //   </div>
-        //   <div className="mycard 1" onClick={onViewAllResources}>
-        //     <div className="card_image">
-        //       {" "}
-        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
-        //     </div>
-        //     <div className="card_title title-white">
-        //       <p>VIEW ALL RESOURCES</p>
-        //     </div>
-        //   </div>
-        // </div>
       }
     </div>
   );
