@@ -47,40 +47,44 @@ function FacultyMenu() {
     <div className="container">
       <Row>
         <Col md={3}>
-          <div className="parentdiv1" onClick={onAddNewRes}>
+          <div className="parentdiv parentdiv1" onClick={onAddNewRes}>
+            <div className="card-overlay"></div>
             <div className="childdiv">
-              <button className="functionButtons">ADD NEW RESOURCE</button>
+              <button className="functionButtons">Add New Resource</button>
             </div>
           </div>
-          <div className="parentdiv2" onClick={onViewStudentsList}>
+          <div className="parentdiv parentdiv2" onClick={onViewStudentsList}>
+            <div className="card-overlay"></div>
             <div className="childdiv">
-              <button className="functionButtons">VIEW STUDENTS LIST</button>
-            </div>
-          </div>
-        </Col>
-        <Col md={3}>
-          <div className="parentdiv3" onClick={onAddAnnouncement}>
-            <div className="childdiv">
-              <button className="functionButtons">ADD ANNOUNCEMENT</button>
-            </div>
-          </div>
-          <div className="parentdiv4" onClick={onAddNewJob}>
-            <div className="childdiv">
-              <button className="functionButtons">ADD NEW JOB/POSTINGS</button>
+              <button className="functionButtons">View Students List</button>
             </div>
           </div>
         </Col>
         <Col md={3}>
-          <div className="parentdiv5" onClick={onAddNewTest}>
+          <div className="parentdiv parentdiv3" onClick={onAddAnnouncement}>
+            <div className="card-overlay"></div>
             <div className="childdiv">
-              <button className="functionButtons">ADD NEW TEST</button>
+              <button className="functionButtons">Add Announcement</button>
             </div>
           </div>
-          <div className="parentdiv6" onClick={onAddExternalRes}>
+          <div className="parentdiv parentdiv4" onClick={onAddNewJob}>
+            <div className="card-overlay"></div>
             <div className="childdiv">
-              <button className="functionButtons">
-                ADD EXTERNAL RESOURCES/WEBLINKS
-              </button>
+              <button className="functionButtons">Add New Job Postings</button>
+            </div>
+          </div>
+        </Col>
+        <Col md={3}>
+          <div className="parentdiv parentdiv5" onClick={onAddNewTest}>
+            <div className="card-overlay"></div>
+            <div className="childdiv">
+              <button className="functionButtons">Add New Test</button>
+            </div>
+          </div>
+          <div className="parentdiv parentdiv6" onClick={onAddExternalRes}>
+            <div className="card-overlay"></div>
+            <div className="childdiv">
+              <button className="functionButtons">Add External Weblinks</button>
             </div>
           </div>
 
@@ -95,14 +99,16 @@ function FacultyMenu() {
           }
         </Col>
         <Col md={3}>
-          <div className="parentdiv7" onClick={onViewJob}>
+          <div className="parentdiv parentdiv7" onClick={onViewJob}>
+            <div className="card-overlay"></div>
             <div className="childdiv">
-              <button className="functionButtons">VIEW NEW JOB/POSTINGS</button>
+              <button className="functionButtons">View New Job Postings</button>
             </div>
           </div>
-          <div className="parentdiv8" onClick={onViewAllResources}>
+          <div className="parentdiv parentdiv8" onClick={onViewAllResources}>
+            <div className="card-overlay"></div>
             <div className="childdiv">
-              <button className="functionButtons">VIEW ALL RESOURCES</button>
+              <button className="functionButtons">View All Files</button>
             </div>
           </div>
         </Col>
