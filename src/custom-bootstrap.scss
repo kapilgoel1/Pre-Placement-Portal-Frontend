@@ -1,0 +1,13 @@
+$theme-colors: (
+  "color1": rgb(219, 236, 236),
+  "color2": #006064,
+  "color3": rgb(0, 48, 143),
+);
+$navbar-dark-hover-color: white;
+$navbar-dark-color: white;
+$navbar-padding-y: 0.5rem;
+$nav-link-padding-y: 1rem;
+
+$progress-height: 30px;
+
+@import "../node_modules/bootstrap/scss/bootstrap";

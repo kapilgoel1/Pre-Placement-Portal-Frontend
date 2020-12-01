@@ -1,22 +1,22 @@
 import React from "react";
-import { Switch, Route, useRouteMatch } from "react-router-dom";
-
+import { Route, Switch, useRouteMatch } from "react-router-dom";
+import AddExternalLink from "../../components/ExternalLinks/AddExternalLink/AddExternalLink";
+import AddJob from "../../components/Jobs/AddJob/AddJob";
+import AddTest from "../../components/TestLinks/AddTest/AddTest";
+import AddAnnouncement from "../../components/Announcements/AddAnnouncement/AddAnnouncement";
+import AnnouncementDetail from "../../components/Announcements/AnnouncementDetail/AnnouncementDetail";
+import ViewAnnouncements from "../../components/Announcements/ViewAnnouncements/ViewAnnouncements";
+import FacultyEditProfile from "../../components/FacultyEditProfile/FacultyEditProfile";
 import FacultyMenu from "../../components/FacultyMenu/FacultyMenu";
-import AddNewResource from "../AddNewResource/AddNewResource";
-import AddAnnouncement from "../AddAnnouncements/AddAnnouncements";
-import ViewAnnouncement from "../../components/ViewAnnouncements/ViewAnnouncements";
-import ViewAnnouncementDetail from "../../components/ViewAnnouncements/ViewDetailAnnouncement/ViewDetailAnnouncement";
-import ViewStudentList from "../ViewStudentList/ViewStudentList";
-import ViewStudentProfile from "../ViewStudentList/ViewStudentProfile/ViewStudentProfile";
-import ViewExternalRes from "../../components/ViewExternalRes/ViewExternalRes";
-import ViewAllTests from "../../components/ViewAllTests/ViewAllTests";
-import ViewAllJobs from "../../components/ViewJobPostings/ViewJobPostings";
-import AddNewTest from "../AddNewTest/AddNewTest";
-import AddNewJob from "../AddNewJob/AddNewJob";
-import AddExternalRes from "../AddExternalRes/AddExternalRes";
-import FileList from "../../components/FileList/FileList";
 import FacultyNavBar from "../../components/FacultyNavBar/FacultyNavBar";
+import AddFile from "../../components/Files/AddFile/AddFile";
+import ViewFiles from "../../components/Files/ViewFiles/ViewFiles";
 import Footer from "../../components/Footer/Footer";
+import StudentDetail from "../../components/Students/StudentDetail/StudentDetail";
+import ViewStudents from "../../components/Students/ViewStudents/ViewStudents";
+import ViewExternalLinks from "../../components/ExternalLinks/ViewExternalLinks/ViewExternalLinks";
+import ViewJobPostings from "../../components/Jobs/ViewJobs/ViewJobs";
+import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
 
 const FacultyDashboard = (props) => {
   let { path } = useRouteMatch();
@@ -28,51 +28,54 @@ const FacultyDashboard = (props) => {
         <Route exact path={path}>
           <FacultyMenu />
         </Route>
-        <Route path={`${path}/addnewresource`}>
-          <AddNewResource />
+        <Route path={`${path}/editprofile`}>
+          <FacultyEditProfile />
         </Route>
-        <Route path={`${path}/addnewtest`}>
-          <AddNewTest />
+
+        <Route path={`${path}/addfile`}>
+          <AddFile />
         </Route>
-        <Route path={`${path}/addnewjob`}>
-          <AddNewJob />
+
+        <Route path={`${path}/addtest`}>
+          <AddTest />
         </Route>
-        <Route path={`${path}/addexternalres`}>
-          <AddExternalRes />
+        <Route path={`${path}/addjob`}>
+          <AddJob />
+        </Route>
+        <Route path={`${path}/addexternallink`}>
+          <AddExternalLink />
         </Route>
         <Route path={`${path}/addannouncement`}>
           <AddAnnouncement />
         </Route>
         <Route path={`${path}/viewannouncement/:id`}>
-          <ViewAnnouncementDetail />
+          <AnnouncementDetail />
         </Route>
         <Route path={`${path}/viewannouncement`}>
-          <ViewAnnouncement />
+          <ViewAnnouncements />
         </Route>
-        <Route path={`${path}/viewexternalres`}>
-          <ViewExternalRes />
+        <Route path={`${path}/viewexternallinks`}>
+          <ViewExternalLinks />
         </Route>
-        <Route path={`${path}/viewalltests`}>
-          <ViewAllTests />
+        <Route path={`${path}/viewtests`}>
+          <ViewTests />
         </Route>
-        <Route path={`${path}/viewalljobs`}>
-          <ViewAllJobs />
+        <Route path={`${path}/viewjobs`}>
+          <ViewJobPostings />
         </Route>
-        <Route path={`${path}/viewstudentlist/:id`}>
-          <ViewStudentProfile />
+        <Route path={`${path}/viewstudent/:id`}>
+          <StudentDetail />
         </Route>
-        <Route path={`${path}/viewstudentlist`}>
-          <ViewStudentList />
+        <Route path={`${path}/viewstudent`}>
+          <ViewStudents />
         </Route>
         <Route path={`${path}/files/:category`}>
-          <FileList limit={10} />
+          <ViewFiles limit={30} />
         </Route>
-        <Route path={`${path}/viewallresources`}>
-          <FileList limit={10} />
+        <Route path={`${path}/files`}>
+          <ViewFiles limit={30} />
         </Route>
       </Switch>
-
-      <Footer />
     </div>
   );
 };

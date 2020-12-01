@@ -1,0 +1,10 @@
+.test-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .test-card {
+    flex: 1;
+    max-width: 600px;
+  }
+}

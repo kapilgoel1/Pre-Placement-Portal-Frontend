@@ -9,7 +9,7 @@ import {
   NavLink,
   Button,
 } from "reactstrap";
-import "./home.css";
+import "./home.scss";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);

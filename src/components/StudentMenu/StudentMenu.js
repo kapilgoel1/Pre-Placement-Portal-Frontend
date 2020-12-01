@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import "./StudentMenu.css";
+import "./StudentMenu.scss";
 
 function StudentMenu() {
   let history = useHistory();
@@ -9,6 +9,10 @@ function StudentMenu() {
 
   const onViewJob = () => {
     history.push(`${url}/viewalljobs`);
+  };
+
+  const onViewResource = (category) => {
+    history.push(`${url}/files/${category}`);
   };
 
   return (
@@ -45,7 +49,6 @@ function StudentMenu() {
             </div>
           </div>
         </Col>
-
         <Col md={3}>
           <div className="schedule" align="center">
             SCHEDULES <br />
@@ -57,6 +60,91 @@ function StudentMenu() {
           </div>
         </Col>
       </Row>
+      {
+        // <div className="cards-list">
+        //   <div className="mycard 1" onClick={() => onViewResource("testpaper")}>
+        //     <div className="card_image">
+        //       {" "}
+        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //     </div>
+        //     <div className="card_title title-white">
+        //       <p>Test Papers</p>
+        //     </div>
+        //   </div>
+        //   <div className="mycard 1" onClick={() => onViewResource("notes")}>
+        //     <div className="card_image">
+        //       {" "}
+        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //     </div>
+        //     <div className="card_title title-white">
+        //       <p>Notes</p>
+        //     </div>
+        //   </div>
+        //   <div className="mycard 1">
+        //     <div className="card_image" onClick={() => onViewResource("video")}>
+        //       {" "}
+        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //     </div>
+        //     <div className="card_title title-white">
+        //       <p>Videos</p>
+        //     </div>
+        //   </div>
+        //   <div className="mycard 1" onClick={() => onViewResource("assignment")}>
+        //     <div className="card_image">
+        //       {" "}
+        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //     </div>
+        //     <div className="card_title title-white">
+        //       <p>Assignments</p>
+        //     </div>
+        //   </div>
+        //   <div className="mycard 1" onClick={() => onViewResource("ppt")}>
+        //     <div className="card_image">
+        //       {" "}
+        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //     </div>
+        //     <div className="card_title title-white">
+        //       <p>PPTs</p>
+        //     </div>
+        //   </div>
+        //   <div
+        //     className="mycard 1"
+        //     onClick={() => history.push(`${url}/viewexternallinks`)}
+        //   >
+        //     <div className="card_image">
+        //       {" "}
+        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //     </div>
+        //     <div className="card_title title-white">
+        //       <p>External Links</p>
+        //     </div>
+        //   </div>
+        //   <div
+        //     className="mycard 1"
+        //     onClick={() => history.push(`${url}/viewtests`)}
+        //   >
+        //     <div className="card_image">
+        //       {" "}
+        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //     </div>
+        //     <div className="card_title title-white">
+        //       <p>Tests</p>
+        //     </div>
+        //   </div>
+        //   <div
+        //     className="mycard 1"
+        //     onClick={() => history.push(`${url}/viewjobs`)}
+        //   >
+        //     <div className="card_image">
+        //       {" "}
+        //       <img src="https://i.redd.it/b3esnz5ra34y.jpg" />{" "}
+        //     </div>
+        //     <div className="card_title title-white">
+        //       <p>Job Postings</p>
+        //     </div>
+        //   </div>
+        // </div>
+      }
     </div>
   );
 }

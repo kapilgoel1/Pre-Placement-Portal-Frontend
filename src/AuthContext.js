@@ -1,9 +1,8 @@
 import React from "react";
 
 const AuthContext = React.createContext({
-  loggedin: false,
-  userRole: "student",
-  setloggedin: () => {},
+  user: {},
+  setuser: () => {},
 });
 
 export default AuthContext;
