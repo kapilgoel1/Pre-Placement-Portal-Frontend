@@ -80,7 +80,7 @@ const Login = () => {
 
         <Button
           block
-          color="secondary"
+          color="color4"
           type="submit"
           size="lg"
           className="pt-2 mt-4"

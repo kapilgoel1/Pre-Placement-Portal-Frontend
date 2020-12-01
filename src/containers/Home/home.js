@@ -18,9 +18,6 @@ function Home() {
   return (
     <div className="full-container">
       <Navbar id="ii" color="" light expand="md" className="nn">
-        {
-          // <NavbarBrand href="/">reactstrap</NavbarBrand>
-        }
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -46,14 +43,12 @@ function Home() {
       </Navbar>
       <div className="left-container">
         <div className="about-portal">
-          <h1 className="px-2 my-3">JIMS MCA PrePlacement Portal</h1>
+          <h1 className="px-2 my-3">JIMS MCA PRE-PLACEMENT PORTAL</h1>
           <p className="px-2 my-2 lead">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-            dolores, odio ut totam repellendus earum doloribus recusandae
-            voluptatem vel aut alias iste? Est, ab pariatur officia optio eos
-            iste cumque.
+            The Placement Cell works to ensure that the recruitment process is a
+            successful one for the students of JIMS.
           </p>
-          <Button className="py-2 my-4" size="lg">
+          <Button className="py-2 my-4" color="color4" size="lg">
             Sign Up
           </Button>
         </div>

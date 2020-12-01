@@ -1,18 +1,15 @@
 .full-container {
-  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  background-color: #1e4258;
 }
 
 .left-container {
   display: none;
-  background-image: linear-gradient(
-      90deg,
-      rgba(0, 48, 143, 0.9) 100%,
-      rgba(2, 0, 36, 0.9) 100%
-    ),
+  background-image: linear-gradient(90deg, #08427c 100%, #5d89b3 100%),
     url("../../assets/scott-graham-5fNmWej4tAA-unsplash.jpg");
 
+  font-family: inherit;
   background-size: cover;
-  color: white;
+  color: black;
 }
 
 .about-portal {
@@ -22,7 +19,7 @@
 
 .right-container {
   padding: 0 0;
-  background-color: #fdfdfd;
+  background-color: #bbbdd8;
 }
 
 @media only screen and (min-width: 500px) {
@@ -68,7 +65,7 @@
 }
 
 .nn {
-  background-color: rgba(0, 48, 143, 0.9);
+  background-color: #022140;
 }
 
 .custom-navlink {
