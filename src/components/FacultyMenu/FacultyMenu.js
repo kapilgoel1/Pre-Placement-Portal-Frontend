@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from "reactstrap";
+import { Row, Col, Button } from "reactstrap";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import "./FacultyMenu.scss";
 
@@ -49,43 +49,31 @@ function FacultyMenu() {
         <Col md={3}>
           <div className="parentdiv parentdiv1" onClick={onAddNewRes}>
             <div className="card-overlay"></div>
-            <div className="childdiv">
-              <button className="functionButtons">Add New Resource</button>
-            </div>
+            <div className="card-description">Add File</div>
           </div>
           <div className="parentdiv parentdiv2" onClick={onViewStudentsList}>
             <div className="card-overlay"></div>
-            <div className="childdiv">
-              <button className="functionButtons">View Students List</button>
-            </div>
+            <div className="card-description">View Students List</div>
           </div>
         </Col>
         <Col md={3}>
           <div className="parentdiv parentdiv3" onClick={onAddAnnouncement}>
             <div className="card-overlay"></div>
-            <div className="childdiv">
-              <button className="functionButtons">Add Announcement</button>
-            </div>
+            <div className="card-description">Add Announcement</div>
           </div>
           <div className="parentdiv parentdiv4" onClick={onAddNewJob}>
             <div className="card-overlay"></div>
-            <div className="childdiv">
-              <button className="functionButtons">Add New Job Postings</button>
-            </div>
+            <div className="card-description">Add Job Postings</div>
           </div>
         </Col>
         <Col md={3}>
           <div className="parentdiv parentdiv5" onClick={onAddNewTest}>
             <div className="card-overlay"></div>
-            <div className="childdiv">
-              <button className="functionButtons">Add New Test</button>
-            </div>
+            <div className="card-description">Add Test</div>
           </div>
           <div className="parentdiv parentdiv6" onClick={onAddExternalRes}>
             <div className="card-overlay"></div>
-            <div className="childdiv">
-              <button className="functionButtons">Add External Weblinks</button>
-            </div>
+            <div className="card-description">Add External Weblinks</div>
           </div>
 
           {
@@ -101,15 +89,11 @@ function FacultyMenu() {
         <Col md={3}>
           <div className="parentdiv parentdiv7" onClick={onViewJob}>
             <div className="card-overlay"></div>
-            <div className="childdiv">
-              <button className="functionButtons">View New Job Postings</button>
-            </div>
+            <div className="card-description">View Job Postings</div>
           </div>
           <div className="parentdiv parentdiv8" onClick={onViewAllResources}>
             <div className="card-overlay"></div>
-            <div className="childdiv">
-              <button className="functionButtons">View All Files</button>
-            </div>
+            <div className="card-description">View All Files</div>
           </div>
         </Col>
         {
