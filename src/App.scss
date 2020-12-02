@@ -1,5 +1,30 @@
 body {
-  background-color: #1e4258;
+  // background-color: #1e4258;
+
+  // background: rgb(2, 0, 36);
+  // background: linear-gradient(
+  //   90deg,
+  //   rgba(2, 0, 36, 1) 0%,
+  //   rgba(205, 224, 201, 0.676908263305322) 35%,
+  //   rgba(0, 212, 255, 1) 100%
+  // );
+
+  // background: linear-gradient(45deg, #4b6cb7 0%, #182848 100%);
+
+  // background-image: url("./assets/cool-background.png");
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background: linear-gradient(45deg, #1cb5e0 0%, #000851 100%);
+
+  // background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  background: rgb(30, 66, 88);
+  background: radial-gradient(
+    circle,
+    rgba(30, 66, 88, 1) 50%,
+    rgba(2, 0, 36, 1) 100%,
+    rgba(0, 212, 255, 1) 100%,
+    rgba(8, 175, 212, 1) 100%
+  );
 }
 
 .spinner-container {
