@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./FacultyEditProfile.scss";
 import { Input, Label, Button, Form, FormGroup } from "reactstrap";
 import DCard from "../DCard/DCard";
+import swal from "sweetalert";
 
 const FacultyEditProfile = (props) => {
   const [firstName, setFirstName] = useState("");
@@ -9,6 +10,7 @@ const FacultyEditProfile = (props) => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [dob, setdob] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:4000/user/details", {
@@ -31,7 +33,9 @@ const FacultyEditProfile = (props) => {
       });
   }, []);
 
-  const onUpdateHandler = () => {
+  const onUpdateHandler = (e) => {
+    e.preventDefault();
+
     const alteredData = {
       firstname: firstName,
       lastname: lastName,
@@ -39,6 +43,10 @@ const FacultyEditProfile = (props) => {
       address: address,
       dob: dob,
     };
+
+    if (password !== "") {
+      alteredData.password = password;
+    }
 
     fetch("http://localhost:4000/user/updateprofile/", {
       method: "POST",
@@ -50,8 +58,7 @@ const FacultyEditProfile = (props) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        props.history.push("/facultydashboard");
-        console.log(result);
+        swal("Profile Updated");
       })
       .catch((err) => {
         console.log(err);
@@ -60,7 +67,7 @@ const FacultyEditProfile = (props) => {
 
   return (
     <DCard width="770px">
-      <Form onSubmit="" autoComplete="off">
+      <Form onSubmit={onUpdateHandler} autoComplete="off">
         <FormGroup align="center">
           <Label>EDIT PROFILE</Label>
         </FormGroup>
@@ -73,7 +80,6 @@ const FacultyEditProfile = (props) => {
             value={firstName}
             placeholder=""
             onChange={(e) => setFirstName(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -84,7 +90,6 @@ const FacultyEditProfile = (props) => {
             value={lastName}
             placeholder=""
             onChange={(e) => setLastName(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -95,7 +100,6 @@ const FacultyEditProfile = (props) => {
             value={phone}
             placeholder=""
             onChange={(e) => setPhone(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -107,7 +111,6 @@ const FacultyEditProfile = (props) => {
             value={address}
             placeholder=""
             onChange={(e) => setAddress(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -118,11 +121,20 @@ const FacultyEditProfile = (props) => {
             value={dob}
             placeholder=""
             onChange={(e) => setdob(e.target.value)}
-            required
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="newpassword">New Password</Label>
+          <Input
+            type="password"
+            name="newpassword"
+            value={password}
+            placeholder=""
+            onChange={(e) => setPassword(e.target.value)}
           />
         </FormGroup>
         <FormGroup align="center">
-          <Button color="color2" onClick={onUpdateHandler}>
+          <Button color="color2" type="submit">
             Update Profile
           </Button>
         </FormGroup>

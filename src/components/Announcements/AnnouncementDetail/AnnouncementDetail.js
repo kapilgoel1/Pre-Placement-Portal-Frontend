@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./AnnouncementDetail.scss";
 import { Form, Card, CardBody, Label, FormGroup } from "reactstrap";
+import formatDate from "../../../utils";
 import { useParams } from "react-router-dom";
 
 const AnnouncementDetail = () => {
@@ -40,7 +41,9 @@ const AnnouncementDetail = () => {
                 {announcementDetail.content}{" "}
               </Label>
             </FormGroup>
-            <FormGroup>DATE AND TIME: {announcementDetail.createdAt}</FormGroup>
+            <FormGroup>
+              DATE : {formatDate(announcementDetail.createdAt)}
+            </FormGroup>
           </Form>
         </CardBody>
       </Card>

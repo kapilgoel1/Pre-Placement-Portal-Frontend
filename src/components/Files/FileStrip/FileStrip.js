@@ -3,18 +3,7 @@ import { Button } from "reactstrap";
 import "./FileStrip.scss";
 import swal from "sweetalert";
 import AuthContext from "../../../AuthContext";
-
-function formatDate(date) {
-  var d = new Date(date),
-    month = "" + (d.getMonth() + 1),
-    day = "" + d.getDate(),
-    year = d.getFullYear();
-
-  if (month.length < 2) month = "0" + month;
-  if (day.length < 2) day = "0" + day;
-
-  return [day, month, year].join("-");
-}
+import formatDate from "../../../utils";
 
 function FileStrip(props) {
   const { user } = useContext(AuthContext);
@@ -30,7 +19,6 @@ function FileStrip(props) {
       .then((response) => response.json())
       .then((result) => {
         if (result === "Deletion successful") {
-          swal("deleted");
           props.afterDelete();
         } else swal("Not deleted");
         console.log(result);

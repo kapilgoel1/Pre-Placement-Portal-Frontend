@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./StudentEditProfile.scss";
 import { Input, Label, Button, Form, FormGroup } from "reactstrap";
 import DCard from "../DCard/DCard";
+import swal from "sweetalert";
 
 const StudentEditProfile = (props) => {
   const [firstName, setFirstName] = useState("");
@@ -40,7 +41,9 @@ const StudentEditProfile = (props) => {
       });
   }, []);
 
-  const onUpdateHandler = () => {
+  const onUpdateHandler = (e) => {
+    e.preventDefault();
+
     const alteredData = {
       firstname: firstName,
       lastname: lastName,
@@ -67,8 +70,7 @@ const StudentEditProfile = (props) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        props.history.push("/studentdashboard");
-        console.log(result);
+        swal("Profile Updated!");
       })
       .catch((err) => {
         console.log(err);
@@ -77,7 +79,7 @@ const StudentEditProfile = (props) => {
 
   return (
     <DCard width="770px">
-      <Form onSubmit="" autoComplete="off">
+      <Form onSubmit={onUpdateHandler} autoComplete="off">
         <FormGroup align="center">
           <Label>EDIT PROFILE</Label>
         </FormGroup>
@@ -90,7 +92,6 @@ const StudentEditProfile = (props) => {
             value={firstName}
             placeholder=""
             onChange={(e) => setFirstName(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -101,7 +102,6 @@ const StudentEditProfile = (props) => {
             value={lastName}
             placeholder=""
             onChange={(e) => setLastName(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -112,7 +112,6 @@ const StudentEditProfile = (props) => {
             value={course}
             placeholder=""
             onChange={(e) => setCourse(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -123,7 +122,6 @@ const StudentEditProfile = (props) => {
             value={semester}
             placeholder=""
             onChange={(e) => setSemester(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -134,7 +132,6 @@ const StudentEditProfile = (props) => {
             value={phone}
             placeholder=""
             onChange={(e) => setPhone(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -145,7 +142,6 @@ const StudentEditProfile = (props) => {
             value={dob}
             placeholder=""
             onChange={(e) => setdob(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -157,7 +153,6 @@ const StudentEditProfile = (props) => {
             value={address}
             placeholder=""
             onChange={(e) => setAddress(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -168,7 +163,6 @@ const StudentEditProfile = (props) => {
             value={motherName}
             placeholder=""
             onChange={(e) => setMotherName(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -179,7 +173,6 @@ const StudentEditProfile = (props) => {
             value={fatherName}
             placeholder=""
             onChange={(e) => setFatherName(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup>
@@ -190,11 +183,10 @@ const StudentEditProfile = (props) => {
             value={password}
             placeholder=""
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </FormGroup>
         <FormGroup align="center">
-          <Button color="color2" onClick={onUpdateHandler}>
+          <Button color="color2" type="submit">
             Update Profile
           </Button>
         </FormGroup>

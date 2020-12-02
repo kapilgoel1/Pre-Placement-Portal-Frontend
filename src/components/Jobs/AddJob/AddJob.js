@@ -29,7 +29,9 @@ const AddJob = (props) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        setCompany("");
+        setJobProfile("");
+        setPackages("");
         swal("JOB DETAILS UPLOADED");
       })
       .catch((err) => {

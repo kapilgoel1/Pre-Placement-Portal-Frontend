@@ -26,7 +26,8 @@ const AddExternalLink = (props) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        setTitle("");
+        setLink("");
         swal("EXTERNAL RESOURCE UPLOADED");
       })
       .catch((err) => {

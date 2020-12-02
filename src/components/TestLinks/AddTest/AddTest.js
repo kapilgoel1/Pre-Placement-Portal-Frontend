@@ -29,7 +29,9 @@ const AddTest = (props) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        setTitle("");
+        setTestDetail("");
+        setTestLink("");
         swal("TEST UPLOADED");
       })
       .catch((err) => {

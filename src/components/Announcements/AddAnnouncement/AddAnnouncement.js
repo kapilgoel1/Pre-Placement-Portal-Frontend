@@ -28,6 +28,8 @@ const AddAnnouncement = (props) => {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
+        setTitle("");
+        setContent("");
         swal("ANNOUNCEMENT UPLOADED");
       })
       .catch((err) => {
