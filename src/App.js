@@ -6,6 +6,7 @@ import FacultyDashboard from "./containers/FacultyDashboard/FacultyDashboard";
 import About from "./components/About/About";
 import Main from "./containers/Main/Main";
 import New from "./containers/Home/home";
+import { Spinner } from "reactstrap";
 import { Route, Switch } from "react-router-dom";
 
 import SecuredFacultyRoute from "./SecuredFacultyRoute";
@@ -42,7 +43,12 @@ const App = () => {
       });
   }, [user.role, user.loggedin]);
 
-  if (loading) return <h1>Loading</h1>;
+  if (loading)
+    return (
+      <div className="spinner-container">
+        <Spinner color="color5" />
+      </div>
+    );
   else
     return (
       <div className="App">
