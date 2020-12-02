@@ -11,45 +11,76 @@ function StudentMenu() {
   //   history.push(`${url}/viewjobs`);
   // };
 
-  // const onViewResource = (category) => {
-  //   history.push(`${url}/files/${category}`);
-  // };
+  const onViewResource = (category) => {
+    history.push(`${url}/files/${category}`);
+  };
 
   return (
     <div className="container">
       <Row>
         <Col md={3}>
-          <div className="parentdiv12">
-            <div className="childdiv">
-              <button className="functionButtons">RESUME BUILDER</button>
-            </div>
+          <div
+            className="parentdiv parentdiv10"
+            onClick={() => onViewResource("testpaper")}
+          >
+            <div className="card-overlay"></div>
+            <div className="card-description">VIEW TEST PAPERS</div>
+          </div>
+          <div
+            className="parentdiv parentdiv11"
+            onClick={() => onViewResource("notes")}
+          >
+            <div className="card-overlay"></div>
+            <div className="card-description">VIEW NOTES</div>
           </div>
         </Col>
         <Col md={3}>
-          <div className="parentdiv14">
-            <div className="childdiv">
-              <button className="functionButtons">VIEW TEST SCHEDULE</button>
-            </div>
+          <div
+            className="parentdiv parentdiv12"
+            onClick={() => onViewResource("video")}
+          >
+            <div className="card-overlay"></div>
+            <div className="card-description">VIEW VIDEOS</div>
+          </div>
+          <div
+            className="parentdiv parentdiv13"
+            onClick={() => onViewResource("assignment")}
+          >
+            <div className="card-overlay"></div>
+            <div className="card-description">VIEW ASSIGNMENTS</div>
           </div>
         </Col>
         <Col md={3}>
-          <div className="parentdiv11">
-            <div className="childdiv">
-              <button className="functionButtons">VIEW FEEDBACK</button>
-            </div>
+          <div
+            className="parentdiv parentdiv14"
+            onClick={() => onViewResource("ppt")}
+          >
+            <div className="card-overlay"></div>
+            <div className="card-description">VIEW PPTS</div>
+          </div>
+          <div
+            className="parentdiv parentdiv15"
+            onClick={() => history.push(`${url}/viewexternallinks`)}
+          >
+            <div className="card-overlay"></div>
+            <div className="card-description">VIEW EXTERNAL LINKS</div>
           </div>
         </Col>
         <Col md={3}>
-          <div className="parentdiv13">
-            <div className="childdiv">
-              <button className="functionButtons">VIEW PROGRESS REPORT</button>
-            </div>
+          <div
+            className="parentdiv parentdiv16"
+            onClick={() => history.push(`${url}/viewtests`)}
+          >
+            <div className="card-overlay"></div>
+            <div className="card-description">VIEW TESTS</div>
           </div>
-          {/* <div className="parentdiv10" onClick={onViewJob}>
-            <div className="childdiv">
-              <button className="functionButtons">VIEW NEW JOB/POSTINGS</button>
-            </div>
-          </div> */}
+          <div
+            className="parentdiv parentdiv17"
+            onClick={() => history.push(`${url}/viewjobs`)}
+          >
+            <div className="card-overlay"></div>
+            <div className="card-description">VIEW JOB POSTINGS</div>
+          </div>
           {/* <div className="schedule" align="center">
             SCHEDULES <br />
           </div>

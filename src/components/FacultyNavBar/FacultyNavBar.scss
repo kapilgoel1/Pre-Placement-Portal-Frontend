@@ -6,31 +6,6 @@
   background-color: #265077;
 }
 
-.btn-grad {
-  background-image: linear-gradient(
-    to right,
-    #003973 0%,
-    #80abe4 51%,
-    #003973 100%
-  );
-}
-.btn-grad {
-  margin: 4px;
-  padding: 10px 15px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: rgb(255, 255, 255);
-  box-shadow: 0 0 5px #eee;
-}
-
-.btn-grad:hover {
-  background-position: right center;
-  color: #fff;
-  text-decoration: none;
-}
-
 // @media only screen and (min-width: 1000px) {
 //   .dropdown:hover .dropdown-menu {
 //     display: block;

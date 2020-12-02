@@ -124,14 +124,14 @@ const StudentNavBar = (props) => {
           </Nav>
 
           <NavbarText className="btn-edit">
-            <Button className="btn-grad" onClick={onClickHandler}>
+            <Button color="color5" onClick={onClickHandler}>
               {" "}
               Edit Profile{" "}
             </Button>{" "}
             &nbsp;&nbsp;
           </NavbarText>
           <NavbarText className="btn-logout">
-            <Button className="btn-grad" onClick={onLogoutHandler}>
+            <Button color="color5" onClick={onLogoutHandler}>
               {" "}
               Logout{" "}
             </Button>

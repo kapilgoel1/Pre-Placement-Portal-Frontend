@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Button } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import "./FacultyMenu.scss";
 
@@ -27,9 +27,9 @@ function FacultyMenu() {
     history.push(`${url}/addannouncement`);
   };
 
-  const onViewAnnouncement = () => {
-    history.push(`${url}/viewannouncement`);
-  };
+  // const onViewAnnouncement = () => {
+  //   history.push(`${url}/viewannouncement`);
+  // };
 
   const onViewStudentsList = () => {
     history.push(`${url}/viewstudent`);
