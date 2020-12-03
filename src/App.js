@@ -46,7 +46,7 @@ const App = () => {
   if (loading)
     return (
       <div className="spinner-container">
-        <Spinner color="color5" />
+        <Spinner />
       </div>
     );
   else
