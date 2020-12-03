@@ -3,7 +3,19 @@ import AuthContext from "../../AuthContext";
 import "./Login.scss";
 import swal from "sweetalert";
 import { withRouter } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+} from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee, faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import avatar from "../../assets/avatardefault_92824.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -45,37 +57,58 @@ const Login = () => {
 
   return (
     <div className="login-form">
+      <div className="outer mb-3">
+        <img src={avatar} alt="" className="login-avatar" />
+      </div>
+      <h1 className="text-center pb-2 mb-2"> WELCOME</h1>
       <Form className="form-body" autoComplete="off" onSubmit={onClickHandler}>
-        <h1 className="text-center pb-2 mb-2"> Sign In </h1>
-        <FormGroup className="pt-2 my-2">
-          <Label size="lg" for="Email">
-            Email{" "}
-          </Label>
-          <Input
-            size="lg"
-            type="email"
-            name="email"
-            id="Email"
-            value={email}
-            placeholder="Enter Email"
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+        <FormGroup className="pt-2 my-4">
+          {
+            // <Label size="lg" for="Email">
+            //   Email{' '}
+            // </Label>
+          }
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+              <InputGroupText>
+                <FontAwesomeIcon icon={faUser} />
+              </InputGroupText>
+            </InputGroupAddon>
+            <Input
+              size="lg"
+              type="email"
+              name="email"
+              id="Email"
+              value={email}
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </InputGroup>
         </FormGroup>
-        <FormGroup className="pb-2 my-2">
-          <Label size="lg" for="Password">
-            Password{" "}
-          </Label>
-          <Input
-            size="lg"
-            type="password"
-            name="password"
-            id="Password"
-            value={password}
-            placeholder="Enter Password"
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        <FormGroup className="pb-2 my-4">
+          {
+            // <Label size="lg" for="Password">
+            //   Password{' '}
+            // </Label>
+          }
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+              <InputGroupText>
+                <FontAwesomeIcon icon={faLock} />
+              </InputGroupText>
+            </InputGroupAddon>
+            <Input
+              size="lg"
+              type="password"
+              name="password"
+              id="Password"
+              value={password}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </InputGroup>
         </FormGroup>
 
         <Button
@@ -85,7 +118,7 @@ const Login = () => {
           size="lg"
           className="pt-2 mt-4"
         >
-          Sign In
+          LOGIN
         </Button>
 
         {/*<div className= "text-right">

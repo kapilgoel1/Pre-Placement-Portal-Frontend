@@ -64,7 +64,7 @@ const ViewAnnouncements = () => {
     <div className="container">
       <Form autoComplete="off">
         <FormGroup align="center">
-          <Label>ALL ANNOUNCEMENTS</Label>
+          <h3 className="text-white">ANNOUNCEMENTS</h3>
         </FormGroup>
         {announcements.map((announcement) => (
           <Card key={announcement._id} className="announcement-card">

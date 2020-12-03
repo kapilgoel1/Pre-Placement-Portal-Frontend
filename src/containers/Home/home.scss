@@ -17,10 +17,16 @@
       rgba(93, 137, 179, 0.9) 100%
     ),
     url("../../assets/scott-graham-5fNmWej4tAA-unsplash.jpg");
+  // background-image: linear-gradient(
+  //     90deg,
+  //     rgba(0, 48, 143, 0.9) 100%,
+  //     rgba(2, 0, 36, 0.9) 100%
+  //   ),
+  //   url('../../assets/scott-graham-5fNmWej4tAA-unsplash.jpg');
 
   font-family: inherit;
   background-size: cover;
-  color: black;
+  color: white;
 }
 
 .about-portal {
@@ -30,7 +36,7 @@
 
 .right-container {
   padding: 0 0;
-  background-color: #c2e9fb;
+  background-color: white;
 }
 
 @media only screen and (min-width: 500px) {
@@ -75,10 +81,16 @@
   }
 }
 
-.nn {
-  background-color: #022140;
-}
+// @media only screen and (max-width: 500px) {
+//   .right-container {
+//     height: 100vh;
+//   }
+// }
 
-.custom-navlink {
-  color: white !important;
-}
+// .nn {
+//   background-color: #022140;
+// }
+
+// .custom-navlink {
+//   color: white !important;
+// }

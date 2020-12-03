@@ -55,7 +55,7 @@ const ViewExternalRes = () => {
     <div className="link-container">
       <div className="link-card mx-1">
         <FormGroup align="center">
-          <Label>EXTERNAL RESOURCES</Label>
+          <h3 className="text-white">EXTERNAL RESOURCES</h3>
         </FormGroup>
         {resources.map((resource) => (
           <Card key={resource._id} className="mb-3">

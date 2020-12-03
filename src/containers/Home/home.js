@@ -17,37 +17,39 @@ function Home() {
 
   return (
     <div className="full-container">
-      <Navbar id="ii" color="" light expand="md" className="nn">
+      <Navbar id="ii" color="color4" dark expand="md" className="nn">
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink className="custom-navlink">About Us</NavLink>
+              <NavLink className="">About Us</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="custom-navlink">Contact Us</NavLink>
+              <NavLink className="">Contact Us</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="custom-navlink">Developer Team</NavLink>
+              <NavLink className="">Developer Team</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="custom-navlink">Forgot Password</NavLink>
+              <NavLink className="">Forgot Password</NavLink>
             </NavItem>
           </Nav>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink className="custom-navlink">Sign Up</NavLink>
+              <NavLink className="">Sign Up</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
       <div className="left-container">
         <div className="about-portal">
-          <h1 className="px-2 my-3">JIMS MCA PRE-PLACEMENT PORTAL</h1>
-          <h2 className="px-2 my-3 lead">
-            The Placement Cell works to ensure that the recruitment process is a
-            successful one for the students of JIMS.
-          </h2>
+          <h1 className="px-2 my-3">JIMS MCA PrePlacement Portal</h1>
+          <p className="px-2 my-2 lead">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+            dolores, odio ut totam repellendus earum doloribus recusandae
+            voluptatem vel aut alias iste? Est, ab pariatur officia optio eos
+            iste cumque.
+          </p>
           <Button className="py-2 my-4" color="color4" size="lg">
             Sign Up
           </Button>
