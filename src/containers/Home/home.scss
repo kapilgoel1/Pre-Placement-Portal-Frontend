@@ -1,0 +1,96 @@
+.full-container {
+  background: rgb(30, 66, 88);
+  background: radial-gradient(
+    circle,
+    rgba(30, 66, 88, 1) 50%,
+    rgba(2, 0, 36, 1) 100%,
+    rgba(0, 212, 255, 1) 100%,
+    rgba(8, 175, 212, 1) 100%
+  );
+}
+
+.left-container {
+  display: none;
+  background-image: linear-gradient(
+      90deg,
+      rgba(8, 66, 124, 0.9) 100%,
+      rgba(93, 137, 179, 0.9) 100%
+    ),
+    url("../../assets/scott-graham-5fNmWej4tAA-unsplash.jpg");
+  // background-image: linear-gradient(
+  //     90deg,
+  //     rgba(0, 48, 143, 0.9) 100%,
+  //     rgba(2, 0, 36, 0.9) 100%
+  //   ),
+  //   url('../../assets/scott-graham-5fNmWej4tAA-unsplash.jpg');
+
+  font-family: inherit;
+  background-size: cover;
+  color: white;
+}
+
+.about-portal {
+  width: 400px;
+  text-align: center;
+}
+
+.right-container {
+  padding: 0 0;
+  background-color: white;
+}
+
+@media only screen and (min-width: 500px) {
+  .full-container {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 60px auto;
+    margin: 0;
+  }
+  .right-container {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-form {
+    width: 400px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .full-container {
+    grid-template-columns: 50% 50%;
+  }
+
+  .left-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nn {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media only screen and (min-width: 1120px) {
+  .full-container {
+    height: 100vh;
+    padding: 8vh;
+  }
+}
+
+// @media only screen and (max-width: 500px) {
+//   .right-container {
+//     height: 100vh;
+//   }
+// }
+
+// .nn {
+//   background-color: #022140;
+// }
+
+// .custom-navlink {
+//   color: white !important;
+// }

@@ -1,13 +1,26 @@
-import React, {useState, useContext} from 'react';
-import AuthContext from '../../AuthContext'
-import "./Login.css";
-import {withRouter} from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input, Card,  CardBody } from 'reactstrap';
+import React, { useState, useContext } from "react";
+import AuthContext from "../../AuthContext";
+import "./Login.scss";
+import swal from "sweetalert";
+import { withRouter } from "react-router-dom";
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+} from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee, faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import avatar from "../../assets/avatardefault_92824.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {setloggedin} = useContext(AuthContext);
+  const { setuser } = useContext(AuthContext);
 
   // const validateForm = () => {
   //   return email.length > 0 && password.length > 0;
@@ -17,63 +30,103 @@ const Login = () => {
     e.preventDefault();
 
     const AuthData = {
-      email: email, 
-      password: password
-    }
+      email: email,
+      password: password,
+    };
 
-    fetch('http://localhost:4000/user/login', {
-      method: 'POST',
+    fetch("http://localhost:4000/user/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      credentials: 'include',
-      body: JSON.stringify( AuthData ),
+      credentials: "include",
+      body: JSON.stringify(AuthData),
     })
-      .then(response => response.json())
+      .then((response) => response.json())
       .then((result) => {
-        if(result.role) {
-          setloggedin(true);
-        }
-        else {
-          alert('Invalid Login credentials');
+        if (result.role) {
+          setuser({ role: result.role, loggedin: true });
+        } else {
+          swal("Invalid Login credentials");
         }
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
-    return(
-      
-      <Card className="login-container__form">
-      <CardBody className="form-body">
-        <Form className="" autoComplete="off" onSubmit={onClickHandler}>
-          <h2 className="text-center"> <b> Login </b></h2>
-          <FormGroup >
-            <Label for="Email">Email </Label>
-            <Input type="email" name="email" id="Email" value={email} placeholder="Enter Email" onChange={e => setEmail(e.target.value)} required/>
-          </FormGroup>
-          <FormGroup>
-            <Label for="Password">Password </Label>
-            <Input type="password" name="password" id="Password" value={password} placeholder="Enter Password" onChange={e => setPassword(e.target.value)} required/>
-          </FormGroup>   
-          <center>
-          <Button 
-            color="secondary"  
-            type="submit"
-          > 
-            Submit 
-          </Button>
-          </center>
-           
-          {/*<div className= "text-right">
+  return (
+    <div className="login-form">
+      <div className="outer mb-3">
+        <img src={avatar} alt="" className="login-avatar" />
+      </div>
+      <h1 className="text-center pb-2 mb-2"> WELCOME</h1>
+      <Form className="form-body" autoComplete="off" onSubmit={onClickHandler}>
+        <FormGroup className="pt-2 my-4">
+          {
+            // <Label size="lg" for="Email">
+            //   Email{' '}
+            // </Label>
+          }
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+              <InputGroupText>
+                <FontAwesomeIcon icon={faUser} />
+              </InputGroupText>
+            </InputGroupAddon>
+            <Input
+              size="lg"
+              type="email"
+              name="email"
+              id="Email"
+              value={email}
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </InputGroup>
+        </FormGroup>
+        <FormGroup className="pb-2 my-4">
+          {
+            // <Label size="lg" for="Password">
+            //   Password{' '}
+            // </Label>
+          }
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+              <InputGroupText>
+                <FontAwesomeIcon icon={faLock} />
+              </InputGroupText>
+            </InputGroupAddon>
+            <Input
+              size="lg"
+              type="password"
+              name="password"
+              id="Password"
+              value={password}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </InputGroup>
+        </FormGroup>
+
+        <Button
+          block
+          color="color4"
+          type="submit"
+          size="lg"
+          className="pt-2 mt-4"
+        >
+          LOGIN
+        </Button>
+
+        {/*<div className= "text-right">
             <a href="/sign-up"> Forgot the password? </a>
           </div>*/}
-        </Form>
-        </CardBody>
-        </Card>
-      
-    );
-}
+      </Form>
+    </div>
+  );
+};
 
 export default withRouter(Login);

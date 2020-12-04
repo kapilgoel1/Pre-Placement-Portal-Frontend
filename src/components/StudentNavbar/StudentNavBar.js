@@ -1,119 +1,145 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
-import './StudentNavBar.css';
+import "./StudentNavBar.scss";
 import {
-  Collapse, 
-  Navbar, 
+  Collapse,
+  Navbar,
   NavbarBrand,
-  NavbarToggler, 
+  NavbarToggler,
   NavbarText,
-  Nav, 
-  NavItem, 
-  NavLink, 
-  UncontrolledDropdown, 
-  DropdownToggle, 
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  Button
-} from 'reactstrap';
-import AuthContext from '../../AuthContext'
-import {withRouter} from 'react-router-dom';
-import Logo from '../Logo/Logo';
+  Button,
+} from "reactstrap";
+import AuthContext from "../../AuthContext";
+import { withRouter } from "react-router-dom";
 
 //This is the navigation bar that will be visible on dashboard
 
 const StudentNavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { setloggedin } = useContext(AuthContext);
+  const { setuser } = useContext(AuthContext);
   let { url } = useRouteMatch();
   let history = useHistory();
 
-
-
   const toggle = () => setIsOpen(!isOpen);
-  
+
   const onClickHandler = () => {
-    history.push('/studenteditprofile');
-  }
+    history.push(`${url}/editprofile`);
+  };
 
   const onLogoutHandler = () => {
-    fetch('http://localhost:4000/user/logout', {
-      method: 'GET',
-      credentials: 'include',
+    fetch("http://localhost:4000/user/logout", {
+      method: "GET",
+      credentials: "include",
     })
       .then((response) => response.json())
       .then((result) => {
-        setloggedin(false);
-        console.log(result);
+        setuser({ loggedin: false, role: "" });
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   const onViewResource = (category) => {
-    history.push(`${url}/files/${category}`)
-  }
-               
+    history.push(`${url}/files/${category}`);
+  };
+
   return (
-    <div>
-      <Navbar light expand="md">
-        <NavbarBrand onClick={() => { history.push('/') }} className="navbar-logo" ><Logo/></NavbarBrand> 
-        <NavbarToggler onClick={toggle}/>
+    <>
+      <Navbar className="mb-5" dark color="color4" expand="md">
+        <NavbarBrand
+          onClick={() => {
+            history.push("/studentdashboard");
+          }}
+          className="navbar-logo"
+        >
+          DASHBOARD
+        </NavbarBrand>
+
+        <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-        <Nav className="mr-auto" navbar>
-          <NavItem>
-            <NavLink href="/about">About</NavLink>
-          </NavItem>
-           
-          <NavItem>
-            <NavLink href="/contact">Contact</NavLink>
-          </NavItem>
-            
-          <NavItem>
-            <NavLink href="/about">View test score</NavLink>
-          </NavItem>
-            
-          <UncontrolledDropdown nav inNavbar>
-            <DropdownToggle nav caret >
-              View Resources
-            </DropdownToggle>
-            <DropdownMenu right>
-            <DropdownItem onClick={() => onViewResource('testpaper')}>
-              View test papers
-            </DropdownItem>
-            <DropdownItem onClick={() => onViewResource('assignment')}>
-              View assignments
-            </DropdownItem>
-          <DropdownItem onClick={() => onViewResource('ppt')}>
-              View PPTs
-            </DropdownItem>
-            <DropdownItem onClick={() => onViewResource('announcement')}>
-              View announcements
-            </DropdownItem>
-            <DropdownItem onClick={() => onViewResource('video')}>
-              View videos
-            </DropdownItem>
-            <DropdownItem onClick={() => onViewResource('notes')}>
-            View notes
-            </DropdownItem>
-            <DropdownItem>
-              View weblinks/external resources
-            </DropdownItem>
-          </DropdownMenu>
-          </UncontrolledDropdown>
-        </Nav>
-        <NavbarText className="btn-edit">      
-          <Button color="success" onClick={onClickHandler}> Edit Profile </Button> &nbsp;
-        </NavbarText>
-        <NavbarText className="btn-logout">
-          <Button color="danger" onClick={onLogoutHandler}> Logout </Button>
-        </NavbarText>
+          <Nav className="mr-auto" navbar>
+            <NavItem
+              className="rounded"
+              onClick={() => history.push("/studentdashboard")}
+            >
+              <NavLink>Home</NavLink>
+            </NavItem>
+
+            <NavItem
+              className="rounded"
+              onClick={() => history.push(`${url}/viewjobs`)}
+            >
+              <NavLink>Jobs</NavLink>
+            </NavItem>
+            <NavItem
+              className="rounded"
+              onClick={() => history.push(`${url}/viewtests`)}
+            >
+              <NavLink>Tests</NavLink>
+            </NavItem>
+            <NavItem
+              className="rounded"
+              onClick={() => history.push(`${url}/viewannouncement`)}
+            >
+              <NavLink>Announcements</NavLink>
+            </NavItem>
+
+            <UncontrolledDropdown nav inNavbar className="rounded">
+              <DropdownToggle nav caret>
+                Resources
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem onClick={() => onViewResource("testpaper")}>
+                  Test Papers
+                </DropdownItem>
+                <DropdownItem onClick={() => onViewResource("assignment")}>
+                  Assignments
+                </DropdownItem>
+                <DropdownItem onClick={() => onViewResource("ppt")}>
+                  PPTs
+                </DropdownItem>
+
+                <DropdownItem onClick={() => onViewResource("video")}>
+                  Videos
+                </DropdownItem>
+                <DropdownItem onClick={() => onViewResource("notes")}>
+                  Notes
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => history.push(`${url}/viewexternallinks`)}
+                >
+                  External Links
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
+
+          <NavbarText className="btn-edit">
+            <Button color="color5" onClick={onClickHandler}>
+              {" "}
+              Edit Profile{" "}
+            </Button>{" "}
+            &nbsp;&nbsp;
+          </NavbarText>
+          <NavbarText className="btn-logout">
+            <Button color="color5" onClick={onLogoutHandler}>
+              {" "}
+              Logout{" "}
+            </Button>
+          </NavbarText>
         </Collapse>
       </Navbar>
-    </div>
+    </>
   );
-}
+};
 
 export default withRouter(StudentNavBar);

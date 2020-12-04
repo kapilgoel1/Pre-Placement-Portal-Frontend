@@ -1,0 +1,21 @@
+body {
+  background: rgb(30, 66, 88);
+  background: radial-gradient(
+    circle,
+    rgba(30, 66, 88, 1) 50%,
+    rgba(2, 0, 36, 1) 100%,
+    rgba(0, 212, 255, 1) 100%,
+    rgba(8, 175, 212, 1) 100%
+  );
+}
+
+.spinner-container {
+  height: 100vh;
+  background-color: white;
+}
+
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

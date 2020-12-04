@@ -1,0 +1,15 @@
+.studentstrip-header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.studentstrip-header__id {
+  flex: 1 1 150px;
+  text-align: center;
+}
+
+.studentstrip-header__name {
+  flex: 1 1 150px;
+  text-align: center;
+}
