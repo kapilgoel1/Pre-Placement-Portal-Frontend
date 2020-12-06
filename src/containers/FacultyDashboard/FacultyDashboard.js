@@ -11,7 +11,6 @@ import FacultyMenu from "../../components/FacultyMenu/FacultyMenu";
 import FacultyNavBar from "../../components/FacultyNavBar/FacultyNavBar";
 import AddFile from "../../components/Files/AddFile/AddFile";
 import ViewFiles from "../../components/Files/ViewFiles/ViewFiles";
-import Footer from "../../components/Footer/Footer";
 import StudentDetail from "../../components/Students/StudentDetail/StudentDetail";
 import ViewStudents from "../../components/Students/ViewStudents/ViewStudents";
 import ViewExternalLinks from "../../components/ExternalLinks/ViewExternalLinks/ViewExternalLinks";

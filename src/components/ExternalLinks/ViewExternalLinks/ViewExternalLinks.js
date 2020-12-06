@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import { Button, Card, CardBody, Form, FormGroup, Label } from "reactstrap";
+import { Button, Card, CardBody, FormGroup } from "reactstrap";
 import swal from "sweetalert";
 import AuthContext from "../../../AuthContext";
 import "./ViewExternalLinks.scss";

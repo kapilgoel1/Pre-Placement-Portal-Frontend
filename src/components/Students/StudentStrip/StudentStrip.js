@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Button } from "reactstrap";
+import React from "react";
+
 import { useHistory, useRouteMatch } from "react-router";
 import "./StudentStrip.scss";
 
