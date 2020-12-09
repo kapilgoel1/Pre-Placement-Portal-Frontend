@@ -1,15 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./ViewAnnouncements.scss";
 import swal from "sweetalert";
-import {
-  Card,
-  CardTitle,
-  CardBody,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-} from "reactstrap";
+import { Card, CardTitle, CardBody, Button, Form, FormGroup } from "reactstrap";
 import { useRouteMatch, useHistory } from "react-router-dom";
 import AuthContext from "../../../AuthContext";
 

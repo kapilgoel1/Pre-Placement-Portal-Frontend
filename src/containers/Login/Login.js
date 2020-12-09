@@ -7,14 +7,13 @@ import {
   Button,
   Form,
   FormGroup,
-  Label,
   Input,
   InputGroup,
   InputGroupAddon,
   InputGroupText,
 } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import avatar from "../../assets/avatardefault_92824.png";
 
 const Login = () => {

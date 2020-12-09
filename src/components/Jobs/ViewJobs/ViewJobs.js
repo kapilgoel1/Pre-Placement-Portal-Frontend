@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Card, CardBody, Form, FormGroup, Label, Button } from "reactstrap";
+import { Card, CardBody, FormGroup, Button } from "reactstrap";
 import swal from "sweetalert";
-import { useRouteMatch, useHistory } from "react-router-dom";
 import AuthContext from "../../../AuthContext";
 import "./ViewJobs.scss";
 
 const ViewJobs = () => {
-  const history = useHistory();
   const { user } = useContext(AuthContext);
-  let { path } = useRouteMatch();
   const [jobs, setJobs] = useState([]);
 
   const fetchCall = () => {

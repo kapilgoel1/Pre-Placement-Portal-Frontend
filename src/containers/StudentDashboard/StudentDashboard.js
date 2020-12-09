@@ -4,7 +4,6 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import StudentNavBar from "../../components/StudentNavbar/StudentNavBar";
 import StudentEditProfile from "../../components/StudentEditProfile/StudentEditProfile";
 import StudentMenu from "../../components/StudentMenu/StudentMenu";
-import Footer from "../../components/Footer/Footer";
 import ViewFiles from "../../components/Files/ViewFiles/ViewFiles";
 import AnnouncementDetail from "../../components/Announcements/AnnouncementDetail/AnnouncementDetail";
 import ViewAnnouncement from "../../components/Announcements/ViewAnnouncements/ViewAnnouncements";
