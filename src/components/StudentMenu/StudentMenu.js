@@ -24,14 +24,21 @@ function StudentMenu() {
             onClick={() => onViewResource("testpaper")}
           >
             <div className="card-overlay"></div>
-            <div className="card-description">VIEW TEST PAPERS</div>
+            <div className="card-description">
+              VIEW ALL TEST PAPERS <br />
+              (Tests done by you)
+            </div>
           </div>
           <div
             className="parentdiv parentdiv11"
             onClick={() => onViewResource("notes")}
           >
             <div className="card-overlay"></div>
-            <div className="card-description">VIEW NOTES</div>
+            <div className="card-description">
+              VIEW NOTES
+              <br />
+              (Provided by faculties)
+            </div>
           </div>
         </Col>
         <Col md={3}>
@@ -40,14 +47,20 @@ function StudentMenu() {
             onClick={() => onViewResource("video")}
           >
             <div className="card-overlay"></div>
-            <div className="card-description">VIEW VIDEOS</div>
+            <div className="card-description">
+              VIEW VIDEOS <br />
+              (Provided by faculties)
+            </div>
           </div>
           <div
             className="parentdiv parentdiv13"
             onClick={() => onViewResource("assignment")}
           >
             <div className="card-overlay"></div>
-            <div className="card-description">VIEW ASSIGNMENTS</div>
+            <div className="card-description">
+              VIEW ASSIGNMENTS <br />
+              (To be done by you)
+            </div>
           </div>
         </Col>
         <Col md={3}>
@@ -56,14 +69,20 @@ function StudentMenu() {
             onClick={() => onViewResource("ppt")}
           >
             <div className="card-overlay"></div>
-            <div className="card-description">VIEW PPTS</div>
+            <div className="card-description">
+              VIEW PPTS <br />
+              (Provided by faculties)
+            </div>
           </div>
           <div
             className="parentdiv parentdiv15"
             onClick={() => history.push(`${url}/viewexternallinks`)}
           >
             <div className="card-overlay"></div>
-            <div className="card-description">VIEW EXTERNAL LINKS</div>
+            <div className="card-description">
+              VIEW EXTERNAL LINKS <br />
+              (For tests or notes)
+            </div>
           </div>
         </Col>
         <Col md={3}>
@@ -72,14 +91,20 @@ function StudentMenu() {
             onClick={() => history.push(`${url}/viewtests`)}
           >
             <div className="card-overlay"></div>
-            <div className="card-description">VIEW TESTS</div>
+            <div className="card-description">
+              VIEW MOCK TESTS <br />
+              (Tests to be done by you)
+            </div>
           </div>
           <div
             className="parentdiv parentdiv17"
             onClick={() => history.push(`${url}/viewjobs`)}
           >
             <div className="card-overlay"></div>
-            <div className="card-description">VIEW JOB POSTINGS</div>
+            <div className="card-description">
+              VIEW ALL JOB POSTINGS <br />
+              (Jobs you can apply for)
+            </div>
           </div>
           {/* <div className="schedule" align="center">
             SCHEDULES <br />

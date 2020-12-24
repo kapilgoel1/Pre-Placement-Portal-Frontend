@@ -19,6 +19,8 @@
     bottom: 0;
     opacity: 0.4;
     transition: 0.3s;
+    background: rgb(78, 125, 224);
+    background: linear-gradient(42deg, rgb(78, 125, 224));
   }
 
   &:hover {
@@ -53,7 +55,7 @@
     z-index: 3;
     bottom: 0;
     width: 100%;
-    height: 17%;
+    height: 20%;
     color: white;
     text-align: center;
     background-color: #022140;
@@ -64,109 +66,34 @@
 
 .parentdiv1 {
   background-image: url("../../assets/addResources.jpg");
-  .card-overlay {
-    background: rgb(131, 58, 180);
-    background: linear-gradient(
-      42deg,
-      rgba(131, 58, 180, 1) 0%,
-      rgba(252, 176, 69, 1) 55%,
-      rgba(254, 122, 21, 1) 91%
-    );
-  }
 }
 
 .parentdiv2 {
   background-image: url("../../assets/viewProfile.jpg");
-  .card-overlay {
-    background: rgb(204, 171, 219);
-    background: linear-gradient(
-      42deg,
-      rgba(204, 171, 219, 1) 20%,
-      rgba(194, 100, 154, 1) 46%,
-      rgba(255, 123, 137, 1) 83%,
-      rgba(194, 100, 154, 1) 100%
-    );
-  }
 }
 
 .parentdiv3 {
   background-image: url("../../assets/AddAnnouncements.jpg");
-  .card-overlay {
-    background: rgb(131, 58, 180);
-    background: linear-gradient(
-      42deg,
-      rgba(131, 58, 180, 1) 0%,
-      rgba(251, 123, 142, 1) 79%,
-      rgba(252, 176, 69, 1) 100%
-    );
-  }
 }
 
 .parentdiv4 {
   background-image: url("../../assets/jobImage.jpg");
-  .card-overlay {
-    background: rgb(131, 58, 180);
-    background: linear-gradient(
-      42deg,
-      rgba(131, 58, 180, 1) 17%,
-      rgba(194, 100, 154, 1) 31%,
-      rgba(255, 123, 137, 1) 66%,
-      rgba(252, 176, 69, 1) 98%
-    );
-  }
 }
 
 .parentdiv5 {
   background-image: url("../../assets/testImage.jpg");
-  .card-overlay {
-    background: rgb(255, 123, 137);
-    background: linear-gradient(
-      42deg,
-      rgba(255, 123, 137, 1) 18%,
-      rgba(204, 171, 219, 1) 50%,
-      rgba(194, 100, 154, 1) 83%,
-      rgba(131, 58, 180, 1) 100%
-    );
-  }
 }
 
 .parentdiv6 {
   background-image: url("../../assets/external-resources.png");
-  .card-overlay {
-    background: rgb(255, 123, 137);
-    background: linear-gradient(
-      42deg,
-      rgba(255, 123, 137, 1) 30%,
-      rgba(230, 157, 69, 0.5256477591036415) 50%,
-      rgba(131, 58, 180, 1) 84%,
-      rgba(194, 100, 154, 1) 100%
-    );
-  }
 }
 
 .parentdiv7 {
   background-image: url("../../assets/viewJobImage.jpg");
-  .card-overlay {
-    background: rgb(34, 193, 195);
-    background: linear-gradient(
-      0deg,
-      rgba(34, 193, 195, 1) 0%,
-      rgba(253, 187, 45, 1) 100%
-    );
-  }
 }
 
 .parentdiv8 {
   background-image: url("../../assets/viewResources.jpg");
-  .card-overlay {
-    background: rgb(131, 58, 180);
-    background: linear-gradient(
-      42deg,
-      rgba(131, 58, 180, 1) 0%,
-      rgba(253, 192, 148, 1) 50%,
-      rgba(252, 176, 69, 1) 100%
-    );
-  }
 }
 
 // .parentdiv9 {

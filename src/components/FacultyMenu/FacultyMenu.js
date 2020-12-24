@@ -49,31 +49,34 @@ function FacultyMenu() {
         <Col md={3}>
           <div className="parentdiv parentdiv1" onClick={onAddNewRes}>
             <div className="card-overlay"></div>
-            <div className="card-description">Add File</div>
+            <div className="card-description">
+              ADD FILE
+              <br /> (PPT, notes, etc)
+            </div>
           </div>
           <div className="parentdiv parentdiv2" onClick={onViewStudentsList}>
             <div className="card-overlay"></div>
-            <div className="card-description">View Students List</div>
+            <div className="card-description">VIEW ALL STUDENTS</div>
           </div>
         </Col>
         <Col md={3}>
           <div className="parentdiv parentdiv3" onClick={onAddAnnouncement}>
             <div className="card-overlay"></div>
-            <div className="card-description">Add Announcement</div>
+            <div className="card-description">ADD NEW ANNOUNCEMENT</div>
           </div>
           <div className="parentdiv parentdiv4" onClick={onAddNewJob}>
             <div className="card-overlay"></div>
-            <div className="card-description">Add Job Postings</div>
+            <div className="card-description">ADD A NEW JOB POSTING</div>
           </div>
         </Col>
         <Col md={3}>
           <div className="parentdiv parentdiv5" onClick={onAddNewTest}>
             <div className="card-overlay"></div>
-            <div className="card-description">Add Test</div>
+            <div className="card-description">ADD TEST FOR STUDENTS</div>
           </div>
           <div className="parentdiv parentdiv6" onClick={onAddExternalRes}>
             <div className="card-overlay"></div>
-            <div className="card-description">Add External Weblinks</div>
+            <div className="card-description">ADD NEW EXTERNAL LINK</div>
           </div>
 
           {
@@ -89,11 +92,11 @@ function FacultyMenu() {
         <Col md={3}>
           <div className="parentdiv parentdiv7" onClick={onViewJob}>
             <div className="card-overlay"></div>
-            <div className="card-description">View Job Postings</div>
+            <div className="card-description">VIEW ALL JOB POSTINGS</div>
           </div>
           <div className="parentdiv parentdiv8" onClick={onViewAllResources}>
             <div className="card-overlay"></div>
-            <div className="card-description">View All Files</div>
+            <div className="card-description">VIEW ALL FILES UPLOADED</div>
           </div>
         </Col>
         {
