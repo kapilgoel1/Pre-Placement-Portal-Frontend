@@ -45,6 +45,7 @@ function FacultyMenu() {
 
   return (
     <div className="container">
+      <font color="white">WELCOME</font>
       <Row>
         <Col md={3}>
           <div className="parentdiv parentdiv1" onClick={onAddNewRes}>

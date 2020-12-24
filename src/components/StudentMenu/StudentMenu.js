@@ -102,7 +102,7 @@ function StudentMenu() {
           >
             <div className="card-overlay"></div>
             <div className="card-description">
-              VIEW ALL JOB POSTINGS <br />
+              VIEW ALL JOBS <br />
               (Jobs you can apply for)
             </div>
           </div>
