@@ -84,7 +84,7 @@ const StudentNavBar = (props) => {
               className="rounded"
               onClick={() => history.push(`${url}/viewtests`)}
             >
-              <NavLink>Tests</NavLink>
+              <NavLink> Mock Tests</NavLink>
             </NavItem>
             <NavItem
               className="rounded"
@@ -109,7 +109,7 @@ const StudentNavBar = (props) => {
                 </DropdownItem>
 
                 <DropdownItem onClick={() => onViewResource("video")}>
-                  Videos
+                  Video lectures
                 </DropdownItem>
                 <DropdownItem onClick={() => onViewResource("notes")}>
                   Notes

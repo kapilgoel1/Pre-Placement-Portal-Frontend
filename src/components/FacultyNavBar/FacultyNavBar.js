@@ -99,10 +99,10 @@ const FacultyNavBar = (props) => {
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem onClick={() => history.push(`${url}/addtest`)}>
-                  Add Test
+                  Add Mock Test
                 </DropdownItem>
                 <DropdownItem onClick={() => history.push(`${url}/viewtests`)}>
-                  View Tests
+                  View Mock Tests
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
@@ -148,7 +148,7 @@ const FacultyNavBar = (props) => {
                 </DropdownItem>
 
                 <DropdownItem onClick={() => onViewResource("video")}>
-                  Videos
+                  Video lectures
                 </DropdownItem>
                 <DropdownItem onClick={() => onViewResource("notes")}>
                   Notes

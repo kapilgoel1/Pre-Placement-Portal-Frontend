@@ -45,7 +45,7 @@ function FacultyMenu() {
 
   return (
     <div className="container">
-      <font color="white">WELCOME</font>
+      {/* <font color="white">WELCOME</font> */}
       <Row>
         <Col md={3}>
           <div className="parentdiv parentdiv1" onClick={onAddNewRes}>
@@ -73,7 +73,7 @@ function FacultyMenu() {
         <Col md={3}>
           <div className="parentdiv parentdiv5" onClick={onAddNewTest}>
             <div className="card-overlay"></div>
-            <div className="card-description">ADD TEST FOR STUDENTS</div>
+            <div className="card-description">ADD MOCK TEST FOR STUDENTS</div>
           </div>
           <div className="parentdiv parentdiv6" onClick={onAddExternalRes}>
             <div className="card-overlay"></div>
