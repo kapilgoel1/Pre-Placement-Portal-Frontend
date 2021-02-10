@@ -8,7 +8,7 @@ import ViewFiles from "../../components/Files/ViewFiles/ViewFiles";
 import AnnouncementDetail from "../../components/Announcements/AnnouncementDetail/AnnouncementDetail";
 import ViewAnnouncement from "../../components/Announcements/ViewAnnouncements/ViewAnnouncements";
 import ViewExternalLinks from "../../components/ExternalLinks/ViewExternalLinks/ViewExternalLinks";
-import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
+import ResumeDetails from "../../components/ResumeDetails/ResumeDetails";
 import ViewJobs from "../../components/Jobs/ViewJobs/ViewJobs";
 
 const StudentDashboard = () => {
@@ -36,8 +36,8 @@ const StudentDashboard = () => {
         <Route path={`${path}/viewexternallinks`}>
           <ViewExternalLinks />
         </Route>
-        <Route path={`${path}/viewtests`}>
-          <ViewTests />
+        <Route path={`${path}/resumedetails`}>
+          <ResumeDetails />
         </Route>
         <Route path={`${path}/viewjobs`}>
           <ViewJobs />

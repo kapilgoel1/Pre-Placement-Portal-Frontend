@@ -88,12 +88,11 @@ function StudentMenu() {
         <Col md={3}>
           <div
             className="parentdiv parentdiv16"
-            onClick={() => history.push(`${url}/viewtests`)}
+            onClick={() => history.push(`${url}/resumedetails`)}
           >
             <div className="card-overlay"></div>
             <div className="card-description">
-              VIEW MOCK TESTS <br />
-              (Tests to be done by you)
+              RESUME BUILDER <br />
             </div>
           </div>
           <div
