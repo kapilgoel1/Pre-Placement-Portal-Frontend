@@ -3,6 +3,7 @@ import "./ResumeDetails.scss";
 import { Input, Label, Button, Form, FormGroup } from "reactstrap";
 import DCard from "../DCard/DCard";
 import swal from "sweetalert";
+import { v4 as uuidv4 } from "uuid";
 
 const ResumeDetails = (props) => {
   const [name, setName] = useState("");
@@ -14,41 +15,142 @@ const ResumeDetails = (props) => {
   const [skills, setSkills] = useState("");
   const [achievements, setAchievements] = useState("");
 
-  const [projecttitle, setProjecttitle] = useState("");
-  const [projectdescription, setProjectdescription] = useState("");
-  const [technologyused, setTechnologyused] = useState("");
-
-  const [fromyear, setFromyear] = useState("");
-  const [toyear, setToyear] = useState("");
-  const [qualification, setQualification] = useState("");
-  const [institute, setInstitute] = useState("");
-
   const [dob, setdob] = useState("");
   const [languages, setLanguages] = useState("");
   const [hobbies, setHobbies] = useState("");
 
-  const [company, setCompany] = useState("");
-  const [role, setRole] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [workfromyear, setWorkfromyear] = useState("");
-  const [worktoyear, setWorktoyear] = useState("");
-  const [responsibilities, setResponsibilities] = useState("");
+  const [inputProjects, setInputProjects] = useState([
+    {
+      id: uuidv4(),
+      protitle: "",
+      prodesc: "",
+      techused: "",
+    },
+  ]);
 
-  //   const onAddHandler = () => {
+  const [inputEducations, setInputEducations] = useState([
+    {
+      id: uuidv4(),
+      fromyear: "",
+      toyear: "",
+      qualification: "",
+      institute: "",
+    },
+  ]);
 
-  function addInput(projectsdone) {
-    var counter = 1;
-    var limit = 3;
-    if (counter === limit) {
-      swal("You have reached the limit of adding " + counter + " inputs");
-    } else {
-      var newdiv = document.createElement("FormGroup");
-      newdiv.innerHTML = "Project " + (counter + 1) + " ";
-      document.getElementById(projectsdone).appendChild(newdiv);
-      counter++;
-    }
-  }
+  const [inputWorkExps, setInputWorkExps] = useState([
+    {
+      id: uuidv4(),
+      company: "",
+      role: "",
+      city: "",
+      state: "",
+      workfromyear: "",
+      worktoyear: "",
+      responsibilities: "",
+    },
+  ]);
+
+  const handleChangeProject = (id, event) => {
+    const newInputProjects = inputProjects.map((i) => {
+      if (id === i.id) {
+        i[event.target.name] = event.target.value;
+      }
+      return i;
+    });
+
+    setInputProjects(newInputProjects);
+  };
+
+  const handleChangeEducation = (id, event) => {
+    const newInputEducations = inputEducations.map((i) => {
+      if (id === i.id) {
+        i[event.target.name] = event.target.value;
+      }
+      return i;
+    });
+
+    setInputEducations(newInputEducations);
+  };
+
+  const handleChangeWorkExp = (id, event) => {
+    const newInputWorkExp = inputWorkExps.map((i) => {
+      if (id === i.id) {
+        i[event.target.name] = event.target.value;
+      }
+      return i;
+    });
+
+    setInputWorkExps(newInputWorkExp);
+  };
+
+  const handleAddProjects = () => {
+    setInputProjects([
+      ...inputProjects,
+      {
+        id: uuidv4(),
+        protitle: "",
+        prodesc: "",
+        techused: "",
+      },
+    ]);
+  };
+
+  const handleRemoveProjects = (id) => {
+    const values = [...inputProjects];
+    values.splice(
+      values.findIndex((value) => value.id === id),
+      1
+    );
+    setInputProjects(values);
+  };
+
+  const handleAddEducation = () => {
+    setInputEducations([
+      ...inputEducations,
+      {
+        id: uuidv4(),
+        fromyear: "",
+        toyear: "",
+        qualification: "",
+        institute: "",
+      },
+    ]);
+  };
+
+  const handleRemoveEducations = (id) => {
+    const values = [...inputEducations];
+    values.splice(
+      values.findIndex((value) => value.id === id),
+      1
+    );
+    setInputEducations(values);
+  };
+
+  const handleAddWorkExp = () => {
+    setInputWorkExps([
+      ...inputWorkExps,
+      {
+        id: uuidv4(),
+        company: "",
+        role: "",
+        city: "",
+        state: "",
+        workfromyear: "",
+        worktoyear: "",
+        responsibilities: "",
+      },
+    ]);
+  };
+
+  const handleRemoveWorkExps = (id) => {
+    const values = [...inputWorkExps];
+    values.splice(
+      values.findIndex((value) => value.id === id),
+      1
+    );
+    setInputWorkExps(values);
+  };
 
   // const onUpdateHandler = (e) => {
   //     e.preventDefault();
@@ -217,147 +319,177 @@ const ResumeDetails = (props) => {
         </FormGroup>
         <FormGroup align="center">
           <Label for="projects">PROJECTS </Label>
-          <Button color="color2" onclick={addInput()}>
-            {" "}
+
+          <Button color="color2" onClick={handleAddProjects}>
             Add more projects
           </Button>
+          <Button color="color2" onClick={handleRemoveProjects}>
+            Remove recent project
+          </Button>
         </FormGroup>
         <hr />
-        <FormGroup controlId="projectsdone">
-          <FormGroup align="center">
-            <Label for="projects">PROJECT 1 </Label>
+        {inputProjects.map((inputProject) => (
+          <FormGroup controlId={inputProject.id}>
+            <FormGroup align="center">
+              <Label for="projects">PROJECT </Label>
+            </FormGroup>
+            <FormGroup>
+              <Label for="protitle">Project Title </Label>
+              <Input
+                type="text"
+                name="protitle"
+                value={inputProject.protitle}
+                placeholder=""
+                onChange={(e) => handleChangeProject(inputProject.id, e)}
+              />
+              <Label for="prodesc">Project Description </Label>
+              <Input
+                type="textarea"
+                name="prodesc"
+                className="student-resume"
+                value={inputProject.prodesc}
+                placeholder=""
+                onChange={(e) => handleChangeProject(inputProject.id, e)}
+              />
+              <Label for="techused">Technology used </Label>
+              <Input
+                type="text"
+                name="techused"
+                value={inputProject.techused}
+                placeholder=""
+                onChange={(e) => handleChangeProject(inputProject.id, e)}
+              />
+            </FormGroup>
           </FormGroup>
-          <FormGroup>
-            <Label for="protitle">Project Title </Label>
-            <Input
-              type="text"
-              name="protitle"
-              value={projecttitle}
-              placeholder=""
-              onChange={(e) => setProjecttitle(e.target.value)}
-            />
-            <Label for="prodesc">Project Description </Label>
-            <Input
-              type="text"
-              name="prodesc"
-              value={projectdescription}
-              placeholder=""
-              onChange={(e) => setProjectdescription(e.target.value)}
-            />
-            <Label for="techused">Technology used </Label>
-            <Input
-              type="text"
-              name="techused"
-              value={technologyused}
-              placeholder=""
-              onChange={(e) => setTechnologyused(e.target.value)}
-            />
-          </FormGroup>
-        </FormGroup>
+        ))}
+
         <FormGroup align="center">
           <Label for="education">ACADEMIC DETAILS </Label>
-        </FormGroup>
-        <hr />
-        <FormGroup>
-          <Label for="fromyear">From year </Label>
-          <Input
-            type="text"
-            name="fromyear"
-            value={fromyear}
-            placeholder=""
-            onChange={(e) => setFromyear(e.target.value)}
-          />
-          <Label for="toyear">To year </Label>
-          <Input
-            type="text"
-            name="toyear"
-            value={toyear}
-            placeholder=""
-            onChange={(e) => setToyear(e.target.value)}
-          />
-          <Label for="qualification">Qualification </Label>
-          <Input
-            type="text"
-            name="qualification"
-            value={qualification}
-            placeholder=""
-            onChange={(e) => setQualification(e.target.value)}
-          />
-          <Label for="institute">Institute </Label>
-          <Input
-            type="text"
-            name="institute"
-            value={institute}
-            placeholder=""
-            onChange={(e) => setInstitute(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup align="center">
-          <Label for="workexp">WORK EXPERIENCE</Label>
-        </FormGroup>
-        <hr />
-        <FormGroup>
-          <Label for="company">Company </Label>
-          <Input
-            type="text"
-            name="company"
-            value={company}
-            placeholder=""
-            onChange={(e) => setCompany(e.target.value)}
-          />
-          <Label for="role">Role</Label>
-          <Input
-            type="text"
-            name="role"
-            value={role}
-            placeholder=""
-            onChange={(e) => setRole(e.target.value)}
-          />
-          <Label for="city">City</Label>
-          <Input
-            type="text"
-            name="city"
-            value={city}
-            placeholder=""
-            onChange={(e) => setCity(e.target.value)}
-          />
-          <Label for="state">State</Label>
-          <Input
-            type="text"
-            name="state"
-            value={state}
-            placeholder=""
-            onChange={(e) => setState(e.target.value)}
-          />
-          <Label for="workfromyear"> From year</Label>
-          <Input
-            type="text"
-            name="workfromyear"
-            value={workfromyear}
-            placeholder=""
-            onChange={(e) => setWorkfromyear(e.target.value)}
-          />
-          <Label for="worktoyear"> To year</Label>
-          <Input
-            type="text"
-            name="worktoyear"
-            value={worktoyear}
-            placeholder=""
-            onChange={(e) => setWorktoyear(e.target.value)}
-          />
-          <Label for="responsibilities"> Responsibilities</Label>
-          <Input
-            type="textarea"
-            name="responsibilities"
-            value={responsibilities}
-            placeholder=""
-            onChange={(e) => setResponsibilities(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup align="center">
-          <Button color="color2" type="submit">
-            Done
+          <Button color="color2" onClick={handleAddEducation}>
+            Add more qualifications
           </Button>
+          <Button color="color2" onClick={handleRemoveEducations}>
+            Remove recent qualification
+          </Button>
+        </FormGroup>
+        <hr />
+        {inputEducations.map((inputEducation) => (
+          <FormGroup controlId={inputEducation.id}>
+            <FormGroup align="center">
+              <Label for="education">ACADEMICS </Label>
+            </FormGroup>
+            <Label for="fromyear">From year </Label>
+            <Input
+              type="text"
+              name="fromyear"
+              value={inputEducation.fromyear}
+              placeholder=""
+              onChange={(e) => handleChangeEducation(inputEducation.id, e)}
+            />
+            <Label for="toyear">To year </Label>
+            <Input
+              type="text"
+              name="toyear"
+              value={inputEducation.toyear}
+              placeholder=""
+              onChange={(e) => handleChangeEducation(inputEducation.id, e)}
+            />
+            <Label for="qualification">Qualification </Label>
+            <Input
+              type="text"
+              name="qualification"
+              value={inputEducation.qualification}
+              placeholder=""
+              onChange={(e) => handleChangeEducation(inputEducation.id, e)}
+            />
+            <Label for="institute">Institute </Label>
+            <Input
+              type="text"
+              name="institute"
+              value={inputEducation.institute}
+              placeholder=""
+              onChange={(e) => handleChangeEducation(inputEducation.id, e)}
+            />
+          </FormGroup>
+        ))}
+
+        <FormGroup align="center">
+          <Label for="workexp">WORK EXPERIENCE/S</Label>
+          <Button color="color2" onClick={handleAddWorkExp}>
+            Add more work experience
+          </Button>
+          <Button color="color2" onClick={handleRemoveWorkExps}>
+            Remove recent work experience
+          </Button>
+          <hr />
+          {inputWorkExps.map((inputWorkExp) => (
+            <FormGroup controlId={inputWorkExp.id}>
+              <FormGroup align="center">
+                <Label for="workexp">WORK EXPERIENCE </Label>
+              </FormGroup>
+              <Label for="company">Company </Label>
+              <Input
+                type="text"
+                name="company"
+                value={inputWorkExp.company}
+                placeholder=""
+                onChange={(e) => handleChangeWorkExp(inputWorkExp.id, e)}
+              />
+              <Label for="role">Role</Label>
+              <Input
+                type="text"
+                name="role"
+                value={inputWorkExp.role}
+                placeholder=""
+                onChange={(e) => handleChangeWorkExp(inputWorkExp.id, e)}
+              />
+              <Label for="city">City</Label>
+              <Input
+                type="text"
+                name="city"
+                value={inputWorkExp.city}
+                placeholder=""
+                onChange={(e) => handleChangeWorkExp(inputWorkExp.id, e)}
+              />
+              <Label for="state">State</Label>
+              <Input
+                type="text"
+                name="state"
+                value={inputWorkExp.state}
+                placeholder=""
+                onChange={(e) => handleChangeWorkExp(inputWorkExp.id, e)}
+              />
+              <Label for="workfromyear"> From year</Label>
+              <Input
+                type="text"
+                name="workfromyear"
+                value={inputWorkExp.workfromyear}
+                placeholder=""
+                onChange={(e) => handleChangeWorkExp(inputWorkExp.id, e)}
+              />
+              <Label for="worktoyear"> To year</Label>
+              <Input
+                type="text"
+                name="worktoyear"
+                value={inputWorkExp.worktoyear}
+                placeholder=""
+                onChange={(e) => handleChangeWorkExp(inputWorkExp.id, e)}
+              />
+              <Label for="responsibilities"> Responsibilities</Label>
+              <Input
+                type="textarea"
+                name="responsibilities"
+                value={inputWorkExp.responsibilities}
+                placeholder=""
+                onChange={(e) => handleChangeWorkExp(inputWorkExp.id, e)}
+              />
+            </FormGroup>
+          ))}
+          <FormGroup align="center">
+            <Button color="color2" type="submit">
+              Done
+            </Button>
+          </FormGroup>
         </FormGroup>
       </Form>
     </DCard>
