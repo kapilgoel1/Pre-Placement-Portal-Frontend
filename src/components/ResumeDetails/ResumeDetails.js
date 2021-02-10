@@ -43,7 +43,7 @@ const ResumeDetails = (props) => {
     if (counter === limit) {
       swal("You have reached the limit of adding " + counter + " inputs");
     } else {
-      var newdiv = document.createElement("div");
+      var newdiv = document.createElement("FormGroup");
       newdiv.innerHTML = "Project " + (counter + 1) + " ";
       document.getElementById(projectsdone).appendChild(newdiv);
       counter++;
