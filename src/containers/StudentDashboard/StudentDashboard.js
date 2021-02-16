@@ -8,8 +8,8 @@ import ViewFiles from "../../components/Files/ViewFiles/ViewFiles";
 import AnnouncementDetail from "../../components/Announcements/AnnouncementDetail/AnnouncementDetail";
 import ViewAnnouncement from "../../components/Announcements/ViewAnnouncements/ViewAnnouncements";
 import ViewExternalLinks from "../../components/ExternalLinks/ViewExternalLinks/ViewExternalLinks";
-import ResumeDetails from "../../components/ResumeDetails/ResumeDetails";
 import ViewJobs from "../../components/Jobs/ViewJobs/ViewJobs";
+import ResumeForm from "../../components/Resume/ResumeForm/ResumeForm";
 
 const StudentDashboard = () => {
   let { path } = useRouteMatch();
@@ -36,8 +36,8 @@ const StudentDashboard = () => {
         <Route path={`${path}/viewexternallinks`}>
           <ViewExternalLinks />
         </Route>
-        <Route path={`${path}/resumedetails`}>
-          <ResumeDetails />
+        <Route path={`${path}/resumebuilder`}>
+          <ResumeForm />
         </Route>
         <Route path={`${path}/viewjobs`}>
           <ViewJobs />
