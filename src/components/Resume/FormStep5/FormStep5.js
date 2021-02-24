@@ -1,7 +1,17 @@
 import React from "react";
-import { useForm, useFieldArray } from "react-hook-form";
-
-let renderCount = 0;
+import { useForm, useFieldArray, Controller } from "react-hook-form";
+import {
+  NavigationSection,
+  Previous,
+  Continue,
+  WithDelete,
+  Delete,
+  Responsibiltity,
+  ResponsibilityNumber,
+} from "../Resume.elements";
+import { Form, Input, Button, Label } from "reactstrap";
+import DCard from "../../DCard/DCard";
+import { ordinal_suffix_of } from "../../../utils";
 
 function FormStep5({
   workExperience,
@@ -9,7 +19,7 @@ function FormStep5({
   previousStep,
   nextStep,
 }) {
-  const { register, control, handleSubmit, watch } = useForm({
+  const { control, handleSubmit, watch } = useForm({
     defaultValues: {
       test: workExperience,
     },
@@ -25,92 +35,187 @@ function FormStep5({
     setWorkExperience(data.test);
     nextStep();
   };
-  // if you want to control your fields with watch
-  // const watchResult = watch("test");
-  // console.log(watchResult);
-
-  // The following is useWatch example
-  // console.log(useWatch({ name: "test", control }));
-
-  renderCount++;
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>WORK EXPERIENCE </h1>
-        <p>The following demo allow you to delete, append, prepend items</p>
-        <span className="counter">Render Count: {renderCount}</span>
-        <ul>
+      <h1 className="text-white text-center">Resume Builder</h1>
+      <h4 className="text-white text-center">
+        Add your Work Experiences in chronological order (Adding work experience
+        is optional)
+      </h4>
+      <DCard width="600px">
+        <Form onSubmit={handleSubmit(onSubmit)}>
           {fields.map((item, index) => {
             return (
-              <li key={item.id}>
-                <label htmlFor="">Company</label>
-                <input
+              <div key={item.id} className="mb-5">
+                <WithDelete>
+                  <h5>{`${ordinal_suffix_of(index + 1)} Work Experience`}</h5>
+                  <Delete type="button" onClick={() => remove(index)}>
+                    Delete
+                  </Delete>
+                </WithDelete>
+
+                <Label htmlFor="">Company</Label>
+                <Controller
                   name={`test[${index}].company`}
-                  defaultValue={`${item.company}`} // make sure to set up defaultValue
-                  ref={register()}
-                  required
-                />
-                <label htmlFor="">Role</label>
-                <input
-                  name={`test[${index}].role`}
-                  defaultValue={`${item.role}`} // make sure to set up defaultValue
-                  ref={register()}
-                  required
-                />
-                <label htmlFor="">State</label>
-                <input
-                  name={`test[${index}].state`}
-                  defaultValue={`${item.state}`} // make sure to set up defaultValue
-                  ref={register()}
-                  required
-                />
-                <label htmlFor="">From Year</label>
-                <input
-                  name={`test[${index}].fromYear`}
-                  defaultValue={`${item.fromYear}`} // make sure to set up defaultValue
-                  ref={register()}
-                  required
-                />
-                <label htmlFor="">ToYear</label>
-                <input
-                  name={`test[${index}].toYear`}
-                  defaultValue={`${item.toYear}`} // make sure to set up defaultValue
-                  ref={register()}
-                  required
-                />
-                <label htmlFor="">Responsibilities(ADD UPTO 4)</label>
-                <input
-                  name={`test[${index}].responsibility1`}
-                  defaultValue={`${item.responsibility1}`} // make sure to set up defaultValue
-                  ref={register()}
-                />
-                <input
-                  name={`test[${index}].responsibility2`}
-                  defaultValue={`${item.responsibility2}`} // make sure to set up defaultValue
-                  ref={register()}
-                />
-                <input
-                  name={`test[${index}].responsibility3`}
-                  defaultValue={`${item.responsibility3}`} // make sure to set up defaultValue
-                  ref={register()}
-                />
-                <input
-                  name={`test[${index}].responsibility4`}
-                  defaultValue={`${item.responsibility4}`} // make sure to set up defaultValue
-                  ref={register()}
+                  defaultValue={`${item.company}`}
+                  rules={{}}
+                  control={control}
+                  render={(props) => (
+                    <Input
+                      type="text"
+                      className="mb-2"
+                      onChange={(e) => props.onChange(e.target.value)}
+                      value={props.value}
+                      required
+                    />
+                  )}
                 />
 
-                <button type="button" onClick={() => remove(index)}>
-                  Delete
-                </button>
-              </li>
+                <Label htmlFor="">Role</Label>
+                <Controller
+                  name={`test[${index}].role`}
+                  defaultValue={`${item.role}`}
+                  rules={{}}
+                  control={control}
+                  render={(props) => (
+                    <Input
+                      type="text"
+                      className="mb-2"
+                      onChange={(e) => props.onChange(e.target.value)}
+                      value={props.value}
+                      required
+                    />
+                  )}
+                />
+
+                <Label htmlFor="">State</Label>
+                <Controller
+                  name={`test[${index}].state`}
+                  defaultValue={`${item.state}`}
+                  rules={{}}
+                  control={control}
+                  render={(props) => (
+                    <Input
+                      type="text"
+                      className="mb-2"
+                      onChange={(e) => props.onChange(e.target.value)}
+                      value={props.value}
+                      required
+                    />
+                  )}
+                />
+
+                <Label htmlFor="">From Year</Label>
+                <Controller
+                  name={`test[${index}].fromYear`}
+                  defaultValue={`${item.fromYear}`}
+                  rules={{}}
+                  control={control}
+                  render={(props) => (
+                    <Input
+                      type="text"
+                      className="mb-2"
+                      onChange={(e) => props.onChange(e.target.value)}
+                      value={props.value}
+                      required
+                    />
+                  )}
+                />
+
+                <Label htmlFor="">ToYear</Label>
+                <Controller
+                  name={`test[${index}].toYear`}
+                  defaultValue={`${item.toYear}`}
+                  rules={{}}
+                  control={control}
+                  render={(props) => (
+                    <Input
+                      type="text"
+                      className="mb-2"
+                      onChange={(e) => props.onChange(e.target.value)}
+                      value={props.value}
+                      required
+                    />
+                  )}
+                />
+
+                <Label htmlFor="">Responsibilities(ADD UPTO 4)</Label>
+                <Responsibiltity>
+                  <ResponsibilityNumber>1)</ResponsibilityNumber>
+                  <Controller
+                    name={`test[${index}].responsibility1`}
+                    defaultValue={`${item.responsibility1}`}
+                    rules={{}}
+                    control={control}
+                    render={(props) => (
+                      <Input
+                        type="text"
+                        onChange={(e) => props.onChange(e.target.value)}
+                        value={props.value}
+                        required
+                      />
+                    )}
+                  />
+                </Responsibiltity>
+                <Responsibiltity>
+                  <ResponsibilityNumber>2)</ResponsibilityNumber>
+                  <Controller
+                    name={`test[${index}].responsibility2`}
+                    defaultValue={`${item.responsibility2}`}
+                    rules={{}}
+                    control={control}
+                    render={(props) => (
+                      <Input
+                        type="text"
+                        onChange={(e) => props.onChange(e.target.value)}
+                        value={props.value}
+                        required
+                      />
+                    )}
+                  />
+                </Responsibiltity>
+                <Responsibiltity>
+                  <ResponsibilityNumber>3)</ResponsibilityNumber>
+                  <Controller
+                    name={`test[${index}].responsibility3`}
+                    defaultValue={`${item.responsibility3}`}
+                    rules={{}}
+                    control={control}
+                    render={(props) => (
+                      <Input
+                        type="text"
+                        onChange={(e) => props.onChange(e.target.value)}
+                        value={props.value}
+                        required
+                      />
+                    )}
+                  />
+                </Responsibiltity>
+                <Responsibiltity>
+                  <ResponsibilityNumber>4)</ResponsibilityNumber>
+                  <Controller
+                    name={`test[${index}].responsibility4`}
+                    defaultValue={`${item.responsibility4}`}
+                    rules={{}}
+                    control={control}
+                    render={(props) => (
+                      <Input
+                        type="text"
+                        className="mb-2"
+                        onChange={(e) => props.onChange(e.target.value)}
+                        value={props.value}
+                        required
+                      />
+                    )}
+                  />
+                </Responsibiltity>
+              </div>
             );
           })}
-        </ul>
-        <section>
-          <button
+          <Button
             type="button"
+            className="btn-lg btn-block mt-4"
             onClick={() => {
               append({
                 company: "",
@@ -125,21 +230,22 @@ function FormStep5({
               });
             }}
           >
-            append
-          </button>
-        </section>
-
-        <button
-          onClick={(e) => {
-            let data = watch();
-            setWorkExperience(data.test);
-            previousStep();
-          }}
-        >
-          Previous
-        </button>
-        <input type="submit" value="Continue" />
-      </form>
+            ADD ANOTHER WORK EXPERIENCE
+          </Button>
+          <NavigationSection>
+            <Previous
+              onClick={(e) => {
+                let data = watch();
+                setWorkExperience(data.test);
+                previousStep();
+              }}
+            >
+              Previous
+            </Previous>
+            <Continue>Continue</Continue>
+          </NavigationSection>
+        </Form>
+      </DCard>
     </>
   );
 }

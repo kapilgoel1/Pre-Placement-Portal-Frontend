@@ -1,10 +1,18 @@
 import React from "react";
-import { useForm, useFieldArray } from "react-hook-form";
-
-let renderCount = 0;
+import { useForm, useFieldArray, Controller } from "react-hook-form";
+import {
+  NavigationSection,
+  Previous,
+  Continue,
+  WithDelete,
+  Delete,
+} from "../Resume.elements";
+import { Form, Input, Button, Label } from "reactstrap";
+import DCard from "../../DCard/DCard";
+import { ordinal_suffix_of } from "../../../utils";
 
 function FormStep6({ projects, setProjects, previousStep, nextStep }) {
-  const { register, control, handleSubmit, watch } = useForm({
+  const { control, handleSubmit, watch } = useForm({
     defaultValues: {
       test: projects,
     },
@@ -20,56 +28,78 @@ function FormStep6({ projects, setProjects, previousStep, nextStep }) {
     setProjects(data.test);
     nextStep();
   };
-  // if you want to control your fields with watch
-  // const watchResult = watch("test");
-  // console.log(watchResult);
-
-  // The following is useWatch example
-  // console.log(useWatch({ name: "test", control }));
-
-  renderCount++;
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>PROJECTS </h1>
-        <p>The following demo allow you to delete, append, prepend items</p>
-        <span className="counter">Render Count: {renderCount}</span>
-        <ul>
+      <h1 className="text-white text-center">Resume Builder</h1>
+      <h4 className="text-white text-center">Add your projects</h4>
+      <DCard width="600px">
+        <Form onSubmit={handleSubmit(onSubmit)}>
           {fields.map((item, index) => {
             return (
-              <li key={item.id}>
-                <label htmlFor="">Project Title</label>
-                <input
+              <div key={item.id} className="mb-5">
+                <WithDelete>
+                  <h5>{`${ordinal_suffix_of(index + 1)} Project`}</h5>
+                  <Delete type="button" onClick={() => remove(index)}>
+                    Delete
+                  </Delete>
+                </WithDelete>
+                <Label htmlFor="">Project Title</Label>
+                <Controller
                   name={`test[${index}].title`}
-                  defaultValue={`${item.title}`} // make sure to set up defaultValue
-                  ref={register()}
-                  required
+                  defaultValue={`${item.title}`}
+                  rules={{}}
+                  control={control}
+                  render={(props) => (
+                    <Input
+                      type="text"
+                      className="mb-2"
+                      onChange={(e) => props.onChange(e.target.value)}
+                      value={props.value}
+                      required
+                    />
+                  )}
                 />
-                <label htmlFor="">Technologies Used</label>
-                <input
+
+                <Label htmlFor="">Technologies Used</Label>
+                <Controller
                   name={`test[${index}].technologiesUsed`}
-                  defaultValue={`${item.technologiesUsed}`} // make sure to set up defaultValue
-                  ref={register()}
-                  required
+                  defaultValue={`${item.technologiesUsed}`}
+                  rules={{}}
+                  control={control}
+                  render={(props) => (
+                    <Input
+                      type="text"
+                      className="mb-2"
+                      onChange={(e) => props.onChange(e.target.value)}
+                      value={props.value}
+                      required
+                    />
+                  )}
                 />
-                <label htmlFor="">Description</label>
-                <input
+
+                <Label htmlFor="">Description</Label>
+                <Controller
                   name={`test[${index}].description`}
-                  defaultValue={`${item.description}`} // make sure to set up defaultValue
-                  ref={register()}
-                  required
+                  defaultValue={`${item.description}`}
+                  rules={{}}
+                  control={control}
+                  render={(props) => (
+                    <Input
+                      type="text"
+                      className="mb-2"
+                      onChange={(e) => props.onChange(e.target.value)}
+                      value={props.value}
+                      required
+                    />
+                  )}
                 />
-                <button type="button" onClick={() => remove(index)}>
-                  Delete
-                </button>
-              </li>
+              </div>
             );
           })}
-        </ul>
-        <section>
-          <button
+          <Button
             type="button"
+            className="btn-lg btn-block mt-4"
             onClick={() => {
               append({
                 title: "",
@@ -78,21 +108,22 @@ function FormStep6({ projects, setProjects, previousStep, nextStep }) {
               });
             }}
           >
-            append
-          </button>
-        </section>
-
-        <button
-          onClick={(e) => {
-            let data = watch();
-            setProjects(data.test);
-            previousStep();
-          }}
-        >
-          Previous
-        </button>
-        <input type="submit" value="Continue" />
-      </form>
+            ADD ANOTHER PROJECT
+          </Button>
+          <NavigationSection>
+            <Previous
+              onClick={(e) => {
+                let data = watch();
+                setProjects(data.test);
+                previousStep();
+              }}
+            >
+              Previous
+            </Previous>
+            <Continue>Generate Resume</Continue>
+          </NavigationSection>
+        </Form>
+      </DCard>
     </>
   );
 }

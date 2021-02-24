@@ -1,10 +1,17 @@
 import React from "react";
-import { useForm, useFieldArray } from "react-hook-form";
-
-let renderCount = 0;
+import { useForm, useFieldArray, Controller } from "react-hook-form";
+import {
+  NavigationSection,
+  Previous,
+  Continue,
+  Achievement,
+  AchievementNumber,
+} from "../Resume.elements";
+import { Form, Input, Button } from "reactstrap";
+import DCard from "../../DCard/DCard";
 
 function FormStep3({ achievements, setAchievements, previousStep, nextStep }) {
-  const { register, control, handleSubmit, watch } = useForm({
+  const { control, handleSubmit, watch } = useForm({
     defaultValues: {
       test: achievements,
     },
@@ -20,60 +27,64 @@ function FormStep3({ achievements, setAchievements, previousStep, nextStep }) {
     setAchievements(data.test.map((obj) => obj.achievement));
     nextStep();
   };
-  // if you want to control your fields with watch
-  // const watchResult = watch("test");
-  // console.log(watchResult);
-
-  // The following is useWatch example
-  // console.log(useWatch({ name: "test", control }));
-
-  renderCount++;
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>ACHIEVEMENTS </h1>
-        <p>The following demo allow you to delete, append, prepend items</p>
-        <span className="counter">Render Count: {renderCount}</span>
-        <ul>
+      <h1 className="text-white text-center">Resume Builder</h1>
+      <h4 className="text-white text-center">
+        Add your achievements in points
+      </h4>
+      <DCard width="600px">
+        <Form onSubmit={handleSubmit(onSubmit)}>
           {fields.map((item, index) => {
             return (
-              <li key={item.id}>
-                <input
+              <Achievement key={item.id}>
+                <AchievementNumber>{`${index + 1})`}</AchievementNumber>
+
+                <Controller
                   name={`test[${index}].achievement`}
-                  defaultValue={`${item.achievement}`} // make sure to set up defaultValue
-                  ref={register()}
-                  required
+                  defaultValue={`${item.achievement}`}
+                  rules={{}}
+                  control={control}
+                  render={(props) => (
+                    <Input
+                      type="textarea"
+                      onChange={(e) => props.onChange(e.target.value)}
+                      value={props.value}
+                      required
+                    />
+                  )}
                 />
-                <button type="button" onClick={() => remove(index)}>
+
+                <Button type="button" onClick={() => remove(index)}>
                   Delete
-                </button>
-              </li>
+                </Button>
+              </Achievement>
             );
           })}
-        </ul>
-        <section>
-          <button
+          <Button
             type="button"
+            className="btn-lg btn-block mt-4"
             onClick={() => {
               append({ achievement: "" });
             }}
           >
-            append
-          </button>
-        </section>
-
-        <button
-          onClick={(e) => {
-            let data = watch();
-            setAchievements(data.test.map((obj) => obj.achievement));
-            previousStep();
-          }}
-        >
-          Previous
-        </button>
-        <input type="submit" value="Continue" />
-      </form>
+            ADD ANOTHER ACHIEVEMENT
+          </Button>
+          <NavigationSection>
+            <Previous
+              onClick={(e) => {
+                let data = watch();
+                setAchievements(data.test.map((obj) => obj.achievement));
+                previousStep();
+              }}
+            >
+              Previous
+            </Previous>
+            <Continue>Continue</Continue>
+          </NavigationSection>
+        </Form>
+      </DCard>
     </>
   );
 }

@@ -1,10 +1,17 @@
 import React from "react";
-import { useForm, useFieldArray } from "react-hook-form";
-
-let renderCount = 0;
+import { useForm, useFieldArray, Controller } from "react-hook-form";
+import { Form, Button, Input } from "reactstrap";
+import {
+  NavigationSection,
+  Previous,
+  Continue,
+  Skill,
+  SkillNumber,
+} from "../Resume.elements";
+import DCard from "../../DCard/DCard";
 
 function FormStep2({ skills, setSkills, previousStep, nextStep }) {
-  const { register, control, handleSubmit, watch } = useForm({
+  const { control, handleSubmit, watch } = useForm({
     defaultValues: {
       test: skills,
     },
@@ -21,60 +28,60 @@ function FormStep2({ skills, setSkills, previousStep, nextStep }) {
     nextStep();
   };
 
-  // if you want to control your fields with watch
-  // const watchResult = watch("test");
-  // console.log(watchResult);
-
-  // The following is useWatch example
-  // console.log(useWatch({ name: "test", control }));
-
-  renderCount++;
-
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>SKILLS </h1>
-        <p>The following demo allow you to delete, append, prepend items</p>
-        <span className="counter">Render Count: {renderCount}</span>
-        <ul>
+      <h1 className="text-white text-center">Resume Builder</h1>
+      <h4 className="text-white text-center">Add your skills in points</h4>
+      <DCard width="600px">
+        <Form onSubmit={handleSubmit(onSubmit)}>
           {fields.map((item, index) => {
             return (
-              <li key={item.id}>
-                <input
+              <Skill key={item.id}>
+                <SkillNumber>{`${index + 1})`}</SkillNumber>
+                <Controller
                   name={`test[${index}].skill`}
-                  defaultValue={`${item.skill}`} // make sure to set up defaultValue
-                  ref={register()}
-                  required
+                  defaultValue={`${item.skill}`}
+                  rules={{}}
+                  control={control}
+                  render={(props) => (
+                    <Input
+                      type="textarea"
+                      onChange={(e) => props.onChange(e.target.value)}
+                      value={props.value}
+                      required
+                    />
+                  )}
                 />
-                <button type="button" onClick={() => remove(index)}>
+                <Button type="button" onClick={() => remove(index)}>
                   Delete
-                </button>
-              </li>
+                </Button>
+              </Skill>
             );
           })}
-        </ul>
-        <section>
-          <button
+
+          <Button
             type="button"
+            className="btn-lg btn-block mt-4"
             onClick={() => {
               append({ skill: "" });
             }}
           >
-            append
-          </button>
-        </section>
-
-        <button
-          onClick={(e) => {
-            let data = watch();
-            setSkills(data.test.map((obj) => obj.skill));
-            previousStep();
-          }}
-        >
-          Previous
-        </button>
-        <input type="submit" value="Continue" />
-      </form>
+            ADD ANOTHER SKILL
+          </Button>
+          <NavigationSection>
+            <Previous
+              onClick={(e) => {
+                let data = watch();
+                setSkills(data.test.map((obj) => obj.skill));
+                previousStep();
+              }}
+            >
+              Previous
+            </Previous>
+            <Continue>Continue</Continue>
+          </NavigationSection>
+        </Form>
+      </DCard>
     </>
   );
 }

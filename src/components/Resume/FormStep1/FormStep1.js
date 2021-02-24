@@ -1,80 +1,176 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
+import { Input, Label, Form, FormGroup } from "reactstrap";
+import { NavigationSection, Continue } from "../Resume.elements";
+import DCard from "../../DCard/DCard";
 
 function FormStep1({ personalDetails, setPersonalDetails, nextStep }) {
-  const { register, handleSubmit, errors } = useForm();
+  const { handleSubmit, errors, control } = useForm({
+    defaultValues: {
+      name: personalDetails.name,
+      address: personalDetails.address,
+      phone: personalDetails.phone,
+      email: personalDetails.email,
+      dob: personalDetails.dob,
+      languagesKnown: personalDetails.languagesKnown,
+      hobbies: personalDetails.hobbies,
+      careerObjective: personalDetails.careerObjective,
+    },
+  });
   const onSubmit = (data) => {
     setPersonalDetails(data);
     nextStep();
-  }; // your form submit function which will invoke after successful validation
-
-  // you can watch individual input by pass the name of the input
+  };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Full Name</label>
-        <input
-          name="name"
-          defaultValue={personalDetails.name}
-          ref={register({ required: "This is required" })}
-        />
-        {errors.name?.message}
-        <label>Address</label>
-        <input
-          name="address"
-          defaultValue={personalDetails.address}
-          ref={register({ required: "This is required" })}
-        />
-        {errors.address?.message}
+    <>
+      <h1 className="text-center text-white">Resume Builder</h1>
+      <h4 className="text-center text-white">
+        Fill Personal Details & Career Objective
+      </h4>
+      <DCard width="600px">
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <FormGroup>
+            <Label>Full Name</Label>
+            <Controller
+              name="name"
+              rules={{ required: "This is required" }}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="text"
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
+            {errors.name?.message}
+          </FormGroup>
+          <FormGroup>
+            <Label>Address</Label>
+            <Controller
+              name="address"
+              rules={{ required: "This is required" }}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="text"
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
 
-        <label>Phone</label>
-        <input
-          name="phone"
-          defaultValue={personalDetails.phone}
-          ref={register({ required: "This is required" })}
-        />
-        {errors.phone?.message}
+            {errors.address?.message}
+          </FormGroup>
+          <FormGroup>
+            <Label>Phone</Label>
+            <Controller
+              name="phone"
+              rules={{ required: "This is required" }}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="text"
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
 
-        <label>Email</label>
-        <input
-          name="email"
-          defaultValue={personalDetails.email}
-          ref={register({ required: "This is required" })}
-        />
-        {errors.email?.message}
+            {errors.phone?.message}
+          </FormGroup>
+          <FormGroup>
+            <Label>Email</Label>
+            <Controller
+              name="email"
+              rules={{ required: "This is required" }}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="text"
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
 
-        <label>DOB</label>
-        <input
-          name="dob"
-          defaultValue={personalDetails.dob}
-          ref={register({ required: "This is required" })}
-        />
-        {errors.dob?.message}
-        <label>Languages Known</label>
-        <input
-          name="languagesKnown"
-          defaultValue={personalDetails.languagesKnown}
-          ref={register({ required: "This is required" })}
-        />
-        {errors.languagesKnown?.message}
-        <label>Hobbies</label>
-        <input
-          name="hobbies"
-          defaultValue={personalDetails.hobbies}
-          ref={register({ required: "This is required" })}
-        />
-        {errors.hobbies?.message}
-        <label>Career Objective</label>
-        <input
-          name="careerObjective"
-          defaultValue={personalDetails.careerObjective}
-          ref={register({ required: "This is required" })}
-        />
-        {errors.careerObjective?.message}
-        <input type="submit" value="Continue" />
-      </form>
-    </div>
+            {errors.email?.message}
+          </FormGroup>
+          <FormGroup>
+            <Label>DOB</Label>
+            <Controller
+              name="dob"
+              rules={{ required: "This is required" }}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="text"
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
+
+            {errors.dob?.message}
+          </FormGroup>
+
+          <FormGroup>
+            <Label>Languages Known</Label>
+            <Controller
+              name="languagesKnown"
+              rules={{ required: "This is required" }}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="text"
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
+
+            {errors.languagesKnown?.message}
+          </FormGroup>
+          <FormGroup>
+            <Label>Hobbies</Label>
+            <Controller
+              name="hobbies"
+              rules={{ required: "This is required" }}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="text"
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
+            {errors.hobbies?.message}
+          </FormGroup>
+          <FormGroup>
+            <Label>Career Objective</Label>
+            <Controller
+              name="careerObjective"
+              rules={{ required: "This is required" }}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="textarea"
+                  rows={3}
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
+            {errors.careerObjective?.message}
+          </FormGroup>
+          <NavigationSection>
+            <Continue>Continue</Continue>
+          </NavigationSection>
+        </Form>
+      </DCard>
+    </>
   );
 }
 

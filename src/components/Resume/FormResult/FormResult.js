@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Anch, AnchContainer } from "./FormResult.elements";
 
-export default function FormResult({ resume }) {
+export default function FormResult({ resume, setStep }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -24,19 +25,39 @@ export default function FormResult({ resume }) {
   if (!loading && errorMessage === "")
     return (
       <div>
-        <p>Resume Generated</p>
-        <a
-          href="http://localhost:4000/resume/my/view"
-          target="_blank"
-          rel="noreferrer"
-        >
-          View Resume
-        </a>
-        <a href="http://localhost:4000/resume/my/download" download>
-          Download Resume
-        </a>
+        <h4 className="text-white text-center">Resume Generated</h4>
+        <AnchContainer>
+          <Anch
+            className=""
+            href="http://localhost:4000/resume/my/view"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View Resume
+          </Anch>
+        </AnchContainer>
+        <AnchContainer>
+          <Anch
+            href="http://localhost:4000/resume/my/download"
+            className=""
+            download
+          >
+            Download Resume
+          </Anch>
+        </AnchContainer>
+        <AnchContainer>
+          <Anch onClick={() => setStep(1)}>Edit Resume</Anch>
+        </AnchContainer>
       </div>
     );
-  else if (errorMessage !== "") return <p>{errorMessage}</p>;
+  else if (errorMessage !== "")
+    return (
+      <>
+        <h4 className="text-white text-center">{errorMessage}</h4>
+        <AnchContainer>
+          <Anch onClick={() => setStep(1)}>Edit Resume</Anch>
+        </AnchContainer>
+      </>
+    );
   else return null;
 }
