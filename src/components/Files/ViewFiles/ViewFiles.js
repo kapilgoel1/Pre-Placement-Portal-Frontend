@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import FileStrip from "../FileStrip/FileStrip";
-import { Input, FormGroup, Form } from "reactstrap";
+import { Input, FormGroup, Form, Label } from "reactstrap";
 import DCard from "../../DCard/DCard";
 import "./ViewFiles.scss";
 import AuthContext from "../../../AuthContext";
@@ -14,6 +14,7 @@ function ViewFiles(props) {
   const [subjectList, setsubjectList] = useState([]);
   const [pageCount, setpageCount] = useState(5);
   const [offset, setoffset] = useState(0);
+  const [checked, setChecked] = React.useState(true);
   let { category } = useParams();
   const { user } = useContext(AuthContext);
 
@@ -138,6 +139,17 @@ function ViewFiles(props) {
               </option>
             ))}
           </Input>
+
+          <FormGroup check>
+            <Label check>
+              <Input
+                type="checkbox"
+                defaultChecked={checked}
+                onChange={() => setChecked(!checked)}
+              />{" "}
+              Files Uploaded by Me
+            </Label>
+          </FormGroup>
           <div className="filestrip-header">
             <div className="filestrip-header__filename">
               <h5>Filename</h5>

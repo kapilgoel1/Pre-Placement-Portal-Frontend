@@ -153,7 +153,6 @@ function FormStep5({
                         type="text"
                         onChange={(e) => props.onChange(e.target.value)}
                         value={props.value}
-                        required
                       />
                     )}
                   />
@@ -170,7 +169,6 @@ function FormStep5({
                         type="text"
                         onChange={(e) => props.onChange(e.target.value)}
                         value={props.value}
-                        required
                       />
                     )}
                   />
@@ -187,7 +185,6 @@ function FormStep5({
                         type="text"
                         onChange={(e) => props.onChange(e.target.value)}
                         value={props.value}
-                        required
                       />
                     )}
                   />
@@ -205,7 +202,6 @@ function FormStep5({
                         className="mb-2"
                         onChange={(e) => props.onChange(e.target.value)}
                         value={props.value}
-                        required
                       />
                     )}
                   />
