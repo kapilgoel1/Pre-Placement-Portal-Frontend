@@ -14,7 +14,7 @@ function ViewFiles(props) {
   const [subjectList, setsubjectList] = useState([]);
   const [pageCount, setpageCount] = useState(5);
   const [offset, setoffset] = useState(0);
-  const [checked, setChecked] = React.useState(true);
+  const [myFilesChecked, setMyFilesChecked] = React.useState(false);
   let { category } = useParams();
   const { user } = useContext(AuthContext);
 
@@ -38,6 +38,7 @@ function ViewFiles(props) {
     if (category !== undefined) {
       url.searchParams.append("category", category);
     }
+    if (myFilesChecked === true) url.searchParams.append("myfiles", "true");
     url.searchParams.append("limit", props.limit);
     url.searchParams.append("skip", offset);
     if (subject !== "") url.searchParams.append("subject", subject);
@@ -66,7 +67,7 @@ function ViewFiles(props) {
       .catch((err) => {
         console.log(err);
       });
-  }, [offset, subject, searchField, props.limit, category]);
+  }, [offset, subject, searchField, props.limit, category, myFilesChecked]);
 
   const afterDelete = () => {
     console.log("after date");
@@ -111,96 +112,108 @@ function ViewFiles(props) {
   };
 
   return (
-    <DCard width="1200px">
-      <Form autoComplete="off">
-        <FormGroup>
-          <Input
-            type="search"
-            placeholder="Search File By Name"
-            onChange={(e) => {
-              setsearchField(e.target.value);
-              setoffset(0);
-            }}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Input
-            type="select"
-            value={subject}
-            onChange={(e) => {
-              setsubject(e.target.value);
-              setoffset(0);
-            }}
-          >
-            <option value="">All Subjects</option>
-            {subjectList.map((sub) => (
-              <option value={sub._id} key={sub._id}>
-                {sub.title}
-              </option>
-            ))}
-          </Input>
-
-          <FormGroup check>
-            <Label check>
+    <>
+      <h1 className="text-center mb-4 pb-3 text-primary">Notes</h1>
+      <div className="filepage">
+        <div className="filepage__filters">
+          <div className="filepage__filters__box">
+            <h3>Filters</h3>
+            <FormGroup>
+              <Label>FileName</Label>
               <Input
-                type="checkbox"
-                defaultChecked={checked}
-                onChange={() => setChecked(!checked)}
-              />{" "}
-              Files Uploaded by Me
-            </Label>
-          </FormGroup>
-          <div className="filestrip-header">
-            <div className="filestrip-header__filename">
-              <h5>Filename</h5>
-            </div>
-            <div className="filestrip-header__subject">
-              <h5>Subject</h5>
-            </div>
-            <div className="filestrip-header__dateuploaded">
-              <h5>Date Uploaded</h5>
-            </div>
-            <div className="filestrip-header__uploadedby">
-              <h5>Uploaded By</h5>
-            </div>
-            <div className="filestrip-header__action">
-              <h5>Action</h5>
-            </div>
-            {user.role === "faculty" && (
-              <div className="filestrip-header__delete">
+                type="search"
+                placeholder="Search File By Name"
+                onChange={(e) => {
+                  setsearchField(e.target.value);
+                  setoffset(0);
+                }}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>Choose Subject</Label>
+              <Input
+                type="select"
+                value={subject}
+                onChange={(e) => {
+                  setsubject(e.target.value);
+                  setoffset(0);
+                }}
+              >
+                <option value="">All Subjects</option>
+                {subjectList.map((sub) => (
+                  <option value={sub._id} key={sub._id}>
+                    {sub.title}
+                  </option>
+                ))}
+              </Input>
+            </FormGroup>
+            <FormGroup check>
+              <Label check>
+                <Input
+                  type="checkbox"
+                  defaultChecked={myFilesChecked}
+                  onChange={() => setMyFilesChecked(!myFilesChecked)}
+                />{" "}
+                Files Uploaded by Me
+              </Label>
+            </FormGroup>
+          </div>
+        </div>
+
+        <div className="filepage__files">
+          <FormGroup>
+            <div className="filestrip-header">
+              <div className="filestrip-header__filename">
+                <h5>Filename</h5>
+              </div>
+              <div className="filestrip-header__subject">
+                <h5>Subject</h5>
+              </div>
+              <div className="filestrip-header__dateuploaded">
+                <h5>Date Uploaded</h5>
+              </div>
+              <div className="filestrip-header__uploadedby">
+                <h5>Uploaded By</h5>
+              </div>
+              <div className="filestrip-header__action">
                 <h5>Action</h5>
               </div>
-            )}
-          </div>
-          {fileList.map((file) => (
-            <FileStrip key={file._id} file={file} afterDelete={afterDelete} />
-          ))}
-        </FormGroup>
-        <FormGroup>
-          <ReactPaginate
-            previousLabel={<span aria-hidden="true">&laquo;</span>}
-            nextLabel={<span aria-hidden="true">&raquo;</span>}
-            breakLabel={"..."}
-            breakClassName={"page-item"}
-            breakLinkClassName={"page-link"}
-            pageCount={pageCount}
-            forcePage={offset / props.limit}
-            marginPagesDisplayed={0}
-            pageRangeDisplayed={4}
-            onPageChange={handlePageClick}
-            containerClassName={"pagination"}
-            subContainerClassName={""}
-            activeClassName={"active"}
-            pageClassName={"page-item"}
-            pageLinkClassName={"page-link"}
-            previousClassName={"page-item"}
-            previousLinkClassName={"page-link"}
-            nextClassName={"page-item"}
-            nextLinkClassName={"page-link"}
-          />
-        </FormGroup>
-      </Form>
-    </DCard>
+              {user.role === "faculty" && (
+                <div className="filestrip-header__delete">
+                  <h5>Action</h5>
+                </div>
+              )}
+            </div>
+            {fileList.map((file) => (
+              <FileStrip key={file._id} file={file} afterDelete={afterDelete} />
+            ))}
+          </FormGroup>
+          <FormGroup>
+            <ReactPaginate
+              previousLabel={<span aria-hidden="true">&laquo;</span>}
+              nextLabel={<span aria-hidden="true">&raquo;</span>}
+              breakLabel={"..."}
+              breakClassName={"page-item"}
+              breakLinkClassName={"page-link"}
+              pageCount={pageCount}
+              forcePage={offset / props.limit}
+              marginPagesDisplayed={0}
+              pageRangeDisplayed={4}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={""}
+              activeClassName={"active"}
+              pageClassName={"page-item"}
+              pageLinkClassName={"page-link"}
+              previousClassName={"page-item"}
+              previousLinkClassName={"page-link"}
+              nextClassName={"page-item"}
+              nextLinkClassName={"page-link"}
+            />
+          </FormGroup>
+        </div>
+      </div>
+    </>
   );
 }
 
