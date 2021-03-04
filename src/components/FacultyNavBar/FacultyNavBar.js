@@ -25,7 +25,8 @@ const FacultyNavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { setuser } = useContext(AuthContext);
   let history = useHistory();
-  let { url } = useRouteMatch();
+  // let { url } = useRouteMatch();
+  let url = "/facultydashboard";
 
   const toggle = () => setIsOpen(!isOpen);
 

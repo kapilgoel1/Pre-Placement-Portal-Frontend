@@ -3,19 +3,18 @@ import "./App.scss";
 
 import StudentDashboard from "./containers/StudentDashboard/StudentDashboard";
 import FacultyDashboard from "./containers/FacultyDashboard/FacultyDashboard";
+import AdminDashboard from "./containers/AdminDashboard/AdminDashboard";
 import About from "./components/About/About";
-import Main from "./containers/Main/Main";
-import New from "./containers/Home/home";
+import Home from "./containers/Home/home";
 import { Spinner } from "reactstrap";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 
-import SecuredFacultyRoute from "./SecuredFacultyRoute";
-import SecuredStudentRoute from "./SecuredStudentRoute";
 import AuthContext from "./AuthContext";
 
 const App = () => {
   const [loading, setloading] = useState(true);
   const [user, setuser] = useState({ role: "", loggedin: false });
+  let history = useHistory();
 
   useEffect(() => {
     console.log("runned");
@@ -33,15 +32,112 @@ const App = () => {
           setuser({ role: result.role, loggedin: true });
         } else if (result.role === "student") {
           setuser({ role: result.role, loggedin: true });
+        } else if (result.role === "admin") {
+          setuser({ role: result.role, loggedin: true });
         } else {
           setuser({ role: "", loggedin: false });
+          history.replace("/");
         }
         setloading(false);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [user.role, user.loggedin]);
+  }, [user.role, user.loggedin, history]);
+
+  let calculatedRoutes = null;
+
+  if (user.role === "student")
+    calculatedRoutes = (
+      <Switch>
+        <AuthContext.Provider
+          value={{
+            user: user,
+            setuser: setuser,
+          }}
+        >
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <About />
+          </Route>
+
+          <Route path="/">
+            <StudentDashboard />
+          </Route>
+        </AuthContext.Provider>
+      </Switch>
+    );
+
+  if (user.role === "faculty")
+    calculatedRoutes = (
+      <Switch>
+        <AuthContext.Provider
+          value={{
+            user: user,
+            setuser: setuser,
+          }}
+        >
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <About />
+          </Route>
+
+          <Route path="/">
+            <FacultyDashboard />
+          </Route>
+        </AuthContext.Provider>
+      </Switch>
+    );
+
+  if (user.role === "admin")
+    calculatedRoutes = (
+      <Switch>
+        <AuthContext.Provider
+          value={{
+            user: user,
+            setuser: setuser,
+          }}
+        >
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <About />
+          </Route>
+
+          <Route path="/">
+            <AdminDashboard />
+          </Route>
+        </AuthContext.Provider>
+      </Switch>
+    );
+
+  if (user.loggedin === false && loading === false)
+    calculatedRoutes = (
+      <Switch>
+        <AuthContext.Provider
+          value={{
+            user: user,
+            setuser: setuser,
+          }}
+        >
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <About />
+          </Route>
+
+          <Route path="/">
+            <Home />
+          </Route>
+        </AuthContext.Provider>
+      </Switch>
+    );
 
   if (loading)
     return (
@@ -49,38 +145,7 @@ const App = () => {
         <Spinner />
       </div>
     );
-  else
-    return (
-      <div className="App">
-        <Switch>
-          <AuthContext.Provider
-            value={{
-              user: user,
-              setuser: setuser,
-            }}
-          >
-            <Route exact path="/">
-              <Main />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/contact">
-              <About />
-            </Route>
-            <Route path="/new">
-              <New />
-            </Route>
-            <SecuredFacultyRoute path="/facultydashboard">
-              <FacultyDashboard />
-            </SecuredFacultyRoute>
-            <SecuredStudentRoute path="/studentdashboard">
-              <StudentDashboard />
-            </SecuredStudentRoute>
-          </AuthContext.Provider>
-        </Switch>
-      </div>
-    );
+  else return <div className="App">{calculatedRoutes}</div>;
 };
 
 export default App;

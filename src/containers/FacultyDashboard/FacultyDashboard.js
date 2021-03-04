@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Switch, useRouteMatch } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Switch, useRouteMatch, useHistory } from "react-router-dom";
 import AddExternalLink from "../../components/ExternalLinks/AddExternalLink/AddExternalLink";
 import AddJob from "../../components/Jobs/AddJob/AddJob";
 import AddTest from "../../components/TestLinks/AddTest/AddTest";
@@ -18,7 +18,13 @@ import ViewJobPostings from "../../components/Jobs/ViewJobs/ViewJobs";
 import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
 
 const FacultyDashboard = (props) => {
-  let { path } = useRouteMatch();
+  // let { path } = useRouteMatch();
+  let path = "/facultydashboard";
+  let history = useHistory();
+
+  useEffect(() => {
+    history.replace("/facultydashboard");
+  });
 
   return (
     <div>

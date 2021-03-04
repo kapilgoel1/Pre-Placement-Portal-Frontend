@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import AuthContext from "../../AuthContext";
 import "./Login.scss";
 import swal from "sweetalert";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import {
   Button,
   Form,
@@ -11,6 +11,7 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
+  Label,
 } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
@@ -19,7 +20,9 @@ import avatar from "../../assets/avatardefault_92824.png";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userType, setUserType] = useState("");
   const { setuser } = useContext(AuthContext);
+  let history = useHistory();
 
   // const validateForm = () => {
   //   return email.length > 0 && password.length > 0;
@@ -45,6 +48,8 @@ const Login = () => {
       .then((result) => {
         if (result.role) {
           setuser({ role: result.role, loggedin: true });
+          if (result.role === "faculty") history.replace("/facultydashboard");
+          if (result.role === "student") history.replace("/studentdashboard");
         } else {
           swal("Invalid Login credentials");
         }
@@ -109,7 +114,21 @@ const Login = () => {
             />
           </InputGroup>
         </FormGroup>
-
+        <FormGroup>
+          <Label for="exampleSelect">I am a</Label>
+          <Input
+            type="select"
+            name="select"
+            id="exampleSelect"
+            onChange={(e) => setUserType(e.target.value)}
+            required
+          >
+            <option value="">--Please choose an option--</option>
+            <option>Student</option>
+            <option>Faculty</option>
+            <option>Admin</option>
+          </Input>
+        </FormGroup>
         <Button
           block
           color="color4"

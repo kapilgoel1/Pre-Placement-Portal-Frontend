@@ -26,7 +26,27 @@ const ViewJobs = () => {
   };
 
   useEffect(() => {
-    fetchCall();
+    let controller = new AbortController();
+
+    fetch("http://localhost:4000/jobposting/retrieve", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      signal: controller.signal,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        setJobs(result.postings);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   const onDelete = (d_id) => {
