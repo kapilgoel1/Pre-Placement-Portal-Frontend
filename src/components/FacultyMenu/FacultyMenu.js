@@ -27,6 +27,10 @@ function FacultyMenu() {
     history.push(`${url}/addannouncement`);
   };
 
+  // const onViewAnnouncement = () => {
+  //   history.push(`${url}/viewannouncement`);
+  // };
+
   const onViewStudentsList = () => {
     history.push(`${url}/viewstudent`);
   };
@@ -41,6 +45,7 @@ function FacultyMenu() {
 
   return (
     <div className="container">
+      {/* <font color="white">WELCOME</font> */}
       <Row>
         <Col md={3}>
           <div className="parentdiv parentdiv1" onClick={onAddNewRes}>
@@ -74,6 +79,16 @@ function FacultyMenu() {
             <div className="card-overlay"></div>
             <div className="card-description">ADD NEW EXTERNAL LINK</div>
           </div>
+
+          {
+            // <div className="parentdiv9" onClick={onViewAnnouncement}>
+            //   <div className="childdiv">
+            //     <button className="functionButtons">
+            //       VIEW ALL ANNOUNCEMENTS
+            //     </button>
+            //   </div>
+            // </div>
+          }
         </Col>
         <Col md={3}>
           <div className="parentdiv parentdiv7" onClick={onViewJob}>
@@ -85,6 +100,21 @@ function FacultyMenu() {
             <div className="card-description">VIEW ALL FILES UPLOADED</div>
           </div>
         </Col>
+        {
+          // <Col md={3} className="schedule">
+          //   <div align="center">
+          //     SCHEDULES <br />
+          //   </div>
+          //   <div className="notices" align="center">
+          //     NOTICE 1 <br />
+          //     NOTICE 2 <br />
+          //     NOTICE 3 <br />
+          //     NOTICE 1 <br />
+          //     NOTICE 2 <br />
+          //     NOTICE 3 <br />
+          //   </div>
+          // </Col>
+        }
       </Row>
     </div>
   );

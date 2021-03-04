@@ -6,6 +6,7 @@ import "./StudentStrip.scss";
 function StudentStrip(props) {
   const history = useHistory();
   let { path } = useRouteMatch();
+
   return (
     <div
       className="studentstrip"

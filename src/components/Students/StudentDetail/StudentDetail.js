@@ -74,6 +74,20 @@ const StudentDetail = () => {
               <h6>EMAIL:</h6>
               <p className="text-muted">{studentProfile.email}</p>
             </FormGroup>
+            <FormGroup>
+              {studentProfile.hasresume ? (
+                <a
+                  className="btn btn-color5 w-100"
+                  href={`http://localhost:4000/resume/view/student?userid=${studentProfile._id}&name=${studentProfile.firstname}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View Resume
+                </a>
+              ) : (
+                <p className="btn btn-color5 w-100">Resume not uploaded</p>
+              )}
+            </FormGroup>
           </CardBody>
         </Card>
       </div>
