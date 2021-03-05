@@ -74,22 +74,34 @@ const ViewJobs = () => {
     <div className="job-container">
       <div className="job-card mx-1">
         <FormGroup align="center">
-          <h3 className="text-white">JOB POSTINGS</h3>
+          <h3 className="text-white mb-4 pb-3">Jobs Available</h3>
         </FormGroup>
         {jobs.map((job) => (
           <Card key={job._id} className="mb-3 ">
             <CardBody>
-              <FormGroup>
-                <h4>{job.company}</h4>
+              <FormGroup className="mb-4">
+                <h3>{job.role}</h3>
+                <h5>{job.company}</h5>
               </FormGroup>
-              <FormGroup>
-                <h6>JOB PROFILE</h6>
-                <p className="text-muted jobprofile">{job.jobprofile}</p>
-              </FormGroup>
-              <FormGroup>
-                <h6>PACKAGE</h6>
-                <p className="text-muted">{job.package}</p>
-              </FormGroup>
+              {job.requirements !== "" && (
+                <FormGroup>
+                  <h6>JOB REQUIREMENTS</h6>
+                  <p className="text-muted jobprofile">{job.requirements}</p>
+                </FormGroup>
+              )}
+              {job.description !== "" && (
+                <FormGroup>
+                  <h6>JOB PROFILE</h6>
+                  <p className="text-muted jobprofile">{job.description}</p>
+                </FormGroup>
+              )}
+              {job.salary !== "" && (
+                <FormGroup>
+                  <h6>Salary</h6>
+                  <p className="text-muted">{job.salaryrange}</p>
+                </FormGroup>
+              )}
+
               {user.role === "faculty" && (
                 <Button
                   onClick={(e) => {

@@ -48,26 +48,6 @@ const ViewStudentList = () => {
       </DCard>
     </div>
   );
-
-  // return (
-  //   <div className="container">
-  //     <Form autoComplete="off">
-  //       <FormGroup align="center">
-  //         <Label>STUDENTS LIST</Label>
-  //       </FormGroup>
-  //       {students.map((student) => (
-  //         <Card key={student._id}>
-  //           <CardBody onClick={() => history.push(`${path}/${student._id}`)}>
-  //             <CardTitle>
-  //               {" "}
-  //               {student.firstname} {student.lastname}
-  //             </CardTitle>
-  //           </CardBody>
-  //         </Card>
-  //       ))}
-  //     </Form>
-  //   </div>
-  // );
 };
 
 export default ViewStudentList;

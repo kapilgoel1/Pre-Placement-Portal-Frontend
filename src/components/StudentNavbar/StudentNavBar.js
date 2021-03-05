@@ -26,7 +26,7 @@ const StudentNavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { setuser } = useContext(AuthContext);
   // let { url } = useRouteMatch();
-  let url = "/admindashboard";
+  let url = "/studentdashboard";
   let history = useHistory();
 
   const toggle = () => setIsOpen(!isOpen);

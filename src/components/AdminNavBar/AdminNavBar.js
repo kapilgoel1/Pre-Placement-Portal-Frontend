@@ -15,19 +15,17 @@ import {
 } from "reactstrap";
 import { withRouter } from "react-router-dom";
 
-//This is the navigation bar that will be visible on dashboard
-
 const FacultyNavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { setuser } = useContext(AuthContext);
   let history = useHistory();
-  let { url } = useRouteMatch();
+  // let { url } = useRouteMatch();
 
   let path = "/admindashboard";
-
+  let url = "/admindashboard";
   useEffect(() => {
     history.replace(path);
-  });
+  }, []);
 
   const toggle = () => setIsOpen(!isOpen);
 

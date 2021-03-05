@@ -10,6 +10,7 @@ import ViewAnnouncement from "../../components/Announcements/ViewAnnouncements/V
 import ViewExternalLinks from "../../components/ExternalLinks/ViewExternalLinks/ViewExternalLinks";
 import ViewJobs from "../../components/Jobs/ViewJobs/ViewJobs";
 import ResumeForm from "../../components/Resume/ResumeForm/ResumeForm";
+import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
 
 const StudentDashboard = () => {
   // let { path } = useRouteMatch();
@@ -47,6 +48,9 @@ const StudentDashboard = () => {
         </Route>
         <Route path={`${path}/viewjobs`}>
           <ViewJobs />
+        </Route>
+        <Route path={`${path}/viewtests`}>
+          <ViewTests />
         </Route>
       </Switch>
     </div>
