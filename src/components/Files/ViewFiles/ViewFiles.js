@@ -111,9 +111,16 @@ function ViewFiles(props) {
     setoffset(Math.ceil(selected * props.limit));
   };
 
+  let categoryDisplay = "";
+
+  if (category === "notes") categoryDisplay = "Notes";
+  else if (category === "video") categoryDisplay = "Videos";
+  else if (category === "assignment") categoryDisplay = "Assignments";
+  else if (category === "testpaper") categoryDisplay = "Test Papers";
+
   return (
     <>
-      <h1 className="text-center mb-4 pb-3 text-primary">Notes</h1>
+      <h1 className="text-center mb-4 pb-3 text-primary">{categoryDisplay}</h1>
       <div className="filepage">
         <div className="filepage__filters">
           <div className="filepage__filters__box">

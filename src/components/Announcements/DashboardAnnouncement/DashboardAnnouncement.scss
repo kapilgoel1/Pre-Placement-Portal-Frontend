@@ -1,0 +1,26 @@
+.aouter {
+  width: 350px;
+  color: white;
+  margin-right: 40px;
+}
+
+@media (max-width: 768px) {
+  .aouter {
+    width: 100%;
+  }
+}
+
+.announcementcontainer {
+  background-color: brown;
+}
+
+.announcementcontainer__i__point {
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.announcementcontainer__i {
+  min-height: 400px;
+}

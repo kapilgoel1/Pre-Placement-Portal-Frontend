@@ -16,47 +16,60 @@ import ViewStudents from "../../components/Students/ViewStudents/ViewStudents";
 import ViewExternalLinks from "../../components/ExternalLinks/ViewExternalLinks/ViewExternalLinks";
 import ViewJobPostings from "../../components/Jobs/ViewJobs/ViewJobs";
 import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
+import AddContent from "../../components/FacultyMenu/AddContent/AddContent";
+import ViewContent from "../../components/FacultyMenu/ViewContent/ViewContent";
+
+import PlacementPreparation from "../../components/FacultyMenu/PlacementPreparation/PlacementPreparation";
+import PracticeTests from "../../components/FacultyMenu/PracticeTests/PracticeTests";
 
 const FacultyDashboard = (props) => {
   // let { path } = useRouteMatch();
   let path = "/facultydashboard";
   let history = useHistory();
 
-  useEffect(() => {
-    history.replace("/facultydashboard");
-  });
+  useEffect(() => {});
 
   return (
     <div>
       <FacultyNavBar />
       <Switch>
-        <Route exact path={path}>
-          <FacultyMenu />
+        <Route path="/addcontent">
+          <AddContent />
         </Route>
+        <Route path="/viewcontent">
+          <ViewContent />
+        </Route>
+
         <Route path={`${path}/editprofile`}>
           <FacultyEditProfile />
         </Route>
 
-        <Route path={`${path}/addfile`}>
+        <Route path={`/addfile`}>
           <AddFile />
         </Route>
 
-        <Route path={`${path}/addtest`}>
+        <Route path={`/addtest`}>
           <AddTest />
         </Route>
-        <Route path={`${path}/addjob`}>
+        <Route path={`/addjob`}>
           <AddJob />
         </Route>
-        <Route path={`${path}/addexternallink`}>
+        <Route path={`/addexternallink`}>
           <AddExternalLink />
+        </Route>
+        <Route path={"/placementpreparation"}>
+          <PlacementPreparation />
+        </Route>
+        <Route path={"/practicetests"}>
+          <PracticeTests />
         </Route>
         <Route path={`${path}/addannouncement`}>
           <AddAnnouncement />
         </Route>
-        <Route path={`${path}/viewannouncement/:id`}>
+        <Route path={`/viewannouncement/:id`}>
           <AnnouncementDetail />
         </Route>
-        <Route path={`${path}/viewannouncement`}>
+        <Route path={`/viewannouncement`}>
           <ViewAnnouncements />
         </Route>
         <Route path={`${path}/viewexternallinks`}>
@@ -65,20 +78,23 @@ const FacultyDashboard = (props) => {
         <Route path={`${path}/viewtests`}>
           <ViewTests />
         </Route>
-        <Route path={`${path}/viewjobs`}>
+        <Route path={`/viewjobs`}>
           <ViewJobPostings />
         </Route>
-        <Route path={`${path}/viewstudent/:id`}>
+        <Route path={`/viewstudent/:id`}>
           <StudentDetail />
         </Route>
-        <Route path={`${path}/viewstudent`}>
+        <Route path={`/viewstudent`}>
           <ViewStudents />
         </Route>
-        <Route path={`${path}/files/:category`}>
+        <Route path={`/files/:category`}>
           <ViewFiles limit={30} />
         </Route>
-        <Route path={`${path}/files`}>
+        <Route path={`/files`}>
           <ViewFiles limit={30} />
+        </Route>
+        <Route path="/">
+          <FacultyMenu />
         </Route>
       </Switch>
     </div>

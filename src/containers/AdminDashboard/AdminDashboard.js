@@ -12,24 +12,22 @@ const AdminDashboard = (props) => {
   const history = useHistory();
   let path = "/admindashboard";
 
-  useEffect(() => {
-    history.replace(path);
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div>
       <AdminNavBar />
       <Switch>
-        <Route path={`${path}/editprofile`}>
+        <Route path={`/editprofile`}>
           <AdminEditProfile />
         </Route>
-        <Route path={`${path}/createaccount`}>
+        <Route path={`/createaccount`}>
           <CreateAccount />
         </Route>
-        <Route path={`${path}/manageaccounts`}>
+        <Route path={`/manageaccounts`}>
           <ViewAccounts />
         </Route>
-        <Route path={`${path}/editaccount/:id`}>
+        <Route path={`/editaccount/:id`}>
           <EditAccount />
         </Route>
       </Switch>

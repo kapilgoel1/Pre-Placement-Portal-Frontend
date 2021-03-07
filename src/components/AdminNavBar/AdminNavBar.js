@@ -30,7 +30,7 @@ const FacultyNavBar = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   const onClickHandler = () => {
-    history.push(`${url}/editprofile`);
+    history.push(`/editprofile`);
   };
 
   const onLogoutHandler = () => {
@@ -71,13 +71,13 @@ const FacultyNavBar = (props) => {
             </NavItem>
             <NavItem
               className="rounded"
-              onClick={() => history.push(`${url}/createaccount`)}
+              onClick={() => history.push(`/createaccount`)}
             >
               <NavLink>Create Account</NavLink>
             </NavItem>
             <NavItem
               className="rounded"
-              onClick={() => history.push(`${url}/manageaccounts`)}
+              onClick={() => history.push(`/manageaccounts`)}
             >
               <NavLink>Manage Accounts</NavLink>
             </NavItem>

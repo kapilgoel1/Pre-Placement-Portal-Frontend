@@ -11,46 +11,52 @@ import ViewExternalLinks from "../../components/ExternalLinks/ViewExternalLinks/
 import ViewJobs from "../../components/Jobs/ViewJobs/ViewJobs";
 import ResumeForm from "../../components/Resume/ResumeForm/ResumeForm";
 import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
+import PlacementPreparation from "../../components/StudentMenu/PlacementPreparation/PlacementPreparation";
+import PracticeTests from "../../components/StudentMenu/PracticeTests/PracticeTests";
 
 const StudentDashboard = () => {
   // let { path } = useRouteMatch();
   const history = useHistory();
   let path = "/studentdashboard";
 
-  useEffect(() => {
-    history.replace(path);
-  });
+  useEffect(() => {});
 
   return (
     <div>
       <StudentNavBar />
       <Switch>
-        <Route exact path={path}>
-          <StudentMenu />
+        <Route path={"/placementpreparation"}>
+          <PlacementPreparation />
+        </Route>
+        <Route path={"/practicetests"}>
+          <PracticeTests />
         </Route>
         <Route path={`${path}/editprofile`}>
           <StudentEditProfile />
         </Route>
-        <Route path={`${path}/files/:category`}>
+        <Route path={`/files/:category`}>
           <ViewFiles limit={30} />
         </Route>
-        <Route path={`${path}/viewannouncement/:id`}>
+        <Route path={`/viewannouncement/:id`}>
           <AnnouncementDetail />
         </Route>
-        <Route path={`${path}/viewannouncement`}>
+        <Route path={`/viewannouncement`}>
           <ViewAnnouncement />
         </Route>
-        <Route path={`${path}/viewexternallinks`}>
+        <Route path={`/viewexternallinks`}>
           <ViewExternalLinks />
         </Route>
-        <Route path={`${path}/resumebuilder`}>
+        <Route path={`/resumebuilder`}>
           <ResumeForm />
         </Route>
-        <Route path={`${path}/viewjobs`}>
+        <Route path={`/viewjobs`}>
           <ViewJobs />
         </Route>
-        <Route path={`${path}/viewtests`}>
+        <Route path={`/viewtests`}>
           <ViewTests />
+        </Route>
+        <Route path="/">
+          <StudentMenu />
         </Route>
       </Switch>
     </div>

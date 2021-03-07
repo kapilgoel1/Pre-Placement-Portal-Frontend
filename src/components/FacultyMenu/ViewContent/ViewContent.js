@@ -1,14 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import DashboardAnnouncement from "../Announcements/DashboardAnnouncement/DashboardAnnouncement";
-import "./StudentMenu.scss";
+import DashboardAnnouncement from "../../Announcements/DashboardAnnouncement/DashboardAnnouncement";
 
-function StudentMenu() {
+function ViewContent() {
   let history = useHistory();
-
-  // const onViewJob = () => {
-  //   history.push(`${url}/viewjobs`);
-  // };
 
   return (
     <div className="ocontainer">
@@ -63,21 +58,6 @@ function StudentMenu() {
             </p>
           </div>
         </div>
-        <div class="icard" onClick={() => history.push("/resumebuilder")}>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <div class="content">
-            <h3>Resume Builder</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-              sapiente, voluptate consectetur ea, nihil modi maiores aperiam
-              cumque iste corrupti porro.{" "}
-            </p>
-          </div>
-        </div>
 
         <div
           class="icard"
@@ -121,4 +101,4 @@ function StudentMenu() {
   );
 }
 
-export default StudentMenu;
+export default ViewContent;

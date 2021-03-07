@@ -90,7 +90,7 @@ const Login = () => {
             />
           </InputGroup>
         </FormGroup>
-        <FormGroup className="pb-2 my-4">
+        <FormGroup className="pb-2 mt-4 mb-1">
           {
             // <Label size="lg" for="Password">
             //   Password{' '}
@@ -114,14 +114,17 @@ const Login = () => {
             />
           </InputGroup>
         </FormGroup>
-        <FormGroup>
-          <Label for="exampleSelect">I am a</Label>
+        <FormGroup className="iam">
+          <Label for="exampleSelect" size="lg">
+            I am a
+          </Label>
           <Input
             type="select"
             name="select"
             id="exampleSelect"
             onChange={(e) => setUserType(e.target.value)}
             required
+            size="lg"
           >
             <option value="">--Please choose an option--</option>
             <option>Student</option>
