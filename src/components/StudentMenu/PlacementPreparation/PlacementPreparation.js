@@ -6,11 +6,11 @@ import DashboardAnnouncement from "../../Announcements/DashboardAnnouncement/Das
 function PlacementPreparation() {
   const history = useHistory();
   return (
-    <div className="ocontainer">
-      <div>
-        <h1 className="text-center text-white mb-5 py-3">
-          Placement Preparation Content
-        </h1>
+    <div>
+      <div className="content">
+        <h2 align="center">PLACEMENT PREPERATION CONTENT</h2>
+      </div>
+      <div className="ocontainer">
         <div class="icontainer">
           <div class="icard" onClick={() => history.push("/files/notes")}>
             <span></span>
@@ -20,11 +20,7 @@ function PlacementPreparation() {
             <span></span>
             <div class="content">
               <h3>Notes</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt sapiente, voluptate consectetur ea, nihil modi maiores
-                aperiam cumque iste corrupti porro.{" "}
-              </p>
+              <p>All the uploaded notes are available here.</p>
             </div>
           </div>
 
@@ -36,11 +32,7 @@ function PlacementPreparation() {
             <span></span>
             <div class="content">
               <h3>Video Lectures</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt sapiente, voluptate consectetur ea, nihil modi maiores
-                aperiam cumque iste corrupti porro.{" "}
-              </p>
+              <p>The video lectures uploaded can be viewed here.</p>
             </div>
           </div>
 
@@ -52,11 +44,7 @@ function PlacementPreparation() {
             <span></span>
             <div class="content">
               <h3>External Resources</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt sapiente, voluptate consectetur ea, nihil modi maiores
-                aperiam cumque iste corrupti porro.{" "}
-              </p>
+              <p>The external links uploaded can be viewed here.</p>
             </div>
           </div>
         </div>

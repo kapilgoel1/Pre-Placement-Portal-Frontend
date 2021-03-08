@@ -5,10 +5,11 @@ import DashboardAnnouncement from "../../Announcements/DashboardAnnouncement/Das
 function PlacementPreparation() {
   const history = useHistory();
   return (
-    <div className="ocontainer">
-      <div>
-        <h1 className="text-center text-white mb-5 py-3">Practice Tests</h1>
-
+    <div>
+      <div className="content">
+        <h2 align="center">PRACTICE TESTS</h2>
+      </div>
+      <div className="ocontainer">
         <div class="icontainer">
           <div class="icard" onClick={() => history.push("/files/testpaper")}>
             <span></span>
@@ -18,11 +19,7 @@ function PlacementPreparation() {
             <span></span>
             <div class="content">
               <h3>Test Papers</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt sapiente, voluptate consectetur ea, nihil modi maiores
-                aperiam cumque iste corrupti porro.{" "}
-              </p>
+              <p>You can check for uploaded test papers and test links here.</p>
             </div>
           </div>
 
@@ -34,11 +31,7 @@ function PlacementPreparation() {
             <span></span>
             <div class="content">
               <h3>Tests Links</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt sapiente, voluptate consectetur ea, nihil modi maiores
-                aperiam cumque iste corrupti porro.{" "}
-              </p>
+              <p>Links to mock tests are available here.</p>
             </div>
           </div>
         </div>

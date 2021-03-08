@@ -8,7 +8,7 @@ function PlacementPreparation() {
     <div className="ocontainer">
       <div>
         <h1 className="text-center text-white mb-5 py-3">
-          Placement Preparation Content
+          PLACEMENT PREP CONTENT
         </h1>
 
         <div class="icontainer">

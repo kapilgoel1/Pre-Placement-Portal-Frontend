@@ -3,11 +3,9 @@ import "./DashboardAnnouncement.scss";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../../AuthContext";
 import { Button } from "reactstrap";
-import AuthContext from "../../../AuthContext";
 
 function DashboardAnnouncement() {
   const [announcements, setAnnouncements] = useState([]);
-  const { user } = useContext(AuthContext);
   const history = useHistory();
   const { user } = useContext(AuthContext);
 

@@ -18,9 +18,8 @@ function FacultyMenu() {
           <div class="content">
             <h3>Add Content</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-              sapiente, voluptate consectetur ea, nihil modi maiores aperiam
-              cumque iste corrupti porro.{" "}
+              Here you can add contents such as Files, External resuorces, Mock
+              test links and jobs.
             </p>
           </div>
         </div>
@@ -34,9 +33,9 @@ function FacultyMenu() {
           <div class="content">
             <h3>View Content</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-              sapiente, voluptate consectetur ea, nihil modi maiores aperiam
-              cumque iste corrupti porro.{" "}
+              Here you can view the content such as placement prep
+              content(notes, video lectures, etc), practice tests(test papers,
+              test links), assignments and jobs.
             </p>
           </div>
         </div>
@@ -49,11 +48,7 @@ function FacultyMenu() {
           <span></span>
           <div class="content">
             <h3>Students Profiles</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-              sapiente, voluptate consectetur ea, nihil modi maiores aperiam
-              cumque iste corrupti porro.{" "}
-            </p>
+            <p>Personal information of all the students is available here.</p>
           </div>
         </div>
       </div>
