@@ -81,7 +81,7 @@ const ViewJobs = () => {
             <CardBody>
               <FormGroup className="mb-4">
                 <h3>{job.role}</h3>
-                <h5>{job.company}</h5>
+                <h5>Company - {job.company}</h5>
               </FormGroup>
               {job.requirements !== "" && (
                 <FormGroup>

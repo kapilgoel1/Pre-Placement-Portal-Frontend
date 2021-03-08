@@ -48,8 +48,6 @@ const Login = () => {
       .then((result) => {
         if (result.role) {
           setuser({ role: result.role, loggedin: true });
-          if (result.role === "faculty") history.replace("/facultydashboard");
-          if (result.role === "student") history.replace("/studentdashboard");
         } else {
           swal("Invalid Login credentials");
         }
