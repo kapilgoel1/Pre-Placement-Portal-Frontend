@@ -41,18 +41,21 @@ const AnnouncementDetail = () => {
                 {announcementDetail.content}{" "}
               </Label>
             </FormGroup>
+
+            {announcementDetail.filename !== "" && (
+              <FormGroup>
+                <a
+                  href={`http://localhost:4000/announcement/attachment?filename=${announcementDetail.filename}`}
+                  className=""
+                  download
+                >
+                  {announcementDetail.filename}
+                </a>
+              </FormGroup>
+            )}
             <FormGroup>
               DATE : {formatDate(announcementDetail.createdAt)}
             </FormGroup>
-            {announcementDetail.filename !== "" && (
-              <a
-                href={`http://localhost:4000/announcement/attachment?filename=${announcementDetail.filename}`}
-                className=""
-                download
-              >
-                {announcementDetail.filename}
-              </a>
-            )}
           </Form>
         </CardBody>
       </Card>

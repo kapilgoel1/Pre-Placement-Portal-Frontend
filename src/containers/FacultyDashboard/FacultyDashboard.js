@@ -63,7 +63,7 @@ const FacultyDashboard = (props) => {
         <Route path={"/practicetests"}>
           <PracticeTests />
         </Route>
-        <Route path={`${path}/addannouncement`}>
+        <Route path={`/addannouncement`}>
           <AddAnnouncement />
         </Route>
         <Route path={`/viewannouncement/:id`}>
@@ -72,10 +72,10 @@ const FacultyDashboard = (props) => {
         <Route path={`/viewannouncement`}>
           <ViewAnnouncements />
         </Route>
-        <Route path={`${path}/viewexternallinks`}>
+        <Route path={`/viewexternallinks`}>
           <ViewExternalLinks />
         </Route>
-        <Route path={`${path}/viewtests`}>
+        <Route path={`/viewtests`}>
           <ViewTests />
         </Route>
         <Route path={`/viewjobs`}>

@@ -6,12 +6,11 @@ import DashboardAnnouncement from "../../Announcements/DashboardAnnouncement/Das
 function PlacementPreparation() {
   const history = useHistory();
   return (
-    <div>
-      <div className="content">
-        <h2 align="center">PLACEMENT PREPARATION</h2>
-      </div>
-
-      <div className="ocontainer">
+    <div className="ocontainer">
+      <div>
+        <h1 className="text-center text-white mb-5 py-3">
+          Placement Preparation Content
+        </h1>
         <div class="icontainer">
           <div class="icard" onClick={() => history.push("/files/notes")}>
             <span></span>
@@ -28,6 +27,7 @@ function PlacementPreparation() {
               </p>
             </div>
           </div>
+
           <div class="icard" onClick={() => history.push("/files/video")}>
             <span></span>
             <span></span>
@@ -43,6 +43,7 @@ function PlacementPreparation() {
               </p>
             </div>
           </div>
+
           <div class="icard" onClick={() => history.push("/viewexternallinks")}>
             <span></span>
             <span></span>

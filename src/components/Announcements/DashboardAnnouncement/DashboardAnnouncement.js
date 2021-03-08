@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./DashboardAnnouncement.scss";
 import { useHistory } from "react-router-dom";
+import AuthContext from "../../../AuthContext";
 import { Button } from "reactstrap";
 import AuthContext from "../../../AuthContext";
 
@@ -8,6 +9,8 @@ function DashboardAnnouncement() {
   const [announcements, setAnnouncements] = useState([]);
   const { user } = useContext(AuthContext);
   const history = useHistory();
+  const { user } = useContext(AuthContext);
+
   useEffect(() => {
     fetch("http://localhost:4000/announcement/retrieve?limit=6", {
       method: "GET",
@@ -56,7 +59,7 @@ function DashboardAnnouncement() {
           <Button
             className="btn-block btn-lg"
             onClick={() => {
-              history.push("facultydashboard/addannouncement");
+              history.push("/addannouncement");
             }}
           >
             Add Announcement
