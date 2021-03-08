@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./DashboardAnnouncement.scss";
 import { useHistory } from "react-router-dom";
 import { Button } from "reactstrap";
+import AuthContext from "../../../AuthContext";
 
 function DashboardAnnouncement() {
   const [announcements, setAnnouncements] = useState([]);
+  const { user } = useContext(AuthContext);
   const history = useHistory();
   useEffect(() => {
     fetch("http://localhost:4000/announcement/retrieve?limit=6", {
@@ -50,14 +52,16 @@ function DashboardAnnouncement() {
             More...
           </li>
         </ul>
-        <Button
-          className="btn-block btn-lg"
-          onClick={() => {
-            history.push("facultydashboard/addannouncement");
-          }}
-        >
-          Add Announcement
-        </Button>
+        {user.role === "faculty" && (
+          <Button
+            className="btn-block btn-lg"
+            onClick={() => {
+              history.push("facultydashboard/addannouncement");
+            }}
+          >
+            Add Announcement
+          </Button>
+        )}
       </div>
     </div>
   );

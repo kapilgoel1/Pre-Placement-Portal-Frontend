@@ -15,11 +15,7 @@ function PlacementPreparation() {
           <span></span>
           <div class="content">
             <h3>Notes</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-              sapiente, voluptate consectetur ea, nihil modi maiores aperiam
-              cumque iste corrupti porro.{" "}
-            </p>
+            <p>All the uploaded notes are available here.</p>
           </div>
         </div>
 
@@ -31,11 +27,7 @@ function PlacementPreparation() {
           <span></span>
           <div class="content">
             <h3>Video Lectures</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-              sapiente, voluptate consectetur ea, nihil modi maiores aperiam
-              cumque iste corrupti porro.{" "}
-            </p>
+            <p>The video lectures uploaded can be viewed here.</p>
           </div>
         </div>
 
@@ -47,11 +39,7 @@ function PlacementPreparation() {
           <span></span>
           <div class="content">
             <h3>External Resources</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-              sapiente, voluptate consectetur ea, nihil modi maiores aperiam
-              cumque iste corrupti porro.{" "}
-            </p>
+            <p>The external links uploaded can be viewed here.</p>
           </div>
         </div>
       </div>

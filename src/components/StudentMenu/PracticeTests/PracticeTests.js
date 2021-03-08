@@ -5,41 +5,46 @@ import DashboardAnnouncement from "../../Announcements/DashboardAnnouncement/Das
 function PlacementPreparation() {
   const history = useHistory();
   return (
-    <div className="ocontainer">
-      <div class="icontainer">
-        <div class="icard" onClick={() => history.push("/files/testpaper")}>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <div class="content">
-            <h3>Test Papers</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-              sapiente, voluptate consectetur ea, nihil modi maiores aperiam
-              cumque iste corrupti porro.{" "}
-            </p>
-          </div>
-        </div>
-
-        <div class="icard" onClick={() => history.push("/viewtests")}>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <div class="content">
-            <h3>Tests Links</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-              sapiente, voluptate consectetur ea, nihil modi maiores aperiam
-              cumque iste corrupti porro.{" "}
-            </p>
-          </div>
-        </div>
+    <div>
+      <div className="content">
+        <h2 align="center">PRACTICE TESTS</h2>
       </div>
-      <DashboardAnnouncement />
+      <div className="ocontainer">
+        <div class="icontainer">
+          <div class="icard" onClick={() => history.push("/files/testpaper")}>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="content">
+              <h3>Test Papers</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Nesciunt sapiente, voluptate consectetur ea, nihil modi maiores
+                aperiam cumque iste corrupti porro.{" "}
+              </p>
+            </div>
+          </div>
+
+          <div class="icard" onClick={() => history.push("/viewtests")}>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="content">
+              <h3>Tests Links</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Nesciunt sapiente, voluptate consectetur ea, nihil modi maiores
+                aperiam cumque iste corrupti porro.{" "}
+              </p>
+            </div>
+          </div>
+        </div>
+        <DashboardAnnouncement />
+      </div>
     </div>
   );
 }

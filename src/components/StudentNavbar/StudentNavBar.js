@@ -20,12 +20,9 @@ import {
 import AuthContext from "../../AuthContext";
 import { withRouter } from "react-router-dom";
 
-//This is the navigation bar that will be visible on dashboard
-
 const StudentNavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { setuser } = useContext(AuthContext);
-  // let { url } = useRouteMatch();
   let url = "/studentdashboard";
   let history = useHistory();
 
@@ -49,9 +46,9 @@ const StudentNavBar = (props) => {
       });
   };
 
-  const onViewResource = (category) => {
-    history.push(`${url}/files/${category}`);
-  };
+  // const onViewResource = (category) => {
+  //   history.push(`${url}/files/${category}`);
+  // };
 
   return (
     <>
@@ -68,7 +65,7 @@ const StudentNavBar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem
+            {/* <NavItem
               className="rounded"
               onClick={() => history.push("/studentdashboard")}
             >
@@ -92,9 +89,9 @@ const StudentNavBar = (props) => {
               onClick={() => history.push(`${url}/viewannouncement`)}
             >
               <NavLink>Announcements</NavLink>
-            </NavItem>
+            </NavItem> */}
 
-            <UncontrolledDropdown nav inNavbar className="rounded">
+            {/* <UncontrolledDropdown nav inNavbar className="rounded">
               <DropdownToggle nav caret>
                 Resources
               </DropdownToggle>
@@ -121,7 +118,7 @@ const StudentNavBar = (props) => {
                   External Links
                 </DropdownItem>
               </DropdownMenu>
-            </UncontrolledDropdown>
+            </UncontrolledDropdown> */}
           </Nav>
 
           <NavbarText className="btn-edit">

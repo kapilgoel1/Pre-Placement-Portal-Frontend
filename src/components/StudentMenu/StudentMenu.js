@@ -6,10 +6,6 @@ import "./StudentMenu.scss";
 function StudentMenu() {
   let history = useHistory();
 
-  // const onViewJob = () => {
-  //   history.push(`${url}/viewjobs`);
-  // };
-
   return (
     <div className="ocontainer">
       <div class="icontainer">
