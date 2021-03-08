@@ -120,7 +120,7 @@ function ViewFiles(props) {
 
   return (
     <>
-      <h1 className="text-center mb-4 pb-3 text-primary">{categoryDisplay}</h1>
+      <h2 className="text-center mb-4 pb-3 text-white">{categoryDisplay}</h2>
       <div className="filepage">
         <div className="filepage__filters">
           <div className="filepage__filters__box">

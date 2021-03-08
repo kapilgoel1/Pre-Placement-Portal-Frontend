@@ -31,7 +31,7 @@ const StudentDashboard = () => {
         <Route path={"/practicetests"}>
           <PracticeTests />
         </Route>
-        <Route path={`${path}/editprofile`}>
+        <Route path={`/editprofile`}>
           <StudentEditProfile />
         </Route>
         <Route path={`/files/:category`}>

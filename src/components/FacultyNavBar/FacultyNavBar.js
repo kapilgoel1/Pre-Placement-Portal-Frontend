@@ -28,7 +28,7 @@ const FacultyNavBar = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   const onClickHandler = () => {
-    history.push(`${url}/editprofile`);
+    history.push(`/editprofile`);
   };
 
   const onLogoutHandler = () => {
@@ -55,7 +55,7 @@ const FacultyNavBar = (props) => {
         {
           <NavbarBrand
             onClick={() => {
-              history.push("/facultydashboard");
+              history.push("/");
             }}
             className="navbar-logo"
           >

@@ -40,7 +40,7 @@ const FacultyDashboard = (props) => {
           <ViewContent />
         </Route>
 
-        <Route path={`${path}/editprofile`}>
+        <Route path={`/editprofile`}>
           <FacultyEditProfile />
         </Route>
 

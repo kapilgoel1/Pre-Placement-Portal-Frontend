@@ -29,7 +29,7 @@ const StudentNavBar = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   const onClickHandler = () => {
-    history.push(`${url}/editprofile`);
+    history.push(`/editprofile`);
   };
 
   const onLogoutHandler = () => {
@@ -55,7 +55,7 @@ const StudentNavBar = (props) => {
       <Navbar className="mb-5" dark color="color4" expand="md">
         <NavbarBrand
           onClick={() => {
-            history.push("/studentdashboard");
+            history.push("/");
           }}
           className="navbar-logo"
         >
