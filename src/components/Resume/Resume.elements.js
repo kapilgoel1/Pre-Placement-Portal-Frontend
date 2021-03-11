@@ -10,9 +10,12 @@ export const Continue = styled(Button).attrs((props) => ({
   type: "submit",
 }))`
   margin-left: auto;
+  background: #006064;
 `;
 
-export const Previous = styled(Button)``;
+export const Previous = styled(Button)`
+  background: #006064;
+`;
 
 export const Skill = styled.div`
   display: flex;
@@ -50,4 +53,5 @@ export const WithDelete = styled.div`
 
 export const Delete = styled(Button)`
   margin-left: auto;
+  background: #006064;
 `;

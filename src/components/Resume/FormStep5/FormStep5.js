@@ -50,7 +50,11 @@ function FormStep5({
               <div key={item.id} className="mb-5">
                 <WithDelete>
                   <h5>{`${ordinal_suffix_of(index + 1)} Work Experience`}</h5>
-                  <Delete type="button" onClick={() => remove(index)}>
+                  <Delete
+                    type="button"
+                    className="btn-color2"
+                    onClick={() => remove(index)}
+                  >
                     Delete
                   </Delete>
                 </WithDelete>
@@ -211,7 +215,7 @@ function FormStep5({
           })}
           <Button
             type="button"
-            className="btn-lg btn-block mt-4"
+            className="btn-lg btn-color2 btn-block mt-4"
             onClick={() => {
               append({
                 company: "",

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import "./StudentNavBar.scss";
 import {
@@ -9,12 +9,6 @@ import {
   NavbarToggler,
   NavbarText,
   Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Button,
 } from "reactstrap";
 import AuthContext from "../../AuthContext";

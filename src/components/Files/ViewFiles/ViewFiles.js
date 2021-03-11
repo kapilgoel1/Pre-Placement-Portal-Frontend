@@ -2,8 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import FileStrip from "../FileStrip/FileStrip";
-import { Input, FormGroup, Form, Label } from "reactstrap";
-import DCard from "../../DCard/DCard";
+import { Input, FormGroup, Label } from "reactstrap";
 import "./ViewFiles.scss";
 import AuthContext from "../../../AuthContext";
 

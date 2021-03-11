@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "../../AuthContext";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./AdminNavBar.scss";
 import {
   Collapse,
@@ -22,7 +22,7 @@ const FacultyNavBar = (props) => {
   // let { url } = useRouteMatch();
 
   let path = "/admindashboard";
-  let url = "/admindashboard";
+  // let url = "/admindashboard";
   useEffect(() => {
     history.replace(path);
   }, []);

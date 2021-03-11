@@ -9,12 +9,6 @@ import {
   NavbarToggler,
   NavbarText,
   Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Button,
 } from "reactstrap";
 import { withRouter } from "react-router-dom";

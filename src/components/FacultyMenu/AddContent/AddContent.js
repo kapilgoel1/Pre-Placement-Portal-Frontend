@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import DashboardAnnouncement from "../../Announcements/DashboardAnnouncement/DashboardAnnouncement";
-import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 // import './FacultyMenu.scss';
 
 function AddContent() {

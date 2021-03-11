@@ -56,7 +56,11 @@ function FormStep3({ achievements, setAchievements, previousStep, nextStep }) {
                   )}
                 />
 
-                <Button type="button" onClick={() => remove(index)}>
+                <Button
+                  type="button"
+                  className="btn-color2"
+                  onClick={() => remove(index)}
+                >
                   Delete
                 </Button>
               </Achievement>
@@ -64,7 +68,7 @@ function FormStep3({ achievements, setAchievements, previousStep, nextStep }) {
           })}
           <Button
             type="button"
-            className="btn-lg btn-block mt-4"
+            className="btn-lg btn-color2 btn-block mt-4"
             onClick={() => {
               append({ achievement: "" });
             }}

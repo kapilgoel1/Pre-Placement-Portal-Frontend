@@ -42,7 +42,11 @@ function FormStep4({ education, setEducation, previousStep, nextStep }) {
               <div key={item.id} className="mb-5">
                 <WithDelete>
                   <h5>{`${ordinal_suffix_of(index + 1)} Qualification`}</h5>
-                  <Delete type="button" onClick={() => remove(index)}>
+                  <Delete
+                    type="button"
+                    className="btn-color2"
+                    onClick={() => remove(index)}
+                  >
                     Delete
                   </Delete>
                 </WithDelete>
@@ -119,7 +123,7 @@ function FormStep4({ education, setEducation, previousStep, nextStep }) {
           })}
           <Button
             type="button"
-            className="btn-lg btn-block mt-4"
+            className="btn-lg btn-block btn-color2 mt-4"
             onClick={() => {
               append({
                 fromYear: "",
