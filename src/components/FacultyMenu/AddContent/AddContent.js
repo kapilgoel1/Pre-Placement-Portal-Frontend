@@ -7,11 +7,9 @@ function AddContent() {
   let history = useHistory();
 
   return (
-    <div>
-      <div className="content">
-        <h2 align="center">ADD CONTENT</h2>
-      </div>
-      <div className="ocontainer">
+    <div className="ocontainer">
+      <div className="mcontainer">
+        <h1 className="text-center text-white mb-5 py-3">Add Content</h1>
         <div class="icontainer">
           <div class="icard" onClick={() => history.push("/addfile")}>
             <span></span>
@@ -66,8 +64,8 @@ function AddContent() {
             </div>
           </div>
         </div>
-        <DashboardAnnouncement />
       </div>
+      <DashboardAnnouncement />
     </div>
   );
 }

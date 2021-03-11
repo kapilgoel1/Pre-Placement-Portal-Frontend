@@ -59,6 +59,19 @@ const AddTest = (props) => {
           />
         </FormGroup>
         <FormGroup>
+          <Label for="or" align="center">
+            Test Link
+          </Label>
+          <Input
+            name="testLink"
+            id="testLink"
+            value={testLink}
+            placeholder="Paste Test link"
+            onChange={(e) => setTestLink(e.target.value)}
+            required
+          />
+        </FormGroup>
+        <FormGroup>
           <Label for="test">TEST DETAILS</Label>
           <Input
             type="text"
@@ -70,22 +83,7 @@ const AddTest = (props) => {
             required
           />
         </FormGroup>
-        <FormGroup align="center">
-          <Label for="or" align="center">
-            OR
-          </Label>
-        </FormGroup>
-        <FormGroup>
-          <Input
-            type="url"
-            name="testLink"
-            id="testLink"
-            value={testLink}
-            placeholder="Paste Test link"
-            onChange={(e) => setTestLink(e.target.value)}
-            required
-          />
-        </FormGroup>
+
         <FormGroup align="center">
           <Button type="submit" color="color2">
             UPLOAD

@@ -6,11 +6,9 @@ function ViewContent() {
   let history = useHistory();
 
   return (
-    <div>
-      <div className="content">
-        <h2 align="center">VIEW CONTENT</h2>
-      </div>
-      <div className="ocontainer">
+    <div className="ocontainer">
+      <div className="mcontainer">
+        <h1 className="text-center text-white mb-5 py-3">View Content</h1>
         <div class="icontainer">
           <div
             class="icard"
@@ -87,8 +85,8 @@ function ViewContent() {
             </div>
           </div> */}
         </div>
-        <DashboardAnnouncement />
       </div>
+      <DashboardAnnouncement />
     </div>
   );
 }

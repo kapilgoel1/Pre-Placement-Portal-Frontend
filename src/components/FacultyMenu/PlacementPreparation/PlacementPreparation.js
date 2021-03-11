@@ -6,10 +6,10 @@ function PlacementPreparation() {
   const history = useHistory();
   return (
     <div className="ocontainer">
-      <div>
-        <h1 className="text-center text-white mb-5 py-3">
+      <div className="mcontainer">
+        <h2 className="text-center text-white mb-5 py-3">
           PLACEMENT PREP CONTENT
-        </h1>
+        </h2>
 
         <div class="icontainer">
           <div class="icard" onClick={() => history.push("/files/notes")}>
