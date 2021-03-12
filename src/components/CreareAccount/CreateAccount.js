@@ -43,7 +43,7 @@ function CreateAccount() {
 
   return (
     <>
-      <h1 className="text-center mb-3 text-primary">Create Account</h1>
+      <h1 className="text-center mb-3 text-white">Create Account</h1>
 
       <DCard width="600px">
         <Form onSubmit={handleSubmit(onSubmit)}>

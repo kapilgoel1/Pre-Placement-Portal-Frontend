@@ -88,11 +88,13 @@ const FileUploadTest = () => {
       <Form onSubmit={uploadFile} autoComplete="off">
         <FormGroup align="center">
           <Label for="upload">UPLOAD A FILE</Label>
+
           <hr />
-          <Input name="file" id="file-field" type="file" required multiple />
         </FormGroup>
         <FormGroup>
-          <Label for="category">CATEGORY</Label>
+          <Label for="category">
+            CATEGORY <span className="text-primary">*</span>
+          </Label>
           <Input
             type="select"
             value={category}
@@ -102,10 +104,9 @@ const FileUploadTest = () => {
           >
             <option value="">--Please choose an option--</option>
             <option value="assignment">Assignment</option>
-            <option value="testpaper">Test Paper</option>
+            <option value="testpaper">Sample Test Paper</option>
             <option value="notes">Notes</option>
-            <option value="video">Video</option>
-            <option value="ppt">PPT</option>
+            <option value="video">Video Lecture</option>
           </Input>
         </FormGroup>
         <FormGroup>
@@ -123,6 +124,9 @@ const FileUploadTest = () => {
               </option>
             ))}
           </Input>
+        </FormGroup>
+        <FormGroup align="center">
+          <Input name="file" id="file-field" type="file" required multiple />
         </FormGroup>
         <FormGroup align="center">
           <Button type="submit" color="color2">

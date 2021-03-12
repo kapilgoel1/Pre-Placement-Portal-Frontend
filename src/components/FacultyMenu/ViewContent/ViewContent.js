@@ -1,6 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import DashboardAnnouncement from "../../Announcements/DashboardAnnouncement/DashboardAnnouncement";
+import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import { Link } from "react-router-dom";
 
 function ViewContent() {
   let history = useHistory();
@@ -8,7 +10,14 @@ function ViewContent() {
   return (
     <div className="ocontainer">
       <div className="mcontainer">
-        <h1 className="text-center text-white mb-5 py-3">View Content</h1>
+        <Breadcrumb className="bread">
+          <BreadcrumbItem className="bread__item">
+            <Link to="/" className="text-color3">
+              Home
+            </Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem active>View Content </BreadcrumbItem>
+        </Breadcrumb>
         <div class="icontainer">
           <div
             class="icard"

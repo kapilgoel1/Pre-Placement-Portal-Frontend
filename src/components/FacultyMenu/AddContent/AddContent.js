@@ -1,7 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import DashboardAnnouncement from "../../Announcements/DashboardAnnouncement/DashboardAnnouncement";
+import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import { Link } from "react-router-dom";
 // import './FacultyMenu.scss';
+import "./AddContent.scss";
 
 function AddContent() {
   let history = useHistory();
@@ -9,7 +12,14 @@ function AddContent() {
   return (
     <div className="ocontainer">
       <div className="mcontainer">
-        <h1 className="text-center text-white mb-5 py-3">Add Content</h1>
+        <Breadcrumb className="bread">
+          <BreadcrumbItem className="bread__item">
+            <Link to="/" className="text-color3">
+              Home
+            </Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem active>Add Content </BreadcrumbItem>
+        </Breadcrumb>
         <div class="icontainer">
           <div class="icard" onClick={() => history.push("/addfile")}>
             <span></span>
@@ -18,11 +28,10 @@ function AddContent() {
             <span></span>
             <span></span>
             <div class="content">
-              <h3>Add Files</h3>
-              <p>
-                Here you can add any file you want to share with the student in
-                any format. For example, pdf, word, etc.
-              </p>
+              <h3>
+                Add Notes, Video Lectures, Assignments Or Sample Test Papers
+              </h3>
+              <p></p>
             </div>
           </div>
 
@@ -33,7 +42,7 @@ function AddContent() {
             <span></span>
             <span></span>
             <div class="content">
-              <h3>Add External Resources</h3>
+              <h3>Add Online Resources</h3>
               <p>Here you can add any weblink or any other link.</p>
             </div>
           </div>
@@ -45,7 +54,7 @@ function AddContent() {
             <span></span>
             <span></span>
             <div class="content">
-              <h3>Add Test Links</h3>
+              <h3>Add Online Mock Tests</h3>
               <p>Link for any kind of test can be added here.</p>
             </div>
           </div>
@@ -56,7 +65,7 @@ function AddContent() {
             <span></span>
             <span></span>
             <div class="content">
-              <h3>Add Jobs</h3>
+              <h3>Post Jobs</h3>
               <p>
                 You can add the description such as company, salary, eligibility
                 requirements for job availabilities here.
