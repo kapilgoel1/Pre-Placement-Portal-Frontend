@@ -53,16 +53,17 @@ function DashboardAnnouncement() {
             More...
           </li>
         </ul>
-        {user.role === "faculty" && (
-          <Button
-            className="btn-block btn-color2 btn-lg"
-            onClick={() => {
-              history.push("/addannouncement");
-            }}
-          >
-            Add Announcement
-          </Button>
-        )}
+        {user.role === "faculty" ||
+          ("admin" && (
+            <Button
+              className="btn-block btn-color2 btn-lg"
+              onClick={() => {
+                history.push("/addannouncement");
+              }}
+            >
+              Add Announcement
+            </Button>
+          ))}
       </div>
     </div>
   );
