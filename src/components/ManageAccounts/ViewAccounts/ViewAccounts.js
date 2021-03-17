@@ -31,7 +31,7 @@ function ViewAccounts() {
 
   return (
     <>
-      <h1 className="text-center mb-4 pb-3 text-primary">Accounts</h1>
+      <h1 className="text-center mb-4 pb-3 text-white">Accounts</h1>
       <div className="filepage">
         <div className="filepage__filters">
           <div className="filepage__filters__box">

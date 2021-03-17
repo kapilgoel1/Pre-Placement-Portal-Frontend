@@ -1,6 +1,8 @@
 import React from "react";
 import "./PlacementPreparation.scss";
 import { useHistory } from "react-router-dom";
+import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import { Link } from "react-router-dom";
 import DashboardAnnouncement from "../../Announcements/DashboardAnnouncement/DashboardAnnouncement";
 
 function PlacementPreparation() {
@@ -8,9 +10,15 @@ function PlacementPreparation() {
   return (
     <div className="ocontainer">
       <div className="mcontainer">
-        <h2 className="text-center text-white mb-5 py-3">
-          PLACEMENT PREP CONTENT
-        </h2>
+        <Breadcrumb className="bread">
+          <BreadcrumbItem className="bread__item">
+            <Link to="/" className="text-color3">
+              Home
+            </Link>
+          </BreadcrumbItem>
+
+          <BreadcrumbItem active>Placement Preparation</BreadcrumbItem>
+        </Breadcrumb>
         <div class="icontainer">
           <div class="icard" onClick={() => history.push("/files/notes")}>
             <span></span>
@@ -43,7 +51,7 @@ function PlacementPreparation() {
             <span></span>
             <span></span>
             <div class="content">
-              <h3>External Resources</h3>
+              <h3>Online Resources</h3>
               <p>The external links uploaded can be viewed here.</p>
             </div>
           </div>

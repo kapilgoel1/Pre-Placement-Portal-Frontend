@@ -113,9 +113,9 @@ function ViewFiles(props) {
   let categoryDisplay = "";
 
   if (category === "notes") categoryDisplay = "Notes";
-  else if (category === "video") categoryDisplay = "Videos";
+  else if (category === "video") categoryDisplay = "Video Lectures";
   else if (category === "assignment") categoryDisplay = "Assignments";
-  else if (category === "testpaper") categoryDisplay = "Test Papers";
+  else if (category === "testpaper") categoryDisplay = "Sample Test Papers";
 
   return (
     <>
