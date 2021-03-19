@@ -28,11 +28,10 @@ function AddContent() {
             <span></span>
             <span></span>
             <div class="content">
-              <h3>Add Study material</h3>
-              <p>
-                Here you can add Notes, Video Lectures, Assignments Or Sample
-                Test Papers
-              </p>
+              <h3>
+                Add Notes, Video Lectures, Assignments Or Sample Test Papers
+              </h3>
+              <p></p>
             </div>
           </div>
 
