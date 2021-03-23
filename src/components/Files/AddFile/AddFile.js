@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "./AddFile.scss";
 import {
-  Progress,
+  Alert,
   Button,
   Form,
   FormGroup,
-  Label,
   Input,
-  Alert,
+  Label,
+  Progress,
 } from "reactstrap";
 import DCard from "../../DCard/DCard";
+import "./AddFile.scss";
 
 const FileUploadTest = () => {
   const [totalData, setTotalData] = useState(0);

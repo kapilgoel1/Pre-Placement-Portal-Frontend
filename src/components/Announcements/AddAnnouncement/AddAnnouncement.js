@@ -1,42 +1,13 @@
 import React, { useState } from "react";
-import "./AddAnnouncement.scss";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import DCard from "../../DCard/DCard";
-
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
+import DCard from "../../DCard/DCard";
+import "./AddAnnouncement.scss";
 
 const AddAnnouncement = (props) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [submitDisabled, setSubmitDisabled] = useState(false);
-
-  // const onClickHandler = (e) => {
-  //   e.preventDefault();
-
-  //   const alteredData = {
-  //     title: title,
-  //     content: content,
-  //   };
-
-  //   fetch("http://localhost:4000/announcement/add", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     credentials: "include",
-  //     body: JSON.stringify(alteredData),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       console.log(result);
-  //       setTitle("");
-  //       setContent("");
-  //       swal("ANNOUNCEMENT UPLOADED");
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
   const uploadFile = (e) => {
     e.preventDefault();

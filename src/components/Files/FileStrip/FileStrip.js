@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Button } from "reactstrap";
-import "./FileStrip.scss";
 import swal from "sweetalert";
 import AuthContext from "../../../AuthContext";
 import formatDate from "../../../utils";
+import "./FileStrip.scss";
 
 function FileStrip(props) {
   const { user } = useContext(AuthContext);

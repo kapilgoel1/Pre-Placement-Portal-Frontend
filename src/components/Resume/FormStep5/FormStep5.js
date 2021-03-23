@@ -1,17 +1,17 @@
 import React from "react";
-import { useForm, useFieldArray, Controller } from "react-hook-form";
+import { Controller, useFieldArray, useForm } from "react-hook-form";
+import { Button, Form, Input, Label } from "reactstrap";
+import { ordinal_suffix_of } from "../../../utils";
+import DCard from "../../DCard/DCard";
 import {
+  Continue,
+  Delete,
   NavigationSection,
   Previous,
-  Continue,
-  WithDelete,
-  Delete,
-  Responsibiltity,
   ResponsibilityNumber,
+  Responsibiltity,
+  WithDelete,
 } from "../Resume.elements";
-import { Form, Input, Button, Label } from "reactstrap";
-import DCard from "../../DCard/DCard";
-import { ordinal_suffix_of } from "../../../utils";
 
 function FormStep5({
   workExperience,

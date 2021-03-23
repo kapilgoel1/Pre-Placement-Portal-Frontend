@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import "./StudentDetail.scss";
-import { Card, CardBody, FormGroup } from "reactstrap";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Card, CardBody, FormGroup } from "reactstrap";
+import "./StudentDetail.scss";
 
 const StudentDetail = () => {
   let { id } = useParams();

@@ -1,8 +1,7 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-import DashboardAnnouncement from "../../Announcements/DashboardAnnouncement/DashboardAnnouncement";
+import { Link, useHistory } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
-import { Link } from "react-router-dom";
+import DashboardAnnouncement from "../../Announcements/DashboardAnnouncement/DashboardAnnouncement";
 
 function ViewContent() {
   let history = useHistory();

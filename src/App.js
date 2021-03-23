@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
-import "./App.scss";
-
-import StudentDashboard from "./containers/StudentDashboard/StudentDashboard";
-import FacultyDashboard from "./containers/FacultyDashboard/FacultyDashboard";
-import AdminDashboard from "./containers/AdminDashboard/AdminDashboard";
-import About from "./components/About/About";
-import Home from "./containers/Home/home";
-import { Spinner } from "reactstrap";
+import React, { useEffect, useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
-
+import { Spinner } from "reactstrap";
+import "./App.scss";
 import AuthContext from "./AuthContext";
+import About from "./components/About/About";
+import AdminDashboard from "./containers/AdminDashboard/AdminDashboard";
+import FacultyDashboard from "./containers/FacultyDashboard/FacultyDashboard";
+import Home from "./containers/Home/home";
+import StudentDashboard from "./containers/StudentDashboard/StudentDashboard";
 
 const App = () => {
   const [loading, setloading] = useState(true);

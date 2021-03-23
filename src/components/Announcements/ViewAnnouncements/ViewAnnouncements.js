@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import "./ViewAnnouncements.scss";
+import React, { useContext, useEffect, useState } from "react";
+import { useHistory, useRouteMatch } from "react-router-dom";
+import { Button, Card, CardBody, CardTitle, Form, FormGroup } from "reactstrap";
 import swal from "sweetalert";
-import { Card, CardTitle, CardBody, Button, Form, FormGroup } from "reactstrap";
-import { useRouteMatch, useHistory } from "react-router-dom";
 import AuthContext from "../../../AuthContext";
+import "./ViewAnnouncements.scss";
 
 const ViewAnnouncements = () => {
   const history = useHistory();

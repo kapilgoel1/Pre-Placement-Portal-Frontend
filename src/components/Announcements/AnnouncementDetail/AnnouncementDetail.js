@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import "./AnnouncementDetail.scss";
-import { Form, Card, CardBody, Label, FormGroup } from "reactstrap";
-import formatDate from "../../../utils";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Card, CardBody, Form, FormGroup, Label } from "reactstrap";
+import formatDate from "../../../utils";
+import "./AnnouncementDetail.scss";
 
 const AnnouncementDetail = () => {
   let { id } = useParams();

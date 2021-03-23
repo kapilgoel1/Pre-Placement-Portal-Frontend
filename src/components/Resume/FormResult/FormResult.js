@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Anch, AnchContainer } from "./FormResult.elements";
 
 export default function FormResult({ resume, setStep }) {

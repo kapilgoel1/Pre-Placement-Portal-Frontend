@@ -1,8 +1,7 @@
-import React, { useState, useContext } from "react";
-import AuthContext from "../../AuthContext";
-import "./Login.scss";
-import swal from "sweetalert";
-import { withRouter, useHistory } from "react-router-dom";
+import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useContext, useState } from "react";
+import { withRouter } from "react-router-dom";
 import {
   Button,
   Form,
@@ -13,20 +12,16 @@ import {
   InputGroupText,
   Label,
 } from "reactstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import swal from "sweetalert";
 import avatar from "../../assets/avatardefault_92824.png";
+import AuthContext from "../../AuthContext";
+import "./Login.scss";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userType, setUserType] = useState("");
+  const [setUserType] = useState("");
   const { setuser } = useContext(AuthContext);
-  let history = useHistory();
-
-  // const validateForm = () => {
-  //   return email.length > 0 && password.length > 0;
-  // }
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -65,11 +60,6 @@ const Login = () => {
       <h1 className="text-center pb-2 mb-2"> WELCOME</h1>
       <Form className="form-body" autoComplete="off" onSubmit={onClickHandler}>
         <FormGroup className="pt-2 my-4">
-          {
-            // <Label size="lg" for="Email">
-            //   Email{' '}
-            // </Label>
-          }
           <InputGroup>
             <InputGroupAddon addonType="prepend">
               <InputGroupText>
@@ -89,11 +79,6 @@ const Login = () => {
           </InputGroup>
         </FormGroup>
         <FormGroup className="pb-2 mt-4 mb-1">
-          {
-            // <Label size="lg" for="Password">
-            //   Password{' '}
-            // </Label>
-          }
           <InputGroup>
             <InputGroupAddon addonType="prepend">
               <InputGroupText>
@@ -139,10 +124,6 @@ const Login = () => {
         >
           LOGIN
         </Button>
-
-        {/*<div className= "text-right">
-            <a href="/sign-up"> Forgot the password? </a>
-          </div>*/}
       </Form>
     </div>
   );

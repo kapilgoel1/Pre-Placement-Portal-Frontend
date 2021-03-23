@@ -1,31 +1,23 @@
-import React, { useState, useContext, useEffect } from "react";
-import AuthContext from "../../AuthContext";
-import { useHistory, useRouteMatch } from "react-router-dom";
-import "./AdminNavBar.scss";
+import React, { useContext, useState } from "react";
+import { useHistory, withRouter } from "react-router-dom";
 import {
+  Button,
   Collapse,
+  Nav,
   Navbar,
   NavbarBrand,
-  NavbarToggler,
   NavbarText,
-  Nav,
+  NavbarToggler,
   NavItem,
   NavLink,
-  Button,
 } from "reactstrap";
-import { withRouter } from "react-router-dom";
+import AuthContext from "../../AuthContext";
+import "./AdminNavBar.scss";
 
 const FacultyNavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { setuser } = useContext(AuthContext);
   let history = useHistory();
-  // let { url } = useRouteMatch();
-
-  let path = "/admindashboard";
-  let url = "/admindashboard";
-  useEffect(() => {
-    history.replace(path);
-  }, []);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -53,7 +45,7 @@ const FacultyNavBar = (props) => {
         {
           <NavbarBrand
             onClick={() => {
-              history.push("/facultydashboard");
+              history.push("/");
             }}
             className="navbar-logo"
           >
@@ -63,10 +55,7 @@ const FacultyNavBar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem
-              className="rounded"
-              onClick={() => history.push("/admindashboard")}
-            >
+            <NavItem className="rounded" onClick={() => history.push("/")}>
               <NavLink>Home</NavLink>
             </NavItem>
             <NavItem

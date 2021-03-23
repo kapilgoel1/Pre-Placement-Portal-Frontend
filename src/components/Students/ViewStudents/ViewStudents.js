@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
-import "./ViewStudents.scss";
-// import { Card, CardTitle, CardBody, Form, FormGroup, Label } from "reactstrap";
-// import { useRouteMatch, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import DCard from "../../DCard/DCard";
 import StudentStrip from "../StudentStrip/StudentStrip";
 import "./ViewStudents.scss";
 
 const ViewStudentList = () => {
-  // const history = useHistory();
-  // let { path } = useRouteMatch();
   const [students, setStudents] = useState([]);
 
   useEffect(() => {

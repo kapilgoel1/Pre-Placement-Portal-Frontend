@@ -1,8 +1,8 @@
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
-import { Input, Label, Form, FormGroup } from "reactstrap";
-import { NavigationSection, Continue } from "../Resume.elements";
+import { Controller, useForm } from "react-hook-form";
+import { Form, FormGroup, Input, Label } from "reactstrap";
 import DCard from "../../DCard/DCard";
+import { Continue, NavigationSection } from "../Resume.elements";
 
 function FormStep1({ personalDetails, setPersonalDetails, nextStep }) {
   const { handleSubmit, errors, control } = useForm({

@@ -1,34 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
-import AddExternalLink from "../../components/ExternalLinks/AddExternalLink/AddExternalLink";
-import AddJob from "../../components/Jobs/AddJob/AddJob";
-import AddTest from "../../components/TestLinks/AddTest/AddTest";
 import AddAnnouncement from "../../components/Announcements/AddAnnouncement/AddAnnouncement";
 import AnnouncementDetail from "../../components/Announcements/AnnouncementDetail/AnnouncementDetail";
 import ViewAnnouncements from "../../components/Announcements/ViewAnnouncements/ViewAnnouncements";
+import AddExternalLink from "../../components/ExternalLinks/AddExternalLink/AddExternalLink";
+import ViewExternalLinks from "../../components/ExternalLinks/ViewExternalLinks/ViewExternalLinks";
 import FacultyEditProfile from "../../components/FacultyEditProfile/FacultyEditProfile";
+import AddContent from "../../components/FacultyMenu/AddContent/AddContent";
 import FacultyMenu from "../../components/FacultyMenu/FacultyMenu";
+import PlacementPreparation from "../../components/FacultyMenu/PlacementPreparation/PlacementPreparation";
+import PracticeTests from "../../components/FacultyMenu/PracticeTests/PracticeTests";
+import ViewContent from "../../components/FacultyMenu/ViewContent/ViewContent";
 import FacultyNavBar from "../../components/FacultyNavBar/FacultyNavBar";
 import AddFile from "../../components/Files/AddFile/AddFile";
 import ViewFiles from "../../components/Files/ViewFiles/ViewFiles";
+import AddJob from "../../components/Jobs/AddJob/AddJob";
+import ViewJobPostings from "../../components/Jobs/ViewJobs/ViewJobs";
 import StudentDetail from "../../components/Students/StudentDetail/StudentDetail";
 import ViewStudents from "../../components/Students/ViewStudents/ViewStudents";
-import ViewExternalLinks from "../../components/ExternalLinks/ViewExternalLinks/ViewExternalLinks";
-import ViewJobPostings from "../../components/Jobs/ViewJobs/ViewJobs";
+import AddTest from "../../components/TestLinks/AddTest/AddTest";
 import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
-import AddContent from "../../components/FacultyMenu/AddContent/AddContent";
-import ViewContent from "../../components/FacultyMenu/ViewContent/ViewContent";
-
-import PlacementPreparation from "../../components/FacultyMenu/PlacementPreparation/PlacementPreparation";
-import PracticeTests from "../../components/FacultyMenu/PracticeTests/PracticeTests";
 
 const FacultyDashboard = (props) => {
-  // let { path } = useRouteMatch();
-  let path = "/facultydashboard";
-  // let history = useHistory();
-
-  useEffect(() => {});
-
   return (
     <div>
       <FacultyNavBar />

@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import DashboardAnnouncement from "../Announcements/DashboardAnnouncement/DashboardAnnouncement";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import DashboardAnnouncement from "../Announcements/DashboardAnnouncement/DashboardAnnouncement";
 import "./FacultyMenu.scss";
 
 function FacultyMenu() {
@@ -15,14 +15,14 @@ function FacultyMenu() {
             Home
           </BreadcrumbItem>
         </Breadcrumb>
-        <div class="icontainer">
-          <div class="icard" onClick={() => history.push("/addcontent")}>
+        <div className="icontainer">
+          <div className="icard" onClick={() => history.push("/addcontent")}>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <div class="content">
+            <div className="content">
               <h3>Add Content</h3>
               <p>
                 Here you can add contents such as Files, External resuorces,
@@ -31,13 +31,13 @@ function FacultyMenu() {
             </div>
           </div>
 
-          <div class="icard" onClick={() => history.push("/viewcontent")}>
+          <div className="icard" onClick={() => history.push("/viewcontent")}>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <div class="content">
+            <div className="content">
               <h3>View Content</h3>
               <p>
                 Here you can view the content such as placement prep
@@ -47,13 +47,13 @@ function FacultyMenu() {
             </div>
           </div>
 
-          <div class="icard" onClick={() => history.push("/viewstudent")}>
+          <div className="icard" onClick={() => history.push("/viewstudent")}>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <div class="content">
+            <div className="content">
               <h3>Students Profiles</h3>
               <p>Personal information of all the students is available here.</p>
             </div>

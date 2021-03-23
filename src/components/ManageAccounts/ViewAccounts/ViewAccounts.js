@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { FormGroup, Label, Input } from "reactstrap";
+import React, { useEffect, useState } from "react";
+import { FormGroup, Input, Label } from "reactstrap";
 import AccountStrip from "../AccountStrip/AccountStrip";
 
 function ViewAccounts() {

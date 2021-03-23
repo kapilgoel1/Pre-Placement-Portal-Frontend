@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useHistory, useRouteMatch } from "react-router";
 import "./StudentStrip.scss";
 

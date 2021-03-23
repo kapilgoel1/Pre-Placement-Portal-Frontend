@@ -1,10 +1,9 @@
 import React from "react";
-import "./AddJob.scss";
-import { Label, Input, Button, FormGroup, Form } from "reactstrap";
-import { useForm, Controller } from "react-hook-form";
-
+import { Controller, useForm } from "react-hook-form";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
 import DCard from "../../DCard/DCard";
+import "./AddJob.scss";
 
 const AddJob = (props) => {
   const { handleSubmit, errors, control, reset } = useForm({

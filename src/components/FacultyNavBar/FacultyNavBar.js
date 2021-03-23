@@ -1,29 +1,27 @@
-import React, { useState, useContext } from "react";
-import AuthContext from "../../AuthContext";
-import { useHistory } from "react-router-dom";
-import "./FacultyNavBar.scss";
+import React, { useContext, useState } from "react";
+import { useHistory, withRouter } from "react-router-dom";
 import {
+  Button,
   Collapse,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Nav,
   Navbar,
   NavbarBrand,
-  NavbarToggler,
   NavbarText,
-  Nav,
+  NavbarToggler,
   NavItem,
   NavLink,
   UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Button,
 } from "reactstrap";
-import { withRouter } from "react-router-dom";
+import AuthContext from "../../AuthContext";
+import "./FacultyNavBar.scss";
 
-const FacultyNavBar = (props) => {
+const FacultyNavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { setuser } = useContext(AuthContext);
   let history = useHistory();
-  let url = "/facultydashboard";
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -45,10 +43,6 @@ const FacultyNavBar = (props) => {
       });
   };
 
-  const onViewResource = (category) => {
-    history.push(`${url}/files/${category}`);
-  };
-
   return (
     <>
       <Navbar className="mb-5" dark color="color4" expand="md">
@@ -64,11 +58,6 @@ const FacultyNavBar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            {
-              // <NavItem className="rounded" onClick={() => history.push('/')}>
-              //   <NavLink>Home</NavLink>
-              // </NavItem>
-            }
             <NavItem
               className="rounded"
               onClick={() => history.push(`/addcontent`)}

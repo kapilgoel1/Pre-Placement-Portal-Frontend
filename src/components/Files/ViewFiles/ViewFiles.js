@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import FileStrip from "../FileStrip/FileStrip";
-import { Input, FormGroup, Label } from "reactstrap";
-import "./ViewFiles.scss";
+import { useParams } from "react-router-dom";
+import { FormGroup, Input, Label } from "reactstrap";
 import AuthContext from "../../../AuthContext";
+import FileStrip from "../FileStrip/FileStrip";
+import "./ViewFiles.scss";
 
 function ViewFiles(props) {
   const [searchField, setsearchField] = useState("");

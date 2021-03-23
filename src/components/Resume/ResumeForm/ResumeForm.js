@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import FormResult from "../FormResult/FormResult";
 import FormStep1 from "../FormStep1/FormStep1";
 import FormStep2 from "../FormStep2/FormStep2";

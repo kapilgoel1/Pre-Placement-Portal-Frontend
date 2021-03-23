@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Input, Label, Button, Form, FormGroup } from "reactstrap";
-import DCard from "../../DCard/DCard";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
+import DCard from "../../DCard/DCard";
 
 function EditAccount() {
   let { id } = useParams();

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./StudentDashboard.scss";
-import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import StudentNavBar from "../../components/StudentNavbar/StudentNavBar";
 import StudentEditProfile from "../../components/StudentEditProfile/StudentEditProfile";
 import StudentMenu from "../../components/StudentMenu/StudentMenu";
@@ -15,10 +15,6 @@ import PlacementPreparation from "../../components/StudentMenu/PlacementPreparat
 import PracticeTests from "../../components/StudentMenu/PracticeTests/PracticeTests";
 
 const StudentDashboard = () => {
-  // let { path } = useRouteMatch();
-  const history = useHistory();
-  let path = "/studentdashboard";
-
   useEffect(() => {});
 
   return (

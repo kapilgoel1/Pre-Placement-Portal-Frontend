@@ -1,6 +1,6 @@
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
-import { Input, Form, FormGroup, Label } from "reactstrap";
+import { Controller, useForm } from "react-hook-form";
+import { Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
 import DCard from "../DCard/DCard";
 

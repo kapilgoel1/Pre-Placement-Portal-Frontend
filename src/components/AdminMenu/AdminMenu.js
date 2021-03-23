@@ -9,14 +9,14 @@ function AdminMenu() {
   return (
     <div className="ocontainer">
       <div className="mcontainer">
-        <div class="icontainer">
-          <div class="icard" onClick={() => history.push("/addcontent")}>
+        <div className="icontainer">
+          <div className="icard" onClick={() => history.push("/addcontent")}>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <div class="content">
+            <div className="content">
               <h3>Add Content</h3>
               <p>
                 Here you can add contents such as Files, External resuorces,
@@ -25,13 +25,13 @@ function AdminMenu() {
             </div>
           </div>
 
-          <div class="icard" onClick={() => history.push("/viewcontent")}>
+          <div className="icard" onClick={() => history.push("/viewcontent")}>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <div class="content">
+            <div className="content">
               <h3>View Content</h3>
               <p>
                 Here you can view the content such as placement prep
@@ -41,25 +41,25 @@ function AdminMenu() {
             </div>
           </div>
 
-          <div class="icard" onClick={() => history.push("/viewstudent")}>
+          <div className="icard" onClick={() => history.push("/viewstudent")}>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <div class="content">
+            <div className="content">
               <h3>Students Profiles</h3>
               <p>Personal information of all the students is available here.</p>
             </div>
           </div>
 
-          <div class="icard" onClick={() => history.push("/createaccount")}>
+          <div className="icard" onClick={() => history.push("/createaccount")}>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <div class="content">
+            <div className="content">
               <h3>Create Account</h3>
               <p>
                 You can make accounts of student and admin as you wish. Just
@@ -68,14 +68,34 @@ function AdminMenu() {
             </div>
           </div>
 
-          <div class="icard" onClick={() => history.push("/manageaccounts")}>
+          <div
+            className="icard"
+            onClick={() => history.push("/manageaccounts")}
+          >
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <div class="content">
+            <div className="content">
               <h3>Manage Account</h3>
+              <p>
+                All the accounts of faculties and students are displayed here.
+                You can also edit the basic information of any acocunt.
+              </p>
+            </div>
+          </div>
+          <div
+            className="icard"
+            onClick={() => history.push("/createaccountsinbulk")}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div className="content">
+              <h3>Create Accounts In Bulk</h3>
               <p>
                 All the accounts of faculties and students are displayed here.
                 You can also edit the basic information of any acocunt.

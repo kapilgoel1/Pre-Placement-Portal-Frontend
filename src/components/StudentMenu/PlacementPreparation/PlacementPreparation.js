@@ -1,9 +1,8 @@
 import React from "react";
-import "./PlacementPreparation.scss";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
-import { Link } from "react-router-dom";
 import DashboardAnnouncement from "../../Announcements/DashboardAnnouncement/DashboardAnnouncement";
+import "./PlacementPreparation.scss";
 
 function PlacementPreparation() {
   const history = useHistory();

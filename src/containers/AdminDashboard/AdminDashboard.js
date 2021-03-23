@@ -1,34 +1,31 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
-
-import AddExternalLink from "../../components/ExternalLinks/AddExternalLink/AddExternalLink";
-import AddJob from "../../components/Jobs/AddJob/AddJob";
-import AddTest from "../../components/TestLinks/AddTest/AddTest";
+import AdminEditProfile from "../../components/AdminEditProfile/AdminEditProfile";
+import AdminMenu from "../../components/AdminMenu/AdminMenu";
+import AdminNavBar from "../../components/AdminNavBar/AdminNavBar";
 import AddAnnouncement from "../../components/Announcements/AddAnnouncement/AddAnnouncement";
 import AnnouncementDetail from "../../components/Announcements/AnnouncementDetail/AnnouncementDetail";
 import ViewAnnouncements from "../../components/Announcements/ViewAnnouncements/ViewAnnouncements";
-import AddFile from "../../components/Files/AddFile/AddFile";
-import ViewFiles from "../../components/Files/ViewFiles/ViewFiles";
-import StudentDetail from "../../components/Students/StudentDetail/StudentDetail";
-import ViewStudents from "../../components/Students/ViewStudents/ViewStudents";
+import CreateAccount from "../../components/CreateAccount/CreateAccount";
+import CreateAccountsInBulk from "../../components/CreateAccountsInBulk/CreateAccountsInBulk";
+import AddExternalLink from "../../components/ExternalLinks/AddExternalLink/AddExternalLink";
 import ViewExternalLinks from "../../components/ExternalLinks/ViewExternalLinks/ViewExternalLinks";
-import ViewJobPostings from "../../components/Jobs/ViewJobs/ViewJobs";
-import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
 import AddContent from "../../components/FacultyMenu/AddContent/AddContent";
-import ViewContent from "../../components/FacultyMenu/ViewContent/ViewContent";
 import PlacementPreparation from "../../components/FacultyMenu/PlacementPreparation/PlacementPreparation";
 import PracticeTests from "../../components/FacultyMenu/PracticeTests/PracticeTests";
-
-import AdminNavBar from "../../components/AdminNavBar/AdminNavBar";
-import AdminMenu from "../../components/AdminMenu/AdminMenu";
-import AdminEditProfile from "../../components/AdminEditProfile/AdminEditProfile";
-import CreateAccount from "../../components/CreareAccount/CreateAccount";
-import ViewAccounts from "../../components/ManageAccounts/ViewAccounts/ViewAccounts";
+import ViewContent from "../../components/FacultyMenu/ViewContent/ViewContent";
+import AddFile from "../../components/Files/AddFile/AddFile";
+import ViewFiles from "../../components/Files/ViewFiles/ViewFiles";
+import AddJob from "../../components/Jobs/AddJob/AddJob";
+import ViewJobPostings from "../../components/Jobs/ViewJobs/ViewJobs";
 import EditAccount from "../../components/ManageAccounts/EditAccount/EditAccount";
+import ViewAccounts from "../../components/ManageAccounts/ViewAccounts/ViewAccounts";
+import StudentDetail from "../../components/Students/StudentDetail/StudentDetail";
+import ViewStudents from "../../components/Students/ViewStudents/ViewStudents";
+import AddTest from "../../components/TestLinks/AddTest/AddTest";
+import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
 
 const AdminDashboard = (props) => {
-  useEffect(() => {}, []);
-
   return (
     <div>
       <AdminNavBar />
@@ -44,6 +41,9 @@ const AdminDashboard = (props) => {
         </Route>
         <Route path={`/createaccount`}>
           <CreateAccount />
+        </Route>
+        <Route path={`/createaccountsinbulk`}>
+          <CreateAccountsInBulk />
         </Route>
         <Route path={`/manageaccounts`}>
           <ViewAccounts />

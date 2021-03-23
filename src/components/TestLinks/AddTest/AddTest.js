@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import "./AddTest.scss";
-import { Label, Input, Button, FormGroup, Form } from "reactstrap";
-import DCard from "../../DCard/DCard";
-
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
+import DCard from "../../DCard/DCard";
+import "./AddTest.scss";
 
 const AddTest = (props) => {
   const [title, setTitle] = useState("");

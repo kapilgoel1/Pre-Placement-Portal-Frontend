@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "reactstrap";
 import { useHistory } from "react-router-dom";
+import { Button } from "reactstrap";
 
 function AccountStrip(props) {
   const history = useHistory();

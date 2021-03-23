@@ -1,14 +1,14 @@
 import React from "react";
-import { useForm, useFieldArray, Controller } from "react-hook-form";
+import { Controller, useFieldArray, useForm } from "react-hook-form";
+import { Button, Form, Input } from "reactstrap";
+import DCard from "../../DCard/DCard";
 import {
-  NavigationSection,
-  Previous,
-  Continue,
   Achievement,
   AchievementNumber,
+  Continue,
+  NavigationSection,
+  Previous,
 } from "../Resume.elements";
-import { Form, Input, Button } from "reactstrap";
-import DCard from "../../DCard/DCard";
 
 function FormStep3({ achievements, setAchievements, previousStep, nextStep }) {
   const { control, handleSubmit, watch } = useForm({

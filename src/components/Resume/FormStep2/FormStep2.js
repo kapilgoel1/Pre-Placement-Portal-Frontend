@@ -1,14 +1,14 @@
 import React from "react";
-import { useForm, useFieldArray, Controller } from "react-hook-form";
-import { Form, Button, Input } from "reactstrap";
+import { Controller, useFieldArray, useForm } from "react-hook-form";
+import { Button, Form, Input } from "reactstrap";
+import DCard from "../../DCard/DCard";
 import {
+  Continue,
   NavigationSection,
   Previous,
-  Continue,
   Skill,
   SkillNumber,
 } from "../Resume.elements";
-import DCard from "../../DCard/DCard";
 
 function FormStep2({ skills, setSkills, previousStep, nextStep }) {
   const { control, handleSubmit, watch } = useForm({
