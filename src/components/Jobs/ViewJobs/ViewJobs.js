@@ -2,14 +2,16 @@ import React, { useContext, useEffect, useState } from "react";
 import { Button, Card, CardBody, FormGroup } from "reactstrap";
 import swal from "sweetalert";
 import AuthContext from "../../../AuthContext";
+import CourseContext from "../../../CourseContext";
 import "./ViewJobs.scss";
 
 const ViewJobs = () => {
   const { user } = useContext(AuthContext);
+  const { course } = useContext(CourseContext);
   const [jobs, setJobs] = useState([]);
 
   const fetchCall = () => {
-    fetch("http://localhost:4000/jobposting/retrieve", {
+    fetch(`http://localhost:4000/jobposting/retrieve?course=${course}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +30,7 @@ const ViewJobs = () => {
   useEffect(() => {
     let controller = new AbortController();
 
-    fetch("http://localhost:4000/jobposting/retrieve", {
+    fetch(`http://localhost:4000/jobposting/retrieve?course=${course}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +49,7 @@ const ViewJobs = () => {
     return () => {
       controller.abort();
     };
-  }, []);
+  }, [course]);
 
   const onDelete = (d_id) => {
     fetch(`http://localhost:4000/jobposting/remove/${d_id}`, {

@@ -2,21 +2,27 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Button } from "reactstrap";
 import AuthContext from "../../../AuthContext";
+import CourseContext from "../../../CourseContext";
+
 import "./DashboardAnnouncement.scss";
 
 function DashboardAnnouncement() {
   const [announcements, setAnnouncements] = useState([]);
   const history = useHistory();
   const { user } = useContext(AuthContext);
+  const { course } = useContext(CourseContext);
 
   useEffect(() => {
-    fetch("http://localhost:4000/announcement/retrieve?limit=6", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `http://localhost:4000/announcement/retrieve?limit=6&course=${course}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setAnnouncements(result.announcementList);
@@ -24,7 +30,7 @@ function DashboardAnnouncement() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [course]);
 
   return (
     <div className="aouter">
@@ -53,17 +59,16 @@ function DashboardAnnouncement() {
             More...
           </li>
         </ul>
-        {user.role === "faculty" ||
-          ("admin" && (
-            <Button
-              className="btn-block btn-color2 btn-lg"
-              onClick={() => {
-                history.push("/addannouncement");
-              }}
-            >
-              Add Announcement
-            </Button>
-          ))}
+        {(user.role === "faculty" || user.role === "admin") && (
+          <Button
+            className="btn-block btn-color2 btn-lg"
+            onClick={() => {
+              history.push("/addannouncement");
+            }}
+          >
+            Add Announcement
+          </Button>
+        )}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import ReactPaginate from "react-paginate";
 import { useParams } from "react-router-dom";
 import { FormGroup, Input, Label } from "reactstrap";
 import AuthContext from "../../../AuthContext";
+import CourseContext from "../../../CourseContext";
 import FileStrip from "../FileStrip/FileStrip";
 import "./ViewFiles.scss";
 
@@ -16,9 +17,10 @@ function ViewFiles(props) {
   const [myFilesChecked, setMyFilesChecked] = React.useState(false);
   let { category } = useParams();
   const { user } = useContext(AuthContext);
+  const { course } = useContext(CourseContext);
 
   useEffect(() => {
-    fetch("http://localhost:4000/subject/retrieve", {
+    fetch(`http://localhost:4000/subject/retrieve?course=${course}`, {
       method: "GET",
       credentials: "include",
     })
@@ -29,11 +31,11 @@ function ViewFiles(props) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [course]);
 
   useEffect(() => {
-    console.log("useeffect");
     let url = new URL("http://localhost:4000/file/retrievelist");
+    url.searchParams.append("course", course);
     if (category !== undefined) {
       url.searchParams.append("category", category);
     }
@@ -66,12 +68,22 @@ function ViewFiles(props) {
       .catch((err) => {
         console.log(err);
       });
-  }, [offset, subject, searchField, props.limit, category, myFilesChecked]);
+  }, [
+    offset,
+    subject,
+    searchField,
+    props.limit,
+    category,
+    myFilesChecked,
+    course,
+  ]);
 
   const afterDelete = () => {
     console.log("after date");
     console.log("limit", props.limit);
     let url = new URL("http://localhost:4000/file/retrievelist");
+    url.searchParams.append("course", course);
+
     if (category !== undefined) {
       url.searchParams.append("category", category);
     }

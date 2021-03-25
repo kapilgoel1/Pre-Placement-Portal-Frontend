@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
 import DCard from "../../DCard/DCard";
+import CourseContext from "../../../CourseContext";
 import "./AddJob.scss";
 
-const AddJob = (props) => {
+const AddJob = () => {
+  const { course } = useContext(CourseContext);
+
   const { handleSubmit, errors, control, reset } = useForm({
     defaultValues: {
       company: "",
@@ -16,6 +19,7 @@ const AddJob = (props) => {
     },
   });
   const onSubmit = (data) => {
+    data.course = course;
     fetch("http://localhost:4000/jobposting/add", {
       method: "POST",
       headers: {

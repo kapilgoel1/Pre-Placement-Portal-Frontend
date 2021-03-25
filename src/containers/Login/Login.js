@@ -1,6 +1,6 @@
 import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import {
   Button,
@@ -15,13 +15,32 @@ import {
 import swal from "sweetalert";
 import avatar from "../../assets/avatardefault_92824.png";
 import AuthContext from "../../AuthContext";
+import CourseContext from "../../CourseContext";
+
 import "./Login.scss";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [setUserType] = useState("");
+  const [courseList, setCourseList] = useState([]);
+  const { course, setCourse } = useContext(CourseContext);
+
+  // const [setUserType] = useState("");
   const { setuser } = useContext(AuthContext);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/course/retrieve", {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        setCourseList(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -97,22 +116,22 @@ const Login = () => {
             />
           </InputGroup>
         </FormGroup>
-        <FormGroup className="iam">
-          <Label for="exampleSelect" size="lg">
-            I am a
-          </Label>
+        <FormGroup>
+          <Label>Choose Course</Label>
           <Input
             type="select"
-            name="select"
-            id="exampleSelect"
-            onChange={(e) => setUserType(e.target.value)}
+            value={course}
+            onChange={(e) => {
+              setCourse(e.target.value);
+            }}
             required
-            size="lg"
           >
-            <option value="">--Please choose an option--</option>
-            <option>Student</option>
-            <option>Faculty</option>
-            <option>Admin</option>
+            <option value="">--Please select your course--</option>
+            {courseList.map((course) => (
+              <option value={course._id} key={course._id}>
+                {course.title}
+              </option>
+            ))}
           </Input>
         </FormGroup>
         <Button

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import {
   Alert,
   Button,
@@ -9,6 +9,7 @@ import {
   Progress,
 } from "reactstrap";
 import DCard from "../../DCard/DCard";
+import CourseContext from "../../../CourseContext";
 import "./AddFile.scss";
 
 const FileUploadTest = () => {
@@ -20,8 +21,10 @@ const FileUploadTest = () => {
   const [subject, setSubject] = useState("");
   const [subjectList, setSubjectList] = useState([]);
 
+  const { course } = useContext(CourseContext);
+
   useEffect(() => {
-    fetch("http://localhost:4000/subject/retrieve", {
+    fetch(`http://localhost:4000/subject/retrieve?course=${course}`, {
       method: "GET",
       credentials: "include",
     })
@@ -32,7 +35,7 @@ const FileUploadTest = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [course]);
 
   const uploadFile = (e) => {
     e.preventDefault();
@@ -76,6 +79,7 @@ const FileUploadTest = () => {
     xhrObj.withCredentials = true;
     let url = new URL("http://localhost:4000/file/add");
     url.searchParams.append("category", category);
+    url.searchParams.append("course", course);
 
     if (subject !== "") url.searchParams.append("subject", subject);
 

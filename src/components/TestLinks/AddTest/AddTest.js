@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
 import DCard from "../../DCard/DCard";
+import CourseContext from "../../../CourseContext";
 import "./AddTest.scss";
 
 const AddTest = (props) => {
   const [title, setTitle] = useState("");
   const [testDetail, setTestDetail] = useState("");
   const [testLink, setTestLink] = useState("");
+
+  const { course } = useContext(CourseContext);
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -16,6 +19,7 @@ const AddTest = (props) => {
       title: title,
       link: testLink,
       detail: testDetail,
+      course,
     };
 
     fetch("http://localhost:4000/test/add", {
@@ -62,6 +66,7 @@ const AddTest = (props) => {
             Test Link
           </Label>
           <Input
+            type="url"
             name="testLink"
             id="testLink"
             value={testLink}

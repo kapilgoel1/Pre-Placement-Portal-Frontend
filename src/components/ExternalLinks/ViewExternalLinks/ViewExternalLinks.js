@@ -3,16 +3,18 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 import { Button, Card, CardBody, FormGroup } from "reactstrap";
 import swal from "sweetalert";
 import AuthContext from "../../../AuthContext";
+import CourseContext from "../../../CourseContext";
 import "./ViewExternalLinks.scss";
 
 const ViewExternalRes = () => {
   const history = useHistory();
   const { user } = useContext(AuthContext);
+  const { course } = useContext(CourseContext);
   let { path } = useRouteMatch();
   const [resources, setResources] = useState([]);
 
   const fetchCall = () => {
-    fetch("http://localhost:4000/externalresource/retrieve", {
+    fetch(`http://localhost:4000/externalresource/retrieve?course=${course}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +32,7 @@ const ViewExternalRes = () => {
 
   useEffect(() => {
     fetchCall();
-  }, []);
+  });
 
   const onDelete = (d_id) => {
     fetch(`http://localhost:4000/externalresource/remove/${d_id}`, {

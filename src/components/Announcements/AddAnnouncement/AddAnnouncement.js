@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
 import DCard from "../../DCard/DCard";
+import CourseContext from "../../../CourseContext";
 import "./AddAnnouncement.scss";
 
-const AddAnnouncement = (props) => {
+const AddAnnouncement = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [submitDisabled, setSubmitDisabled] = useState(false);
+  const { course } = useContext(CourseContext);
 
   const uploadFile = (e) => {
     e.preventDefault();
@@ -25,6 +27,7 @@ const AddAnnouncement = (props) => {
     let url = new URL("http://localhost:4000/announcement/upload");
     url.searchParams.append("title", title);
     url.searchParams.append("content", content);
+    url.searchParams.append("course", course);
 
     fetch(url, {
       method: "POST",

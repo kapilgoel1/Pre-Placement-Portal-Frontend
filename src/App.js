@@ -3,6 +3,7 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import { Spinner } from "reactstrap";
 import "./App.scss";
 import AuthContext from "./AuthContext";
+import CourseContext from "./CourseContext";
 import About from "./components/About/About";
 import AdminDashboard from "./containers/AdminDashboard/AdminDashboard";
 import FacultyDashboard from "./containers/FacultyDashboard/FacultyDashboard";
@@ -12,11 +13,10 @@ import StudentDashboard from "./containers/StudentDashboard/StudentDashboard";
 const App = () => {
   const [loading, setloading] = useState(true);
   const [user, setuser] = useState({ role: "", loggedin: false });
+  const [course, setCourse] = useState("");
   let history = useHistory();
 
   useEffect(() => {
-    console.log("runned");
-
     fetch("http://localhost:4000/user/details", {
       method: "GET",
       headers: {
@@ -43,97 +43,122 @@ const App = () => {
       });
   }, [user.role, user.loggedin, history]);
 
+  useEffect(() => {
+    setCourse(localStorage.getItem("course"));
+  }, []);
+
+  const setCourseEverywhere = (course) => {
+    localStorage.setItem("course", course);
+    setCourse(course);
+  };
+
   let calculatedRoutes = null;
 
   if (user.role === "student")
     calculatedRoutes = (
       <Switch>
-        <AuthContext.Provider
-          value={{
-            user: user,
-            setuser: setuser,
-          }}
+        <CourseContext.Provider
+          value={{ course: course, setCourse: setCourseEverywhere }}
         >
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <About />
-          </Route>
+          <AuthContext.Provider
+            value={{
+              user: user,
+              setuser: setuser,
+            }}
+          >
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/contact">
+              <About />
+            </Route>
 
-          <Route path="/">
-            <StudentDashboard />
-          </Route>
-        </AuthContext.Provider>
+            <Route path="/">
+              <StudentDashboard />
+            </Route>
+          </AuthContext.Provider>
+        </CourseContext.Provider>
       </Switch>
     );
 
   if (user.role === "faculty")
     calculatedRoutes = (
       <Switch>
-        <AuthContext.Provider
-          value={{
-            user: user,
-            setuser: setuser,
-          }}
+        <CourseContext.Provider
+          value={{ course: course, setCourse: setCourseEverywhere }}
         >
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <About />
-          </Route>
+          <AuthContext.Provider
+            value={{
+              user: user,
+              setuser: setuser,
+            }}
+          >
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/contact">
+              <About />
+            </Route>
 
-          <Route path="/">
-            <FacultyDashboard />
-          </Route>
-        </AuthContext.Provider>
+            <Route path="/">
+              <FacultyDashboard />
+            </Route>
+          </AuthContext.Provider>
+        </CourseContext.Provider>
       </Switch>
     );
 
   if (user.role === "admin")
     calculatedRoutes = (
       <Switch>
-        <AuthContext.Provider
-          value={{
-            user: user,
-            setuser: setuser,
-          }}
+        <CourseContext.Provider
+          value={{ course: course, setCourse: setCourseEverywhere }}
         >
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <About />
-          </Route>
+          <AuthContext.Provider
+            value={{
+              user: user,
+              setuser: setuser,
+            }}
+          >
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/contact">
+              <About />
+            </Route>
 
-          <Route path="/">
-            <AdminDashboard />
-          </Route>
-        </AuthContext.Provider>
+            <Route path="/">
+              <AdminDashboard />
+            </Route>
+          </AuthContext.Provider>
+        </CourseContext.Provider>
       </Switch>
     );
 
   if (user.loggedin === false && loading === false)
     calculatedRoutes = (
       <Switch>
-        <AuthContext.Provider
-          value={{
-            user: user,
-            setuser: setuser,
-          }}
+        <CourseContext.Provider
+          value={{ course: course, setCourse: setCourseEverywhere }}
         >
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <About />
-          </Route>
+          <AuthContext.Provider
+            value={{
+              user: user,
+              setuser: setuser,
+            }}
+          >
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/contact">
+              <About />
+            </Route>
 
-          <Route path="/">
-            <Home />
-          </Route>
-        </AuthContext.Provider>
+            <Route path="/">
+              <Home />
+            </Route>
+          </AuthContext.Provider>
+        </CourseContext.Provider>
       </Switch>
     );
 
