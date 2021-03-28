@@ -18,38 +18,41 @@ function PlacementPreparation() {
 
           <BreadcrumbItem active>Placement Preparation</BreadcrumbItem>
         </Breadcrumb>
-        <div class="icontainer">
-          <div class="icard" onClick={() => history.push("/files/notes")}>
+        <div className="icontainer">
+          <div className="icard" onClick={() => history.push("/files/notes")}>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <div class="content">
+            <div className="content">
               <h3>Notes</h3>
               <p>All the uploaded notes are available here.</p>
             </div>
           </div>
 
-          <div class="icard" onClick={() => history.push("/files/video")}>
+          <div className="icard" onClick={() => history.push("/files/video")}>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <div class="content">
+            <div className="content">
               <h3>Video Lectures</h3>
               <p>The video lectures uploaded can be viewed here.</p>
             </div>
           </div>
 
-          <div class="icard" onClick={() => history.push("/viewexternallinks")}>
+          <div
+            className="icard"
+            onClick={() => history.push("/viewexternallinks")}
+          >
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <div class="content">
+            <div className="content">
               <h3>Online Resources</h3>
               <p>The external links uploaded can be viewed here.</p>
             </div>

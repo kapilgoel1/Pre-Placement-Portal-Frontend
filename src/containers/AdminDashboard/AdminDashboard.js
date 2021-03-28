@@ -17,13 +17,17 @@ import ViewContent from "../../components/FacultyMenu/ViewContent/ViewContent";
 import AddFile from "../../components/Files/AddFile/AddFile";
 import ViewFiles from "../../components/Files/ViewFiles/ViewFiles";
 import AddJob from "../../components/Jobs/AddJob/AddJob";
-import ViewJobPostings from "../../components/Jobs/ViewJobs/ViewJobs";
+import ViewJobs from "../../components/Jobs/ViewJobs/ViewJobs";
+import ViewInternships from "../../components/Internships/ViewInternships/ViewInternships";
 import EditAccount from "../../components/ManageAccounts/EditAccount/EditAccount";
 import ViewAccounts from "../../components/ManageAccounts/ViewAccounts/ViewAccounts";
 import StudentDetail from "../../components/Students/StudentDetail/StudentDetail";
 import ViewStudents from "../../components/Students/ViewStudents/ViewStudents";
 import AddTest from "../../components/TestLinks/AddTest/AddTest";
 import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
+import ViewApplicants from "../../components/Jobs/ViewApplicants/ViewApplicants";
+import InternshipApplicants from "../../components/Internships/IntershipApplicants/IntershipApplicants";
+import AddInternship from "../../components/Internships/AddInternship/AddInternship";
 
 const AdminDashboard = (props) => {
   return (
@@ -61,6 +65,9 @@ const AdminDashboard = (props) => {
         <Route path={`/addjob`}>
           <AddJob />
         </Route>
+        <Route path={`/addinternship`}>
+          <AddInternship />
+        </Route>
         <Route path={`/addexternallink`}>
           <AddExternalLink />
         </Route>
@@ -86,7 +93,16 @@ const AdminDashboard = (props) => {
           <ViewTests />
         </Route>
         <Route path={`/viewjobs`}>
-          <ViewJobPostings />
+          <ViewJobs />
+        </Route>
+        <Route path={`/viewinternships`}>
+          <ViewInternships />
+        </Route>
+        <Route path={`/viewapplicants/:id`}>
+          <ViewApplicants />
+        </Route>
+        <Route path={`/internshipapplicants/:id`}>
+          <InternshipApplicants />
         </Route>
         <Route path={`/viewstudent/:id`}>
           <StudentDetail />

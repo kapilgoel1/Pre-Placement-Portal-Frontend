@@ -4,16 +4,16 @@ import swal from "sweetalert";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../../AuthContext";
 import CourseContext from "../../../CourseContext";
-import "./ViewJobs.scss";
+import "./ViewInternships.scss";
 
-const ViewJobs = () => {
+const ViewInternships = () => {
   const { user } = useContext(AuthContext);
   const { course } = useContext(CourseContext);
-  const [jobs, setJobs] = useState([]);
+  const [internships, setInternships] = useState([]);
   let history = useHistory();
 
   const fetchCall = () => {
-    fetch(`http://localhost:4000/jobposting/retrieve?course=${course}`, {
+    fetch(`http://localhost:4000/internship/retrieve?course=${course}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ const ViewJobs = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        setJobs(result.postings);
+        setInternships(result.postings);
       })
       .catch((err) => {
         console.log(err);
@@ -32,7 +32,7 @@ const ViewJobs = () => {
   useEffect(() => {
     let controller = new AbortController();
 
-    fetch(`http://localhost:4000/jobposting/retrieve?course=${course}`, {
+    fetch(`http://localhost:4000/internship/retrieve?course=${course}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const ViewJobs = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        setJobs(result.postings);
+        setInternships(result.postings);
       })
       .catch((err) => {
         console.log(err);
@@ -54,7 +54,7 @@ const ViewJobs = () => {
   }, [course]);
 
   const onDelete = (d_id) => {
-    fetch(`http://localhost:4000/jobposting/remove/${d_id}`, {
+    fetch(`http://localhost:4000/internship/remove/${d_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -74,8 +74,8 @@ const ViewJobs = () => {
       });
   };
 
-  const applyForJob = (jobId) => {
-    fetch(`http://localhost:4000/jobposting/checkresumepresence`, {
+  const applyForInternship = (jobId) => {
+    fetch(`http://localhost:4000/internship/checkresumepresence`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -87,13 +87,13 @@ const ViewJobs = () => {
         if (result.hasresume) {
           swal({
             title: "Are you sure?",
-            text: "Do you want to apply for this job?",
+            text: "Do you want to apply for this internship?",
             icon: "warning",
             buttons: ["No", "Apply"],
             dangerMode: true,
           }).then((willApply) => {
             if (willApply) {
-              fetch(`http://localhost:4000/jobposting/apply/${jobId}`, {
+              fetch(`http://localhost:4000/internship/apply/${jobId}`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -113,13 +113,13 @@ const ViewJobs = () => {
           swal({
             title: "Apply without uploading resume?",
             text:
-              "Generate your resume with the resume builder on the site before applying for the job!",
+              "Generate your resume with the resume builder on the site before applying for the internship!",
             icon: "warning",
             buttons: ["Build Resume", "Apply Without Uploading Resume"],
             dangerMode: true,
           }).then((willApply) => {
             if (willApply) {
-              fetch(`http://localhost:4000/jobposting/apply/${jobId}`, {
+              fetch(`http://localhost:4000/internship/apply/${jobId}`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -142,45 +142,49 @@ const ViewJobs = () => {
   };
 
   const viewApplicants = (jobId) => {
-    history.push(`/viewapplicants/${jobId}`);
+    history.push(`/internshipapplicants/${jobId}`);
   };
 
   return (
     <div className="job-container">
       <div className="job-card mx-1">
         <FormGroup align="center">
-          <h3 className="text-white mb-4 pb-3">Jobs Available</h3>
+          <h3 className="text-white mb-4 pb-3">Internships Available</h3>
         </FormGroup>
-        {jobs.map((job) => (
-          <Card key={job._id} className="mb-3 ">
+        {internships.map((internship) => (
+          <Card key={internship._id} className="mb-3 ">
             <CardBody>
               <FormGroup className="mb-4">
-                <h3>{job.role}</h3>
-                <h5>Company - {job.company}</h5>
+                <h3>{internship.role}</h3>
+                <h5>Company - {internship.company}</h5>
               </FormGroup>
-              {job.requirements !== "" && (
+              {internship.requirements !== "" && (
                 <FormGroup>
                   <h6>JOB REQUIREMENTS</h6>
-                  <p className="text-muted jobprofile">{job.requirements}</p>
+                  <p className="text-muted jobprofile">
+                    {internship.requirements}
+                  </p>
                 </FormGroup>
               )}
-              {job.description !== "" && (
+              {internship.description !== "" && (
                 <FormGroup>
-                  <h6>JOB PROFILE</h6>
-                  <p className="text-muted jobprofile">{job.description}</p>
+                  <h6>INTERNSHIP PROFILE</h6>
+                  <p className="text-muted jobprofile">
+                    {internship.description}
+                  </p>
                 </FormGroup>
               )}
-              {job.salaryrange !== "" && (
+              {internship.salaryrange !== "" && (
                 <FormGroup>
                   <h6>Salary</h6>
-                  <p className="text-muted">{job.salaryrange}</p>
+                  <p className="text-muted">{internship.salaryrange}</p>
                 </FormGroup>
               )}
 
               {user.role === "student" && (
                 <Button
                   onClick={() => {
-                    applyForJob(job._id);
+                    applyForInternship(internship._id);
                   }}
                   className="mt-2"
                   color="color2"
@@ -193,12 +197,12 @@ const ViewJobs = () => {
                 {(user.role === "faculty" || user.role === "admin") && (
                   <Button
                     onClick={() => {
-                      viewApplicants(job._id);
+                      viewApplicants(internship._id);
                     }}
                     className="mt-2"
                     color="color2"
                   >
-                    View Applicants ({job.applicants})
+                    View Applicants ({internship.applicants})
                   </Button>
                 )}
 
@@ -206,7 +210,7 @@ const ViewJobs = () => {
                   <Button
                     onClick={(e) => {
                       e.stopPropagation();
-                      onDelete(job._id);
+                      onDelete(internship._id);
                     }}
                     className="mt-2"
                     color="color2"
@@ -224,4 +228,4 @@ const ViewJobs = () => {
   );
 };
 
-export default ViewJobs;
+export default ViewInternships;

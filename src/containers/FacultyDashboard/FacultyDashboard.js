@@ -15,13 +15,17 @@ import FacultyNavBar from "../../components/FacultyNavBar/FacultyNavBar";
 import AddFile from "../../components/Files/AddFile/AddFile";
 import ViewFiles from "../../components/Files/ViewFiles/ViewFiles";
 import AddJob from "../../components/Jobs/AddJob/AddJob";
-import ViewJobPostings from "../../components/Jobs/ViewJobs/ViewJobs";
+import ViewJobs from "../../components/Jobs/ViewJobs/ViewJobs";
+import ViewInternships from "../../components/Internships/ViewInternships/ViewInternships";
 import StudentDetail from "../../components/Students/StudentDetail/StudentDetail";
 import ViewStudents from "../../components/Students/ViewStudents/ViewStudents";
 import AddTest from "../../components/TestLinks/AddTest/AddTest";
 import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
+import ViewApplicants from "../../components/Jobs/ViewApplicants/ViewApplicants";
+import InternshipApplicants from "../../components/Internships/IntershipApplicants/IntershipApplicants";
+import AddInternship from "../../components/Internships/AddInternship/AddInternship";
 
-const FacultyDashboard = (props) => {
+const FacultyDashboard = () => {
   return (
     <div>
       <FacultyNavBar />
@@ -46,6 +50,9 @@ const FacultyDashboard = (props) => {
         </Route>
         <Route path={`/addjob`}>
           <AddJob />
+        </Route>
+        <Route path={`/addinternship`}>
+          <AddInternship />
         </Route>
         <Route path={`/addexternallink`}>
           <AddExternalLink />
@@ -72,7 +79,16 @@ const FacultyDashboard = (props) => {
           <ViewTests />
         </Route>
         <Route path={`/viewjobs`}>
-          <ViewJobPostings />
+          <ViewJobs />
+        </Route>
+        <Route path={`/viewinternships`}>
+          <ViewInternships />
+        </Route>
+        <Route path={`/viewapplicants/:id`}>
+          <ViewApplicants />
+        </Route>
+        <Route path={`/internshipapplicants/:id`}>
+          <InternshipApplicants />
         </Route>
         <Route path={`/viewstudent/:id`}>
           <StudentDetail />

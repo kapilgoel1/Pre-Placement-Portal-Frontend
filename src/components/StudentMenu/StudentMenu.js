@@ -100,6 +100,23 @@ function StudentMenu() {
                 <p>You can click here for all the job content uploaded.</p>
               </div>
             </div>
+
+            <div
+              className="icard"
+              onClick={() => {
+                history.push("/viewinternships");
+              }}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <div className="content">
+                <h3>Internships</h3>
+                <p>You can click here for all the job content uploaded.</p>
+              </div>
+            </div>
           </div>
         </div>
         <DashboardAnnouncement />

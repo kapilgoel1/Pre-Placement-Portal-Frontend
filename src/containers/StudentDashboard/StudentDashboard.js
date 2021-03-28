@@ -9,6 +9,7 @@ import AnnouncementDetail from "../../components/Announcements/AnnouncementDetai
 import ViewAnnouncement from "../../components/Announcements/ViewAnnouncements/ViewAnnouncements";
 import ViewExternalLinks from "../../components/ExternalLinks/ViewExternalLinks/ViewExternalLinks";
 import ViewJobs from "../../components/Jobs/ViewJobs/ViewJobs";
+import ViewInternships from "../../components/Internships/ViewInternships/ViewInternships";
 import ResumeForm from "../../components/Resume/ResumeForm/ResumeForm";
 import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
 import PlacementPreparation from "../../components/StudentMenu/PlacementPreparation/PlacementPreparation";
@@ -47,6 +48,9 @@ const StudentDashboard = () => {
         </Route>
         <Route path={`/viewjobs`}>
           <ViewJobs />
+        </Route>
+        <Route path={`/viewinternships`}>
+          <ViewInternships />
         </Route>
         <Route path={`/viewtests`}>
           <ViewTests />
