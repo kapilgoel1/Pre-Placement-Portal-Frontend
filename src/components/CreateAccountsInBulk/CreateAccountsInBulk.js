@@ -28,8 +28,8 @@ const AddAnnouncement = (props) => {
       .then((response) => response.json())
       .then((result) => {
         document.querySelector("#file-field").value = "";
-        if (result.error) swal(result.error);
-        else swal("Users Registered");
+        if (result.error) swal("Error!", result.error, "error");
+        else swal("Users Registered!", "", "success");
       })
       .catch((err) => {
         console.log(err);

@@ -31,7 +31,7 @@ const AddExternalLink = (props) => {
       .then((result) => {
         setTitle("");
         setLink("");
-        swal("EXTERNAL RESOURCE UPLOADED");
+        swal("External Link Uploaded!", "", "success");
       })
       .catch((err) => {
         console.log(err);

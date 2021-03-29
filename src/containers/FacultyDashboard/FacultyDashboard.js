@@ -24,6 +24,8 @@ import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
 import ViewApplicants from "../../components/Jobs/ViewApplicants/ViewApplicants";
 import InternshipApplicants from "../../components/Internships/IntershipApplicants/IntershipApplicants";
 import AddInternship from "../../components/Internships/AddInternship/AddInternship";
+import ViewAssignments from "../../components/Files/ViewAssignments/ViewAssignments";
+import ViewSubmittedAssignments from "../../components/Files/ViewSubmittedAssignments/ViewSubmittedAssignments";
 
 const FacultyDashboard = () => {
   return (
@@ -101,6 +103,12 @@ const FacultyDashboard = () => {
         </Route>
         <Route path={`/files`}>
           <ViewFiles limit={30} />
+        </Route>
+        <Route path={`/viewassignments`}>
+          <ViewAssignments />
+        </Route>
+        <Route path={`/viewsubmittedassignments/:id`}>
+          <ViewSubmittedAssignments />
         </Route>
         <Route path="/">
           <FacultyMenu />

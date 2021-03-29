@@ -23,7 +23,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [courseList, setCourseList] = useState([]);
-  const { course, setCourse } = useContext(CourseContext);
+  const [loginCourse, setLoginCourse] = useState("");
+  const { setCourse } = useContext(CourseContext);
 
   // const [setUserType] = useState("");
   const { setuser } = useContext(AuthContext);
@@ -61,9 +62,14 @@ const Login = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.role) {
+          setCourse(loginCourse);
           setuser({ role: result.role, loggedin: true });
         } else {
-          swal("Invalid Login credentials");
+          swal(
+            "Invalid Login credentials!",
+            "Please provide correct email and password",
+            "error"
+          );
         }
       })
       .catch((err) => {
@@ -120,9 +126,9 @@ const Login = () => {
           <Label>Choose Course</Label>
           <Input
             type="select"
-            value={course}
+            value={loginCourse}
             onChange={(e) => {
-              setCourse(e.target.value);
+              setLoginCourse(e.target.value);
             }}
             required
           >

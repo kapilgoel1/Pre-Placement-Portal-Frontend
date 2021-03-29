@@ -165,16 +165,18 @@ function ViewFiles(props) {
                 ))}
               </Input>
             </FormGroup>
-            <FormGroup check>
-              <Label check>
-                <Input
-                  type="checkbox"
-                  defaultChecked={myFilesChecked}
-                  onChange={() => setMyFilesChecked(!myFilesChecked)}
-                />{" "}
-                Files Uploaded by Me
-              </Label>
-            </FormGroup>
+            {(user.role === "faculty" || user.role === "admin") && (
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="checkbox"
+                    defaultChecked={myFilesChecked}
+                    onChange={() => setMyFilesChecked(!myFilesChecked)}
+                  />{" "}
+                  Files Uploaded by Me
+                </Label>
+              </FormGroup>
+            )}
           </div>
         </div>
 
@@ -196,7 +198,7 @@ function ViewFiles(props) {
               <div className="filestrip-header__action">
                 <h5>Action</h5>
               </div>
-              {user.role === "faculty" && (
+              {(user.role === "faculty" || user.role === "admin") && (
                 <div className="filestrip-header__delete">
                   <h5>Action</h5>
                 </div>

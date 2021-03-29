@@ -97,7 +97,7 @@ const FacultyNavBar = () => {
             </UncontrolledDropdown>
             <NavItem
               className="rounded"
-              onClick={() => history.push(`/files/assignment`)}
+              onClick={() => history.push(`/viewassignments`)}
             >
               <NavLink>Assignments</NavLink>
             </NavItem>

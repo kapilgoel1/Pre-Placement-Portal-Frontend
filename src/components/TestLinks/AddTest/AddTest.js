@@ -35,7 +35,7 @@ const AddTest = (props) => {
         setTitle("");
         setTestDetail("");
         setTestLink("");
-        swal("TEST UPLOADED");
+        swal("Test Uploaded!", "", "success");
       })
       .catch((err) => {
         console.log(err);
@@ -50,7 +50,9 @@ const AddTest = (props) => {
         </FormGroup>
         <hr />
         <FormGroup>
-          <Label for="title">TITLE</Label>
+          <Label for="title">
+            Test Title <span className="text-primary"> *</span>
+          </Label>
           <Input
             type="text"
             name="title"
@@ -63,7 +65,7 @@ const AddTest = (props) => {
         </FormGroup>
         <FormGroup>
           <Label for="or" align="center">
-            Test Link
+            Test Link<span className="text-primary"> *</span>
           </Label>
           <Input
             type="url"
@@ -76,7 +78,7 @@ const AddTest = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="test">TEST DETAILS</Label>
+          <Label for="test">Test Details</Label>
           <Input
             type="text"
             name="testDetail"
@@ -84,7 +86,6 @@ const AddTest = (props) => {
             value={testDetail}
             placeholder="Enter Test Detail"
             onChange={(e) => setTestDetail(e.target.value)}
-            required
           />
         </FormGroup>
 

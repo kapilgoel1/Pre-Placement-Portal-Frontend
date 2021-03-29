@@ -54,7 +54,7 @@ function StudentMenu() {
 
             <div
               className="icard"
-              onClick={() => history.push("/files/assignment")}
+              onClick={() => history.push("/viewassignments")}
             >
               <span></span>
               <span></span>

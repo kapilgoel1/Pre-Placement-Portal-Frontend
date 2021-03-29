@@ -30,8 +30,8 @@ const AddInternship = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        if (result.error) swal(swal(result.error));
-        else swal("Internship Posted");
+        if (result.error) swal(swal("Error!", result.error, "error"));
+        else swal("Internship Posted!", "", "success");
         reset({
           company: "",
           role: "",

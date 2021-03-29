@@ -14,6 +14,8 @@ import ResumeForm from "../../components/Resume/ResumeForm/ResumeForm";
 import ViewTests from "../../components/TestLinks/ViewTests/ViewTests";
 import PlacementPreparation from "../../components/StudentMenu/PlacementPreparation/PlacementPreparation";
 import PracticeTests from "../../components/StudentMenu/PracticeTests/PracticeTests";
+import ViewAssignments from "../../components/Files/ViewAssignments/ViewAssignments";
+import SubmitAssignment from "../../components/Files/SubmitAssignment/SubmitAssignment";
 
 const StudentDashboard = () => {
   useEffect(() => {});
@@ -54,6 +56,12 @@ const StudentDashboard = () => {
         </Route>
         <Route path={`/viewtests`}>
           <ViewTests />
+        </Route>
+        <Route path={`/viewassignments`}>
+          <ViewAssignments />
+        </Route>
+        <Route path={`/submitassignment/:id`}>
+          <SubmitAssignment />
         </Route>
         <Route path="/">
           <StudentMenu />

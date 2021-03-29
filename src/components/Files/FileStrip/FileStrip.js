@@ -44,7 +44,7 @@ function FileStrip(props) {
           Download
         </a>
       </div>
-      {user.role === "faculty" && (
+      {(user.role === "faculty" || user.role === "admin") && (
         <div className="filestrip__delete">
           <Button className="btn btn-color5 w-100" onClick={onDelete}>
             Delete

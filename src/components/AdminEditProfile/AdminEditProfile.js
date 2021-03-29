@@ -51,7 +51,7 @@ const AdminEditProfile = (props) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        swal("Profile Updated");
+        swal("Profile Updated", "", "success");
       })
       .catch((err) => {
         console.log(err);

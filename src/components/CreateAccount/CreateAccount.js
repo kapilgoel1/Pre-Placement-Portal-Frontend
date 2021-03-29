@@ -27,7 +27,7 @@ function CreateAccount() {
       .then((response) => response.json())
       .then((result) => {
         if (result.error) swal(swal(result.error));
-        else swal("Account Created");
+        else swal("Account Created!", "", "success");
         reset({
           email: "",
           password: "",

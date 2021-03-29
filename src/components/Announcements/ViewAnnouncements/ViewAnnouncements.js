@@ -67,7 +67,7 @@ const ViewAnnouncements = () => {
               onClick={() => history.push(`${path}/${announcement._id}`)}
             >
               <CardTitle> {announcement.title} </CardTitle>
-              {user.role === "faculty" && (
+              {(user.role === "faculty" || user.role === "admin") && (
                 <Button
                   color="color2"
                   onClick={(e) => {

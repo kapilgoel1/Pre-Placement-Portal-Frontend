@@ -75,7 +75,7 @@ const ViewExternalRes = () => {
                   {resource.link}
                 </a>
               </FormGroup>
-              {user.role === "faculty" && (
+              {(user.role === "faculty" || user.role === "admin") && (
                 <Button
                   onClick={(e) => {
                     e.stopPropagation();

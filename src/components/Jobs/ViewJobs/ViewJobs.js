@@ -86,7 +86,7 @@ const ViewJobs = () => {
       .then((result) => {
         if (result.hasresume) {
           swal({
-            title: "Are you sure?",
+            title: "Confirmation!",
             text: "Do you want to apply for this job?",
             icon: "warning",
             buttons: ["No", "Apply"],

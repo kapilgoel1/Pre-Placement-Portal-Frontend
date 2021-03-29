@@ -58,7 +58,7 @@ function EditAccount() {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        swal("Profile Updated");
+        swal("Profile Updated!", "", "success");
       })
       .catch((err) => {
         console.log(err);

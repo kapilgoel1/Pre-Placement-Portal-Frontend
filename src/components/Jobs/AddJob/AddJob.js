@@ -31,7 +31,7 @@ const AddJob = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.error) swal(swal(result.error));
-        else swal("Job Posted");
+        else swal("Job Posted!", "", "success");
         reset({
           company: "",
           role: "",

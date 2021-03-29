@@ -8,6 +8,7 @@ import {
   Label,
   Progress,
 } from "reactstrap";
+import swal from "sweetalert";
 import DCard from "../../DCard/DCard";
 import CourseContext from "../../../CourseContext";
 import "./AddFile.scss";
@@ -39,6 +40,16 @@ const FileUploadTest = () => {
 
   const uploadFile = (e) => {
     e.preventDefault();
+    for (
+      var y = 0;
+      y < document.querySelector("#file-field").files.length;
+      y++
+    ) {
+      if (document.querySelector("#file-field").files[y].size > 20971520) {
+        swal("Not Allowed", "Select a file with a max size of 20 MB", "error");
+        return;
+      }
+    }
     const formData = new FormData();
     var ins = document.querySelector("#file-field").files.length;
     for (var x = 0; x < ins; x++) {

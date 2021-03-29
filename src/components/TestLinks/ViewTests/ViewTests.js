@@ -71,11 +71,14 @@ const ViewTests = () => {
                   {test.link}
                 </a>
               </FormGroup>
-              <FormGroup>
-                <h6>TEST DETAILS</h6>
-                <p className="text-muted">{test.detail}</p>
-              </FormGroup>
-              {user.role === "faculty" && (
+              {test.detail && (
+                <FormGroup>
+                  <h6>TEST DETAILS</h6>
+                  <p className="text-muted">{test.detail}</p>
+                </FormGroup>
+              )}
+
+              {(user.role === "faculty" || user.role === "admin") && (
                 <Button
                   onClick={(e) => {
                     e.stopPropagation();
