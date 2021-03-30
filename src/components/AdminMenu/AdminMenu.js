@@ -78,7 +78,7 @@ function AdminMenu() {
             <span></span>
             <span></span>
             <div className="content">
-              <h3>Manage Account</h3>
+              <h3>Manage Accounts</h3>
               <p>
                 All the accounts of faculties and students are displayed here.
                 You can also edit the basic information of any acocunt.

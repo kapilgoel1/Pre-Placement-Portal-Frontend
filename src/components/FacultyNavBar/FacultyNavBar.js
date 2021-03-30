@@ -102,12 +102,19 @@ const FacultyNavBar = () => {
               <NavLink>Assignments</NavLink>
             </NavItem>
 
-            <NavItem
-              className="rounded"
-              onClick={() => history.push(`/viewjobs`)}
-            >
-              <NavLink>Jobs</NavLink>
-            </NavItem>
+            <UncontrolledDropdown nav inNavbar className="rounded">
+              <DropdownToggle nav caret>
+                Jobs
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem onClick={() => history.push("/viewinternships")}>
+                  Internships
+                </DropdownItem>
+                <DropdownItem onClick={() => history.push("/viewjobs")}>
+                  Jobs
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
           </Nav>
 
           <NavbarText className="btn-edit">
