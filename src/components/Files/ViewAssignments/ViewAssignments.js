@@ -148,7 +148,7 @@ const ViewAssignments = () => {
                       className="mt-2"
                       color="color2"
                     >
-                      View Submitted Assignments
+                      View Submitted Assignments ({file.submittedassignments})
                     </Button>
                   )}
                 </div>
