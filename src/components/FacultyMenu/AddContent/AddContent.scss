@@ -1,0 +1,11 @@
+.bread {
+  padding: 0 40px;
+}
+.bread__item {
+  color: saddlebrown;
+}
+@media (max-width: 768px) {
+  .bread {
+    padding: 0 0;
+  }
+}

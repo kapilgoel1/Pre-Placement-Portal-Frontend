@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
-import "./AddFile.scss";
+import React, { useEffect, useState, useContext } from "react";
 import {
-  Progress,
+  Alert,
   Button,
   Form,
   FormGroup,
-  Label,
   Input,
-  Alert,
+  Label,
+  Progress,
 } from "reactstrap";
+import swal from "sweetalert";
 import DCard from "../../DCard/DCard";
+import CourseContext from "../../../CourseContext";
+import "./AddFile.scss";
 
 const FileUploadTest = () => {
   const [totalData, setTotalData] = useState(0);
@@ -20,8 +22,10 @@ const FileUploadTest = () => {
   const [subject, setSubject] = useState("");
   const [subjectList, setSubjectList] = useState([]);
 
+  const { course } = useContext(CourseContext);
+
   useEffect(() => {
-    fetch("http://localhost:4000/subject/retrieve", {
+    fetch(`http://localhost:4000/subject/retrieve?course=${course}`, {
       method: "GET",
       credentials: "include",
     })
@@ -32,10 +36,20 @@ const FileUploadTest = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [course]);
 
   const uploadFile = (e) => {
     e.preventDefault();
+    for (
+      var y = 0;
+      y < document.querySelector("#file-field").files.length;
+      y++
+    ) {
+      if (document.querySelector("#file-field").files[y].size > 20971520) {
+        swal("Not Allowed", "Select a file with a max size of 20 MB", "error");
+        return;
+      }
+    }
     const formData = new FormData();
     var ins = document.querySelector("#file-field").files.length;
     for (var x = 0; x < ins; x++) {
@@ -76,6 +90,7 @@ const FileUploadTest = () => {
     xhrObj.withCredentials = true;
     let url = new URL("http://localhost:4000/file/add");
     url.searchParams.append("category", category);
+    url.searchParams.append("course", course);
 
     if (subject !== "") url.searchParams.append("subject", subject);
 
@@ -88,11 +103,13 @@ const FileUploadTest = () => {
       <Form onSubmit={uploadFile} autoComplete="off">
         <FormGroup align="center">
           <Label for="upload">UPLOAD A FILE</Label>
+
           <hr />
-          <Input name="file" id="file-field" type="file" required multiple />
         </FormGroup>
         <FormGroup>
-          <Label for="category">CATEGORY</Label>
+          <Label for="category">
+            CATEGORY <span className="text-primary">*</span>
+          </Label>
           <Input
             type="select"
             value={category}
@@ -102,10 +119,9 @@ const FileUploadTest = () => {
           >
             <option value="">--Please choose an option--</option>
             <option value="assignment">Assignment</option>
-            <option value="testpaper">Test Paper</option>
+            <option value="testpaper">Sample Test Paper</option>
             <option value="notes">Notes</option>
-            <option value="video">Video</option>
-            <option value="ppt">PPT</option>
+            <option value="video">Video Lecture</option>
           </Input>
         </FormGroup>
         <FormGroup>
@@ -123,6 +139,9 @@ const FileUploadTest = () => {
               </option>
             ))}
           </Input>
+        </FormGroup>
+        <FormGroup align="center">
+          <Input name="file" id="file-field" type="file" required multiple />
         </FormGroup>
         <FormGroup align="center">
           <Button type="submit" color="color2">

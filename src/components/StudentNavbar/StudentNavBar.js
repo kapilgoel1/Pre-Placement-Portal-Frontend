@@ -1,37 +1,32 @@
-import React, { useState, useContext } from "react";
-import { useHistory, useRouteMatch } from "react-router-dom";
-
-import "./StudentNavBar.scss";
+import React, { useContext, useState } from "react";
+import { useHistory, withRouter } from "react-router-dom";
 import {
+  Button,
   Collapse,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Nav,
   Navbar,
   NavbarBrand,
-  NavbarToggler,
   NavbarText,
-  Nav,
+  NavbarToggler,
   NavItem,
   NavLink,
   UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Button,
 } from "reactstrap";
 import AuthContext from "../../AuthContext";
-import { withRouter } from "react-router-dom";
+import "./StudentNavBar.scss";
 
-//This is the navigation bar that will be visible on dashboard
-
-const StudentNavBar = (props) => {
+const StudentNavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { setuser } = useContext(AuthContext);
-  let { url } = useRouteMatch();
-  let history = useHistory();
+  const history = useHistory();
 
   const toggle = () => setIsOpen(!isOpen);
 
   const onClickHandler = () => {
-    history.push(`${url}/editprofile`);
+    history.push(`/editprofile`);
   };
 
   const onLogoutHandler = () => {
@@ -48,16 +43,12 @@ const StudentNavBar = (props) => {
       });
   };
 
-  const onViewResource = (category) => {
-    history.push(`${url}/files/${category}`);
-  };
-
   return (
     <>
       <Navbar className="mb-5" dark color="color4" expand="md">
         <NavbarBrand
           onClick={() => {
-            history.push("/studentdashboard");
+            history.push("/");
           }}
           className="navbar-logo"
         >
@@ -67,57 +58,60 @@ const StudentNavBar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
+            <UncontrolledDropdown nav inNavbar className="rounded">
+              <DropdownToggle nav caret>
+                Prepare for Placement
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem onClick={() => history.push("/files/notes")}>
+                  Notes
+                </DropdownItem>
+                <DropdownItem onClick={() => history.push("/files/video")}>
+                  Video Lectures
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => history.push("/viewexternallinks")}
+                >
+                  Online Resources
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <UncontrolledDropdown nav inNavbar className="rounded">
+              <DropdownToggle nav caret>
+                Practice Tests
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem onClick={() => history.push("/files/testpaper")}>
+                  Sample Test Papers
+                </DropdownItem>
+                <DropdownItem onClick={() => history.push("/viewtests")}>
+                  Online Mock Tests
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
             <NavItem
               className="rounded"
-              onClick={() => history.push("/studentdashboard")}
+              onClick={() => history.push(`/viewassignments`)}
             >
-              <NavLink>Home</NavLink>
+              <NavLink>Assignments</NavLink>
             </NavItem>
-
             <NavItem
               className="rounded"
-              onClick={() => history.push(`${url}/viewjobs`)}
+              onClick={() => history.push(`/resumebuilder`)}
             >
-              <NavLink>Jobs</NavLink>
-            </NavItem>
-            <NavItem
-              className="rounded"
-              onClick={() => history.push(`${url}/viewtests`)}
-            >
-              <NavLink>Tests</NavLink>
-            </NavItem>
-            <NavItem
-              className="rounded"
-              onClick={() => history.push(`${url}/viewannouncement`)}
-            >
-              <NavLink>Announcements</NavLink>
+              <NavLink>Resume Builder</NavLink>
             </NavItem>
 
             <UncontrolledDropdown nav inNavbar className="rounded">
               <DropdownToggle nav caret>
-                Resources
+                Jobs
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem onClick={() => onViewResource("testpaper")}>
-                  Test Papers
+                <DropdownItem onClick={() => history.push("/viewinternships")}>
+                  Internships
                 </DropdownItem>
-                <DropdownItem onClick={() => onViewResource("assignment")}>
-                  Assignments
-                </DropdownItem>
-                <DropdownItem onClick={() => onViewResource("ppt")}>
-                  PPTs
-                </DropdownItem>
-
-                <DropdownItem onClick={() => onViewResource("video")}>
-                  Videos
-                </DropdownItem>
-                <DropdownItem onClick={() => onViewResource("notes")}>
-                  Notes
-                </DropdownItem>
-                <DropdownItem
-                  onClick={() => history.push(`${url}/viewexternallinks`)}
-                >
-                  External Links
+                <DropdownItem onClick={() => history.push("/viewjobs")}>
+                  Jobs
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

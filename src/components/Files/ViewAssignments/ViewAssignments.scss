@@ -1,0 +1,9 @@
+.assignment {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+
+  div {
+    width: 300px;
+  }
+}

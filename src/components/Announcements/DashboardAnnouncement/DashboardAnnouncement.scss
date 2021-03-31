@@ -1,0 +1,28 @@
+.aouter {
+  width: 350px;
+  flex-shrink: 0;
+  color: white;
+  margin-right: 40px;
+}
+
+@media (max-width: 768px) {
+  .aouter {
+    width: 100%;
+  }
+}
+
+.announcementcontainer {
+  background-color: rgb(219, 236, 236);
+  color: black;
+}
+
+.announcementcontainer__i__point {
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.announcementcontainer__i {
+  min-height: 400px;
+}

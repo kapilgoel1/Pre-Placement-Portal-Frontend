@@ -1,38 +1,44 @@
-import React, { useState } from "react";
-import "./AddJob.scss";
-import { Label, Input, Button, FormGroup, Form } from "reactstrap";
-
+import React, { useContext } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
 import DCard from "../../DCard/DCard";
+import CourseContext from "../../../CourseContext";
+import "./AddJob.scss";
 
-const AddJob = (props) => {
-  const [company, setCompany] = useState("");
-  const [jobprofile, setJobProfile] = useState("");
-  const [packages, setPackages] = useState("");
+const AddJob = () => {
+  const { course } = useContext(CourseContext);
 
-  const onClickHandler = (e) => {
-    e.preventDefault();
-
-    const alteredData = {
-      company: company,
-      jobprofile: jobprofile,
-      package: packages,
-    };
-
+  const { handleSubmit, errors, control, reset } = useForm({
+    defaultValues: {
+      company: "",
+      role: "",
+      salaryrange: "",
+      requirements: "",
+      description: "",
+    },
+  });
+  const onSubmit = (data) => {
+    data.course = course;
     fetch("http://localhost:4000/jobposting/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      body: JSON.stringify(alteredData),
+      body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then((result) => {
-        setCompany("");
-        setJobProfile("");
-        setPackages("");
-        swal("JOB DETAILS UPLOADED");
+        if (result.error) swal(swal(result.error));
+        else swal("Job Posted!", "", "success");
+        reset({
+          company: "",
+          role: "",
+          salaryrange: "",
+          requirements: "",
+          description: "",
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -40,57 +46,101 @@ const AddJob = (props) => {
   };
 
   return (
-    <DCard width="700px">
-      <Form onSubmit={onClickHandler} autoComplete="off">
-        <FormGroup align="center">
-          <Label>ADD INFORMATION ABOUT NEW JOB/POSTINGS</Label>
-        </FormGroup>
-        <hr />
-        <FormGroup>
-          <Label for="company">Company</Label>
-          <Input
-            type="text"
-            name="company"
-            id="company"
-            value={company}
-            placeholder="Enter Company"
-            onChange={(e) => setCompany(e.target.value)}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="jobprofile">Job Profile</Label>
-          <Input
-            type="textarea"
-            className="jobprofile"
-            rows="9"
-            name="jobprofile"
-            id="jobprofile"
-            value={jobprofile}
-            placeholder="Enter Job Profile"
-            onChange={(e) => setJobProfile(e.target.value)}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="package">Package</Label>
-          <Input
-            type="text"
-            name="packages"
-            id="packages"
-            value={packages}
-            placeholder="Enter Package of company"
-            onChange={(e) => setPackages(e.target.value)}
-            required
-          />
-        </FormGroup>
-        <FormGroup align="center">
-          <Button type="submit" color="color2">
-            UPLOAD
-          </Button>
-        </FormGroup>
-      </Form>
-    </DCard>
+    <>
+      <h1 className="text-center text-white">Post Jobs</h1>
+
+      <DCard width="600px">
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <FormGroup>
+            <Label>
+              Company Title<span className="text-primary"> *</span>
+            </Label>
+            <Controller
+              name="company"
+              rules={{ required: "This is required" }}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="text"
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
+            <span className="text-primary">{errors.company?.message}</span>
+          </FormGroup>
+          <FormGroup>
+            <Label>
+              Job Title (Role)<span className="text-primary"> *</span>
+            </Label>
+            <Controller
+              name="role"
+              rules={{ required: "This is required" }}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="text"
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
+
+            <span className="text-primary">{errors.role?.message}</span>
+          </FormGroup>
+          <FormGroup>
+            <Label>Salary Range</Label>
+            <Controller
+              name="salaryrange"
+              rules={{}}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="text"
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label>Job Eligibility Requirements</Label>
+            <Controller
+              name="requirements"
+              rules={{}}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="textarea"
+                  rows={7}
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label>Job Description</Label>
+            <Controller
+              name="description"
+              rules={{}}
+              control={control}
+              render={(props) => (
+                <Input
+                  type="textarea"
+                  rows={6}
+                  onChange={(e) => props.onChange(e.target.value)}
+                  value={props.value}
+                />
+              )}
+            />
+          </FormGroup>
+          <FormGroup align="center">
+            <Button type="submit">Submit</Button>
+          </FormGroup>
+        </Form>
+      </DCard>
+    </>
   );
 };
 

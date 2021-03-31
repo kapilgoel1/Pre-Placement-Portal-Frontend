@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import "./FacultyEditProfile.scss";
-import { Input, Label, Button, Form, FormGroup } from "reactstrap";
-import DCard from "../DCard/DCard";
+import React, { useEffect, useState } from "react";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
+import DCard from "../DCard/DCard";
+import "./FacultyEditProfile.scss";
 
 const FacultyEditProfile = (props) => {
   const [firstName, setFirstName] = useState("");
@@ -58,7 +58,7 @@ const FacultyEditProfile = (props) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        swal("Profile Updated");
+        swal("Profile Updated", "", "success");
       })
       .catch((err) => {
         console.log(err);

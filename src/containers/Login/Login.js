@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
-import AuthContext from "../../AuthContext";
-import "./Login.scss";
-import swal from "sweetalert";
+import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useContext, useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import {
   Button,
@@ -11,19 +10,38 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
+  Label,
 } from "reactstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import swal from "sweetalert";
 import avatar from "../../assets/avatardefault_92824.png";
+import AuthContext from "../../AuthContext";
+import CourseContext from "../../CourseContext";
+
+import "./Login.scss";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [courseList, setCourseList] = useState([]);
+  const [loginCourse, setLoginCourse] = useState("");
+  const { setCourse } = useContext(CourseContext);
+
+  // const [setUserType] = useState("");
   const { setuser } = useContext(AuthContext);
 
-  // const validateForm = () => {
-  //   return email.length > 0 && password.length > 0;
-  // }
+  useEffect(() => {
+    fetch("http://localhost:4000/course/retrieve", {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        setCourseList(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -44,9 +62,14 @@ const Login = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.role) {
+          setCourse(loginCourse);
           setuser({ role: result.role, loggedin: true });
         } else {
-          swal("Invalid Login credentials");
+          swal(
+            "Invalid Login credentials!",
+            "Please provide correct email and password",
+            "error"
+          );
         }
       })
       .catch((err) => {
@@ -62,11 +85,6 @@ const Login = () => {
       <h1 className="text-center pb-2 mb-2"> WELCOME</h1>
       <Form className="form-body" autoComplete="off" onSubmit={onClickHandler}>
         <FormGroup className="pt-2 my-4">
-          {
-            // <Label size="lg" for="Email">
-            //   Email{' '}
-            // </Label>
-          }
           <InputGroup>
             <InputGroupAddon addonType="prepend">
               <InputGroupText>
@@ -85,12 +103,7 @@ const Login = () => {
             />
           </InputGroup>
         </FormGroup>
-        <FormGroup className="pb-2 my-4">
-          {
-            // <Label size="lg" for="Password">
-            //   Password{' '}
-            // </Label>
-          }
+        <FormGroup className="pb-2 mt-4 mb-1">
           <InputGroup>
             <InputGroupAddon addonType="prepend">
               <InputGroupText>
@@ -109,7 +122,24 @@ const Login = () => {
             />
           </InputGroup>
         </FormGroup>
-
+        <FormGroup>
+          <Label>Choose Course</Label>
+          <Input
+            type="select"
+            value={loginCourse}
+            onChange={(e) => {
+              setLoginCourse(e.target.value);
+            }}
+            required
+          >
+            <option value="">--Please select your course--</option>
+            {courseList.map((course) => (
+              <option value={course._id} key={course._id}>
+                {course.title}
+              </option>
+            ))}
+          </Input>
+        </FormGroup>
         <Button
           block
           color="color4"
@@ -119,10 +149,6 @@ const Login = () => {
         >
           LOGIN
         </Button>
-
-        {/*<div className= "text-right">
-            <a href="/sign-up"> Forgot the password? </a>
-          </div>*/}
       </Form>
     </div>
   );

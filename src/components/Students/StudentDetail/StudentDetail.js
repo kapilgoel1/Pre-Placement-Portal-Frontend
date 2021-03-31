@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import "./StudentDetail.scss";
-import { Card, CardBody, FormGroup } from "reactstrap";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Card, CardBody, FormGroup } from "reactstrap";
+import "./StudentDetail.scss";
 
 const StudentDetail = () => {
   let { id } = useParams();
@@ -73,6 +73,20 @@ const StudentDetail = () => {
             <FormGroup>
               <h6>EMAIL:</h6>
               <p className="text-muted">{studentProfile.email}</p>
+            </FormGroup>
+            <FormGroup>
+              {studentProfile.hasresume ? (
+                <a
+                  className="btn btn-color5 w-100"
+                  href={`http://localhost:4000/resume/view/student?userid=${studentProfile._id}&name=${studentProfile.firstname}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View Resume
+                </a>
+              ) : (
+                <p className="btn btn-color5 w-100">Resume not uploaded</p>
+              )}
             </FormGroup>
           </CardBody>
         </Card>

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import Login from "../Login/Login";
 import {
-  Navbar,
-  NavbarToggler,
+  Button,
   Collapse,
   Nav,
+  Navbar,
+  NavbarToggler,
   NavItem,
   NavLink,
-  Button,
 } from "reactstrap";
+import Login from "../Login/Login";
 import "./home.scss";
 
 function Home() {
@@ -43,13 +43,17 @@ function Home() {
       </Navbar>
       <div className="left-container">
         <div className="about-portal">
-          <h1 className="px-2 my-3">JIMS MCA PrePlacement Portal</h1>
+          <h1 className="px-2 my-2">PrePlacement Portal</h1>
+          <h5 className="px-2 ">(Developed By Kapil Goel and Neha Goel</h5>
+          <h5 className="px-2 mb-3">Documentation by Sonali Prajapati)</h5>
+
           <p className="px-2 my-2 lead">
             JIMS welcomes all eligible students to the placement season. We
             strive to extend all possible support to provide the right career
             opportunities to our students to fruitfully pursue their career
             interests.
           </p>
+
           <Button className="py-2 my-4" color="color4" size="lg">
             Sign Up
           </Button>

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Button } from "reactstrap";
-import "./FileStrip.scss";
 import swal from "sweetalert";
 import AuthContext from "../../../AuthContext";
 import formatDate from "../../../utils";
+import "./FileStrip.scss";
 
 function FileStrip(props) {
   const { user } = useContext(AuthContext);
@@ -44,7 +44,7 @@ function FileStrip(props) {
           Download
         </a>
       </div>
-      {user.role === "faculty" && (
+      {(user.role === "faculty" || user.role === "admin") && (
         <div className="filestrip__delete">
           <Button className="btn btn-color5 w-100" onClick={onDelete}>
             Delete

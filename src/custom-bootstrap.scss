@@ -1,6 +1,6 @@
 $theme-colors: (
   "color1": rgb(219, 236, 236),
-  "color2": #006064,
+  "color2": #aadadb,
   "color3": rgb(0, 48, 143),
   "color4": #022140,
   "color5": #c2e9fb,
@@ -16,5 +16,7 @@ $spinner-width: 8rem;
 $spinner-border-width: 1em;
 
 $progress-height: 30px;
+
+$breadcrumb-bg: #dbecec;
 
 @import "../node_modules/bootstrap/scss/bootstrap";

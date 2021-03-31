@@ -1,11 +1,11 @@
 import React from "react";
-
 import { useHistory, useRouteMatch } from "react-router";
 import "./StudentStrip.scss";
 
 function StudentStrip(props) {
   const history = useHistory();
   let { path } = useRouteMatch();
+
   return (
     <div
       className="studentstrip"

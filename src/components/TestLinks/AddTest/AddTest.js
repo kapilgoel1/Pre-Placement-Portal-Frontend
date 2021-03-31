@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import "./AddTest.scss";
-import { Label, Input, Button, FormGroup, Form } from "reactstrap";
-import DCard from "../../DCard/DCard";
-
+import React, { useState, useContext } from "react";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
+import DCard from "../../DCard/DCard";
+import CourseContext from "../../../CourseContext";
+import "./AddTest.scss";
 
 const AddTest = (props) => {
   const [title, setTitle] = useState("");
   const [testDetail, setTestDetail] = useState("");
   const [testLink, setTestLink] = useState("");
+
+  const { course } = useContext(CourseContext);
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -17,6 +19,7 @@ const AddTest = (props) => {
       title: title,
       link: testLink,
       detail: testDetail,
+      course,
     };
 
     fetch("http://localhost:4000/test/add", {
@@ -32,7 +35,7 @@ const AddTest = (props) => {
         setTitle("");
         setTestDetail("");
         setTestLink("");
-        swal("TEST UPLOADED");
+        swal("Test Uploaded!", "", "success");
       })
       .catch((err) => {
         console.log(err);
@@ -47,7 +50,9 @@ const AddTest = (props) => {
         </FormGroup>
         <hr />
         <FormGroup>
-          <Label for="title">TITLE</Label>
+          <Label for="title">
+            Test Title <span className="text-primary"> *</span>
+          </Label>
           <Input
             type="text"
             name="title"
@@ -59,23 +64,9 @@ const AddTest = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="test">TEST DETAILS</Label>
-          <Input
-            type="text"
-            name="testDetail"
-            id="testDetail"
-            value={testDetail}
-            placeholder="Enter Test Detail"
-            onChange={(e) => setTestDetail(e.target.value)}
-            required
-          />
-        </FormGroup>
-        <FormGroup align="center">
           <Label for="or" align="center">
-            OR
+            Test Link<span className="text-primary"> *</span>
           </Label>
-        </FormGroup>
-        <FormGroup>
           <Input
             type="url"
             name="testLink"
@@ -86,6 +77,18 @@ const AddTest = (props) => {
             required
           />
         </FormGroup>
+        <FormGroup>
+          <Label for="test">Test Details</Label>
+          <Input
+            type="text"
+            name="testDetail"
+            id="testDetail"
+            value={testDetail}
+            placeholder="Enter Test Detail"
+            onChange={(e) => setTestDetail(e.target.value)}
+          />
+        </FormGroup>
+
         <FormGroup align="center">
           <Button type="submit" color="color2">
             UPLOAD

@@ -1,18 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
-import "./ViewAnnouncements.scss";
+import React, { useContext, useEffect, useState } from "react";
+import { useHistory, useRouteMatch } from "react-router-dom";
+import { Button, Card, CardBody, CardTitle, Form, FormGroup } from "reactstrap";
 import swal from "sweetalert";
-import { Card, CardTitle, CardBody, Button, Form, FormGroup } from "reactstrap";
-import { useRouteMatch, useHistory } from "react-router-dom";
 import AuthContext from "../../../AuthContext";
+import CourseContext from "../../../CourseContext";
+import "./ViewAnnouncements.scss";
 
 const ViewAnnouncements = () => {
   const history = useHistory();
   let { path } = useRouteMatch();
   const { user } = useContext(AuthContext);
+  const { course } = useContext(CourseContext);
+
   const [announcements, setAnnouncements] = useState([]);
 
   const fetchCall = () => {
-    fetch("http://localhost:4000/announcement/retrieve", {
+    fetch(`http://localhost:4000/announcement/retrieve?course=${course}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +33,7 @@ const ViewAnnouncements = () => {
 
   useEffect(() => {
     fetchCall();
-  }, []);
+  });
 
   const onDelete = (d_id) => {
     fetch(`http://localhost:4000/announcement/remove/${d_id}`, {
@@ -64,7 +67,7 @@ const ViewAnnouncements = () => {
               onClick={() => history.push(`${path}/${announcement._id}`)}
             >
               <CardTitle> {announcement.title} </CardTitle>
-              {user.role === "faculty" && (
+              {(user.role === "faculty" || user.role === "admin") && (
                 <Button
                   color="color2"
                   onClick={(e) => {

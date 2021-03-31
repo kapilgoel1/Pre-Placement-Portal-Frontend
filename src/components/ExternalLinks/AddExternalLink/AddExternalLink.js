@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import "./AddExternalLink.scss";
-import { Label, Input, Button, FormGroup, Form } from "reactstrap";
-import DCard from "../../DCard/DCard";
+import React, { useState, useContext } from "react";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
+import DCard from "../../DCard/DCard";
+import CourseContext from "../../../CourseContext";
+import "./AddExternalLink.scss";
 
 const AddExternalLink = (props) => {
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
+  const { course } = useContext(CourseContext);
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -14,6 +16,7 @@ const AddExternalLink = (props) => {
     const alteredData = {
       title: title,
       link: link,
+      course,
     };
 
     fetch("http://localhost:4000/externalresource/add", {
@@ -28,7 +31,7 @@ const AddExternalLink = (props) => {
       .then((result) => {
         setTitle("");
         setLink("");
-        swal("EXTERNAL RESOURCE UPLOADED");
+        swal("External Link Uploaded!", "", "success");
       })
       .catch((err) => {
         console.log(err);
