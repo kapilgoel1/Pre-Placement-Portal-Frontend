@@ -5,6 +5,8 @@ import "./App.scss";
 import AuthContext from "./AuthContext";
 import CourseContext from "./CourseContext";
 import AboutUs from "./containers/AboutUs/AboutUs";
+import ContactUs from "./containers/ContactUs/ContactUs";
+import DeveloperTeam from "./containers/DeveloperTeam/DeveloperTeam";
 import AdminDashboard from "./containers/AdminDashboard/AdminDashboard";
 import FacultyDashboard from "./containers/FacultyDashboard/FacultyDashboard";
 import Home from "./containers/Home/home";
@@ -69,9 +71,9 @@ const App = () => {
             <Route path="/aboutus">
               <AboutUs />
             </Route>
-            {/* <Route path="/contact">
-              <AboutUs />
-            </Route> */}
+            <Route path="/contactus">
+              <ContactUs />
+            </Route>
 
             <Route path="/">
               <StudentDashboard />
@@ -96,9 +98,9 @@ const App = () => {
             <Route path="/aboutus">
               <AboutUs />
             </Route>
-            {/* <Route path="/contact">
-              <AboutUs />
-            </Route> */}
+            <Route path="/contactus">
+              <ContactUs />
+            </Route>
 
             <Route path="/">
               <FacultyDashboard />
@@ -123,9 +125,9 @@ const App = () => {
             <Route path="/aboutus">
               <AboutUs />
             </Route>
-            {/* <Route path="/contact">
-              <AboutUs />
-            </Route> */}
+            <Route path="/contactus">
+              <ContactUs />
+            </Route>
 
             <Route path="/">
               <AdminDashboard />
@@ -150,10 +152,12 @@ const App = () => {
             <Route path="/aboutus">
               <AboutUs />
             </Route>
-            {/* <Route path="/contact">
-              <AboutUs />
-            </Route> */}
-
+            <Route path="/contactus">
+              <ContactUs />
+            </Route>
+            <Route path="/developerteam">
+              <DeveloperTeam />
+            </Route>
             <Route path="/">
               <Home />
             </Route>

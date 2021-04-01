@@ -8,7 +8,9 @@ const AboutUs = () => {
       <div className="back">
         <img className="img" src={Image} alt={Image} />
         <div className="about" align="center">
-          <h1>ABOUT PRE-PLACEMENT PORTAL</h1>
+          <u>
+            <h1>ABOUT PRE-PLACEMENT PORTAL</h1>
+          </u>
         </div>
       </div>
       <div className="about">
