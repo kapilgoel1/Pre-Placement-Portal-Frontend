@@ -4,7 +4,7 @@ import { Spinner } from "reactstrap";
 import "./App.scss";
 import AuthContext from "./AuthContext";
 import CourseContext from "./CourseContext";
-import About from "./components/About/About";
+import AboutUs from "./containers/AboutUs/AboutUs";
 import AdminDashboard from "./containers/AdminDashboard/AdminDashboard";
 import FacultyDashboard from "./containers/FacultyDashboard/FacultyDashboard";
 import Home from "./containers/Home/home";
@@ -66,12 +66,12 @@ const App = () => {
               setuser: setuser,
             }}
           >
-            <Route path="/about">
-              <About />
+            <Route path="/aboutus">
+              <AboutUs />
             </Route>
-            <Route path="/contact">
-              <About />
-            </Route>
+            {/* <Route path="/contact">
+              <AboutUs />
+            </Route> */}
 
             <Route path="/">
               <StudentDashboard />
@@ -93,12 +93,12 @@ const App = () => {
               setuser: setuser,
             }}
           >
-            <Route path="/about">
-              <About />
+            <Route path="/aboutus">
+              <AboutUs />
             </Route>
-            <Route path="/contact">
-              <About />
-            </Route>
+            {/* <Route path="/contact">
+              <AboutUs />
+            </Route> */}
 
             <Route path="/">
               <FacultyDashboard />
@@ -120,12 +120,12 @@ const App = () => {
               setuser: setuser,
             }}
           >
-            <Route path="/about">
-              <About />
+            <Route path="/aboutus">
+              <AboutUs />
             </Route>
-            <Route path="/contact">
-              <About />
-            </Route>
+            {/* <Route path="/contact">
+              <AboutUs />
+            </Route> */}
 
             <Route path="/">
               <AdminDashboard />
@@ -147,12 +147,12 @@ const App = () => {
               setuser: setuser,
             }}
           >
-            <Route path="/about">
-              <About />
+            <Route path="/aboutus">
+              <AboutUs />
             </Route>
-            <Route path="/contact">
-              <About />
-            </Route>
+            {/* <Route path="/contact">
+              <AboutUs />
+            </Route> */}
 
             <Route path="/">
               <Home />
