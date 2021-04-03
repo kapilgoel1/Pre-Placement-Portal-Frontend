@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 import {
   Button,
@@ -16,7 +16,7 @@ import "./home.scss";
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  let history = useHistory();
+  // let history = useHistory();
 
   return (
     <div className="full-container">
@@ -25,17 +25,23 @@ function Home() {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem
-              className="rounded"
-              onClick={() => history.push(`/aboutus`)}
+            // className="rounded"
+            // onClick={() => history.push(`/aboutus`)}
             >
               <NavLink>About Us</NavLink>
             </NavItem>
 
-            <NavItem>
-              <NavLink className="">Contact Us</NavLink>
+            <NavItem
+            // className="rounded"
+            // onClick={() => history.push(`/contactus`)}
+            >
+              <NavLink>Contact Us</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink className="">Developer Team</NavLink>
+            <NavItem
+            // className="rounded"
+            // onClick={() => history.push(`/developerteam`)}
+            >
+              <NavLink>Developer Team</NavLink>
             </NavItem>
             <NavItem>
               <NavLink className="">Forgot Password</NavLink>
