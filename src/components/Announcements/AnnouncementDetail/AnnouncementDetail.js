@@ -10,7 +10,7 @@ const AnnouncementDetail = () => {
   const [announcementDetail, setAnnouncementDetail] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:4000/announcement/details/${id}`, {
+    fetch(`http://localhost:4000/announcement/detailsoptimised/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

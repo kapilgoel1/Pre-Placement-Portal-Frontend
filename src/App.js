@@ -154,7 +154,7 @@ const App = () => {
               <AboutUs />
             </Route> */}
 
-            <Route path="/">
+            <Route exact path="/">
               <Home />
             </Route>
           </AuthContext.Provider>

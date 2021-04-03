@@ -38,7 +38,7 @@ function FileStrip(props) {
       <div className="filestrip__action">
         <a
           className="btn btn-color5 w-100"
-          href={`http://localhost:4000/file/download/${props.file._id}`}
+          href={`http://localhost:4000/file/downloadoptimised/${props.file.uuid}/${props.file.filename}`}
           download
         >
           Download

@@ -63,7 +63,10 @@ function StudentMenu() {
               <span></span>
               <div className="content">
                 <h3>Assignments</h3>
-                <p>All the uploaded assignments are available here.</p>
+                <p>
+                  All the uploaded assignments are available here. You can also
+                  submit the solution file for the assignment.{" "}
+                </p>
               </div>
             </div>
             <div

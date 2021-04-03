@@ -13,13 +13,16 @@ const ViewJobs = () => {
   let history = useHistory();
 
   const fetchCall = () => {
-    fetch(`http://localhost:4000/jobposting/retrieve?course=${course}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `http://localhost:4000/jobposting/retrieveoptimised?course=${course}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setJobs(result.postings);
@@ -90,7 +93,7 @@ const ViewJobs = () => {
             text: "Do you want to apply for this job?",
             icon: "warning",
             buttons: ["No", "Apply"],
-            dangerMode: true,
+            dangerMode: false,
           }).then((willApply) => {
             if (willApply) {
               fetch(`http://localhost:4000/jobposting/apply/${jobId}`, {

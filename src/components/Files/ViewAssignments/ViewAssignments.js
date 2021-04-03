@@ -96,16 +96,18 @@ const ViewAssignments = () => {
                 ))}
               </Input>
             </FormGroup>
-            <FormGroup check>
-              <Label check>
-                <Input
-                  type="checkbox"
-                  defaultChecked={myFilesChecked}
-                  onChange={() => setMyFilesChecked(!myFilesChecked)}
-                />{" "}
-                Files Uploaded by Me
-              </Label>
-            </FormGroup>
+            {(user.role === "faculty" || user.role === "admin") && (
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="checkbox"
+                    defaultChecked={myFilesChecked}
+                    onChange={() => setMyFilesChecked(!myFilesChecked)}
+                  />{" "}
+                  Files Uploaded by Me
+                </Label>
+              </FormGroup>
+            )}
           </div>
         </div>
 

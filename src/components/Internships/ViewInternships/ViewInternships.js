@@ -13,13 +13,16 @@ const ViewInternships = () => {
   let history = useHistory();
 
   const fetchCall = () => {
-    fetch(`http://localhost:4000/internship/retrieve?course=${course}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `http://localhost:4000/internship/retrieveoptimised?course=${course}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setInternships(result.postings);
@@ -86,11 +89,11 @@ const ViewInternships = () => {
       .then((result) => {
         if (result.hasresume) {
           swal({
-            title: "Are you sure?",
+            title: "Confirmation!",
             text: "Do you want to apply for this internship?",
             icon: "warning",
             buttons: ["No", "Apply"],
-            dangerMode: true,
+            dangerMode: false,
           }).then((willApply) => {
             if (willApply) {
               fetch(`http://localhost:4000/internship/apply/${jobId}`, {

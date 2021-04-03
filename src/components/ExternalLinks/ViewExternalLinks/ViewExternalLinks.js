@@ -14,13 +14,16 @@ const ViewExternalRes = () => {
   const [resources, setResources] = useState([]);
 
   const fetchCall = () => {
-    fetch(`http://localhost:4000/externalresource/retrieve?course=${course}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `http://localhost:4000/externalresource/retrieveoptimised?course=${course}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setResources(result.resourceList);

@@ -14,7 +14,7 @@ const ViewTests = () => {
   const [tests, setTests] = useState([]);
 
   const fetchCall = () => {
-    fetch(`http://localhost:4000/test/retrieve?course=${course}`, {
+    fetch(`http://localhost:4000/test/retrieveoptimised?course=${course}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
