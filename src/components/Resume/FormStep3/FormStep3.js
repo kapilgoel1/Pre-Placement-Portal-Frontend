@@ -23,7 +23,6 @@ function FormStep3({ achievements, setAchievements, previousStep, nextStep }) {
   });
 
   const onSubmit = (data) => {
-    console.log("data", data);
     setAchievements(data.test.map((obj) => obj.achievement));
     nextStep();
   };

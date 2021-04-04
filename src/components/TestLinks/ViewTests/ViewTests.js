@@ -14,13 +14,16 @@ const ViewTests = () => {
   const [tests, setTests] = useState([]);
 
   const fetchCall = () => {
-    fetch(`http://localhost:4000/test/retrieve?course=${course}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/test/retrieveoptimised?course=${course}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setTests(result.testList);
@@ -35,7 +38,7 @@ const ViewTests = () => {
   });
 
   const onDelete = (d_id) => {
-    fetch(`http://localhost:4000/test/remove/${d_id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/test/remove/${d_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

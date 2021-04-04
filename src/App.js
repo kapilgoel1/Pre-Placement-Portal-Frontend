@@ -4,7 +4,8 @@ import { Spinner } from "reactstrap";
 import "./App.scss";
 import AuthContext from "./AuthContext";
 import CourseContext from "./CourseContext";
-import About from "./components/About/About";
+import AboutUs from "./containers/AboutUs/AboutUs";
+import ContactUs from "./containers/ContactUs/ContactUs";
 import AdminDashboard from "./containers/AdminDashboard/AdminDashboard";
 import FacultyDashboard from "./containers/FacultyDashboard/FacultyDashboard";
 import Home from "./containers/Home/home";
@@ -17,7 +18,7 @@ const App = () => {
   let history = useHistory();
 
   useEffect(() => {
-    fetch("http://localhost:4000/user/details", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/user/details`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -66,11 +67,11 @@ const App = () => {
               setuser: setuser,
             }}
           >
-            <Route path="/about">
-              <About />
+            <Route path="/aboutus">
+              <AboutUs />
             </Route>
-            <Route path="/contact">
-              <About />
+            <Route path="/contactus">
+              <ContactUs />
             </Route>
 
             <Route path="/">
@@ -93,11 +94,11 @@ const App = () => {
               setuser: setuser,
             }}
           >
-            <Route path="/about">
-              <About />
+            <Route path="/aboutus">
+              <AboutUs />
             </Route>
-            <Route path="/contact">
-              <About />
+            <Route path="/contactus">
+              <ContactUs />
             </Route>
 
             <Route path="/">
@@ -120,11 +121,11 @@ const App = () => {
               setuser: setuser,
             }}
           >
-            <Route path="/about">
-              <About />
+            <Route path="/aboutus">
+              <AboutUs />
             </Route>
-            <Route path="/contact">
-              <About />
+            <Route path="/contactus">
+              <ContactUs />
             </Route>
 
             <Route path="/">
@@ -147,14 +148,15 @@ const App = () => {
               setuser: setuser,
             }}
           >
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/contact">
-              <About />
+            <Route path="/aboutus">
+              <AboutUs />
             </Route>
 
-            <Route path="/">
+            {/* <Route path="/contact">
+              <AboutUs />
+            </Route> */}
+
+            <Route exact path="/">
               <Home />
             </Route>
           </AuthContext.Provider>

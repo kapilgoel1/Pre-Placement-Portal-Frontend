@@ -15,13 +15,16 @@ const ViewAnnouncements = () => {
   const [announcements, setAnnouncements] = useState([]);
 
   const fetchCall = () => {
-    fetch(`http://localhost:4000/announcement/retrieve?course=${course}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/announcement/retrieve?course=${course}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setAnnouncements(result.announcementList);
@@ -36,7 +39,7 @@ const ViewAnnouncements = () => {
   });
 
   const onDelete = (d_id) => {
-    fetch(`http://localhost:4000/announcement/remove/${d_id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/announcement/remove/${d_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +51,6 @@ const ViewAnnouncements = () => {
         if (result === "Deletion successful") {
           fetchCall();
         } else swal("Not deleted");
-        console.log(result);
       })
       .catch((err) => {
         console.log(err);

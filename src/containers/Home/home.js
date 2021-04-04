@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// import { useHistory } from "react-router-dom";
+
 import {
   Button,
   Collapse,
@@ -14,6 +16,7 @@ import "./home.scss";
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  // let history = useHistory();
 
   return (
     <div className="full-container">
@@ -21,14 +24,24 @@ function Home() {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink className="">About Us</NavLink>
+            <NavItem
+            // className="rounded"
+            // onClick={() => history.push(`/aboutus`)}
+            >
+              <NavLink>About Us</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink className="">Contact Us</NavLink>
+
+            <NavItem
+            // className="rounded"
+            // onClick={() => history.push(`/contactus`)}
+            >
+              <NavLink>Contact Us</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink className="">Developer Team</NavLink>
+            <NavItem
+            // className="rounded"
+            // onClick={() => history.push(`/developerteam`)}
+            >
+              <NavLink>Developer Team</NavLink>
             </NavItem>
             <NavItem>
               <NavLink className="">Forgot Password</NavLink>

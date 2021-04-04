@@ -14,7 +14,7 @@ function EditAccount() {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:4000/manageusers/details/${id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/manageusers/details/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -47,17 +47,19 @@ function EditAccount() {
       alteredData.password = password;
     }
 
-    fetch(`http://localhost:4000/manageusers/updateprofile/${id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(alteredData),
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/manageusers/updateprofile/${id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(alteredData),
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         swal("Profile Updated!", "", "success");
       })
       .catch((err) => {

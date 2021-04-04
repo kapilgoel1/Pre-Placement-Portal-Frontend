@@ -8,7 +8,7 @@ const StudentDetail = () => {
   const [studentProfile, setStudentProfile] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:4000/manageusers/details/${id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/manageusers/details/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +78,7 @@ const StudentDetail = () => {
               {studentProfile.hasresume ? (
                 <a
                   className="btn btn-color5 w-100"
-                  href={`http://localhost:4000/resume/view/student?userid=${studentProfile._id}&name=${studentProfile.firstname}`}
+                  href={`${process.env.REACT_APP_BACKEND_URL}/resume/view/student?userid=${studentProfile._id}&name=${studentProfile.firstname}`}
                   target="_blank"
                   rel="noreferrer"
                 >

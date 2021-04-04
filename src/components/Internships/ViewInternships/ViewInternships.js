@@ -13,13 +13,16 @@ const ViewInternships = () => {
   let history = useHistory();
 
   const fetchCall = () => {
-    fetch(`http://localhost:4000/internship/retrieve?course=${course}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/internship/retrieveoptimised?course=${course}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setInternships(result.postings);
@@ -32,14 +35,17 @@ const ViewInternships = () => {
   useEffect(() => {
     let controller = new AbortController();
 
-    fetch(`http://localhost:4000/internship/retrieve?course=${course}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      signal: controller.signal,
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/internship/retrieve?course=${course}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        signal: controller.signal,
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setInternships(result.postings);
@@ -54,7 +60,7 @@ const ViewInternships = () => {
   }, [course]);
 
   const onDelete = (d_id) => {
-    fetch(`http://localhost:4000/internship/remove/${d_id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/internship/remove/${d_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -75,31 +81,37 @@ const ViewInternships = () => {
   };
 
   const applyForInternship = (jobId) => {
-    fetch(`http://localhost:4000/internship/checkresumepresence`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/internship/checkresumepresence`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         if (result.hasresume) {
           swal({
-            title: "Are you sure?",
+            title: "Confirmation!",
             text: "Do you want to apply for this internship?",
             icon: "warning",
             buttons: ["No", "Apply"],
-            dangerMode: true,
+            dangerMode: false,
           }).then((willApply) => {
             if (willApply) {
-              fetch(`http://localhost:4000/internship/apply/${jobId}`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                credentials: "include",
-              })
+              fetch(
+                `${process.env.REACT_APP_BACKEND_URL}/internship/apply/${jobId}`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  credentials: "include",
+                }
+              )
                 .then((response) => response.json())
                 .then((result) => {
                   if (result)
@@ -119,13 +131,16 @@ const ViewInternships = () => {
             dangerMode: true,
           }).then((willApply) => {
             if (willApply) {
-              fetch(`http://localhost:4000/internship/apply/${jobId}`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                credentials: "include",
-              })
+              fetch(
+                `${process.env.REACT_APP_BACKEND_URL}/internship/apply/${jobId}`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  credentials: "include",
+                }
+              )
                 .then((response) => response.json())
                 .then((result) => {
                   if (result)

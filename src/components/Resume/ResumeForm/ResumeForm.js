@@ -40,7 +40,7 @@ function ResumeForm() {
   ]);
   const [loading, setloading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:4000/resume/data", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/resume/data`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

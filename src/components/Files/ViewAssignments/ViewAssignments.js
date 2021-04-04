@@ -24,10 +24,13 @@ const ViewAssignments = () => {
   let history = useHistory();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/subject/retrieve?course=${course}`, {
-      method: "GET",
-      credentials: "include",
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/subject/retrieve?course=${course}`,
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setsubjectList(result);
@@ -39,7 +42,7 @@ const ViewAssignments = () => {
 
   useEffect(() => {
     let url = new URL(
-      "http://localhost:4000/file/retrievelist?category=assignment"
+      `${process.env.REACT_APP_BACKEND_URL}/file/retrievelist?category=assignment`
     );
     url.searchParams.append("course", course);
 
@@ -96,16 +99,18 @@ const ViewAssignments = () => {
                 ))}
               </Input>
             </FormGroup>
-            <FormGroup check>
-              <Label check>
-                <Input
-                  type="checkbox"
-                  defaultChecked={myFilesChecked}
-                  onChange={() => setMyFilesChecked(!myFilesChecked)}
-                />{" "}
-                Files Uploaded by Me
-              </Label>
-            </FormGroup>
+            {(user.role === "faculty" || user.role === "admin") && (
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="checkbox"
+                    defaultChecked={myFilesChecked}
+                    onChange={() => setMyFilesChecked(!myFilesChecked)}
+                  />{" "}
+                  Files Uploaded by Me
+                </Label>
+              </FormGroup>
+            )}
           </div>
         </div>
 
@@ -116,7 +121,7 @@ const ViewAssignments = () => {
                 <div className="assignment">
                   <div>
                     <a
-                      href={`http://localhost:4000/file/download/${file._id}`}
+                      href={`${process.env.REACT_APP_BACKEND_URL}/file/download/${file._id}`}
                       download
                     >
                       {file.filename}

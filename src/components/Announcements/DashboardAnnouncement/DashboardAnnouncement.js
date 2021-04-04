@@ -14,7 +14,7 @@ function DashboardAnnouncement() {
 
   useEffect(() => {
     fetch(
-      `http://localhost:4000/announcement/retrieve?limit=6&course=${course}`,
+      `${process.env.REACT_APP_BACKEND_URL}/announcement/retrievedashboard?limit=6&course=${course}`,
       {
         method: "GET",
         headers: {

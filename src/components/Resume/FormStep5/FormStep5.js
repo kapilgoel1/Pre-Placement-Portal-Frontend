@@ -31,7 +31,6 @@ function FormStep5({
   });
 
   const onSubmit = (data) => {
-    console.log("data", data);
     setWorkExperience(data.test);
     nextStep();
   };

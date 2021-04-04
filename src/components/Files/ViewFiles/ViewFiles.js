@@ -20,10 +20,13 @@ function ViewFiles(props) {
   const { course } = useContext(CourseContext);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/subject/retrieve?course=${course}`, {
-      method: "GET",
-      credentials: "include",
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/subject/retrieve?course=${course}`,
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setsubjectList(result);
@@ -34,7 +37,7 @@ function ViewFiles(props) {
   }, [course]);
 
   useEffect(() => {
-    let url = new URL("http://localhost:4000/file/retrievelist");
+    let url = new URL(`${process.env.REACT_APP_BACKEND_URL}/file/retrievelist`);
     url.searchParams.append("course", course);
     if (category !== undefined) {
       url.searchParams.append("category", category);
@@ -51,16 +54,13 @@ function ViewFiles(props) {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         if (Array.isArray(result.filelist) && result.filelist.length) {
           setfileList(result.filelist);
-          console.log("if c");
         } else {
           let offsetcal = result.numOfFiles - props.limit;
           if (offsetcal < 0) offsetcal = 0;
           setoffset(offsetcal);
           setfileList(result.filelist);
-          console.log("if e");
         }
 
         setpageCount(Math.ceil(result.numOfFiles / props.limit));
@@ -79,9 +79,7 @@ function ViewFiles(props) {
   ]);
 
   const afterDelete = () => {
-    console.log("after date");
-    console.log("limit", props.limit);
-    let url = new URL("http://localhost:4000/file/retrievelist");
+    let url = new URL(`${process.env.REACT_APP_BACKEND_URL}/file/retrievelist`);
     url.searchParams.append("course", course);
 
     if (category !== undefined) {
@@ -98,16 +96,13 @@ function ViewFiles(props) {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         if (Array.isArray(result.filelist) && result.filelist.length) {
           setfileList(result.filelist);
-          console.log("if c afterdel");
         } else {
           let offsetcal = result.numOfFiles - props.limit;
           if (offsetcal < 0) offsetcal = 0;
           setoffset(offsetcal);
           setfileList(result.filelist);
-          console.log("if e after d");
         }
 
         setpageCount(Math.ceil(result.numOfFiles / props.limit));

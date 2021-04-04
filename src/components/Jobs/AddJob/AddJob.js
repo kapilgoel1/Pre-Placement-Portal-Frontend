@@ -20,7 +20,7 @@ const AddJob = () => {
   });
   const onSubmit = (data) => {
     data.course = course;
-    fetch("http://localhost:4000/jobposting/add", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/jobposting/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

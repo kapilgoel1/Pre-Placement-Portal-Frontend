@@ -10,13 +10,16 @@ const AnnouncementDetail = () => {
   const [announcementDetail, setAnnouncementDetail] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:4000/announcement/details/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/announcement/detailsoptimised/${id}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setAnnouncementDetail(result);
@@ -45,11 +48,23 @@ const AnnouncementDetail = () => {
             {announcementDetail.filename !== "" && (
               <FormGroup>
                 <a
-                  href={`http://localhost:4000/announcement/attachment?filename=${announcementDetail.filename}`}
+                  href={`${process.env.REACT_APP_BACKEND_URL}/announcement/attachment?filename=${announcementDetail.filename}`}
                   className=""
                   download
                 >
                   {announcementDetail.filename}
+                </a>
+              </FormGroup>
+            )}
+            {announcementDetail.link !== "" && (
+              <FormGroup>
+                <a
+                  href={`${announcementDetail.link}`}
+                  className=""
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {announcementDetail.link}
                 </a>
               </FormGroup>
             )}

@@ -7,7 +7,7 @@ function ViewSubmittedAssignments() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/file/filedetails/${id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/file/filedetails/${id}`, {
       method: "GET",
       credentials: "include",
     })
@@ -34,7 +34,7 @@ function ViewSubmittedAssignments() {
                 {assignment.submittedassignments.map((submittedAssignment) => (
                   <li key={submittedAssignment._id} className="h6">
                     <a
-                      href={`http://localhost:4000/file/submittedassignment?filename=${submittedAssignment.filename}`}
+                      href={`${process.env.REACT_APP_BACKEND_URL}/file/submittedassignment?filename=${submittedAssignment.filename}`}
                       className=""
                       download
                     >{`${submittedAssignment.firstname} ${submittedAssignment.lastname} (${submittedAssignment.email})`}</a>

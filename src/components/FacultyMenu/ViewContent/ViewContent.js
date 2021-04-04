@@ -59,7 +59,11 @@ function ViewContent() {
             <span></span>
             <div className="content">
               <h3>Assignments</h3>
-              <p>All the uploaded assignments are available here.</p>
+              <p>
+                All the uploaded assignments are available here. For each
+                assignment, you can also view all the solution files submitted
+                by the students.
+              </p>
             </div>
           </div>
 

@@ -10,7 +10,7 @@ const AdminEditProfile = (props) => {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:4000/user/details", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/user/details`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const AdminEditProfile = (props) => {
       alteredData.password = password;
     }
 
-    fetch("http://localhost:4000/user/updateprofile/", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/user/updateprofile/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -30,7 +30,7 @@ const StudentNavBar = () => {
   };
 
   const onLogoutHandler = () => {
-    fetch("http://localhost:4000/user/logout", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/user/logout`, {
       method: "GET",
       credentials: "include",
     })

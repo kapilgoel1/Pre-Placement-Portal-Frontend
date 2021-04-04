@@ -33,7 +33,9 @@ const SubmitAssignment = ({ modal, toggle, modalid }) => {
       );
     }
 
-    let url = new URL(`http://localhost:4000/file/submitassignment/${modalid}`);
+    let url = new URL(
+      `${process.env.REACT_APP_BACKEND_URL}/file/submitassignment/${modalid}`
+    );
 
     fetch(url, {
       method: "POST",
