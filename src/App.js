@@ -18,7 +18,7 @@ const App = () => {
   let history = useHistory();
 
   useEffect(() => {
-    fetch("http://localhost:4000/user/details", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/user/details`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

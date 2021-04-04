@@ -9,7 +9,7 @@ const ViewApplicants = () => {
   let { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/jobposting/details/${id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/jobposting/details/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +18,6 @@ const ViewApplicants = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setJobDetails(result);
       })
       .catch((err) => {
@@ -47,7 +46,7 @@ const ViewApplicants = () => {
                 {applicant.hasresume ? (
                   <a
                     className="btn btn-color5"
-                    href={`http://localhost:4000/resume/view/student?userid=${applicant._id}&name=${applicant.firstname}`}
+                    href={`${process.env.REACT_APP_BACKEND_URL}/resume/view/student?userid=${applicant._id}&name=${applicant.firstname}`}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -56,7 +55,7 @@ const ViewApplicants = () => {
                 ) : (
                   <a
                     className="btn btn-color5 disableClick"
-                    href={`http://localhost:4000/resume/view/student?userid=${applicant._id}&name=${applicant.firstname}`}
+                    href={`${process.env.REACT_APP_BACKEND_URL}/resume/view/student?userid=${applicant._id}&name=${applicant.firstname}`}
                     target="_blank"
                     rel="noreferrer"
                   >

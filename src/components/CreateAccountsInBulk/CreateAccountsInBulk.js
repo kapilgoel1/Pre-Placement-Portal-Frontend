@@ -15,7 +15,9 @@ const AddAnnouncement = (props) => {
       document.querySelector("#file-field").files[0].name
     );
 
-    let url = new URL("http://localhost:4000/manageusers/bulkregister");
+    let url = new URL(
+      `${process.env.REACT_APP_BACKEND_URL}/manageusers/bulkregister`
+    );
 
     fetch(url, {
       method: "POST",
@@ -45,7 +47,7 @@ const AddAnnouncement = (props) => {
       </h4>
       <div className="text-center">
         <a
-          href="http://localhost:4000/manageusers/sampleusersfile"
+          href={`${process.env.REACT_APP_BACKEND_URL}/manageusers/sampleusersfile`}
           className="btn btn-lg btn-color5"
           download
         >

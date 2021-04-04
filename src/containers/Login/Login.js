@@ -30,7 +30,7 @@ const Login = () => {
   const { setuser } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:4000/course/retrieve", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/course/retrieve`, {
       method: "GET",
       credentials: "include",
     })
@@ -51,7 +51,7 @@ const Login = () => {
       password: password,
     };
 
-    fetch("http://localhost:4000/user/login", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

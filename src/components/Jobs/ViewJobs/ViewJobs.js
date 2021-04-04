@@ -14,7 +14,7 @@ const ViewJobs = () => {
 
   const fetchCall = () => {
     fetch(
-      `http://localhost:4000/jobposting/retrieveoptimised?course=${course}`,
+      `${process.env.REACT_APP_BACKEND_URL}/jobposting/retrieveoptimised?course=${course}`,
       {
         method: "GET",
         headers: {
@@ -35,14 +35,17 @@ const ViewJobs = () => {
   useEffect(() => {
     let controller = new AbortController();
 
-    fetch(`http://localhost:4000/jobposting/retrieve?course=${course}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      signal: controller.signal,
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/jobposting/retrieve?course=${course}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        signal: controller.signal,
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setJobs(result.postings);
@@ -57,7 +60,7 @@ const ViewJobs = () => {
   }, [course]);
 
   const onDelete = (d_id) => {
-    fetch(`http://localhost:4000/jobposting/remove/${d_id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/jobposting/remove/${d_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -78,13 +81,16 @@ const ViewJobs = () => {
   };
 
   const applyForJob = (jobId) => {
-    fetch(`http://localhost:4000/jobposting/checkresumepresence`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/jobposting/checkresumepresence`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         if (result.hasresume) {
@@ -96,13 +102,16 @@ const ViewJobs = () => {
             dangerMode: false,
           }).then((willApply) => {
             if (willApply) {
-              fetch(`http://localhost:4000/jobposting/apply/${jobId}`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                credentials: "include",
-              })
+              fetch(
+                `${process.env.REACT_APP_BACKEND_URL}/jobposting/apply/${jobId}`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  credentials: "include",
+                }
+              )
                 .then((response) => response.json())
                 .then((result) => {
                   if (result)
@@ -122,13 +131,16 @@ const ViewJobs = () => {
             dangerMode: true,
           }).then((willApply) => {
             if (willApply) {
-              fetch(`http://localhost:4000/jobposting/apply/${jobId}`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                credentials: "include",
-              })
+              fetch(
+                `${process.env.REACT_APP_BACKEND_URL}/jobposting/apply/${jobId}`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  credentials: "include",
+                }
+              )
                 .then((response) => response.json())
                 .then((result) => {
                   if (result)

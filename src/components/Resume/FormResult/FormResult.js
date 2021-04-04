@@ -5,7 +5,7 @@ export default function FormResult({ resume, setStep }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:4000/resume/generate", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/resume/generate`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export default function FormResult({ resume, setStep }) {
         <AnchContainer>
           <Anch
             className=""
-            href="http://localhost:4000/resume/my/view"
+            href={`${process.env.REACT_APP_BACKEND_URL}/resume/my/view`}
             target="_blank"
             rel="noreferrer"
           >
@@ -38,7 +38,7 @@ export default function FormResult({ resume, setStep }) {
         </AnchContainer>
         <AnchContainer>
           <Anch
-            href="http://localhost:4000/resume/my/download"
+            href={`${process.env.REACT_APP_BACKEND_URL}/resume/my/download`}
             className=""
             download
           >

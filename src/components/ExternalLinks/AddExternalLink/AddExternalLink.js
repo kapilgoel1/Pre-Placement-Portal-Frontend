@@ -19,7 +19,7 @@ const AddExternalLink = (props) => {
       course,
     };
 
-    fetch("http://localhost:4000/externalresource/add", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/externalresource/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

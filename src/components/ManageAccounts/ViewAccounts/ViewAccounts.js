@@ -9,7 +9,9 @@ function ViewAccounts() {
   const [accountType, setAccountType] = useState("");
 
   useEffect(() => {
-    let url = new URL("http://localhost:4000/manageusers/retrieve");
+    let url = new URL(
+      `${process.env.REACT_APP_BACKEND_URL}/manageusers/retrieve`
+    );
     if (accountType !== "") url.searchParams.append("role", accountType);
     if (searchField !== "") url.searchParams.append("username", searchField);
 

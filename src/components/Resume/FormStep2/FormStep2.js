@@ -23,7 +23,6 @@ function FormStep2({ skills, setSkills, previousStep, nextStep }) {
   });
 
   const onSubmit = (data) => {
-    console.log("data", data);
     setSkills(data.test.map((obj) => obj.skill));
     nextStep();
   };

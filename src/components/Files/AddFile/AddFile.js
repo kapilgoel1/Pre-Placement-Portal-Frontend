@@ -25,10 +25,13 @@ const FileUploadTest = () => {
   const { course } = useContext(CourseContext);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/subject/retrieve?course=${course}`, {
-      method: "GET",
-      credentials: "include",
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/subject/retrieve?course=${course}`,
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setSubjectList(result);
@@ -88,7 +91,7 @@ const FileUploadTest = () => {
     };
 
     xhrObj.withCredentials = true;
-    let url = new URL("http://localhost:4000/file/add");
+    let url = new URL(`${process.env.REACT_APP_BACKEND_URL}/file/add`);
     url.searchParams.append("category", category);
     url.searchParams.append("course", course);
 

@@ -11,7 +11,7 @@ const InternshipApplicants = () => {
   let { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/internship/details/${id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/internship/details/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +20,6 @@ const InternshipApplicants = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setInternshipDetails(result);
       })
       .catch((err) => {
@@ -53,7 +52,7 @@ const InternshipApplicants = () => {
                 {applicant.hasresume ? (
                   <a
                     className="btn btn-color5"
-                    href={`http://localhost:4000/resume/view/student?userid=${applicant._id}&name=${applicant.firstname}`}
+                    href={`${process.env.REACT_APP_BACKEND_URL}/resume/view/student?userid=${applicant._id}&name=${applicant.firstname}`}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -62,7 +61,7 @@ const InternshipApplicants = () => {
                 ) : (
                   <a
                     className="btn btn-color5 disableClick"
-                    href={`http://localhost:4000/resume/view/student?userid=${applicant._id}&name=${applicant.firstname}`}
+                    href={`${process.env.REACT_APP_BACKEND_URL}/resume/view/student?userid=${applicant._id}&name=${applicant.firstname}`}
                     target="_blank"
                     rel="noreferrer"
                   >

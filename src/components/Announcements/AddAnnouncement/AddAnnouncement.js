@@ -8,6 +8,7 @@ import "./AddAnnouncement.scss";
 const AddAnnouncement = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [link, setLink] = useState("");
   const [submitDisabled, setSubmitDisabled] = useState(false);
   const { course } = useContext(CourseContext);
 
@@ -35,10 +36,13 @@ const AddAnnouncement = () => {
       );
     }
 
-    let url = new URL("http://localhost:4000/announcement/upload");
+    let url = new URL(
+      `${process.env.REACT_APP_BACKEND_URL}/announcement/upload`
+    );
     url.searchParams.append("title", title);
     url.searchParams.append("content", content);
     url.searchParams.append("course", course);
+    url.searchParams.append("link", link);
 
     fetch(url, {
       method: "POST",
@@ -50,9 +54,9 @@ const AddAnnouncement = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setTitle("");
         setContent("");
+        setLink("");
         document.querySelector("#file-field").value = "";
         swal("ANNOUNCEMENT UPLOADED", "", "success");
         setSubmitDisabled(false);
@@ -96,6 +100,15 @@ const AddAnnouncement = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               required
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label>Link</Label>
+            <Input
+              type="url"
+              className="content"
+              value={link}
+              onChange={(e) => setLink(e.target.value)}
             />
           </FormGroup>
           <FormGroup>

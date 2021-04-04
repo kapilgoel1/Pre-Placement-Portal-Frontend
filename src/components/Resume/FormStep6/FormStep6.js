@@ -24,7 +24,6 @@ function FormStep6({ projects, setProjects, previousStep, nextStep }) {
   });
 
   const onSubmit = (data) => {
-    console.log("data", data);
     setProjects(data.test);
     nextStep();
   };

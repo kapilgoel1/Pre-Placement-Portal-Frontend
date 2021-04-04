@@ -7,13 +7,16 @@ const ViewStudentList = () => {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/manageusers/retrieve?role=student", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/manageusers/retrieve?role=student`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setStudents(result.userlist);

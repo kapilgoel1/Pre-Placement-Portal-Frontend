@@ -9,19 +9,21 @@ function FileStrip(props) {
   const { user } = useContext(AuthContext);
 
   const onDelete = () => {
-    fetch(`http://localhost:4000/file/remove/${props.file.uuid}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/file/remove/${props.file.uuid}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         if (result === "Deletion successful") {
           props.afterDelete();
         } else swal("Not deleted");
-        console.log(result);
       })
       .catch((err) => {
         console.log(err);
@@ -38,7 +40,7 @@ function FileStrip(props) {
       <div className="filestrip__action">
         <a
           className="btn btn-color5 w-100"
-          href={`http://localhost:4000/file/downloadoptimised/${props.file.uuid}/${props.file.filename}`}
+          href={`${process.env.REACT_APP_BACKEND_URL}/file/downloadoptimised/${props.file.uuid}/${props.file.filename}`}
           download
         >
           Download

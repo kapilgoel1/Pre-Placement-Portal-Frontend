@@ -20,7 +20,7 @@ const AddInternship = () => {
   });
   const onSubmit = (data) => {
     data.course = course;
-    fetch("http://localhost:4000/internship/add", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/internship/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

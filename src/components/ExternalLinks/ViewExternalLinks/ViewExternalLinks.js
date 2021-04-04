@@ -15,7 +15,7 @@ const ViewExternalRes = () => {
 
   const fetchCall = () => {
     fetch(
-      `http://localhost:4000/externalresource/retrieveoptimised?course=${course}`,
+      `${process.env.REACT_APP_BACKEND_URL}/externalresource/retrieveoptimised?course=${course}`,
       {
         method: "GET",
         headers: {
@@ -38,13 +38,16 @@ const ViewExternalRes = () => {
   });
 
   const onDelete = (d_id) => {
-    fetch(`http://localhost:4000/externalresource/remove/${d_id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/externalresource/remove/${d_id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         if (result === "Deletion successful") {

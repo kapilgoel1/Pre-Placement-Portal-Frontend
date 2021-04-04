@@ -16,7 +16,7 @@ function CreateAccount() {
   });
 
   const onSubmit = (data, e) => {
-    fetch("http://localhost:4000/user/registerwithoutlogin", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/user/registerwithoutlogin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

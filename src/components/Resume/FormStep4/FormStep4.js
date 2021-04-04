@@ -24,7 +24,6 @@ function FormStep4({ education, setEducation, previousStep, nextStep }) {
   });
 
   const onSubmit = (data) => {
-    console.log("data", data);
     setEducation(data.test);
     nextStep();
   };

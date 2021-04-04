@@ -22,7 +22,7 @@ const AddTest = (props) => {
       course,
     };
 
-    fetch("http://localhost:4000/test/add", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/test/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
