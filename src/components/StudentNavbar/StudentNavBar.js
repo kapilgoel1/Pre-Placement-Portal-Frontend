@@ -58,6 +58,14 @@ const StudentNavBar = () => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
+            <NavItem
+              className="rounded"
+              onClick={() => {
+                history.push("/");
+              }}
+            >
+              <NavLink>Home</NavLink>
+            </NavItem>
             <UncontrolledDropdown nav inNavbar className="rounded">
               <DropdownToggle nav caret>
                 Prepare for Placement
