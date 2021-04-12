@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { useHistory } from "react-router-dom";
 
 import {
-  // Button,
+  Button,
   Collapse,
   Nav,
   Navbar,
@@ -34,9 +34,7 @@ function Home() {
                 )
               }
               // onClick={() => history.push(`/aboutus`)}
-            >
-              <NavLink>About Us</NavLink>
-            </NavItem>
+            ></NavItem>
 
             <NavItem
               className="rounded"
@@ -94,9 +92,19 @@ function Home() {
             interests.
           </p>
 
-          {/* <Button className="py-2 my-4" color="color4" size="lg">
-            Sign Up
-          </Button> */}
+          <Button
+            className="py-2 my-4"
+            color="color4"
+            size="lg"
+            onClick={() =>
+              swal(
+                "Sorry for your inconvenience!",
+                "This page will soon be visible to you."
+              )
+            }
+          >
+            About Us
+          </Button>
         </div>
       </div>
       <div className="right-container">
