@@ -1,16 +1,27 @@
 import React from "react";
 import "./AboutUs.scss";
+
 import Image from "../../assets/Image1.jpg";
+import { useHistory } from "react-router-dom";
+import { Button } from "reactstrap";
 
 const AboutUs = () => {
+  let history = useHistory();
+
   return (
     <div>
       <div className="back">
         <img className="img" src={Image} alt={Image} />
-        <div className="about" align="center">
-          <u>
-            <h1>ABOUT PRE-PLACEMENT PORTAL</h1>
-          </u>
+        <div className="about">
+          <h1 align="center">ABOUT PRE-PLACEMENT PORTAL</h1>
+          <Button
+            className="py-2 my-4"
+            color="color4"
+            size="lg"
+            onClick={() => history.push(`/`)}
+          >
+            Back to home
+          </Button>
         </div>
       </div>
       <div className="about">

@@ -1,9 +1,23 @@
 import React from "react";
 import "./ContactUs.scss";
 
+import { useHistory } from "react-router-dom";
+
+import { Button } from "reactstrap";
+
 const ContactUs = () => {
+  let history = useHistory();
+
   return (
     <div className="contact">
+      <Button
+        className="py-2 my-4"
+        color="color4"
+        size="lg"
+        onClick={() => history.push(`/`)}
+      >
+        Back to home
+      </Button>
       <h1 align="center">Welcome to JIMS Rohini </h1>
       <br />
       <h2>

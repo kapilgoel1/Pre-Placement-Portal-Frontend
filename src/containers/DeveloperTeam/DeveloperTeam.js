@@ -1,9 +1,22 @@
 import React from "react";
 import "./DeveloperTeam.scss";
 
+import { useHistory } from "react-router-dom";
+import { Button } from "reactstrap";
+
 const DeveloperTeam = () => {
+  let history = useHistory();
+
   return (
     <div className="developer">
+      <Button
+        className="py-2 my-4"
+        color="color4"
+        size="lg"
+        onClick={() => history.push(`/`)}
+      >
+        Back to home
+      </Button>
       <h1 align="center">MEET THE TEAM</h1>
       <h5 align="center">
         "Individuals can and do make a difference, but it takes a team to really
