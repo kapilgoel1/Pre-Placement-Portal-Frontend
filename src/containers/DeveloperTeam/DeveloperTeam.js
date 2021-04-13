@@ -29,7 +29,7 @@ const DeveloperTeam = () => {
           <h3>KAPIL GOEL</h3>
           <h6>(Full Stack Developer)</h6>
           <p>
-            Kapil Goel is a student of MCA 3rd Year. <br />
+            Kapil Goel is a student of MCA 2nd Year. <br />
             He is a full stack developer.{" "}
           </p>
         </div>
@@ -37,7 +37,7 @@ const DeveloperTeam = () => {
           <h3>NEHA GOEL</h3>
           <h6>(Developer)</h6>
           <p>
-            Neha Goel is a student of MCA 3rd Year. <br />
+            Neha Goel is a student of MCA 2nd Year. <br />
             She is a full stack developer.{" "}
           </p>
         </div>
@@ -48,7 +48,7 @@ const DeveloperTeam = () => {
           <h3>SONALI PRAJAPATI</h3>
           <h6>(Technical Documentation Writer)</h6>
           <p>
-            Sonali Prajapati is a student of MCA 3rd Year. <br />
+            Sonali Prajapati is a student of MCA 2nd Year. <br />
             She is responsible for all of the documentation of this website.{" "}
           </p>
         </div>
