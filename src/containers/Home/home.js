@@ -25,41 +25,32 @@ function Home() {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            {/* <NavItem
-              className="rounded"
-              onClick={() =>
-                swal(
-                  "Sorry for your inconvenience!",
-                  "This page will soon be visible to you."
-                )
-              }
-              onClick={() => history.push(`/aboutus`)}
-            ></NavItem> */}
-
             <NavItem
               className="rounded"
-              onClick={() =>
-                swal(
-                  "Sorry for your inconvenience!",
-                  "This page will soon be visible to you."
-                )
-              }
-              //onClick={() => history.push(`/contactus`)}
+              // onClick={() =>
+              //   swal(
+              //     "Sorry for your inconvenience!",
+              //     "This page will soon be visible to you."
+              //   )
+              // }
+              onClick={() => history.push(`/contactus`)}
             >
               <NavLink>Contact Us</NavLink>
             </NavItem>
+
             <NavItem
               className="rounded"
-              onClick={() =>
-                swal(
-                  "Sorry for your inconvenience!",
-                  "This page will soon be visible to you."
-                )
-              }
-              // onClick={() => history.push(`/developerteam`)}
+              onClick={() => history.push(`/developerteam`)}
+              // onClick={() =>
+              //   swal(
+              //     "Sorry for your inconvenience!",
+              //     "This page will soon be visible to you."
+              //   )
+              // }
             >
               <NavLink>Developer Team</NavLink>
             </NavItem>
+
             <NavItem
               className="rounded"
               onClick={() =>
@@ -72,11 +63,6 @@ function Home() {
               <NavLink className="">Forgot Password</NavLink>
             </NavItem>
           </Nav>
-          {/* <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink className="">Sign Up</NavLink>
-            </NavItem>
-          </Nav> */}
         </Collapse>
       </Navbar>
       <div className="left-container">
