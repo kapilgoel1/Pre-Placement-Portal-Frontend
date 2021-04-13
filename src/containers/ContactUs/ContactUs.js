@@ -1,13 +1,27 @@
 import React from "react";
 import "./ContactUs.scss";
 
-const Contact = () => {
+import { useHistory } from "react-router-dom";
+
+import { Button } from "reactstrap";
+
+const ContactUs = () => {
+  let history = useHistory();
+
   return (
     <div className="contact">
+      <Button
+        className="py-2 my-4"
+        color="color4"
+        size="lg"
+        onClick={() => history.push(`/`)}
+      >
+        Back to home
+      </Button>
       <h1 align="center">Welcome to JIMS Rohini </h1>
       <br />
       <h2>
-        <u>Contact Us </u>
+        <u>CONTACT US </u>
       </h2>
       <br />
       <h4>For any other queries please mail us</h4>
@@ -21,12 +35,15 @@ const Contact = () => {
       <br />
       <br />
       Helpline : +91-9871097501 <br />
+      <br />
       JAGAN INSTITUTE OF MANAGEMENT STUDIES <br />
       3, Institutional Area, Sector-5, Rohini <br />
       (Near Rithala Metro Station), Delhi-110085. <br />
-      Tel.: 011-45184000, 45184001, 45184002 Fax. No: 45184032 <br />
+      <br />
+      Tel.: 011-45184000, 45184001, 45184002 <br />
+      Fax. No: 45184032 <br />
     </div>
   );
 };
 
-export default Contact;
+export default ContactUs;
