@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { Button, Card, CardBody, FormGroup } from "reactstrap";
 import swal from "sweetalert";
+// import Swal from "sweetalert2";
 import AuthContext from "../../../AuthContext";
 import CourseContext from "../../../CourseContext";
 import "./ViewTests.scss";
@@ -12,6 +13,7 @@ const ViewTests = () => {
   const { course } = useContext(CourseContext);
   let { path } = useRouteMatch();
   const [tests, setTests] = useState([]);
+  const Swal = require("sweetalert2");
 
   const fetchCall = () => {
     fetch(
@@ -81,6 +83,29 @@ const ViewTests = () => {
                 </FormGroup>
               )}
 
+              {user.role === "student" && (
+                <Button
+                  className="mt-2"
+                  color="color2"
+                  onClick={() =>
+                    Swal.fire({
+                      title: "How many marks you scored in this test?",
+                      icon: "question",
+                      input: "range",
+                      inputLabel: "Your average marks",
+                      inputAttributes: {
+                        min: 0,
+                        max: 100,
+                        step: 1,
+                      },
+                      inputValue: 0,
+                    })
+                  }
+                >
+                  Add marks
+                </Button>
+              )}
+
               {(user.role === "faculty" || user.role === "admin") && (
                 <Button
                   onClick={(e) => {
@@ -91,6 +116,12 @@ const ViewTests = () => {
                   color="color2"
                 >
                   Delete
+                </Button>
+              )}
+
+              {(user.role === "faculty" || user.role === "admin") && (
+                <Button className="mt-2" color="color2">
+                  Show report for tests
                 </Button>
               )}
             </CardBody>
