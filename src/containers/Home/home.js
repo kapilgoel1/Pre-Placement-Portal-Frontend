@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import {
   Button,
@@ -17,7 +17,7 @@ import swal from "sweetalert";
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  // let history = useHistory();
+  let history = useHistory();
 
   return (
     <div className="full-container">
@@ -25,7 +25,7 @@ function Home() {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem
+            {/* <NavItem
               className="rounded"
               onClick={() =>
                 swal(
@@ -33,8 +33,8 @@ function Home() {
                   "This page will soon be visible to you."
                 )
               }
-              // onClick={() => history.push(`/aboutus`)}
-            ></NavItem>
+              onClick={() => history.push(`/aboutus`)}
+            ></NavItem> */}
 
             <NavItem
               className="rounded"
@@ -44,7 +44,7 @@ function Home() {
                   "This page will soon be visible to you."
                 )
               }
-              // onClick={() => history.push(`/contactus`)}
+              //onClick={() => history.push(`/contactus`)}
             >
               <NavLink>Contact Us</NavLink>
             </NavItem>
@@ -96,12 +96,13 @@ function Home() {
             className="py-2 my-4"
             color="color4"
             size="lg"
-            onClick={() =>
-              swal(
-                "Sorry for your inconvenience!",
-                "This page will soon be visible to you."
-              )
-            }
+            onClick={() => history.push(`/aboutus`)}
+            // onClick={() =>
+            //   swal(
+            //     "Sorry for your inconvenience!",
+            //     "This page will soon be visible to you."
+            //   )
+            // }
           >
             About Us
           </Button>
