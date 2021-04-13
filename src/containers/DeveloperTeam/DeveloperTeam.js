@@ -38,7 +38,7 @@ const DeveloperTeam = () => {
           <h6>(Developer)</h6>
           <p>
             Neha Goel is a student of MCA 2nd Year. <br />
-            She is a full stack developer.{" "}
+            She is a web developer.{" "}
           </p>
         </div>
         <br />
