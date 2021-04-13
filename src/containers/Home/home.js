@@ -12,6 +12,7 @@ import {
 } from "reactstrap";
 import Login from "../Login/Login";
 import "./home.scss";
+import swal from "sweetalert";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,33 +26,57 @@ function Home() {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem
-            // className="rounded"
-            // onClick={() => history.push(`/aboutus`)}
-            >
-              <NavLink>About Us</NavLink>
-            </NavItem>
+              className="rounded"
+              onClick={() =>
+                swal(
+                  "Sorry for your inconvenience!",
+                  "This page will soon be visible to you."
+                )
+              }
+              // onClick={() => history.push(`/aboutus`)}
+            ></NavItem>
 
             <NavItem
-            // className="rounded"
-            // onClick={() => history.push(`/contactus`)}
+              className="rounded"
+              onClick={() =>
+                swal(
+                  "Sorry for your inconvenience!",
+                  "This page will soon be visible to you."
+                )
+              }
+              // onClick={() => history.push(`/contactus`)}
             >
               <NavLink>Contact Us</NavLink>
             </NavItem>
             <NavItem
-            // className="rounded"
-            // onClick={() => history.push(`/developerteam`)}
+              className="rounded"
+              onClick={() =>
+                swal(
+                  "Sorry for your inconvenience!",
+                  "This page will soon be visible to you."
+                )
+              }
+              // onClick={() => history.push(`/developerteam`)}
             >
               <NavLink>Developer Team</NavLink>
             </NavItem>
-            <NavItem>
+            <NavItem
+              className="rounded"
+              onClick={() =>
+                swal(
+                  "Sorry for your inconvenience!",
+                  "This page will soon be visible to you."
+                )
+              }
+            >
               <NavLink className="">Forgot Password</NavLink>
             </NavItem>
           </Nav>
-          <Nav className="ml-auto" navbar>
+          {/* <Nav className="ml-auto" navbar>
             <NavItem>
               <NavLink className="">Sign Up</NavLink>
             </NavItem>
-          </Nav>
+          </Nav> */}
         </Collapse>
       </Navbar>
       <div className="left-container">
@@ -67,8 +92,18 @@ function Home() {
             interests.
           </p>
 
-          <Button className="py-2 my-4" color="color4" size="lg">
-            Sign Up
+          <Button
+            className="py-2 my-4"
+            color="color4"
+            size="lg"
+            onClick={() =>
+              swal(
+                "Sorry for your inconvenience!",
+                "This page will soon be visible to you."
+              )
+            }
+          >
+            About Us
           </Button>
         </div>
       </div>

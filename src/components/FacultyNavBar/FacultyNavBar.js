@@ -60,6 +60,14 @@ const FacultyNavBar = () => {
           <Nav className="mr-auto" navbar>
             <NavItem
               className="rounded"
+              onClick={() => {
+                history.push("/");
+              }}
+            >
+              <NavLink>Home</NavLink>
+            </NavItem>
+            <NavItem
+              className="rounded"
               onClick={() => history.push(`/addcontent`)}
             >
               <NavLink>Add Content</NavLink>
