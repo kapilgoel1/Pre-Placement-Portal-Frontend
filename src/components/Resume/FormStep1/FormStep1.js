@@ -44,7 +44,7 @@ function FormStep1({ personalDetails, setPersonalDetails, nextStep }) {
                 />
               )}
             />
-            {errors.name?.message}
+            <span className="text-primary">{errors.name?.message}</span>
           </FormGroup>
           <FormGroup>
             <Label>Address</Label>
@@ -61,13 +61,16 @@ function FormStep1({ personalDetails, setPersonalDetails, nextStep }) {
               )}
             />
 
-            {errors.address?.message}
+            <span className="text-primary">{errors.address?.message}</span>
           </FormGroup>
           <FormGroup>
             <Label>Phone</Label>
             <Controller
               name="phone"
-              rules={{ required: "This is required" }}
+              rules={{
+                required: "This is required",
+                pattern: /^(0|[1-9][0-9]*)$/,
+              }}
               control={control}
               render={(props) => (
                 <Input
@@ -78,13 +81,18 @@ function FormStep1({ personalDetails, setPersonalDetails, nextStep }) {
               )}
             />
 
-            {errors.phone?.message}
+            {errors.phone && errors.phone.type === "required" && (
+              <span className="text-primary">This is required</span>
+            )}
+            {errors.phone && errors.phone.type === "pattern" && (
+              <span className="text-primary">Not a valid phone number</span>
+            )}
           </FormGroup>
           <FormGroup>
             <Label>Email</Label>
             <Controller
               name="email"
-              rules={{ required: "This is required" }}
+              rules={{ required: "This is required", pattern: /^\S+@\S+$/i }}
               control={control}
               render={(props) => (
                 <Input
@@ -94,8 +102,12 @@ function FormStep1({ personalDetails, setPersonalDetails, nextStep }) {
                 />
               )}
             />
-
-            {errors.email?.message}
+            {errors.email && errors.email.type === "required" && (
+              <span className="text-primary">This is required</span>
+            )}
+            {errors.email && errors.email.type === "pattern" && (
+              <span className="text-primary">Not a valid email</span>
+            )}
           </FormGroup>
           <FormGroup>
             <Label>DOB</Label>
@@ -112,7 +124,7 @@ function FormStep1({ personalDetails, setPersonalDetails, nextStep }) {
               )}
             />
 
-            {errors.dob?.message}
+            <span className="text-primary">{errors.dob?.message}</span>
           </FormGroup>
 
           <FormGroup>
@@ -130,7 +142,9 @@ function FormStep1({ personalDetails, setPersonalDetails, nextStep }) {
               )}
             />
 
-            {errors.languagesKnown?.message}
+            <span className="text-primary">
+              {errors.languagesKnown?.message}
+            </span>
           </FormGroup>
           <FormGroup>
             <Label>Hobbies</Label>
@@ -146,7 +160,7 @@ function FormStep1({ personalDetails, setPersonalDetails, nextStep }) {
                 />
               )}
             />
-            {errors.hobbies?.message}
+            <span className="text-primary">{errors.hobbies?.message}</span>
           </FormGroup>
           <FormGroup>
             <Label>Career Objective</Label>
@@ -163,7 +177,9 @@ function FormStep1({ personalDetails, setPersonalDetails, nextStep }) {
                 />
               )}
             />
-            {errors.careerObjective?.message}
+            <span className="text-primary">
+              {errors.careerObjective?.message}
+            </span>
           </FormGroup>
           <NavigationSection>
             <Continue>Continue</Continue>

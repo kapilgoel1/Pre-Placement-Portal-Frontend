@@ -13,7 +13,7 @@ const ViewTests = () => {
   const { course } = useContext(CourseContext);
   let { path } = useRouteMatch();
   const [tests, setTests] = useState([]);
-  const Swal = require("sweetalert2");
+  // const Swal = require("sweetalert2");
 
   const fetchCall = () => {
     fetch(
@@ -82,29 +82,30 @@ const ViewTests = () => {
                   <p className="text-muted">{test.detail}</p>
                 </FormGroup>
               )}
-
-              {user.role === "student" && (
-                <Button
-                  className="mt-2"
-                  color="color2"
-                  onClick={() =>
-                    Swal.fire({
-                      title: "How many marks you scored in this test?",
-                      icon: "question",
-                      input: "range",
-                      inputLabel: "Your average marks",
-                      inputAttributes: {
-                        min: 0,
-                        max: 100,
-                        step: 1,
-                      },
-                      inputValue: 0,
-                    })
-                  }
-                >
-                  Add marks
-                </Button>
-              )}
+              {
+                // {user.role === "student" && (
+                //   <Button
+                //     className="mt-2"
+                //     color="color2"
+                //     onClick={() =>
+                //       Swal.fire({
+                //         title: "How many marks you scored in this test?",
+                //         icon: "question",
+                //         input: "range",
+                //         inputLabel: "Your average marks",
+                //         inputAttributes: {
+                //           min: 0,
+                //           max: 100,
+                //           step: 1,
+                //         },
+                //         inputValue: 0,
+                //       })
+                //     }
+                //   >
+                //     Add marks
+                //   </Button>
+                // )}
+              }
 
               {(user.role === "faculty" || user.role === "admin") && (
                 <Button
@@ -118,12 +119,13 @@ const ViewTests = () => {
                   Delete
                 </Button>
               )}
-
-              {(user.role === "faculty" || user.role === "admin") && (
-                <Button className="mt-2" color="color2">
-                  Show report for tests
-                </Button>
-              )}
+              {
+                // {(user.role === "faculty" || user.role === "admin") && (
+                //   <Button className="mt-2" color="color2">
+                //     Show report for tests
+                //   </Button>
+                // )}
+              }
             </CardBody>
           </Card>
         ))}

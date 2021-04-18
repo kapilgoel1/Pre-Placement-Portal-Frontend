@@ -1,3 +1,5 @@
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
 import { useHistory, withRouter } from "react-router-dom";
 import {
@@ -5,7 +7,6 @@ import {
   Collapse,
   Nav,
   Navbar,
-  NavbarBrand,
   NavbarText,
   NavbarToggler,
   NavItem,
@@ -42,22 +43,21 @@ const FacultyNavBar = (props) => {
   return (
     <>
       <Navbar className="mb-5" dark color="color4" expand="md">
-        {
-          <NavbarBrand
+        <Nav className="mr-auto" navbar>
+          <NavItem
+            className="rounded"
             onClick={() => {
               history.push("/");
             }}
-            className="navbar-logo"
           >
-            DASHBOARD
-          </NavbarBrand>
-        }
+            <NavLink>
+              <FontAwesomeIcon icon={faHome} style={{ fontSize: "30px" }} />{" "}
+            </NavLink>
+          </NavItem>
+        </Nav>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem className="rounded" onClick={() => history.push("/")}>
-              <NavLink>Home</NavLink>
-            </NavItem>
             <NavItem
               className="rounded"
               onClick={() => history.push(`/createaccount`)}
