@@ -7,7 +7,7 @@ import AuthContext from "../../../AuthContext";
 import CourseContext from "../../../CourseContext";
 import "./ViewTests.scss";
 
-const ViewTests = () => {
+const ViewTests = (props) => {
   const history = useHistory();
   const { user } = useContext(AuthContext);
   const { course } = useContext(CourseContext);
@@ -99,12 +99,18 @@ const ViewTests = () => {
                         step: 1,
                       },
                       inputValue: 0,
+                    }).then((obj) => {
+                      console.log(test._id, obj);
+                      swal(`Your marks: ${obj.value}`);
                     })
                   }
                 >
                   Add marks
                 </Button>
               )}
+              <FormGroup>
+                <h6>Your marks: {}</h6>
+              </FormGroup>
 
               {(user.role === "faculty" || user.role === "admin") && (
                 <Button
