@@ -68,6 +68,12 @@ const FacultyNavBar = () => {
             >
               <NavLink>Add Content</NavLink>
             </NavItem>
+            <NavItem
+              className="rounded"
+              onClick={() => history.push(`/viewcontent`)}
+            >
+              <NavLink>View Content</NavLink>
+            </NavItem>
             <UncontrolledDropdown nav inNavbar className="rounded">
               <DropdownToggle nav caret>
                 Placement Preparation
