@@ -70,7 +70,7 @@ const FacultyNavBar = () => {
             </NavItem>
             <UncontrolledDropdown nav inNavbar className="rounded">
               <DropdownToggle nav caret>
-                Prepare for Placement
+                Placement Preparation
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem onClick={() => history.push("/files/notes")}>

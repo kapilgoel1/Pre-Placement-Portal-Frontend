@@ -75,7 +75,7 @@ const StudentNavBar = () => {
           <Nav className="mr-auto" navbar>
             <UncontrolledDropdown nav inNavbar className="rounded">
               <DropdownToggle nav caret>
-                Prepare for Placement
+                Placement Preparation
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem onClick={() => history.push("/files/notes")}>
