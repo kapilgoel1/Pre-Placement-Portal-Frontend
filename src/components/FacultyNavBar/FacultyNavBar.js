@@ -8,13 +8,14 @@ import {
   DropdownToggle,
   Nav,
   Navbar,
-  NavbarBrand,
   NavbarText,
   NavbarToggler,
   NavItem,
   NavLink,
   UncontrolledDropdown,
 } from "reactstrap";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AuthContext from "../../AuthContext";
 import "./FacultyNavBar.scss";
 
@@ -46,26 +47,21 @@ const FacultyNavBar = () => {
   return (
     <>
       <Navbar className="mb-5" dark color="color4" expand="md">
-        <NavbarBrand
-          onClick={() => {
-            history.push("/");
-          }}
-          className="navbar-logo"
-        >
-          DASHBOARD
-        </NavbarBrand>
-
+        <Nav className="mr-auto" navbar>
+          <NavItem
+            className="rounded"
+            onClick={() => {
+              history.push("/");
+            }}
+          >
+            <NavLink>
+              <FontAwesomeIcon icon={faHome} style={{ fontSize: "30px" }} />{" "}
+            </NavLink>
+          </NavItem>
+        </Nav>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem
-              className="rounded"
-              onClick={() => {
-                history.push("/");
-              }}
-            >
-              <NavLink>Home</NavLink>
-            </NavItem>
             <NavItem
               className="rounded"
               onClick={() => history.push(`/addcontent`)}

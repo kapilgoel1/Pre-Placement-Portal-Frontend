@@ -128,7 +128,9 @@ const FileUploadTest = () => {
           </Input>
         </FormGroup>
         <FormGroup>
-          <Label>SUBJECT</Label>
+          <Label>
+            SUBJECT <span className="text-primary">(Optional)</span>
+          </Label>
           <Input
             type="select"
             value={subject}

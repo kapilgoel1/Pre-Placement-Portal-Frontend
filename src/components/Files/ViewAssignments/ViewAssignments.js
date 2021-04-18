@@ -4,6 +4,7 @@ import { Button, Card, CardBody, FormGroup, Input, Label } from "reactstrap";
 import AuthContext from "../../../AuthContext";
 import CourseContext from "../../../CourseContext";
 import formatDate from "../../../utils";
+import swal from "sweetalert";
 import SubmitAssignment from "../SubmitAssignment/SubmitAssignment";
 import "./ViewAssignments.scss";
 
@@ -64,6 +65,26 @@ const ViewAssignments = () => {
         console.log(err);
       });
   }, [subject, searchField, myFilesChecked, course]);
+
+  const onDelete = (uuid) => {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/file/remove/${uuid}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result === "Deletion successful") {
+          // props.afterDelete();
+          setfileList(fileList.filter((file) => file.uuid !== uuid));
+        } else swal("Not deleted");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -154,6 +175,15 @@ const ViewAssignments = () => {
                       color="color2"
                     >
                       View Submitted Assignments ({file.submittedassignments})
+                    </Button>
+                  )}
+                  {(user.role === "faculty" || user.role === "admin") && (
+                    <Button
+                      onClick={() => onDelete(file.uuid)}
+                      className="mt-2"
+                      color="color2"
+                    >
+                      Delete
                     </Button>
                   )}
                 </div>
