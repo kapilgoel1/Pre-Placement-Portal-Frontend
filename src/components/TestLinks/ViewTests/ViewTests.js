@@ -13,7 +13,7 @@ const ViewTests = (props) => {
   const { course } = useContext(CourseContext);
   let { path } = useRouteMatch();
   const [tests, setTests] = useState([]);
-  const Swal = require("sweetalert2");
+  // const Swal = require("sweetalert2");
 
   const fetchCall = () => {
     fetch(
@@ -82,7 +82,6 @@ const ViewTests = (props) => {
                   <p className="text-muted">{test.detail}</p>
                 </FormGroup>
               )}
-
               {user.role === "student" && (
                 <Button
                   className="mt-2"
@@ -108,10 +107,11 @@ const ViewTests = (props) => {
                   Add marks
                 </Button>
               )}
+              //{" "}
               <FormGroup>
-                <h6>Your marks: {}</h6>
+                // <h6>Your marks: {}</h6>
+                //{" "}
               </FormGroup>
-
               {(user.role === "faculty" || user.role === "admin") && (
                 <Button
                   onClick={(e) => {
@@ -124,12 +124,13 @@ const ViewTests = (props) => {
                   Delete
                 </Button>
               )}
-
-              {(user.role === "faculty" || user.role === "admin") && (
-                <Button className="mt-2" color="color2">
-                  Show report for tests
-                </Button>
-              )}
+              {
+                // {(user.role === "faculty" || user.role === "admin") && (
+                //   <Button className="mt-2" color="color2">
+                //     Show report for tests
+                //   </Button>
+                // )}
+              }
             </CardBody>
           </Card>
         ))}
