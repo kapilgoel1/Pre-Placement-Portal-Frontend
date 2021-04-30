@@ -17,6 +17,7 @@ import {
   UncontrolledDropdown,
 } from "reactstrap";
 import AuthContext from "../../AuthContext";
+//import SearchBar from "../SearchBar/SearchBar";
 import "./StudentNavBar.scss";
 
 const StudentNavBar = () => {
@@ -131,6 +132,9 @@ const StudentNavBar = () => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
+          {/* <NavbarText>
+            <SearchBar />
+          </NavbarText> */}
 
           <NavbarText className="btn-edit">
             <Button color="color5" onClick={onClickHandler}>
