@@ -4,8 +4,12 @@
   margin-right: 16px;
   width: 920px;
   color: white;
-  background: #022140;
+  background: rgb(19, 52, 73);
   font-size: 17px;
   border: none;
   cursor: pointer;
+}
+
+input:hover {
+  background-color: #022140;
 }

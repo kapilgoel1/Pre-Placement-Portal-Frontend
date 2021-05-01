@@ -30,7 +30,7 @@ function AddContent() {
               <h3>
                 Add Notes, Video Lectures, Assignments Or Sample Test Papers
               </h3>
-              <p></p>
+              <p>Here you can add the resources.</p>
             </div>
           </div>
 
