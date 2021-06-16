@@ -8,5 +8,5 @@
 
 ### Documentation By
 
-Sonali Prajapti
+Sonali Prajapati
 
