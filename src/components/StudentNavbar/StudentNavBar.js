@@ -80,9 +80,9 @@ const StudentNavBar = () => {
                 <DropdownItem onClick={() => history.push("/files/notes")}>
                   Notes
                 </DropdownItem>
-                <DropdownItem onClick={() => history.push("/files/video")}>
+                {/* <DropdownItem onClick={() => history.push("/files/video")}>
                   Video Lectures
-                </DropdownItem>
+                </DropdownItem> */}
                 <DropdownItem
                   onClick={() => history.push("/viewexternallinks")}
                 >

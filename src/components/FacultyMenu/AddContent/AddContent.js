@@ -75,20 +75,28 @@ function AddContent() {
             </div>
           </div>
 
-          <div className="icard" onClick={() => history.push("/addinternship")}>
+          {/* <div
+            className="icard"
+            onClick={() => {
+              // history.push("/viewinternships");
+              window.open("https://www.jimsindia.org/placement_login.aspx");
+            }}
+          >
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <div className="content">
-              <h3>Post Internships</h3>
+              <h3>Link to JIMS Job Descriptions</h3>
+              <p>You can click here for all the job content uploaded.</p> */}
+          {/* <h3>Post Internships</h3>
               <p>
                 You can add the description such as company, salary, eligibility
                 requirements for job availabilities here.
-              </p>
-            </div>
-          </div>
+              </p> */}
+          {/* </div>
+          </div> */}
         </div>
       </div>
       <DashboardAnnouncement />

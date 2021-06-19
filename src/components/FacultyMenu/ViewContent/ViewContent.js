@@ -87,7 +87,8 @@ function ViewContent() {
           <div
             className="icard"
             onClick={() => {
-              history.push("/viewinternships");
+              // history.push("/viewinternships");
+              window.open("https://www.jimsindia.org/placement_login.aspx");
             }}
           >
             <span></span>
@@ -96,7 +97,7 @@ function ViewContent() {
             <span></span>
             <span></span>
             <div className="content">
-              <h3>Internships</h3>
+              <h3>Link to JIMS Job Descriptions</h3>
               <p>You can click here for all the job content uploaded.</p>
             </div>
           </div>

@@ -35,7 +35,7 @@ function PlacementPreparation() {
             </div>
           </div>
 
-          <div className="icard" onClick={() => history.push("/files/video")}>
+          {/* <div className="icard" onClick={() => history.push("/files/video")}>
             <span></span>
             <span></span>
             <span></span>
@@ -45,7 +45,7 @@ function PlacementPreparation() {
               <h3>Video Lectures</h3>
               <p>The video lectures uploaded can be viewed here.</p>
             </div>
-          </div>
+          </div> */}
 
           <div
             className="icard"

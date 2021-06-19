@@ -81,9 +81,9 @@ const FacultyNavBar = () => {
                 <DropdownItem onClick={() => history.push("/files/notes")}>
                   Notes
                 </DropdownItem>
-                <DropdownItem onClick={() => history.push("/files/video")}>
+                {/* <DropdownItem onClick={() => history.push("/files/video")}>
                   Video Lectures
-                </DropdownItem>
+                </DropdownItem> */}
                 <DropdownItem
                   onClick={() => history.push("/viewexternallinks")}
                 >
@@ -112,6 +112,13 @@ const FacultyNavBar = () => {
             </NavItem>
 
             <UncontrolledDropdown nav inNavbar className="rounded">
+              <NavItem
+                className="rounded"
+                onClick={() => history.push(`/viewjobs`)}
+              >
+                <NavLink>Jobs</NavLink>
+              </NavItem>
+              {/* <UncontrolledDropdown nav inNavbar className="rounded">
               <DropdownToggle nav caret>
                 Jobs
               </DropdownToggle>
@@ -122,7 +129,7 @@ const FacultyNavBar = () => {
                 <DropdownItem onClick={() => history.push("/viewjobs")}>
                   Jobs
                 </DropdownItem>
-              </DropdownMenu>
+              </DropdownMenu> */}
             </UncontrolledDropdown>
           </Nav>
 
