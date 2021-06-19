@@ -117,17 +117,24 @@ const StudentNavBar = () => {
             </NavItem>
 
             <UncontrolledDropdown nav inNavbar className="rounded">
-              <DropdownToggle nav caret>
+              <NavItem
+                className="rounded"
+                onClick={() => history.push(`/viewjobs`)}
+              >
+                <NavLink>Jobs</NavLink>
+              </NavItem>
+              {/* <DropdownToggle nav caret>
                 Jobs
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem onClick={() => history.push("/viewinternships")}>
+              </DropdownToggle> */}
+              {/* <DropdownMenu> */}
+              {/* <DropdownItem onClick={() => history.push("/viewinternships")}>
                   Internships
-                </DropdownItem>
-                <DropdownItem onClick={() => history.push("/viewjobs")}>
+                </DropdownItem> */}
+
+              {/* <DropdownItem onClick={() => history.push("/viewjobs")}>
                   Jobs
-                </DropdownItem>
-              </DropdownMenu>
+                </DropdownItem> */}
+              {/* </DropdownMenu> */}
             </UncontrolledDropdown>
           </Nav>
 
