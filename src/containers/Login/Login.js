@@ -13,7 +13,7 @@ import {
   Label,
 } from "reactstrap";
 import swal from "sweetalert";
-import avatar from "../../assets/avatardefault_92824.png";
+import avatar from "../../assets/jimslogo.jpg";
 import AuthContext from "../../AuthContext";
 import CourseContext from "../../CourseContext";
 

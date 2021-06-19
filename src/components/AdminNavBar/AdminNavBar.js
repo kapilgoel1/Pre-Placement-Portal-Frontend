@@ -1,5 +1,3 @@
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
 import { useHistory, withRouter } from "react-router-dom";
 import {
@@ -14,6 +12,7 @@ import {
 } from "reactstrap";
 import AuthContext from "../../AuthContext";
 import "./AdminNavBar.scss";
+import logo from "../../assets/jimslogo.jpg";
 
 const FacultyNavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +50,7 @@ const FacultyNavBar = (props) => {
             }}
           >
             <NavLink>
-              <FontAwesomeIcon icon={faHome} style={{ fontSize: "30px" }} />{" "}
+              <img src={logo} alt="" className="logonavbar" />{" "}
             </NavLink>
           </NavItem>
         </Nav>

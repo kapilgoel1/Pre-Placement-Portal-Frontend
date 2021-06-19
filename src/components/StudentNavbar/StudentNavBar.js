@@ -1,7 +1,5 @@
 import React, { useContext, useState } from "react";
 import { useHistory, withRouter } from "react-router-dom";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Button,
   Collapse,
@@ -18,6 +16,7 @@ import {
 } from "reactstrap";
 import AuthContext from "../../AuthContext";
 import "./StudentNavBar.scss";
+import logo from "../../assets/jimslogo.jpg";
 
 const StudentNavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,7 +64,7 @@ const StudentNavBar = () => {
             }}
           >
             <NavLink>
-              <FontAwesomeIcon icon={faHome} style={{ fontSize: "30px" }} />{" "}
+              <img src={logo} alt="" className="logonavbar" />{" "}
             </NavLink>
           </NavItem>
         </Nav>

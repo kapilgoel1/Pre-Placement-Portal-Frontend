@@ -14,10 +14,9 @@ import {
   NavLink,
   UncontrolledDropdown,
 } from "reactstrap";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AuthContext from "../../AuthContext";
 import "./FacultyNavBar.scss";
+import logo from "../../assets/jimslogo.jpg";
 
 const FacultyNavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +54,7 @@ const FacultyNavBar = () => {
             }}
           >
             <NavLink>
-              <FontAwesomeIcon icon={faHome} style={{ fontSize: "30px" }} />{" "}
+              <img src={logo} alt="" className="logonavbar" />{" "}
             </NavLink>
           </NavItem>
         </Nav>
