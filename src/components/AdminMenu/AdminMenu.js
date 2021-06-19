@@ -35,8 +35,8 @@ function AdminMenu() {
               <h3>View Content</h3>
               <p>
                 Here you can view the content such as placement prep
-                content(notes, video lectures, etc), practice tests(test papers,
-                test links), assignments and jobs.
+                content(notes, online resources, etc), practice tests(test
+                papers, test links), assignments and jobs.
               </p>
             </div>
           </div>

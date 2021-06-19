@@ -29,8 +29,7 @@ function StudentMenu() {
               <div className="content">
                 <h3>Placement Preparation Content</h3>
                 <p>
-                  Content such as notes, video lectures and external resources
-                  are available here.
+                  Content such as notes and online resources are available here.
                 </p>
               </div>
             </div>
