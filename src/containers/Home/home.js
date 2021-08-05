@@ -38,18 +38,7 @@ function Home() {
               <NavLink>Contact Us</NavLink>
             </NavItem>
 
-            <NavItem
-              className="rounded"
-              onClick={() => history.push(`/developerteam`)}
-              // onClick={() =>
-              //   swal(
-              //     "Sorry for your inconvenience!",
-              //     "This page will soon be visible to you."
-              //   )
-              // }
-            >
-              <NavLink>Developer Team</NavLink>
-            </NavItem>
+           
 
             <NavItem
               className="rounded"
